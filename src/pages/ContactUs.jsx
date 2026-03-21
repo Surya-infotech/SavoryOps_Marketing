@@ -11,45 +11,45 @@ export default function ContactUs() {
       </Helmet>
       {/* Decorative Orbs */}
       <div className="absolute -left-[20%] top-[10%] w-[50%] h-[50%] bg-primary-50 rounded-full blur-[120px] -z-10"></div>
-      
+
       <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-        
+
           <div className="animate-slide-up">
             <h2 className="text-sm font-bold leading-7 text-primary-500 uppercase tracking-widest bg-primary-50 inline-block px-4 py-1 rounded-full mb-4">Get In Touch</h2>
             <h3 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-slate-900 mb-6 leading-tight">
-              Let&apos;s talk about <br/>
+              Let&apos;s talk about <br />
               <span className="text-primary-500">your restaurant.</span>
             </h3>
             <p className="text-xl text-slate-500 mb-12 max-w-lg">
               Ready to upgrade your operations? Our experts are here to tailor a demo specifically for your business needs.
             </p>
-            
+
             <div className="space-y-6">
-               <div className="flex items-center gap-6 bg-white p-6 rounded-[2rem] shadow-sm border border-slate-200 card-hover">
-                  <div className="w-16 h-16 rounded-2xl bg-blue-50 text-blue-500 flex items-center justify-center text-2xl shadow-sm">
-                    <MdPhone />
-                  </div>
-                  <div>
-                    <h4 className="text-slate-400 text-sm font-bold uppercase tracking-wider mb-1">Call Us Directly</h4>
-                    <p className="text-slate-900 text-xl font-extrabold">+1 (555) 123-4567</p>
-                  </div>
-               </div>
-               <div className="flex items-center gap-6 bg-white p-6 rounded-[2rem] shadow-sm border border-slate-200 card-hover">
-                  <div className="w-16 h-16 rounded-2xl bg-emerald-50 text-emerald-500 flex items-center justify-center text-2xl shadow-sm">
-                    <MdEmail />
-                  </div>
-                  <div>
-                    <h4 className="text-slate-400 text-sm font-bold uppercase tracking-wider mb-1">Email Our Team</h4>
-                    <p className="text-slate-900 text-xl font-extrabold">sales@savoryops.com</p>
-                  </div>
-               </div>
+              <div className="flex items-center gap-6 bg-white p-6 rounded-[2rem] shadow-sm border border-slate-200 card-hover">
+                <div className="w-16 h-16 rounded-2xl bg-blue-50 text-blue-500 flex items-center justify-center text-2xl shadow-sm">
+                  <MdPhone />
+                </div>
+                <div>
+                  <h4 className="text-slate-400 text-sm font-bold uppercase tracking-wider mb-1">Call Us Directly</h4>
+                  <p className="text-slate-900 text-xl font-extrabold">+1 (555) 123-4567</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-6 bg-white p-6 rounded-[2rem] shadow-sm border border-slate-200 card-hover">
+                <div className="w-16 h-16 rounded-2xl bg-emerald-50 text-emerald-500 flex items-center justify-center text-2xl shadow-sm">
+                  <MdEmail />
+                </div>
+                <div>
+                  <h4 className="text-slate-400 text-sm font-bold uppercase tracking-wider mb-1">Email Our Team</h4>
+                  <p className="text-slate-900 text-xl font-extrabold">sales@savoryops.com</p>
+                </div>
+              </div>
             </div>
           </div>
 
-          <div className="bg-white p-8 sm:p-12 rounded-[3rem] shadow-soft border border-slate-200 relative animate-slide-up" style={{ animationDelay: '0.2s'}}>
+          <div className="bg-white p-8 sm:p-12 rounded-[3rem] shadow-soft border border-slate-200 relative animate-slide-up" style={{ animationDelay: '0.2s' }}>
             <h4 className="text-2xl font-bold text-slate-900 mb-8 border-b border-slate-200 pb-6">Book a live demo</h4>
-            
+
             <form action="#" method="POST" className="grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-6 relative z-10">
               <div>
                 <label htmlFor="first-name" className="block text-sm font-bold text-slate-700 mb-2">First name</label>
@@ -61,7 +61,7 @@ export default function ContactUs() {
                   placeholder="Jane"
                 />
               </div>
-              
+
               <div>
                 <label htmlFor="last-name" className="block text-sm font-bold text-slate-700 mb-2">Last name</label>
                 <input
@@ -72,7 +72,7 @@ export default function ContactUs() {
                   placeholder="Doe"
                 />
               </div>
-              
+
               <div className="sm:col-span-2">
                 <label htmlFor="company" className="block text-sm font-bold text-slate-700 mb-2">Restaurant Name</label>
                 <input
@@ -83,7 +83,7 @@ export default function ContactUs() {
                   placeholder="The Great Eatery"
                 />
               </div>
-              
+
               <div className="sm:col-span-2">
                 <label htmlFor="email" className="block text-sm font-bold text-slate-700 mb-2">Work Email</label>
                 <input
@@ -94,7 +94,7 @@ export default function ContactUs() {
                   placeholder="jane@greateatery.com"
                 />
               </div>
-              
+
               <div className="sm:col-span-2">
                 <label htmlFor="message" className="block text-sm font-bold text-slate-700 mb-2">Message (Optional)</label>
                 <textarea
@@ -105,7 +105,7 @@ export default function ContactUs() {
                   placeholder="How can we help you?"
                 />
               </div>
-              
+
               <div className="sm:col-span-2 mt-4">
                 <button
                   type="submit"
@@ -116,7 +116,6 @@ export default function ContactUs() {
               </div>
             </form>
           </div>
-          
         </div>
       </div>
     </div>

@@ -55,30 +55,30 @@ export default function Products() {
 
         <div className="space-y-24 lg:space-y-32">
           {products.map((product, index) => (
-            <div key={product.title} className={`flex flex-col lg:flex-row gap-12 lg:gap-20 items-center animate-slide-up ${index % 2 !== 0 ? 'lg:flex-row-reverse' : ''}`} style={{ animationDelay: '0.1s'}}>
-              
+            <div key={product.title} className={`flex flex-col lg:flex-row gap-12 lg:gap-20 items-center animate-slide-up ${index % 2 !== 0 ? 'lg:flex-row-reverse' : ''}`} style={{ animationDelay: '0.1s' }}>
+
               <div className="flex-1 w-full relative">
                 <div className={`aspect-[4/3] rounded-[3rem] ${product.color.split(' ')[0]} shadow-soft border border-slate-200 flex flex-col items-center justify-center p-8 overflow-hidden relative group`}>
-                   
-                   {/* Mockup decoration */}
-                   <div className="absolute -bottom-10 w-3/4 h-[80%] bg-white/50 backdrop-blur-md rounded-t-3xl shadow-soft border-t border-l border-r border-slate-200 flex flex-col items-center pt-8">
-                     <span className={`text-6xl mb-4 transform group-hover:-translate-y-2 transition-transform duration-500 ${product.color.split(' ')[1]}`}>{product.icon}</span>
-                     <div className="h-4 w-3/4 bg-slate-200 rounded-full mb-3"></div>
-                     <div className="h-4 w-1/2 bg-slate-200 rounded-full mb-8"></div>
-                     <div className="w-full flex-1 bg-white border-t border-slate-200 rounded-t-xl"></div>
-                   </div>
+
+                  {/* Mockup decoration */}
+                  <div className="absolute -bottom-10 w-3/4 h-[80%] bg-white/50 backdrop-blur-md rounded-t-3xl shadow-soft border-t border-l border-r border-slate-200 flex flex-col items-center pt-8">
+                    <span className={`text-6xl mb-4 transform group-hover:-translate-y-2 transition-transform duration-500 ${product.color.split(' ')[1]}`}>{product.icon}</span>
+                    <div className="h-4 w-3/4 bg-slate-200 rounded-full mb-3"></div>
+                    <div className="h-4 w-1/2 bg-slate-200 rounded-full mb-8"></div>
+                    <div className="w-full flex-1 bg-white border-t border-slate-200 rounded-t-xl"></div>
+                  </div>
 
                 </div>
               </div>
-              
+
               <div className="flex-1 w-full relative z-10 text-center lg:text-left">
                 <h3 className="text-3xl lg:text-4xl font-extrabold tracking-tight text-slate-900 mb-6">{product.title}</h3>
                 <p className="text-lg leading-8 text-slate-500 mb-8 max-w-xl mx-auto lg:mx-0">
                   {product.description}
                 </p>
                 <button className="px-8 py-4 rounded-full bg-white shadow-soft border border-slate-200 text-slate-900 font-bold hover:text-primary-600 transition-all card-hover inline-flex items-center gap-2">
-                   Explore {product.title} 
-                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                  Explore {product.title}
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                 </button>
               </div>
 

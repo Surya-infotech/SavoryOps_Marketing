@@ -27,7 +27,7 @@ export default function Navbar() {
     <nav className={`fixed w-full top-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white shadow-soft py-2' : 'bg-white/80 backdrop-blur-md py-4'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-14">
-          
+
           {/* Brand/Logo */}
           <div className="flex items-center">
             <Link to="/" className="flex-shrink-0 flex items-center gap-3">
@@ -35,7 +35,7 @@ export default function Navbar() {
               <span className="text-2xl font-bold text-slate-900 tracking-tight">SavoryOps</span>
             </Link>
           </div>
-          
+
           {/* Desktop Navigation */}
           <div className="hidden md:flex md:items-center md:space-x-2">
             {navLinks.map((link) => (
@@ -43,24 +43,23 @@ export default function Navbar() {
                 key={link.name}
                 to={link.path}
                 className={({ isActive }) =>
-                  `px-4 py-2 rounded-full text-[15px] font-semibold transition-all duration-200 ${
-                    isActive
-                      ? 'text-primary-600 bg-primary-50'
-                      : 'text-slate-600 hover:text-primary-600 hover:bg-slate-50'
+                  `px-4 py-2 rounded-full text-[15px] font-semibold transition-all duration-200 ${isActive
+                    ? 'text-primary-600 bg-primary-50'
+                    : 'text-slate-600 hover:text-primary-600 hover:bg-slate-50'
                   }`
                 }
               >
                 {link.name}
               </NavLink>
             ))}
-            
+
             <div className="ml-4 pl-4 border-l border-slate-200">
               <Link to="/contact" className="px-6 py-2.5 rounded-full bg-primary-500 text-white hover:bg-primary-600 transition-all text-[15px] font-bold shadow-lg shadow-primary-500/30 transform hover:-translate-y-0.5">
-                 Book Demo
+                Book Demo
               </Link>
             </div>
           </div>
-          
+
           {/* Mobile menu button */}
           <div className="flex items-center md:hidden">
             <button
@@ -92,10 +91,9 @@ export default function Navbar() {
                 to={link.path}
                 onClick={() => setIsOpen(false)}
                 className={({ isActive }) =>
-                  `block px-4 py-3 rounded-2xl text-base font-semibold transition-all ${
-                    isActive
-                      ? 'text-primary-600 bg-primary-50'
-                      : 'text-slate-600 hover:text-primary-600 hover:bg-slate-50'
+                  `block px-4 py-3 rounded-2xl text-base font-semibold transition-all ${isActive
+                    ? 'text-primary-600 bg-primary-50'
+                    : 'text-slate-600 hover:text-primary-600 hover:bg-slate-50'
                   }`
                 }
               >

@@ -8,7 +8,7 @@ export default function Faqs() {
         <title>FAQs | SavoryOps</title>
         <meta name="description" content="Frequently Asked Questions about SavoryOps Restaurant Management System." />
       </Helmet>
-      
+
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 animate-slide-up">
           <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-6">Frequently Asked Questions</h1>
@@ -17,7 +17,7 @@ export default function Faqs() {
 
         <div className="space-y-6">
           {faqs.map((faq, i) => (
-            <div key={i} className="bg-white p-8 md:p-10 rounded-[2rem] shadow-sm border border-slate-200 animate-slide-up" style={{ animationDelay: `${i * 50}ms`}}>
+            <div key={i} className="bg-white p-8 md:p-10 rounded-[2rem] shadow-sm border border-slate-200 animate-slide-up" style={{ animationDelay: `${i * 50}ms` }}>
               <h3 className="text-xl font-bold text-slate-900 mb-4">{faq.q}</h3>
               <p className="text-slate-600 leading-relaxed text-[16px]">{faq.a}</p>
             </div>

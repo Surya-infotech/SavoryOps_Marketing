@@ -8,7 +8,7 @@ export default function Footer() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-8">
-          
+
           <div className="md:col-span-4 lg:col-span-5">
             <div className="flex items-center gap-3 mb-6">
               <img src="/logo.png" alt="SavoryOps Logo" className="h-10 w-auto" />
@@ -18,15 +18,15 @@ export default function Footer() {
               Create your tailor-made Restaurant Management System with our complete suite. Manage POS, Inventory, and Employees effortlessly.
             </p>
             <div className="mt-8 flex gap-4">
-               {/* Social placeholders */}
-               {['#bg-blue-600', '#bg-sky-500', '#bg-pink-600', '#bg-blue-800'].map((color, i) => (
-                 <a key={i} href="#" className={`w-10 h-10 rounded-full flex items-center justify-center text-white shadow-sm hover:-translate-y-1 transition-transform`} style={{backgroundColor: color.replace('#', '')}}>
-                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg>
-                 </a>
-               ))}
+              {/* Social placeholders */}
+              {['#bg-blue-600', '#bg-sky-500', '#bg-pink-600', '#bg-blue-800'].map((color, i) => (
+                <a key={i} href="#" className={`w-10 h-10 rounded-full flex items-center justify-center text-white shadow-sm hover:-translate-y-1 transition-transform`} style={{ backgroundColor: color.replace('#', '') }}>
+                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /></svg>
+                </a>
+              ))}
             </div>
           </div>
-          
+
           <div className="md:col-span-2 lg:col-span-2">
             <h4 className="text-lg font-bold text-slate-900 mb-6">Quick Links</h4>
             <ul className="space-y-4">
@@ -36,7 +36,7 @@ export default function Footer() {
               <li><Link to="/contact" className="text-slate-500 hover:text-primary-600 transition-colors font-medium">Support</Link></li>
             </ul>
           </div>
-          
+
           <div className="md:col-span-3 lg:col-span-2">
             <h4 className="text-lg font-bold text-slate-900 mb-6">Company</h4>
             <ul className="space-y-4">
@@ -67,7 +67,7 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        
+
         <div className="mt-16 pt-8 border-t border-slate-200 text-center">
           <p className="text-slate-500 font-medium">&copy; {new Date().getFullYear()} SavoryOps Software. All rights reserved.</p>
         </div>

@@ -22,17 +22,17 @@ export default function Features() {
         <div className="mx-auto max-w-2xl lg:text-center animate-slide-up">
           <h2 className="text-sm font-bold leading-7 text-primary-500 uppercase tracking-widest bg-primary-50 inline-block px-4 py-1 rounded-full mb-4">Core Features</h2>
           <p className="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-5xl">
-            Everything you need. <br/> Nothing you do not.
+            Everything you need. <br /> Nothing you do not.
           </p>
           <p className="mt-6 text-lg leading-8 text-slate-500">
             SavoryOps isn&apos;t just a simple POS. It is a comprehensive suite of tools built specifically for the needs of modern restaurateurs.
           </p>
         </div>
-        
+
         <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
           <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
             {features.map((feature, idx) => (
-              <div key={feature.name} className="flex flex-col bg-white p-10 rounded-[2rem] shadow-card border border-slate-200 card-hover animate-slide-up" style={{ animationDelay: `${idx * 0.1}s`}}>
+              <div key={feature.name} className="flex flex-col bg-white p-10 rounded-[2rem] shadow-card border border-slate-200 card-hover animate-slide-up" style={{ animationDelay: `${idx * 0.1}s` }}>
                 <div className={`h-16 w-16 mb-6 flex items-center justify-center rounded-2xl ${feature.color} text-3xl`}>
                   {feature.icon}
                 </div>
