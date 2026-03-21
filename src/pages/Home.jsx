@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import { MdRestaurant, MdFastfood, MdTrendingUp, MdNotifications, MdComputer, MdInventory, MdDeliveryDining, MdGroups, MdLocalFireDepartment, MdBarChart, MdLanguage } from 'react-icons/md';
+import { MdRestaurant, MdFastfood, MdTrendingUp, MdNotifications, MdComputer, MdInventory, MdDeliveryDining, MdGroups, MdLocalFireDepartment, MdBarChart, MdLanguage, MdQrCodeScanner, MdStorefront, MdEventSeat, MdReceipt, MdStarRate, MdAssignment, MdAssessment, MdAccountBalance, MdLibraryAdd, MdPriceChange, MdPayments, MdDashboard } from 'react-icons/md';
 import logo from '../assets/logo.png';
+import { faqs } from '../data/faqs';
 
 export default function Home() {
   return (
@@ -23,35 +24,25 @@ export default function Home() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-primary-500"></span>
             </span>
-            Complete Restaurant Solution
+            Source Code & White-Label Ready
           </div>
           
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 leading-[1.1] mb-6">
-            Manage your <br className="hidden lg:block"/>
-            <span className="text-primary-500">restaurant</span> with ease.
+            Start your own <span className="text-primary-500">Restaurant SaaS</span> <br className="hidden lg:block"/>
+            business today.
           </h1>
           
           <p className="text-lg sm:text-xl text-slate-500 max-w-2xl mx-auto lg:mx-0 mb-10 leading-relaxed">
-            From point-of-sale to delivery, inventory to staff scheduling. 
-            SavoryOps is the all-in-one platform that connects every part of your dining experience.
+            Purchase the complete SavoryOps platform. Rebrand it with your own logo, host it on your servers, and sell powerful restaurant software to local business owners.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-            <Link to="/contact" className="px-8 py-4 rounded-full bg-primary-500 hover:bg-primary-600 text-white font-bold text-[15px] shadow-lg shadow-primary-500/30 transition-all transform hover:-translate-y-0.5 text-center">
-              Start Free Trial
+            <Link to="/products" className="px-8 py-4 rounded-full bg-primary-500 hover:bg-primary-600 text-white font-bold text-[15px] shadow-lg shadow-primary-500/30 transition-all transform hover:-translate-y-0.5 text-center">
+              View Demo
             </Link>
             <Link to="/features" className="px-8 py-4 rounded-full bg-white hover:bg-slate-50 text-slate-700 font-bold text-[15px] shadow-soft border border-slate-200 transition-all text-center">
               Explore Features
             </Link>
-          </div>
-          
-          <div className="mt-10 flex items-center justify-center lg:justify-start gap-4 text-sm text-slate-500 font-medium">
-             <div className="flex -space-x-2">
-                {[1,2,3,4].map(i => (
-                  <img key={i} className="w-8 h-8 rounded-full border-2 border-white bg-slate-200 object-cover" src={`https://i.pravatar.cc/100?img=${i+10}`} alt="avatar" />
-                ))}
-             </div>
-             <span>Trusted by 2,000+ restaurants</span>
           </div>
         </div>
 
@@ -116,7 +107,10 @@ export default function Home() {
         <div className="max-w-[1300px] mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="text-center max-w-4xl mx-auto mb-16 animate-slide-up">
-            <h2 className="text-primary-500 font-bold tracking-widest uppercase text-[10px] mb-4">SavoryOps SaaS Products</h2>
+            <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-slate-900 text-white shadow-lg shadow-slate-900/20 mb-6 font-bold tracking-widest uppercase text-xs border border-slate-700/50">
+              <svg className="w-4 h-4 text-primary-400" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clipRule="evenodd"></path></svg>
+              SavoryOps SaaS Products
+            </div>
             <h3 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight leading-[1.2]">
               Five Powerful Products, One <br className="hidden md:block"/> Complete <span className="text-primary-500">SaaS Solution!</span>
             </h3>
@@ -132,14 +126,16 @@ export default function Home() {
                  title: 'Full Website\nfor Your Brand',
                  mockupImg: '/assets/landing_page_ui.png',
                  widthClass: 'w-[85%] h-[240px]',
-                 delay: 0
+                 delay: 0,
+                 demoLink: import.meta.env.VITE_LANDING_PAGE_DEMO || '/products'
               },
               {
                  label: 'SUPER ADMIN',
                  title: 'Super Admin\nDashboard',
                  mockupImg: '/assets/super_admin_ui.png',
                  widthClass: 'w-[85%] h-[240px]',
-                 delay: 100
+                 delay: 100,
+                 demoLink: import.meta.env.VITE_SUPER_ADMIN_DEMO || '/products'
               },
               {
                  label: 'EMPLOYEE PANEL',
@@ -148,14 +144,16 @@ export default function Home() {
                  widthClass: 'w-[200px] h-[260px] mx-auto',
                  yOffset: 'translate-y-12 translate-x-12',
                  rounded: 'rounded-t-[2rem]',
-                 delay: 200
+                 delay: 200,
+                 demoLink: import.meta.env.VITE_EMPLOYEE_PANEL_DEMO || '/products'
               },
               {
                  label: 'OWNER SPECIFIC WEBSITE',
                  title: 'Owner Panel\nfor Management',
                  mockupImg: '/assets/owner_panel_ui.png',
                  widthClass: 'w-[85%] h-[240px]',
-                 delay: 300
+                 delay: 300,
+                 demoLink: import.meta.env.VITE_OWNER_PANEL_DEMO || '/products'
               },
               {
                  fullWidth: true,
@@ -164,7 +162,8 @@ export default function Home() {
                  mockupImg: '/assets/user_app_ui.png',
                  widthClass: 'w-full max-w-[500px] h-[240px]',
                  offsetClass: 'translate-x-12 translate-y-12',
-                 delay: 400
+                 delay: 400,
+                 demoLink: import.meta.env.VITE_USER_APP_DEMO || '/products'
               }
             ].map((product, i) => (
               <div key={i} className={`bg-[#f8f9fa] border border-slate-100 shadow-sm rounded-[1.5rem] overflow-hidden relative flex flex-col md:flex-row items-center gap-0 lg:gap-8 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 animate-slide-up ${product.fullWidth ? 'lg:col-span-2' : ''}`} style={{ animationDelay: `${product.delay}ms` }}>
@@ -177,9 +176,15 @@ export default function Home() {
                        <span className="tracking-tight text-xl">SavoryOps</span>
                     </div>
                     <h4 className="text-[28px] lg:text-[34px] font-extrabold text-slate-900 mb-8 leading-[1.3] whitespace-pre-line">{product.title}</h4>
-                    <Link to="/products" className="inline-flex items-center justify-center px-6 py-3 bg-primary-500 text-white text-[13px] font-bold rounded-lg hover:bg-primary-600 transition-colors shadow-lg shadow-primary-500/20">
-                       View Demo &rarr;
-                    </Link>
+                    {product.demoLink.startsWith('http') ? (
+                      <a href={product.demoLink} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center px-6 py-3 bg-primary-500 text-white text-[13px] font-bold rounded-lg hover:bg-primary-600 transition-colors shadow-lg shadow-primary-500/20">
+                         View Demo &rarr;
+                      </a>
+                    ) : (
+                      <Link to={product.demoLink} className="inline-flex items-center justify-center px-6 py-3 bg-primary-500 text-white text-[13px] font-bold rounded-lg hover:bg-primary-600 transition-colors shadow-lg shadow-primary-500/20">
+                         View Demo &rarr;
+                      </Link>
+                    )}
                  </div>
                  
                  {/* Right Mockup */}
@@ -208,25 +213,69 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
-              { title: 'Smart POS', icon: <MdComputer />, color: 'bg-blue-50 text-blue-500' },
-              { title: 'Inventory Sync', icon: <MdInventory />, color: 'bg-emerald-50 text-emerald-500' },
-              { title: 'Online Deliveries', icon: <MdDeliveryDining />, color: 'bg-orange-50 text-orange-500' },
-              { title: 'Staff Scheduling', icon: <MdGroups />, color: 'bg-purple-50 text-purple-500' },
-              { title: 'Kitchen Routing', icon: <MdLocalFireDepartment />, color: 'bg-rose-50 text-rose-500' },
-              { title: 'Live Analytics', icon: <MdBarChart />, color: 'bg-sky-50 text-sky-500' }
+              { title: 'Smart POS', icon: <MdComputer />, color: 'bg-blue-50 text-blue-500', desc: 'Streamline front-of-house operations with our intuitive Point of Sale.' },
+              { title: 'Dynamic Dashboard', icon: <MdDashboard />, color: 'bg-indigo-50 text-indigo-500', desc: "Get a bird's-eye view of all branches with real-time earnings and order tracking." },
+              { title: 'Multi Restaurant', icon: <MdRestaurant />, color: 'bg-amber-50 text-amber-500', desc: 'Run a marketplace or food court with independent vendor management.' },
+              { title: 'Multi Branch Support', icon: <MdStorefront />, color: 'bg-orange-50 text-orange-500', desc: 'Manage multiple branches seamlessly from a centralized dashboard.' },
+              { title: 'Live Analytics', icon: <MdBarChart />, color: 'bg-sky-50 text-sky-500', desc: 'Make data-driven decisions with real-time insight into sales.' },
+              { title: 'Order Reports', icon: <MdAssessment />, color: 'bg-blue-50 text-blue-600', desc: 'Access granular transaction histories and deep-dive order insights.' },
+              { title: 'QR Based Menu', icon: <MdQrCodeScanner />, color: 'bg-emerald-50 text-emerald-500', desc: 'Let customers browse and order directly from their smartphones.' },
+              { title: 'Table Reservation', icon: <MdEventSeat />, color: 'bg-indigo-50 text-indigo-500', desc: 'Allow guests to book tables in advance to optimize seating.' },
+              { title: 'KOT Feature', icon: <MdAssignment />, color: 'bg-rose-50 text-rose-500', desc: 'Generate clear Kitchen Order Tickets to keep your staff synchronized.' },
+              { title: 'Combo Meals', icon: <MdFastfood />, color: 'bg-orange-50 text-orange-600', desc: 'Increase revenue by uniquely grouping items into attractive combos.' },
+              { title: 'Addon Meals', icon: <MdLibraryAdd />, color: 'bg-purple-50 text-purple-600', desc: 'Upsell efficiently by offering custom meal add-ons and modifiers.' },
+              { title: 'Branch Pricing', icon: <MdPriceChange />, color: 'bg-emerald-50 text-emerald-600', desc: 'Configure unique menu item prices specifically for individual locations.' },
+              { title: 'Staff Scheduling', icon: <MdGroups />, color: 'bg-purple-50 text-purple-500', desc: 'Organize team shifts, track hours, and manage attendance easily.' },
+              { title: 'Digital Invoice', icon: <MdReceipt />, color: 'bg-cyan-50 text-cyan-500', desc: 'Generate eco-friendly digital invoices and send them directly to customers.' },
+              { title: 'Fiscal Year Reports', icon: <MdAccountBalance />, color: 'bg-green-50 text-green-600', desc: 'Export robust financial data aligned with your custom fiscal calendars.' },
+              { title: 'Multi Currency', icon: <MdPayments />, color: 'bg-teal-50 text-teal-600', desc: 'Scale globally and accept international payments seamlessly.' },
+              { title: 'Multi Language', icon: <MdLanguage />, color: 'bg-teal-50 text-teal-500', desc: 'Serve a diverse customer base by offering your menus in multiple languages.' },
+              { title: 'Customer Reviews', icon: <MdStarRate />, color: 'bg-yellow-50 text-yellow-500', desc: 'Collect customer feedback effortlessly to improve service and build trust.' }
             ].map((service, i) => (
               <div key={i} className="bg-white p-8 rounded-[2rem] shadow-card border border-slate-200 card-hover text-center flex flex-col items-center">
                 <div className={`w-20 h-20 rounded-2xl ${service.color} flex items-center justify-center text-3xl mb-6 shadow-sm`}>
                   {service.icon}
                 </div>
                 <h4 className="text-xl font-bold text-slate-900 mb-3">{service.title}</h4>
-                <p className="text-slate-500 mb-6">Automate your {service.title.toLowerCase()} processes seamlessly with our connected platform.</p>
+                <p className="text-slate-500 mb-6">{service.desc}</p>
                 <Link to="/features" className="text-primary-500 font-bold flex items-center gap-1 hover:text-primary-600 transition-colors">
                   View Detail
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                 </Link>
               </div>
             ))}
+          </div>
+          
+          <div className="mt-12 text-center animate-slide-up" style={{ animationDelay: '100ms'}}>
+            <Link to="/features" className="inline-flex items-center justify-center px-8 py-4 rounded-full bg-white hover:bg-slate-50 text-slate-800 font-bold text-[15px] shadow-sm border border-slate-200 transition-all hover:-translate-y-0.5">
+              View All Features &rarr;
+            </Link>
+          </div>
+        </div>
+      </div>
+
+      {/* FAQ Section */}
+      <div className="py-24 bg-white border-t border-slate-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-2xl mx-auto mb-16">
+            <h2 className="text-primary-500 font-bold tracking-wide uppercase text-sm mb-2">FAQs</h2>
+            <h3 className="text-3xl md:text-4xl font-extrabold text-slate-900">Frequently Asked Questions</h3>
+            <p className="mt-4 text-slate-500 text-lg">Everything you need to know about SavoryOps.</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {faqs.slice(0, 6).map((faq, i) => (
+              <div key={i} className="bg-[#f8f9fa] p-8 rounded-[2rem] border border-slate-200 hover:shadow-soft transition-shadow duration-300">
+                <h4 className="text-xl font-bold text-slate-900 mb-4">{faq.q}</h4>
+                <p className="text-slate-500 leading-relaxed text-[15px]">{faq.a}</p>
+              </div>
+            ))}
+          </div>
+          
+          <div className="mt-12 text-center animate-slide-up" style={{ animationDelay: '100ms'}}>
+            <Link to="/faqs" className="inline-flex items-center justify-center px-8 py-4 rounded-full bg-white hover:bg-slate-50 text-slate-800 font-bold text-[15px] shadow-sm border border-slate-200 transition-all hover:-translate-y-0.5">
+              View All FAQs &rarr;
+            </Link>
           </div>
         </div>
       </div>

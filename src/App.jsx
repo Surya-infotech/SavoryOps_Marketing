@@ -6,6 +6,7 @@ import Features from './pages/Features'
 import Products from './pages/Products'
 import UpcomingFeatures from './pages/UpcomingFeatures'
 import ContactUs from './pages/ContactUs'
+import Faqs from './pages/Faqs'
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="products" element={<Products />} />
           <Route path="upcoming-features" element={<UpcomingFeatures />} />
           <Route path="contact" element={<ContactUs />} />
+          <Route path="faqs" element={<Faqs />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Route>
       </Routes>
