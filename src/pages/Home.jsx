@@ -1,7 +1,9 @@
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import { MdRestaurant, MdFastfood, MdTrendingUp, MdNotifications, MdComputer, MdInventory, MdDeliveryDining, MdGroups, MdLocalFireDepartment, MdBarChart, MdLanguage, MdQrCodeScanner, MdStorefront, MdEventSeat, MdReceipt, MdStarRate, MdAssignment, MdAssessment, MdAccountBalance, MdLibraryAdd, MdPriceChange, MdPayments, MdDashboard } from 'react-icons/md';
+import { MdRestaurant, MdFastfood, MdTrendingUp, MdNotifications } from 'react-icons/md';
 import logo from '../assets/logo.png';
+import { featuresData } from '../data/featuresData';
+import FeatureCard from '../components/FeatureCard';
 import { faqs } from '../data/faqs';
 
 export default function Home() {
@@ -37,11 +39,13 @@ export default function Home() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-            <a href={import.meta.env.VITE_LANDING_PAGE_DEMO} target="_blank" rel="noopener noreferrer" className="px-8 py-4 rounded-full bg-primary-500 hover:bg-primary-600 text-white font-bold text-[15px] shadow-lg shadow-primary-500/30 transition-all transform hover:-translate-y-0.5 text-center">
+            <a href={import.meta.env.VITE_LANDING_PAGE_DEMO} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-primary-600 hover:bg-primary-700 text-white font-bold text-base shadow-lg shadow-primary-500/20 transition-all hover:-translate-y-0.5 w-full sm:w-auto">
               View Demo
+              <svg className="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path></svg>
             </a>
-            <a href={import.meta.env.VITE_BUY_NOW} target="_blank" rel="noopener noreferrer" className="px-8 py-4 rounded-full bg-white hover:bg-slate-50 text-slate-700 font-bold text-[15px] shadow-soft border border-slate-200 transition-all text-center">
+            <a href={import.meta.env.VITE_BUY_NOW} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-transparent hover:bg-slate-50 text-slate-700 font-bold text-base border border-slate-300 shadow-sm transition-all hover:-translate-y-0.5 w-full sm:w-auto">
               Buy Now
+              <svg className="w-5 h-5 flex-shrink-0 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
             </a>
           </div>
         </div>
@@ -270,9 +274,9 @@ export default function Home() {
           </div>
 
           <div className="text-center animate-slide-up">
-            <a href={import.meta.env.VITE_LANDING_PAGE_DEMO} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-10 py-4 bg-primary-500 text-white font-bold text-[16px] rounded-full shadow-lg shadow-primary-500/30 hover:bg-primary-600 hover:-translate-y-1 transition-all">
+            <a href={import.meta.env.VITE_LANDING_PAGE_DEMO} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-primary-600 hover:bg-primary-700 text-white font-bold text-base shadow-lg shadow-primary-500/20 transition-all hover:-translate-y-0.5 w-full sm:w-auto">
               View Demo
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+              <svg className="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path></svg>
             </a>
           </div>
         </div>
@@ -288,36 +292,9 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              { title: 'Smart POS', icon: <MdComputer />, color: 'bg-blue-50 text-blue-500', desc: 'Streamline front-of-house operations with our intuitive Point of Sale.' },
-              { title: 'Dynamic Dashboard', icon: <MdDashboard />, color: 'bg-indigo-50 text-indigo-500', desc: "Get a bird's-eye view of all branches with real-time earnings and order tracking." },
-              { title: 'Multi Restaurant', icon: <MdRestaurant />, color: 'bg-amber-50 text-amber-500', desc: 'Run a marketplace or food court with independent vendor management.' },
-              { title: 'Multi Branch Support', icon: <MdStorefront />, color: 'bg-orange-50 text-orange-500', desc: 'Manage multiple branches seamlessly from a centralized dashboard.' },
-              { title: 'Live Analytics', icon: <MdBarChart />, color: 'bg-sky-50 text-sky-500', desc: 'Make data-driven decisions with real-time insight into sales.' },
-              { title: 'Order Reports', icon: <MdAssessment />, color: 'bg-blue-50 text-blue-600', desc: 'Access granular transaction histories and deep-dive order insights.' },
-              { title: 'QR Based Menu', icon: <MdQrCodeScanner />, color: 'bg-emerald-50 text-emerald-500', desc: 'Let customers browse and order directly from their smartphones.' },
-              { title: 'Table Reservation', icon: <MdEventSeat />, color: 'bg-indigo-50 text-indigo-500', desc: 'Allow guests to book tables in advance to optimize seating.' },
-              { title: 'KOT Feature', icon: <MdAssignment />, color: 'bg-rose-50 text-rose-500', desc: 'Generate clear Kitchen Order Tickets to keep your staff synchronized.' },
-              { title: 'Combo Meals', icon: <MdFastfood />, color: 'bg-orange-50 text-orange-600', desc: 'Increase revenue by uniquely grouping items into attractive combos.' },
-              { title: 'Addon Meals', icon: <MdLibraryAdd />, color: 'bg-purple-50 text-purple-600', desc: 'Upsell efficiently by offering custom meal add-ons and modifiers.' },
-              { title: 'Branch Pricing', icon: <MdPriceChange />, color: 'bg-emerald-50 text-emerald-600', desc: 'Configure unique menu item prices specifically for individual locations.' },
-              { title: 'Staff Scheduling', icon: <MdGroups />, color: 'bg-purple-50 text-purple-500', desc: 'Organize team shifts, track hours, and manage attendance easily.' },
-              { title: 'Digital Invoice', icon: <MdReceipt />, color: 'bg-cyan-50 text-cyan-500', desc: 'Generate eco-friendly digital invoices and send them directly to customers.' },
-              { title: 'Fiscal Year Reports', icon: <MdAccountBalance />, color: 'bg-green-50 text-green-600', desc: 'Export robust financial data aligned with your custom fiscal calendars.' },
-              { title: 'Multi Currency', icon: <MdPayments />, color: 'bg-teal-50 text-teal-600', desc: 'Scale globally and accept international payments seamlessly.' },
-              { title: 'Multi Language', icon: <MdLanguage />, color: 'bg-teal-50 text-teal-500', desc: 'Serve a diverse customer base by offering your menus in multiple languages.' },
-              { title: 'Customer Reviews', icon: <MdStarRate />, color: 'bg-yellow-50 text-yellow-500', desc: 'Collect customer feedback effortlessly to improve service and build trust.' }
-            ].map((service, i) => (
-              <div key={i} className="bg-white p-8 rounded-[2rem] shadow-card border border-slate-200 card-hover text-center flex flex-col items-center">
-                <div className={`w-20 h-20 rounded-2xl ${service.color} flex items-center justify-center text-3xl mb-6 shadow-sm`}>
-                  {service.icon}
-                </div>
-                <h4 className="text-xl font-bold text-slate-900 mb-3">{service.title}</h4>
-                <p className="text-slate-500 mb-6">{service.desc}</p>
-                <Link to="/features" className="text-primary-500 font-bold flex items-center gap-1 hover:text-primary-600 transition-colors">
-                  View Detail
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                </Link>
+            {featuresData.map((service, i) => (
+              <div key={service.title} className="animate-slide-up" style={{ animationDelay: `${(i % 3) * 100}ms` }}>
+                <FeatureCard feature={service} />
               </div>
             ))}
           </div>
