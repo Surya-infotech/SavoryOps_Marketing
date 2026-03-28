@@ -5,8 +5,8 @@ import logo from '../assets/logo.png';
 const navLinks = [
   { name: 'Home', path: '/' },
   { name: 'Features', path: '/features' },
-  { 
-    name: 'Products', 
+  {
+    name: 'Products',
     dropdown: [
       { name: 'Super Admin Panel', path: '/super-admin' },
       { name: 'Landing Page', path: '/landing-page' },

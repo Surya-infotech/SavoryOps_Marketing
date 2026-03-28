@@ -37,12 +37,12 @@ export default function Home() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-            <Link to="/products" className="px-8 py-4 rounded-full bg-primary-500 hover:bg-primary-600 text-white font-bold text-[15px] shadow-lg shadow-primary-500/30 transition-all transform hover:-translate-y-0.5 text-center">
+            <a href={import.meta.env.VITE_LANDING_PAGE_DEMO} target="_blank" rel="noopener noreferrer" className="px-8 py-4 rounded-full bg-primary-500 hover:bg-primary-600 text-white font-bold text-[15px] shadow-lg shadow-primary-500/30 transition-all transform hover:-translate-y-0.5 text-center">
               View Demo
-            </Link>
-            <Link to="/features" className="px-8 py-4 rounded-full bg-white hover:bg-slate-50 text-slate-700 font-bold text-[15px] shadow-soft border border-slate-200 transition-all text-center">
-              Explore Features
-            </Link>
+            </a>
+            <a href={import.meta.env.VITE_BUY_NOW} target="_blank" rel="noopener noreferrer" className="px-8 py-4 rounded-full bg-white hover:bg-slate-50 text-slate-700 font-bold text-[15px] shadow-soft border border-slate-200 transition-all text-center">
+              Buy Now
+            </a>
           </div>
         </div>
 
@@ -200,7 +200,7 @@ export default function Home() {
       {/* Go Live Timeline Section */}
       <div className="py-24 bg-white relative border-t border-slate-200 overflow-hidden">
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-slate-50 rounded-full blur-[80px] -z-10 translate-x-1/2 -translate-y-1/2"></div>
-        
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-20 animate-slide-up">
             <h2 className="text-primary-500 font-bold tracking-wide uppercase text-sm mb-3">Implementation Roadmap</h2>
@@ -214,7 +214,7 @@ export default function Home() {
 
           <div className="max-w-5xl mx-auto relative animate-slide-up mb-12">
             <div className="bg-[#f2fbf5] border-2 border-white rounded-[2rem] shadow-sm p-8 md:p-14 flex flex-col md:flex-row items-center gap-12">
-              
+
               {/* Left Column: Steps */}
               <div className="flex-1 w-full relative pl-2 md:pl-0">
                 {/* The enclosing box and arrow */}
@@ -227,7 +227,7 @@ export default function Home() {
                 <div className="relative">
                   {/* Vertical dashed timeline */}
                   <div className="absolute left-[11.5px] top-4 bottom-4 w-px border-l border-dashed border-[#bbf7d0]"></div>
-                  
+
                   <div className="space-y-6 relative z-10">
                     {[
                       { title: 'Install & Setup', desc: 'Install and configure your system in under an hour.' },
@@ -240,11 +240,11 @@ export default function Home() {
                       <div key={i} className="flex gap-4">
                         {/* Checkmark Icon */}
                         <div className="bg-transparent z-10 flex-shrink-0 w-[24px] h-[24px] flex items-center justify-center mt-0.5 relative">
-                           {/* bg block behind the circle to break the vertical line */}
-                           <div className="absolute inset-0 bg-[#f2fbf5] rounded-full scale-[1.2]"></div>
-                           <div className="relative w-[20px] h-[20px] rounded-full border-2 border-primary-500 flex items-center justify-center text-primary-500 bg-white">
-                             <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7"></path></svg>
-                           </div>
+                          {/* bg block behind the circle to break the vertical line */}
+                          <div className="absolute inset-0 bg-[#f2fbf5] rounded-full scale-[1.2]"></div>
+                          <div className="relative w-[20px] h-[20px] rounded-full border-2 border-primary-500 flex items-center justify-center text-primary-500 bg-white">
+                            <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7"></path></svg>
+                          </div>
                         </div>
                         <div className="pb-1">
                           <h4 className="text-[15px] font-bold text-slate-900 mb-0.5 leading-tight">{item.title}</h4>
@@ -270,9 +270,10 @@ export default function Home() {
           </div>
 
           <div className="text-center animate-slide-up">
-            <Link to="/super-admin" className="inline-flex items-center justify-center px-10 py-4 bg-primary-500 text-white font-bold text-[16px] rounded-full shadow-lg shadow-primary-500/30 hover:bg-primary-600 hover:-translate-y-1 transition-all">
-              View Demo &rarr;
-            </Link>
+            <a href={import.meta.env.VITE_LANDING_PAGE_DEMO} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-10 py-4 bg-primary-500 text-white font-bold text-[16px] rounded-full shadow-lg shadow-primary-500/30 hover:bg-primary-600 hover:-translate-y-1 transition-all">
+              View Demo
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </a>
           </div>
         </div>
       </div>
@@ -322,8 +323,9 @@ export default function Home() {
           </div>
 
           <div className="mt-12 text-center animate-slide-up" style={{ animationDelay: '100ms' }}>
-            <Link to="/features" className="inline-flex items-center justify-center px-8 py-4 rounded-full bg-white hover:bg-slate-50 text-slate-800 font-bold text-[15px] shadow-sm border border-slate-200 transition-all hover:-translate-y-0.5">
-              View All Features &rarr;
+            <Link to="/features" className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-white hover:bg-slate-50 text-slate-800 font-bold text-[15px] shadow-sm border border-slate-200 transition-all hover:-translate-y-0.5">
+              View All Features
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
             </Link>
           </div>
         </div>
@@ -348,8 +350,9 @@ export default function Home() {
           </div>
 
           <div className="mt-12 text-center animate-slide-up" style={{ animationDelay: '100ms' }}>
-            <Link to="/faqs" className="inline-flex items-center justify-center px-8 py-4 rounded-full bg-white hover:bg-slate-50 text-slate-800 font-bold text-[15px] shadow-sm border border-slate-200 transition-all hover:-translate-y-0.5">
-              View All FAQs &rarr;
+            <Link to="/faqs" className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-white hover:bg-slate-50 text-slate-800 font-bold text-[15px] shadow-sm border border-slate-200 transition-all hover:-translate-y-0.5">
+              View All FAQs
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
             </Link>
           </div>
         </div>
