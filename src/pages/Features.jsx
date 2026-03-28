@@ -68,7 +68,7 @@ export default function Features() {
           </div>
         </div>
 
-        <div className="mx-auto max-w-2xl lg:max-w-none">
+        <div className="mx-auto max-w-2xl lg:max-w-none relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {featuresData.map((feature, idx) => (
               <div key={feature.title} className="animate-slide-up" style={{ animationDelay: `${(idx % 3) * 100}ms` }}>
@@ -76,6 +76,20 @@ export default function Features() {
               </div>
             ))}
           </div>
+        </div>
+      </div>
+
+
+      {/* Footer CTA */}
+      <div className="py-24 bg-primary-600 relative overflow-hidden text-center text-white mt-12">
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-white rounded-full blur-[120px] opacity-10 translate-x-1/2 -translate-y-1/2"></div>
+        <div className="relative z-10 max-w-4xl mx-auto px-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-6 tracking-tight">Experience the software yourself.</h2>
+          <p className="text-primary-100 text-lg sm:text-xl max-w-2xl mx-auto mb-10">Stop researching and start operating. Click below to view the live comprehensive demo covering all features seamlessly.</p>
+          <a href={import.meta.env.VITE_LANDING_PAGE_DEMO} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-10 py-5 rounded-full bg-white text-primary-600 font-bold text-lg hover:shadow-2xl hover:scale-105 transition-all shadow-lg active:scale-95">
+            View Interactive Demo
+            <svg className="w-6 h-6 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+          </a>
         </div>
       </div>
     </div>
