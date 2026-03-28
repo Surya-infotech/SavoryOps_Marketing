@@ -112,10 +112,10 @@ export default function Home() {
               SavoryOps SaaS Products
             </div>
             <h3 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight leading-[1.2]">
-              Five Powerful Products, One <br className="hidden md:block" /> Complete <span className="text-primary-500">SaaS Solution!</span>
+              One Powerful Ecosystem. <br className="hidden md:block" /> A Complete <span className="text-primary-500">White-Label Solution.</span>
             </h3>
             <p className="mt-6 text-slate-500 text-[15px] leading-[1.8] px-4 md:px-12 font-medium">
-              SavoryOps offers a complete ecosystem to streamline dining management. From the <strong>Super Admin Panel</strong> for full control, to the <strong>Employee App</strong> for effortless daily operations, a <strong>Native Custom Website</strong> for independent brand management, and a <strong>User App</strong> to boost your online presence—everything you need to run and scale your restaurant business is included.
+              Start your own restaurant tech company with our complete premium software suite. You will receive the <Link to="/super-admin" className="font-bold text-primary-600 hover:text-primary-500 transition-colors">Super Admin Panel</Link>, <Link to="/owner-panel" className="font-bold text-primary-600 hover:text-primary-500 transition-colors">Owner Dashboard</Link>, <Link to="/employee-app" className="font-bold text-primary-600 hover:text-primary-500 transition-colors">Employee App</Link>, <Link to="/user-app" className="font-bold text-primary-600 hover:text-primary-500 transition-colors">User App</Link>, and a <Link to="/landing-page" className="font-bold text-primary-600 hover:text-primary-500 transition-colors">Custom Website</Link>—all with complete source code access. Rebrand the ecosystem as your own and empower local restaurants under your own brand.
             </p>
           </div>
 
@@ -123,72 +123,67 @@ export default function Home() {
             {[
               {
                 label: 'LANDING PAGE',
-                title: 'Full Website\nfor Your Brand',
+                title: 'Custom Website',
                 mockupImg: '/assets/landing_page_ui.png',
-                widthClass: 'w-[85%] h-[240px]',
+                widthClass: 'w-[95%] h-[260px]',
                 delay: 0,
-                demoLink: import.meta.env.VITE_LANDING_PAGE_DEMO || '/products'
+                demoLink: '/landing-page'
               },
               {
                 label: 'SUPER ADMIN',
-                title: 'Super Admin\nDashboard',
+                title: 'Super Admin',
                 mockupImg: '/assets/super_admin_ui.png',
-                widthClass: 'w-[85%] h-[240px]',
+                widthClass: 'w-[95%] h-[260px]',
                 delay: 100,
-                demoLink: import.meta.env.VITE_SUPER_ADMIN_DEMO || '/products'
+                demoLink: '/super-admin'
               },
               {
                 label: 'EMPLOYEE PANEL',
-                title: 'Employee App\nfor Staff',
+                title: 'Employee App',
                 mockupImg: '/assets/employee_panel_ui.png',
-                widthClass: 'w-[200px] h-[260px] mx-auto',
+                widthClass: 'w-[240px] h-[280px] mx-auto',
                 yOffset: 'translate-y-12 translate-x-12',
                 rounded: 'rounded-t-[2rem]',
                 delay: 200,
-                demoLink: import.meta.env.VITE_EMPLOYEE_PANEL_DEMO || '/products'
+                demoLink: '/employee-app'
               },
               {
                 label: 'OWNER SPECIFIC WEBSITE',
-                title: 'Owner Panel\nfor Management',
+                title: 'Owner Panel',
                 mockupImg: '/assets/owner_panel_ui.png',
-                widthClass: 'w-[85%] h-[240px]',
+                widthClass: 'w-[95%] h-[260px]',
                 delay: 300,
-                demoLink: import.meta.env.VITE_OWNER_PANEL_DEMO || '/products'
+                demoLink: '/owner-panel'
               },
               {
                 fullWidth: true,
                 label: 'USER SPECIFIC APP',
-                title: 'User App\nfor Ordering',
+                title: 'User App',
                 mockupImg: '/assets/user_app_ui.png',
-                widthClass: 'w-full max-w-[500px] h-[240px]',
+                widthClass: 'w-full max-w-[600px] h-[260px]',
                 offsetClass: 'translate-x-12 translate-y-12',
                 delay: 400,
-                demoLink: import.meta.env.VITE_USER_APP_DEMO || '/products'
+                demoLink: '/user-app'
               }
             ].map((product, i) => (
               <div key={i} className={`bg-[#f8f9fa] border border-slate-100 shadow-sm rounded-[1.5rem] overflow-hidden relative flex flex-col md:flex-row items-center gap-0 lg:gap-8 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 animate-slide-up ${product.fullWidth ? 'lg:col-span-2' : ''}`} style={{ animationDelay: `${product.delay}ms` }}>
 
                 {/* Left Content */}
-                <div className="flex-1 w-full text-left relative z-20 p-8 md:p-12 md:pr-0">
+                <div className="flex-1 w-full text-left relative z-20 p-8 md:p-8 lg:p-10 md:pr-0">
                   <p className="text-[10px] font-bold text-primary-500 uppercase tracking-widest mb-1.5">{product.label}</p>
-                  <div className="text-2xl font-black text-slate-900 mb-6 flex items-center gap-2">
-                    <img src={logo} className="h-6 w-auto object-contain" alt="SavoryOps Logo" />
-                    <span className="tracking-tight text-xl">SavoryOps</span>
+                  <div className="text-2xl font-black text-slate-900 mb-4 flex items-center gap-2">
+                    <img src={logo} className="h-5 w-auto object-contain" alt="SavoryOps Logo" />
+                    <span className="tracking-tight text-lg">SavoryOps</span>
                   </div>
-                  <h4 className="text-[28px] lg:text-[34px] font-extrabold text-slate-900 mb-8 leading-[1.3] whitespace-pre-line">{product.title}</h4>
-                  {product.demoLink.startsWith('http') ? (
-                    <a href={product.demoLink} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center px-6 py-3 bg-primary-500 text-white text-[13px] font-bold rounded-lg hover:bg-primary-600 transition-colors shadow-lg shadow-primary-500/20">
-                      View Demo &rarr;
-                    </a>
-                  ) : (
-                    <Link to={product.demoLink} className="inline-flex items-center justify-center px-6 py-3 bg-primary-500 text-white text-[13px] font-bold rounded-lg hover:bg-primary-600 transition-colors shadow-lg shadow-primary-500/20">
-                      View Demo &rarr;
-                    </Link>
-                  )}
+                  <h4 className="text-[26px] lg:text-[30px] font-extrabold text-slate-900 mb-6 leading-[1.3] whitespace-pre-line">{product.title}</h4>
+                  <Link to={product.demoLink} className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-primary-500 hover:bg-primary-600 text-white font-bold text-sm shadow-xl shadow-primary-500/20 hover:-translate-y-1 transition-all z-30 relative">
+                    View Details
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                  </Link>
                 </div>
 
                 {/* Right Mockup */}
-                <div className="flex-1 w-full relative z-10 flex justify-end items-end h-[300px] md:h-[350px]">
+                <div className="flex-1 w-full relative z-10 flex justify-end items-end h-[260px] md:h-[280px]">
                   <img
                     src={product.mockupImg}
                     alt={product.title.replace('\n', ' ')}
@@ -198,6 +193,86 @@ export default function Home() {
 
               </div>
             ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Go Live Timeline Section */}
+      <div className="py-24 bg-white relative border-t border-slate-200 overflow-hidden">
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-slate-50 rounded-full blur-[80px] -z-10 translate-x-1/2 -translate-y-1/2"></div>
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-3xl mx-auto mb-20 animate-slide-up">
+            <h2 className="text-primary-500 font-bold tracking-wide uppercase text-sm mb-3">Implementation Roadmap</h2>
+            <h3 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight leading-[1.2]">
+              Go Live Faster Than You Think
+            </h3>
+            <p className="mt-6 text-slate-500 text-lg">
+              Launch your own white-label restaurant SaaS in just a few simple steps.
+            </p>
+          </div>
+
+          <div className="max-w-5xl mx-auto relative animate-slide-up mb-12">
+            <div className="bg-[#f2fbf5] border-2 border-white rounded-[2rem] shadow-sm p-8 md:p-14 flex flex-col md:flex-row items-center gap-12">
+              
+              {/* Left Column: Steps */}
+              <div className="flex-1 w-full relative pl-2 md:pl-0">
+                {/* The enclosing box and arrow */}
+                <div className="absolute inset-y-[-24px] -inset-x-8 border border-dashed border-[#bbf7d0] rounded-xl pointer-events-none hidden md:block"></div>
+                <div className="absolute right-[-48px] top-1/2 -translate-y-1/2 flex items-center hidden md:flex pointer-events-none text-[#bbf7d0]">
+                  <div className="w-4 border-t border-dashed border-[#bbf7d0]"></div>
+                  <svg className="w-5 h-5 -ml-1 text-[#bbf7d0]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path></svg>
+                </div>
+
+                <div className="relative">
+                  {/* Vertical dashed timeline */}
+                  <div className="absolute left-[11.5px] top-4 bottom-4 w-px border-l border-dashed border-[#bbf7d0]"></div>
+                  
+                  <div className="space-y-6 relative z-10">
+                    {[
+                      { title: 'Install & Setup', desc: 'Install and configure your system in under an hour.' },
+                      { title: 'Branding & Domain Setup', desc: 'Apply your logo, colors, and connect your domain.' },
+                      { title: 'Payment Gateway Integration', desc: 'Enable secure online payments for subscriptions & bookings.' },
+                      { title: 'Subscription Plans & Pricing', desc: 'Create plans that match your revenue goals.' },
+                      { title: 'Vendor Onboarding', desc: 'Add restaurants and activate their websites instantly.' },
+                      { title: 'Final Review & Launch', desc: 'Test and go live with confidence.' }
+                    ].map((item, i) => (
+                      <div key={i} className="flex gap-4">
+                        {/* Checkmark Icon */}
+                        <div className="bg-transparent z-10 flex-shrink-0 w-[24px] h-[24px] flex items-center justify-center mt-0.5 relative">
+                           {/* bg block behind the circle to break the vertical line */}
+                           <div className="absolute inset-0 bg-[#f2fbf5] rounded-full scale-[1.2]"></div>
+                           <div className="relative w-[20px] h-[20px] rounded-full border-2 border-primary-500 flex items-center justify-center text-primary-500 bg-white">
+                             <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7"></path></svg>
+                           </div>
+                        </div>
+                        <div className="pb-1">
+                          <h4 className="text-[15px] font-bold text-slate-900 mb-0.5 leading-tight">{item.title}</h4>
+                          <p className="text-[13px] text-slate-500 font-medium">{item.desc}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* Right Column: Estimated Time */}
+              <div className="flex-[0.8] w-full text-center flex flex-col items-center justify-center pl-0 md:pl-12">
+                <div className="text-primary-600 mb-3">
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                </div>
+                <h4 className="text-[15px] font-bold text-slate-900 mb-1">Estimated Go-Live Time:</h4>
+                <div className="text-3xl md:text-4xl font-semibold text-primary-600 mb-1 tracking-tight">1-3 Days</div>
+                <p className="text-slate-500 text-[13px] font-medium">(Depending on customization)</p>
+              </div>
+
+            </div>
+          </div>
+
+          <div className="text-center animate-slide-up">
+            <Link to="/super-admin" className="inline-flex items-center justify-center px-10 py-4 bg-primary-500 text-white font-bold text-[16px] rounded-full shadow-lg shadow-primary-500/30 hover:bg-primary-600 hover:-translate-y-1 transition-all">
+              View Demo &rarr;
+            </Link>
           </div>
         </div>
       </div>
