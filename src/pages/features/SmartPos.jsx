@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
+import { useEffect } from 'react';
 import { featuresData } from '../../data/featuresData';
+import smartPosSeo from '../../data/smartPosStaticSeo.json';
 import FeatureCard from '../../components/FeatureCard';
 
 export default function SmartPos() {
@@ -9,28 +10,46 @@ export default function SmartPos() {
   // Get 3 other random features for the "Explore More" section
   const otherFeatures = featuresData.filter(f => f.slug !== feature.slug).slice(0, 3);
 
+  // Same DOM pattern as SavoryOpsLandingPage feature pages; strings shared with scripts/prerenderSmartPosHtml.mjs via smartPosStaticSeo.json
+  useEffect(() => {
+    window.scrollTo(0, 0);
+
+    document.title = smartPosSeo.documentTitle;
+
+    let metaDescription = document.querySelector('meta[name="description"]');
+    if (!metaDescription) {
+      metaDescription = document.createElement('meta');
+      metaDescription.setAttribute('name', 'description');
+      document.head.appendChild(metaDescription);
+    }
+    metaDescription.setAttribute('content', smartPosSeo.description);
+
+    let metaKeywords = document.querySelector('meta[name="keywords"]');
+    if (!metaKeywords) {
+      metaKeywords = document.createElement('meta');
+      metaKeywords.setAttribute('name', 'keywords');
+      document.head.appendChild(metaKeywords);
+    }
+    metaKeywords.setAttribute('content', smartPosSeo.keywords);
+
+    const ogTitle = document.querySelector('meta[property="og:title"]');
+    if (ogTitle) ogTitle.setAttribute('content', smartPosSeo.ogTitle);
+
+    const ogDesc = document.querySelector('meta[property="og:description"]');
+    if (ogDesc) ogDesc.setAttribute('content', smartPosSeo.ogDescription);
+
+    const ogUrl = document.querySelector('meta[property="og:url"]');
+    if (ogUrl) ogUrl.setAttribute('content', `https://savoryops.com${smartPosSeo.path}`);
+
+    const twTitle = document.querySelector('meta[name="twitter:title"]');
+    if (twTitle) twTitle.setAttribute('content', smartPosSeo.ogTitle);
+
+    const twDesc = document.querySelector('meta[name="twitter:description"]');
+    if (twDesc) twDesc.setAttribute('content', smartPosSeo.ogDescription);
+  }, []);
+
   return (
     <div className="bg-white min-h-screen">
-      <Helmet>
-        <title>{`${feature.title} | SavoryOps`}</title>
-        <meta name="description" content={feature.desc} />
-        <meta name="keywords" content={`${feature.title.toLowerCase()}, restaurant point of sale, fast pos system, restaurant management software, savoryops`} />
-        
-        {/* Open Graph / Facebook / LinkedIn */}
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content={`https://savoryops.com/features/${feature.slug}`} />
-        <meta property="og:title" content={`${feature.seoHeading} | SavoryOps`} />
-        <meta property="og:description" content={feature.desc} />
-        <meta property="og:image" content="https://savoryops.com/logo.png" />
-
-        {/* Twitter */}
-        <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content={`https://savoryops.com/features/${feature.slug}`} />
-        <meta property="twitter:title" content={`${feature.seoHeading} | SavoryOps`} />
-        <meta property="twitter:description" content={feature.desc} />
-        <meta property="twitter:image" content="https://savoryops.com/logo.png" />
-      </Helmet>
-
       {/* Hero Section */}
       <div className="relative pt-6 pb-20 lg:pt-12 lg:pb-28 overflow-hidden">
         <div className={`absolute top-0 right-0 w-[800px] h-[800px] rounded-full blur-[100px] opacity-20 -z-10 translate-x-1/3 -translate-y-1/3 ${feature.color.split(' ')[0]}`}></div>

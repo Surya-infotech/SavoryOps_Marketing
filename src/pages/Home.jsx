@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
 import { MdRestaurant, MdFastfood, MdTrendingUp, MdNotifications } from 'react-icons/md';
 import logo from '../assets/logo.png';
 import { featuresData } from '../data/featuresData';
@@ -9,11 +8,6 @@ import { faqs } from '../data/faqs';
 export default function Home() {
   return (
     <div className="bg-[#f8f9fa] overflow-hidden min-h-screen">
-      <Helmet>
-        <title>SavoryOps | Premier Restaurant Management System & POS</title>
-        <meta name="description" content="Discover SavoryOps, the all-in-one Restaurant Management System. Streamline your restaurant POS, online ordering, staff scheduling, and inventory management." />
-        <meta name="keywords" content="Restaurant Management System, Restaurant POS Software, Kitchen Display System (KDS), Restaurant Staff Scheduling, Online Ordering Software" />
-      </Helmet>
       {/* Hero Section */}
       <div className="relative pt-12 pb-20 sm:pt-16 sm:pb-24 lg:pb-32 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 lg:gap-8">
 

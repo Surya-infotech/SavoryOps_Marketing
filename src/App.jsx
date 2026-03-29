@@ -1,13 +1,15 @@
-import { Routes, Route, Navigate } from 'react-router-dom'
+import { useEffect } from 'react'
+import { Routes, Route, Navigate, useLocation } from 'react-router-dom'
 import Layout from './components/Layout'
 import ScrollToTop from './components/ScrollToTop'
+import { restoreDefaultMetaTags } from './utils/seoMetaTags'
 import Home from './pages/Home'
 import Features from './pages/Features'
 import SmartPos from './pages/features/SmartPos';
 import DynamicDashboard from './pages/features/DynamicDashboard';
 import MultiRestaurant from './pages/features/MultiRestaurant';
 import MultiBranchSupport from './pages/features/MultiBranchSupport';
-import LiveAnalytics from './pages/features/LiveAnalytics';
+import LiveAnalytics from './pages/features/LiveAnalytics';            
 import OrderReports from './pages/features/OrderReports';
 import QrBasedMenu from './pages/features/QrBasedMenu';
 import TableReservation from './pages/features/TableReservation';
@@ -30,10 +32,21 @@ import UpcomingFeatures from './pages/UpcomingFeatures'
 import ContactUs from './pages/ContactUs'
 import Faqs from './pages/Faqs'
 
+function SEOHandler() {
+  const location = useLocation()
+
+  useEffect(() => {
+    restoreDefaultMetaTags()
+  }, [location.pathname])
+
+  return null
+}
+
 function App() {
   return (
     <>
       <ScrollToTop />
+      <SEOHandler />
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
