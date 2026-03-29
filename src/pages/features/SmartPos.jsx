@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import { featuresData } from '../../data/featuresData';
-import smartPosSeo from '../../data/smartPosStaticSeo.json';
+import { getSmartPosStaticHead } from '../../data/smartPosSeo';
 import FeatureCard from '../../components/FeatureCard';
 
 export default function SmartPos() {
@@ -10,11 +10,12 @@ export default function SmartPos() {
   // Get 3 other random features for the "Explore More" section
   const otherFeatures = featuresData.filter(f => f.slug !== feature.slug).slice(0, 3);
 
-  // Same DOM pattern as SavoryOpsLandingPage feature pages; strings shared with scripts/prerenderSmartPosHtml.mjs via smartPosStaticSeo.json
+  // Head strings come from src/data/smartPosSeo.js (same source as prerender / Vite plugin)
   useEffect(() => {
     window.scrollTo(0, 0);
 
-    document.title = smartPosSeo.documentTitle;
+    const head = getSmartPosStaticHead();
+    document.title = head.documentTitle;
 
     let metaDescription = document.querySelector('meta[name="description"]');
     if (!metaDescription) {
@@ -22,7 +23,7 @@ export default function SmartPos() {
       metaDescription.setAttribute('name', 'description');
       document.head.appendChild(metaDescription);
     }
-    metaDescription.setAttribute('content', smartPosSeo.description);
+    metaDescription.setAttribute('content', head.description);
 
     let metaKeywords = document.querySelector('meta[name="keywords"]');
     if (!metaKeywords) {
@@ -30,22 +31,22 @@ export default function SmartPos() {
       metaKeywords.setAttribute('name', 'keywords');
       document.head.appendChild(metaKeywords);
     }
-    metaKeywords.setAttribute('content', smartPosSeo.keywords);
+    metaKeywords.setAttribute('content', head.keywords);
 
     const ogTitle = document.querySelector('meta[property="og:title"]');
-    if (ogTitle) ogTitle.setAttribute('content', smartPosSeo.ogTitle);
+    if (ogTitle) ogTitle.setAttribute('content', head.ogTitle);
 
     const ogDesc = document.querySelector('meta[property="og:description"]');
-    if (ogDesc) ogDesc.setAttribute('content', smartPosSeo.ogDescription);
+    if (ogDesc) ogDesc.setAttribute('content', head.ogDescription);
 
-    const ogUrl = document.querySelector('meta[property="og:url"]');
-    if (ogUrl) ogUrl.setAttribute('content', `https://savoryops.com${smartPosSeo.path}`);
+    const ogUrlEl = document.querySelector('meta[property="og:url"]');
+    if (ogUrlEl) ogUrlEl.setAttribute('content', head.ogUrl);
 
     const twTitle = document.querySelector('meta[name="twitter:title"]');
-    if (twTitle) twTitle.setAttribute('content', smartPosSeo.ogTitle);
+    if (twTitle) twTitle.setAttribute('content', head.ogTitle);
 
     const twDesc = document.querySelector('meta[name="twitter:description"]');
-    if (twDesc) twDesc.setAttribute('content', smartPosSeo.ogDescription);
+    if (twDesc) twDesc.setAttribute('content', head.ogDescription);
   }, []);
 
   return (

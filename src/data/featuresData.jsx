@@ -1,15 +1,19 @@
 import { MdComputer, MdDashboard, MdRestaurant, MdStorefront, MdBarChart, MdAssessment, MdQrCodeScanner, MdEventSeat, MdAssignment, MdFastfood, MdLibraryAdd, MdPriceChange, MdGroups, MdReceipt, MdAccountBalance, MdPayments, MdLanguage, MdStarRate } from 'react-icons/md';
+import { smartPosCore } from './smartPosSeo';
 
 export const featuresData = [
-  { 
-    title: 'Smart POS', 
-    slug: 'smart-pos',
-    icon: <MdComputer />, 
-    color: 'bg-blue-50 text-blue-500', 
-    desc: 'Streamline front-of-house operations with our intuitive Point of Sale.',
-    seoHeading: 'High-Speed Restaurant POS System for Effortless Billing',
-    longDesc: 'Eliminate bottlenecks at the checkout counter with our lightning-fast, intuitive Point of Sale software. Designed to handle intense dinner rushes, our Smart POS seamlessly manages split checks, varying tax structures, and multi-tender payments without breaking a sweat. Fully cloud-based, it ensures your data is instantly backed up across your entire network.',
-    benefits: ['Zero-lag order processing', 'Offline mode support for uninterrupted service', 'Hardware-agnostic (works on tablets, desktops)', 'Automated tax calculations']
+  {
+    ...smartPosCore,
+    icon: <MdComputer />,
+    color: 'bg-blue-50 text-blue-500',
+    longDesc:
+      'Eliminate bottlenecks at the checkout counter with our lightning-fast, intuitive Point of Sale software. Designed to handle intense dinner rushes, our Smart POS seamlessly manages split checks, varying tax structures, and multi-tender payments without breaking a sweat. Fully cloud-based, it ensures your data is instantly backed up across your entire network.',
+    benefits: [
+      'Zero-lag order processing',
+      'Offline mode support for uninterrupted service',
+      'Hardware-agnostic (works on tablets, desktops)',
+      'Automated tax calculations',
+    ],
   },
   { 
     title: 'Dynamic Dashboard', 

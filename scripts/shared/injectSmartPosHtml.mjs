@@ -1,15 +1,4 @@
-import { readFileSync } from 'node:fs'
-import { dirname, join } from 'node:path'
-import { fileURLToPath } from 'node:url'
-
-const __dirname = dirname(fileURLToPath(import.meta.url))
-const projectRoot = join(__dirname, '..', '..')
-
-export function readSmartPosSeo() {
-  return JSON.parse(
-    readFileSync(join(projectRoot, 'src/data/smartPosStaticSeo.json'), 'utf8')
-  )
-}
+import { getSmartPosStaticHead } from '../../src/data/smartPosSeo.js'
 
 function escapeAttr(text) {
   return text.replace(/&/g, '&amp;').replace(/"/g, '&quot;')
@@ -17,8 +6,7 @@ function escapeAttr(text) {
 
 /** Mutates index.html string to Smart POS head tags (same output as production prerender). */
 export function injectSmartPosMeta(html) {
-  const seo = readSmartPosSeo()
-  const site = 'https://savoryops.com'
+  const seo = getSmartPosStaticHead()
 
   let out = html.replace(/<title>[^<]*<\/title>/, `<title>${escapeAttr(seo.documentTitle)}</title>`)
 
@@ -44,7 +32,7 @@ export function injectSmartPosMeta(html) {
 
   out = out.replace(
     /<meta property="og:url" content="[^"]*" \/>/,
-    `<meta property="og:url" content="${escapeAttr(site + seo.path)}" />`
+    `<meta property="og:url" content="${escapeAttr(seo.ogUrl)}" />`
   )
 
   out = out.replace(
