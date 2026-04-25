@@ -18,6 +18,44 @@ import setupFlow12 from '../assets/Setup Flow/12.png';
 import setupFlow13 from '../assets/Setup Flow/13.png';
 import setupFlow14 from '../assets/Setup Flow/14.png';
 import setupFlow15 from '../assets/Setup Flow/15.png';
+import subscriptionScreenshot17 from '../assets/Subscription/Screenshot_17.png';
+import subscriptionScreenshot18 from '../assets/Subscription/Screenshot_18.png';
+import subscriptionScreenshot16 from '../assets/Subscription/Screenshot_16.png';
+import subscriptionScreenshot19 from '../assets/Subscription/Screenshot_19.png';
+import subscriptionScreenshot1 from '../assets/Subscription/Screenshot_1.png';
+import subscriptionScreenshot2 from '../assets/Subscription/Screenshot_2.png';
+import subscriptionScreenshot3 from '../assets/Subscription/Screenshot_3.png';
+import subscriptionScreenshot5 from '../assets/Subscription/Screenshot_5.png';
+import subscriptionScreenshot6 from '../assets/Subscription/Screenshot_6.png';
+import subscriptionScreenshot7 from '../assets/Subscription/Screenshot_7.png';
+import subscriptionScreenshot8 from '../assets/Subscription/Screenshot_8.png';
+import subscriptionScreenshot9 from '../assets/Subscription/Screenshot_9.png';
+import subscriptionScreenshot10 from '../assets/Subscription/Screenshot_10.png';
+import subscriptionScreenshot11 from '../assets/Subscription/Screenshot_11.png';
+import subscriptionScreenshot12 from '../assets/Subscription/Screenshot_12.png';
+import onboardingScreenshot1 from '../assets/Onboarding/Screenshot_1.png';
+import onboardingScreenshot2 from '../assets/Onboarding/Screenshot_2.png';
+import onboardingScreenshot3 from '../assets/Onboarding/Screenshot_3.png';
+import onboardingScreenshot4 from '../assets/Onboarding/Screenshot_4.png';
+import superAdminScreenshot1 from '../assets/Super Admin/Screenshot_1.png';
+import superAdminScreenshot2 from '../assets/Super Admin/Screenshot_2.png';
+import superAdminScreenshot3 from '../assets/Super Admin/Screenshot_3.png';
+import superAdminScreenshot4 from '../assets/Super Admin/Screenshot_4.png';
+import superAdminScreenshot5 from '../assets/Super Admin/Screenshot_5.png';
+import superAdminScreenshot6 from '../assets/Super Admin/Screenshot_6.png';
+import superAdminScreenshot7 from '../assets/Super Admin/Screenshot_7.png';
+import superAdminScreenshot8 from '../assets/Super Admin/Screenshot_8.png';
+import superAdminScreenshot9 from '../assets/Super Admin/Screenshot_9.png';
+import superAdminScreenshot10 from '../assets/Super Admin/Screenshot_10.png';
+import superAdminScreenshot12 from '../assets/Super Admin/Screenshot_12.png';
+import superAdminScreenshot13 from '../assets/Super Admin/Screenshot_13.png';
+import superAdminScreenshot14 from '../assets/Super Admin/Screenshot_14.png';
+import superAdminScreenshot15 from '../assets/Super Admin/Screenshot_15.png';
+import superAdminScreenshot16 from '../assets/Super Admin/Screenshot_16.png';
+import superAdminScreenshot17 from '../assets/Super Admin/Screenshot_17.png';
+import superAdminScreenshot18 from '../assets/Super Admin/Screenshot_18.png';
+import superAdminScreenshot19 from '../assets/Super Admin/Screenshot_19.png';
+import superAdminScreenshot20 from '../assets/Super Admin/Screenshot_20.png';
 
 const tableOfContents = [
   {
@@ -28,9 +66,9 @@ const tableOfContents = [
       'Step 2: AWS IAM & Security',
       'Step 3: SSL & Domain (Route 53 + ACM)',
       'Step 4: Frontend Deployment (S3 + CloudFront)',
-      'Step 5: Backend Setup (EC2 + Nginx + PM2)',
-      'Step 6: Final Verification',
-      'Step 7: AWS SNS OTP Configuration'
+      'Step 5: AWS SNS OTP Configuration',
+      'Step 6: Backend Server Setup (EC2 + Node.js + Nginx)',
+      'Step 7: Final Verification'
     ]
   },
   { id: 'intro', title: '1. Introduction' },
@@ -435,7 +473,43 @@ export default function Documents() {
                       ]
                     },
                     {
-                      title: 'Step 5: Backend Server Setup (EC2, Node.js, Nginx)',
+                      title: 'Step 5: AWS SNS OTP Configuration',
+                      points: [
+                        {
+                          text: 'Move out of SMS Sandbox:',
+                          children: [
+                            'Open AWS Support Center and request SNS SMS production access.',
+                            'Provide OTP use case, app URL, opt-in process, and sample OTP template.',
+                            'Request required spend threshold for expected monthly OTP traffic.'
+                          ]
+                        },
+                        {
+                          text: 'Configure SMS Preferences:',
+                          children: [
+                            'SNS Console > Text messaging (SMS) > Edit.',
+                            'Set default type to Transactional.',
+                            'Set account spend limit as approved.'
+                          ]
+                        },
+                        {
+                          text: 'Country Compliance:',
+                          children: [
+                            'India: complete DLT registration and provide Entity ID/Template ID.',
+                            'USA: configure 10DLC or Toll-Free route where required.'
+                          ]
+                        },
+                        'Backend integration: Ensure SNS publish request sets `AWS.SNS.SMS.MessageType` to `Transactional` for OTP delivery.'
+                      ],
+                      figures: [
+                        {
+                          src: setupFlow15,
+                          alt: 'AWS SNS SMS OTP configuration reference',
+                          caption: 'Reference: SNS — SMS sandbox, transactional OTP, and regional compliance'
+                        }
+                      ]
+                    },
+                    {
+                      title: 'Step 6: Backend Server Setup (EC2, Node.js, Nginx)',
                       points: [
                         'Connect to EC2: `ssh -i "your-key.pem" ubuntu@your-ec2-ip`.',
                         {
@@ -473,47 +547,11 @@ export default function Documents() {
                       ]
                     },
                     {
-                      title: 'Step 6: Final Verification',
+                      title: 'Step 7: Final Verification',
                       points: [
                         'Verify frontend domains load over HTTPS and show login screens correctly.',
                         'Verify backend health URL (example: `/health`) returns success.',
                         'Verify image upload and core APIs from Owner/Super Admin panels.'
-                      ]
-                    },
-                    {
-                      title: 'Step 7: AWS SNS OTP Configuration',
-                      points: [
-                        {
-                          text: 'Move out of SMS Sandbox:',
-                          children: [
-                            'Open AWS Support Center and request SNS SMS production access.',
-                            'Provide OTP use case, app URL, opt-in process, and sample OTP template.',
-                            'Request required spend threshold for expected monthly OTP traffic.'
-                          ]
-                        },
-                        {
-                          text: 'Configure SMS Preferences:',
-                          children: [
-                            'SNS Console > Text messaging (SMS) > Edit.',
-                            'Set default type to Transactional.',
-                            'Set account spend limit as approved.'
-                          ]
-                        },
-                        {
-                          text: 'Country Compliance:',
-                          children: [
-                            'India: complete DLT registration and provide Entity ID/Template ID.',
-                            'USA: configure 10DLC or Toll-Free route where required.'
-                          ]
-                        },
-                        'Backend integration: Ensure SNS publish request sets `AWS.SNS.SMS.MessageType` to `Transactional` for OTP delivery.'
-                      ],
-                      figures: [
-                        {
-                          src: setupFlow15,
-                          alt: 'AWS SNS SMS OTP configuration reference',
-                          caption: 'Reference: SNS — SMS sandbox, transactional OTP, and regional compliance'
-                        }
                       ]
                     }
                   ]}
@@ -548,7 +586,20 @@ export default function Documents() {
                             'Super Admin can toggle between Unlimited or Limited access.',
                             'If Limited, the Owner is restricted in creating businesses, branches, employees, and items.'
                           ]
-                        },
+                        }
+                      ],
+                      figures: [
+                        {
+                          src: subscriptionScreenshot17,
+                          alt: 'Subscription plan creation screen showing plan type and access settings',
+                          caption: 'Reference: Super Admin — Add Plan form (plan type, duration, and access limits)'
+                        }
+                      ]
+                    },
+                    {
+                      continuation: true,
+                      stepKey: 'subscription-plan-hierarchy-rest',
+                      points: [
                         {
                           text: 'Lifetime Limited Plan:',
                           children: [
@@ -556,7 +607,20 @@ export default function Documents() {
                             'Non-purchasable: It is automatically applied by the system logic.',
                             'Fixed Constraints: Super Admin cannot grant Unlimited access or set a duration for this tier.'
                           ]
-                        },
+                        }
+                      ],
+                      figures: [
+                        {
+                          src: subscriptionScreenshot18,
+                          alt: 'Subscription plan creation screen with Lifetime limited plan type selected',
+                          caption: 'Reference: Super Admin — Add Plan form for Lifetime Limited configuration'
+                        }
+                      ]
+                    },
+                    {
+                      continuation: true,
+                      stepKey: 'subscription-plan-hierarchy-paid',
+                      points: [
                         {
                           text: 'Paid Plan:',
                           children: [
@@ -565,38 +629,181 @@ export default function Documents() {
                             'Grants full access to advanced SaaS features based on the Super Admin configuration.'
                           ]
                         }
+                      ],
+                      figures: [
+                        {
+                          src: subscriptionScreenshot16,
+                          alt: 'Subscription plan creation screen with Paid plan options including duration, price, tax, and discount',
+                          caption: 'Reference: Super Admin — Add Plan form for Paid plan configuration'
+                        }
                       ]
                     },
                     {
                       title: '2. Owner-Side Subscription Journey',
                       points: [
-                        'Automated Onboarding: Owners sign up via the Landing Page with OTP verification to prevent dummy account creation.',
-                        'Seamless Upgrades: Owners access the Subscription Page via their profile dropdown to view current plan status and history.',
-                        'Integrated Payments: The upgrade flow redirects to a plan selection page powered by Razorpay for secure, real-time transactions.',
-                        'Self-Service Management: Owners can upgrade, downgrade, or cancel their plans directly through their dashboard.',
+                        'Automated Onboarding: Owners sign up via the Landing Page with OTP verification to prevent dummy account creation.'
+                      ],
+                      figures: [
+                        {
+                          src: subscriptionScreenshot19,
+                          alt: 'Owner signup screen with user details and phone verification flow',
+                          caption: 'Reference: Owner onboarding signup form used before subscription journey'
+                        }
+                      ]
+                    },
+                    {
+                      continuation: true,
+                      stepKey: 'owner-subscription-journey-rest',
+                      points: [
+                        'Seamless Upgrades: Owners access the Subscription Page via their profile dropdown to view current plan status and history.'
+                      ],
+                      figures: [
+                        {
+                          src: subscriptionScreenshot1,
+                          alt: 'Owner subscription page showing current plan details and upgrade option',
+                          caption: 'Reference: Owner panel subscription page for plan status, history, and upgrades'
+                        }
+                      ]
+                    },
+                    {
+                      continuation: true,
+                      stepKey: 'owner-subscription-journey-rest-2',
+                      points: [
+                        'Integrated Payments: The upgrade flow redirects to a plan selection page powered by Razorpay for secure, real-time transactions.'
+                      ],
+                      figures: [
+                        {
+                          src: subscriptionScreenshot2,
+                          alt: 'Owner purchase plan page with Razorpay payment method and pricing summary',
+                          caption: 'Reference: Owner upgrade flow with Razorpay plan selection and checkout details'
+                        }
+                      ]
+                    },
+                    {
+                      continuation: true,
+                      stepKey: 'owner-subscription-journey-rest-3',
+                      points: [
+                        'Self-Service Management: Owners can upgrade, downgrade, or cancel their plans directly through their dashboard.'
+                      ],
+                      figures: [
+                        {
+                          src: subscriptionScreenshot3,
+                          alt: 'Owner subscription dashboard with upgrade and cancel plan actions',
+                          caption: 'Reference: Owner subscription management view for upgrading and canceling plans'
+                        }
+                      ]
+                    },
+                    {
+                      continuation: true,
+                      stepKey: 'owner-subscription-journey-rest-4',
+                      points: [
                         'Timezone Synchronization: Plan expiration and renewals are calculated based on the Super Admin global timezone settings to maintain consistency.'
                       ]
                     },
                     {
                       title: '3. Super Admin Oversight & Analytics',
                       points: [
-                        'Revenue Dashboard: A centralized hub displaying Total Earning, Tax Amount, and Net Revenue through intuitive monthly graphs.',
-                        'Subscription Logs: A master Subscription History page allows the Admin to track every transaction across the entire platform.',
+                        'Revenue Dashboard: A centralized hub displaying Total Earning, Tax Amount, and Net Revenue through intuitive monthly graphs.'
+                      ],
+                      figures: [
+                        {
+                          src: subscriptionScreenshot5,
+                          alt: 'Super Admin dashboard showing total earning, revenue cards, and monthly revenue graph',
+                          caption: 'Reference: Super Admin revenue dashboard with earnings metrics and monthly graph'
+                        }
+                      ]
+                    },
+                    {
+                      continuation: true,
+                      stepKey: 'super-admin-oversight-rest',
+                      points: [
+                        'Subscription Logs: A master Subscription History page allows the Admin to track every transaction across the entire platform.'
+                      ],
+                      figures: [
+                        {
+                          src: subscriptionScreenshot6,
+                          alt: 'Super Admin subscription history table showing plans, durations, taxes, and status',
+                          caption: 'Reference: Super Admin subscription logs with full transaction history'
+                        }
+                      ]
+                    },
+                    {
+                      continuation: true,
+                      stepKey: 'super-admin-oversight-rest-2',
+                      points: [
                         {
                           text: 'Tax & Currency Control: The Admin defines global tax rates used during plan creation.',
                           children: [
                             'Multiple currencies are supported to enable Owners to manage branches across different global regions.'
                           ]
+                        }
+                      ],
+                      figures: [
+                        {
+                          src: subscriptionScreenshot8,
+                          alt: 'Currency configuration table with country, symbol, and position settings',
+                          caption: 'Reference: Super Admin currency management used during subscription configuration'
                         },
+                        {
+                          src: subscriptionScreenshot7,
+                          alt: 'Tax configuration table with tax names, type, and percentage rates',
+                          caption: 'Reference: Super Admin tax management with configured global tax rates'
+                        }
+                      ]
+                    },
+                    {
+                      continuation: true,
+                      stepKey: 'super-admin-oversight-rest-3',
+                      points: [
                         'Fiscal Year Automation: The system tracks earnings by fiscal year and automatically provisions the next fiscal year to ensure uninterrupted reporting.'
+                      ],
+                      figures: [
+                        {
+                          src: subscriptionScreenshot9,
+                          alt: 'Fiscal year settings table showing active and expired fiscal years',
+                          caption: 'Reference: Super Admin fiscal year configuration and automatic yearly rollover'
+                        }
                       ]
                     },
                     {
                       title: '4. Plan-Based Access Gating',
                       points: [
-                        'Dynamic Enforcement: The system actively checks Owner plan status to enable or disable Add/Edit actions for Businesses, Branches, and Employees.',
-                        'Global Setting Reflection: Any change made by the Super Admin to software name, logos, or theme colors reflects instantly across the Landing Page, Super Admin Panel, and Owner Panels without code changes.',
+                        'Dynamic Enforcement: The system actively checks Owner plan status to enable or disable Add/Edit actions for Businesses, Branches, and Employees.'
+                      ],
+                      figures: [
+                        {
+                          src: subscriptionScreenshot10,
+                          alt: 'Owner subscription details showing plan status and resource limits enforcement',
+                          caption: 'Reference: Owner plan limits view used for feature access enforcement'
+                        }
+                      ]
+                    },
+                    {
+                      continuation: true,
+                      stepKey: 'plan-based-access-gating-rest',
+                      points: [
+                        'Global Setting Reflection: Any change made by the Super Admin to software name, logos, or theme colors reflects instantly across the Landing Page, Super Admin Panel, and Owner Panels without code changes.'
+                      ],
+                      figures: [
+                        {
+                          src: subscriptionScreenshot11,
+                          alt: 'Theme settings screen showing logo and color configuration',
+                          caption: 'Reference: Global theme and branding settings reflected across all panels'
+                        }
+                      ]
+                    },
+                    {
+                      continuation: true,
+                      stepKey: 'plan-based-access-gating-rest-2',
+                      points: [
                         'Operational Transparency: Owners can export Orders, Revenue, and Table Reservations into PDF format for offline accounting and audits.'
+                      ],
+                      figures: [
+                        {
+                          src: subscriptionScreenshot12,
+                          alt: 'Orders page with export PDF action for offline accounting',
+                          caption: 'Reference: Operational reporting export view for orders and audit workflows'
+                        }
                       ]
                     }
                   ]}
@@ -610,15 +817,59 @@ export default function Documents() {
                       title: '1. Owner Onboarding: The "Tenant" Setup',
                       intro: 'The owner onboarding is the most critical process as it triggers the automated provisioning of the SaaS infrastructure.',
                       points: [
-                        'Registration & Data Entry: The owner visits the main landing page and enters their personal profile (Name, Email, Phone, Gender, and Password).',
-                        'Security Verification: To prevent bot accounts, a mandatory OTP is sent to the owner mobile number.',
+                        'Registration & Data Entry: The owner visits the main landing page and enters their personal profile (Name, Email, Phone, Gender, and Password).'
+                      ],
+                      figures: [
+                        {
+                          src: onboardingScreenshot1,
+                          alt: 'Owner signup form with personal details fields and onboarding steps',
+                          caption: 'Reference: Owner registration form for onboarding and profile setup'
+                        }
+                      ]
+                    },
+                    {
+                      continuation: true,
+                      stepKey: 'owner-onboarding-tenant-setup-rest',
+                      points: [
+                        'Security Verification: To prevent bot accounts, a mandatory OTP is sent to the owner mobile number.'
+                      ],
+                      figures: [
+                        {
+                          src: onboardingScreenshot2,
+                          alt: 'Owner OTP verification screen during onboarding flow',
+                          caption: 'Reference: Owner mobile OTP verification step in signup onboarding'
+                        }
+                      ]
+                    },
+                    {
+                      continuation: true,
+                      stepKey: 'owner-onboarding-tenant-setup-rest-2',
+                      points: [
                         {
                           text: 'Automated Provisioning: Upon successful OTP verification, the system executes two background tasks:',
                           children: [
                             'Database Isolation: A separate, dedicated database is created for the owner to ensure data security.',
                             "Subdomain Generation: A professional subdomain is generated using the owner name (e.g., marcus.savoryops.net)."
                           ]
+                        }
+                      ],
+                      figures: [
+                        {
+                          src: onboardingScreenshot3,
+                          alt: 'Owner dashboard after onboarding showing provisioned tenant environment',
+                          caption: 'Reference: Provisioned owner workspace after successful onboarding'
                         },
+                        {
+                          src: onboardingScreenshot4,
+                          alt: 'MongoDB tenant records showing isolated owner database and subdomain metadata',
+                          caption: 'Reference: Database isolation and subdomain mapping created during provisioning'
+                        }
+                      ]
+                    },
+                    {
+                      continuation: true,
+                      stepKey: 'owner-onboarding-tenant-setup-rest-3',
+                      points: [
                         'Access Activation: The owner is automatically assigned the Free Plan or Lifetime Limited plan (depending on admin settings) to begin setting up their restaurants and branches.'
                       ]
                     },
@@ -867,8 +1118,34 @@ export default function Documents() {
                       title: '1. Global Software Configuration (The "No-Code" Interface)',
                       intro: 'The Super Admin can completely rebrand the platform across all panels (Super Admin, Owner, and Landing Page) through these settings:',
                       points: [
-                        'General Settings: Manage the Software Identity (Name, Address, Email, Version, Copyright).',
-                        'Theme Settings: Control the visual aesthetics by uploading light/dark logos, favicons, and setting Primary and Secondary theme colors.',
+                        'General Settings: Manage the Software Identity (Name, Address, Email, Version, Copyright).'
+                      ],
+                      figures: [
+                        {
+                          src: superAdminScreenshot1,
+                          alt: 'Super Admin general settings form for software identity details',
+                          caption: 'Reference: Super Admin general settings for platform identity and contact details'
+                        }
+                      ]
+                    },
+                    {
+                      continuation: true,
+                      stepKey: 'super-admin-global-config-rest',
+                      points: [
+                        'Theme Settings: Control the visual aesthetics by uploading light/dark logos, favicons, and setting Primary and Secondary theme colors.'
+                      ],
+                      figures: [
+                        {
+                          src: superAdminScreenshot2,
+                          alt: 'Super Admin theme settings with logos, favicon, and primary/secondary colors',
+                          caption: 'Reference: Super Admin theme configuration for platform-wide branding'
+                        }
+                      ]
+                    },
+                    {
+                      continuation: true,
+                      stepKey: 'super-admin-global-config-rest-2',
+                      points: [
                         {
                           text: 'Misc Settings:',
                           children: [
@@ -876,8 +1153,28 @@ export default function Documents() {
                             'Default Language: Choose the primary language for the landing page and initial user sessions.',
                             'Currency: Select the default currency for platform-wide plans and billing.'
                           ]
-                        },
+                        }
+                      ],
+                      figures: [
+                        {
+                          src: superAdminScreenshot3,
+                          alt: 'Super Admin misc settings for timezone, date format, language, and currency',
+                          caption: 'Reference: Super Admin miscellaneous global configuration settings'
+                        }
+                      ]
+                    },
+                    {
+                      continuation: true,
+                      stepKey: 'super-admin-global-config-rest-3',
+                      points: [
                         'Social Media Settings: Update links (Facebook, LinkedIn, WhatsApp, etc.) that automatically populate the landing page footer.'
+                      ],
+                      figures: [
+                        {
+                          src: superAdminScreenshot4,
+                          alt: 'Super Admin social media settings with platform URL mappings',
+                          caption: 'Reference: Social media link configuration reflected on landing page footer'
+                        }
                       ]
                     },
                     {
@@ -890,37 +1187,174 @@ export default function Documents() {
                             'Set Access Types (Unlimited vs. Limited) to restrict how many branches or employees an owner can add.',
                             'Define Durations (Monthly/Yearly) and Discounts.'
                           ]
+                        }
+                      ],
+                      figures: [
+                        {
+                          src: superAdminScreenshot5,
+                          alt: 'Super Admin plan list with free, limited, and paid subscription plans',
+                          caption: 'Reference: Plan creation and management table in Super Admin subscription module'
                         },
-                        'Tax Management: Create global tax profiles (e.g., VAT 10%) that can be attached to specific plans.',
-                        'Currency Management: Add multiple international currencies to support owners operating in different global regions.',
+                        {
+                          src: superAdminScreenshot6,
+                          alt: 'Super Admin add plan form with plan type, duration, price, tax, and limits',
+                          caption: 'Reference: Plan creation form used to configure new subscription plans'
+                        }
+                      ]
+                    },
+                    {
+                      continuation: true,
+                      stepKey: 'super-admin-revenue-subscription-rest',
+                      points: [
+                        'Tax Management: Create global tax profiles (e.g., VAT 10%) that can be attached to specific plans.'
+                      ],
+                      figures: [
+                        {
+                          src: superAdminScreenshot7,
+                          alt: 'Super Admin tax management list with tax names, type, and rates',
+                          caption: 'Reference: Global tax profile setup for attaching taxes to subscription plans'
+                        }
+                      ]
+                    },
+                    {
+                      continuation: true,
+                      stepKey: 'super-admin-revenue-subscription-rest-2',
+                      points: [
+                        'Currency Management: Add multiple international currencies to support owners operating in different global regions.'
+                      ],
+                      figures: [
+                        {
+                          src: superAdminScreenshot8,
+                          alt: 'Super Admin currency management table with country, symbol, and position',
+                          caption: 'Reference: International currency setup for multi-region owner billing support'
+                        }
+                      ]
+                    },
+                    {
+                      continuation: true,
+                      stepKey: 'super-admin-revenue-subscription-rest-3',
+                      points: [
                         'Fiscal Year Tracking: Manage financial years to organize earning reports. The system automatically provisions the next fiscal year upon completion of the current one.'
+                      ],
+                      figures: [
+                        {
+                          src: superAdminScreenshot9,
+                          alt: 'Super Admin fiscal year list showing active and expired financial years',
+                          caption: 'Reference: Fiscal year tracking and rollover management in Super Admin settings'
+                        }
                       ]
                     },
                     {
                       title: '3. Centralized Monitoring (Dashboard & Analytics)',
                       intro: 'The Super Admin sees a high-level overview of the entire business health:',
                       points: [
-                        'Financial Insights: Real-time graphs for Total Revenue, Tax Collected, and Net Earnings.',
-                        'Subscription History: A master ledger of all purchases made by every owner across the platform.',
-                        'Tenant Insights: Comprehensive lists of every Owner, Employee, and Customer registered on the system.',
+                        'Financial Insights: Real-time graphs for Total Revenue, Tax Collected, and Net Earnings.'
+                      ],
+                      figures: [
                         {
-                          text: 'Operational Oversight: A bird-eye view of all Businesses and Branches created by tenants.',
+                          src: superAdminScreenshot10,
+                          alt: 'Super Admin dashboard with revenue cards and monthly performance chart',
+                          caption: 'Reference: Centralized monitoring dashboard with financial insights and trends'
+                        }
+                      ]
+                    },
+                    {
+                      continuation: true,
+                      stepKey: 'super-admin-centralized-monitoring-rest',
+                      points: [
+                        'Subscription History: A master ledger of all purchases made by every owner across the platform.'
+                      ],
+                      figures: [
+                        {
+                          src: superAdminScreenshot12,
+                          alt: 'Super Admin subscription history ledger with owner plans and statuses',
+                          caption: 'Reference: Central subscription history for all owner plan purchases'
+                        }
+                      ]
+                    },
+                    {
+                      continuation: true,
+                      stepKey: 'super-admin-centralized-monitoring-rest-2',
+                      points: [
+                        'Tenant Insights: Comprehensive lists of every Owner, Employee, and Customer registered on the system.'
+                      ],
+                      figures: [
+                        {
+                          src: superAdminScreenshot13,
+                          alt: 'Super Admin owner list showing registered tenant owners',
+                          caption: 'Reference: Tenant insights - Owner directory in Super Admin'
+                        },
+                        {
+                          src: superAdminScreenshot14,
+                          alt: 'Super Admin employee list showing tenant employee records',
+                          caption: 'Reference: Tenant insights - Employee directory in Super Admin'
+                        },
+                        {
+                          src: superAdminScreenshot15,
+                          alt: 'Super Admin customer list showing tenant customer records',
+                          caption: 'Reference: Tenant insights - Customer directory in Super Admin'
+                        }
+                      ]
+                    },
+                    {
+                      continuation: true,
+                      stepKey: 'super-admin-centralized-monitoring-rest-3',
+                      points: [
+                        {
+                          text: 'Operational Oversight: A bird\'s-eye view of all Businesses and Branches created by tenants.',
                           children: [
                             'Note: To ensure tenant privacy, the Super Admin can view these lists but cannot add, edit, or delete the tenant specific data.'
                           ]
+                        }
+                      ],
+                      figures: [
+                        {
+                          src: superAdminScreenshot19,
+                          alt: 'Super Admin business list showing tenant businesses and owner mapping',
+                          caption: 'Reference: Operational oversight - Businesses list in Super Admin'
+                        },
+                        {
+                          src: superAdminScreenshot20,
+                          alt: 'Super Admin branch list showing tenant branches with business and city details',
+                          caption: 'Reference: Operational oversight - Branches list in Super Admin'
                         }
                       ]
                     },
                     {
                       title: '4. Lead & User Management',
                       points: [
-                        'Contact Us (Lead Box): A dedicated area to view requirements and inquiries submitted by potential customers via the landing page.',
+                        'Contact Us (Lead Box): A dedicated area to view requirements and inquiries submitted by potential customers via the landing page.'
+                      ],
+                      figures: [
+                        {
+                          src: superAdminScreenshot16,
+                          alt: 'Super Admin contact us inquiries list from landing page submissions',
+                          caption: 'Reference: Lead inbox in Super Admin for incoming contact requests'
+                        },
+                        {
+                          src: superAdminScreenshot17,
+                          alt: 'Landing page contact us form for submitting customer requirements',
+                          caption: 'Reference: Public contact form that feeds Super Admin lead inbox'
+                        }
+                      ]
+                    },
+                    {
+                      continuation: true,
+                      stepKey: 'super-admin-lead-user-management-rest',
+                      points: [
                         {
                           text: 'Security & Access:',
                           children: [
                             'Profile Management: Update the Super Admin password and profile image.',
                             'Role Oversight: Monitor which roles (Waiter, Chef, etc.) are most active across the platform.'
                           ]
+                        }
+                      ],
+                      figures: [
+                        {
+                          src: superAdminScreenshot18,
+                          alt: 'Super Admin change password screen under profile security settings',
+                          caption: 'Reference: Security and access controls for Super Admin profile management'
                         }
                       ]
                     }
