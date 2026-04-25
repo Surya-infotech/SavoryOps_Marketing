@@ -16,6 +16,7 @@ const navLinks = [
     ]
   },
   { name: 'Roadmap', path: '/upcoming-features' },
+  { name: 'Documents', path: '/documents' },
   { name: 'Contact Us', path: '/contact' },
 ];
 
@@ -33,7 +34,7 @@ export default function Navbar() {
   }, []);
 
   return (
-    <nav className={`fixed w-full top-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white shadow-soft py-2' : 'bg-white/80 backdrop-blur-md py-4'}`}>
+    <nav className={`fixed w-full top-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white/95 backdrop-blur-lg shadow-soft py-2 border-b border-slate-200/80' : 'bg-white/70 backdrop-blur-xl py-4 border-b border-transparent'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-14">
 
@@ -46,7 +47,7 @@ export default function Navbar() {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex md:items-center md:space-x-2">
+          <div className="hidden md:flex md:items-center md:space-x-2 bg-white/85 border border-slate-200 rounded-full px-2.5 py-1 shadow-sm">
             {navLinks.map((link) => (
               link.dropdown ? (
                 <div key={link.name} className="relative group">

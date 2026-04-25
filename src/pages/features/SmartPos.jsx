@@ -1,8 +1,12 @@
-import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
+import ArrowForwardRoundedIcon from '@mui/icons-material/ArrowForwardRounded';
+import ShoppingCartRoundedIcon from '@mui/icons-material/ShoppingCartRounded';
+import CheckRoundedIcon from '@mui/icons-material/CheckRounded';
 import { featuresData } from '../../data/featuresData';
 import { getSmartPosStaticHead } from '../../data/smartPosSeo';
 import FeatureCard from '../../components/FeatureCard';
+import AppButton from '../../components/ui/AppButton';
+import AppIcon from '../../components/ui/AppIcon';
 
 export default function SmartPos() {
   const feature = featuresData.find(f => f.slug === 'smart-pos');
@@ -75,14 +79,22 @@ export default function SmartPos() {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                <a href={import.meta.env.VITE_LANDING_PAGE_DEMO} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-primary-600 hover:bg-primary-700 text-white font-bold text-base shadow-lg shadow-primary-500/20 transition-all hover:-translate-y-0.5 w-full sm:w-auto">
+                <AppButton
+                  href={import.meta.env.VITE_LANDING_PAGE_DEMO}
+                  className="sm:!w-auto !w-full !py-3.5 shadow-lg shadow-primary-500/20"
+                  endIcon={<ArrowForwardRoundedIcon />}
+                >
                   View Demo
-                  <svg className="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path></svg>
-                </a>
-                <a href={import.meta.env.VITE_BUY_NOW} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-transparent hover:bg-slate-50 text-slate-700 font-bold text-base border border-slate-300 shadow-sm transition-all hover:-translate-y-0.5 w-full sm:w-auto">
+                </AppButton>
+                <AppButton
+                  href={import.meta.env.VITE_BUY_NOW}
+                  variant="outlined"
+                  color="secondary"
+                  className="sm:!w-auto !w-full !py-3.5"
+                  endIcon={<ShoppingCartRoundedIcon />}
+                >
                   Buy Now
-                  <svg className="w-5 h-5 flex-shrink-0 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
-                </a>
+                </AppButton>
               </div>
             </div>
 
@@ -130,9 +142,9 @@ export default function SmartPos() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full max-w-4xl mx-auto">
             {feature.benefits.map((benefit, idx) => (
               <div key={idx} className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex items-start gap-4 hover:shadow-md transition-shadow animate-slide-up" style={{ animationDelay: `${idx * 50}ms` }}>
-                <div className={`mt-1 flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-white ${feature.color.split(' ')[0].replace('50', '500')}`}>
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="3"><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7"></path></svg>
-                </div>
+                <AppIcon tone="success" className="!rounded-full !w-8 !h-8 !text-emerald-700 !bg-emerald-100 mt-1 flex-shrink-0">
+                  <CheckRoundedIcon />
+                </AppIcon>
                 <div>
                   <h4 className="font-bold text-slate-900 mb-1 leading-snug">{benefit}</h4>
                   <p className="text-sm text-slate-500">Instantly unlocked the absolute moment you purchase and deploy the SavoryOps ecosystem locally.</p>
@@ -151,10 +163,9 @@ export default function SmartPos() {
               <h2 className="text-primary-500 font-bold tracking-wide uppercase text-sm mb-2">Ecosystem Ecosystem</h2>
               <h3 className="text-3xl font-extrabold text-slate-900 tracking-tight">Explore More Features</h3>
             </div>
-            <Link to="/features" className="inline-flex items-center gap-2 px-6 py-3 bg-slate-50 hover:bg-slate-100 text-slate-700 font-bold rounded-xl transition-colors border border-slate-200">
+            <AppButton to="/features" variant="outlined" color="secondary" endIcon={<ArrowForwardRoundedIcon />}>
               View Directory
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-            </Link>
+            </AppButton>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

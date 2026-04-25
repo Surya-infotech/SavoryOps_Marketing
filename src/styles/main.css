@@ -64,6 +64,33 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+#root {
+  min-height: 100vh;
+}
+
+::selection {
+  background: #bbf7d0;
+  color: #14532d;
+}
+
+/* Shared section panel style for visual consistency */
+.soft-panel {
+  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+  border: 1px solid #e2e8f0;
+  border-radius: 1.5rem;
+  box-shadow: 0 10px 40px -18px rgba(15, 23, 42, 0.2);
+}
+
+.app-icon {
+  width: 2.25rem;
+  height: 2.25rem;
+}
+
+.app-icon svg {
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
 .card-hover {
   transition: all 0.3s ease;
 }

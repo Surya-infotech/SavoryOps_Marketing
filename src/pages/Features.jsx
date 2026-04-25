@@ -1,6 +1,9 @@
 import { Helmet } from 'react-helmet-async';
+import ArrowForwardRoundedIcon from '@mui/icons-material/ArrowForwardRounded';
+import ShoppingCartRoundedIcon from '@mui/icons-material/ShoppingCartRounded';
 import { featuresData } from '../data/featuresData';
 import FeatureCard from '../components/FeatureCard';
+import AppButton from '../components/ui/AppButton';
 
 export default function Features() {
 
@@ -30,14 +33,22 @@ export default function Features() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8 lg:mb-0">
-              <a href={import.meta.env.VITE_LANDING_PAGE_DEMO} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-primary-600 hover:bg-primary-700 text-white font-bold text-base shadow-lg shadow-primary-500/20 transition-all hover:-translate-y-0.5 w-full sm:w-auto">
+              <AppButton
+                href={import.meta.env.VITE_LANDING_PAGE_DEMO}
+                className="sm:!w-auto !w-full !py-3.5 shadow-lg shadow-primary-500/20"
+                endIcon={<ArrowForwardRoundedIcon />}
+              >
                 View Demo
-                <svg className="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path></svg>
-              </a>
-              <a href={import.meta.env.VITE_BUY_NOW} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-transparent hover:bg-slate-50 text-slate-700 font-bold text-base border border-slate-300 shadow-sm transition-all hover:-translate-y-0.5 w-full sm:w-auto">
+              </AppButton>
+              <AppButton
+                href={import.meta.env.VITE_BUY_NOW}
+                variant="outlined"
+                color="secondary"
+                className="sm:!w-auto !w-full !py-3.5"
+                endIcon={<ShoppingCartRoundedIcon />}
+              >
                 Buy Now
-                <svg className="w-5 h-5 flex-shrink-0 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
-              </a>
+              </AppButton>
             </div>
           </div>
 
@@ -86,10 +97,15 @@ export default function Features() {
         <div className="relative z-10 max-w-4xl mx-auto px-4">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-6 tracking-tight">Experience the software yourself.</h2>
           <p className="text-primary-100 text-lg sm:text-xl max-w-2xl mx-auto mb-10">Stop researching and start operating. Click below to view the live comprehensive demo covering all features seamlessly.</p>
-          <a href={import.meta.env.VITE_LANDING_PAGE_DEMO} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-10 py-5 rounded-full bg-white text-primary-600 font-bold text-lg hover:shadow-2xl hover:scale-105 transition-all shadow-lg active:scale-95">
+          <AppButton
+            href={import.meta.env.VITE_LANDING_PAGE_DEMO}
+            variant="contained"
+            color="secondary"
+            className="!bg-white !text-primary-600 hover:!bg-slate-100 !px-8 !py-3.5"
+            endIcon={<ArrowForwardRoundedIcon />}
+          >
             View Interactive Demo
-            <svg className="w-6 h-6 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-          </a>
+          </AppButton>
         </div>
       </div>
     </div>

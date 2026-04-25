@@ -31,6 +31,7 @@ import EmployeeApp from './pages/EmployeeApp'
 import UpcomingFeatures from './pages/UpcomingFeatures'
 import ContactUs from './pages/ContactUs'
 import Faqs from './pages/Faqs'
+import Documents from './pages/Documents'
 
 function SEOHandler() {
   const location = useLocation()
@@ -75,6 +76,7 @@ function App() {
           <Route path="user-app" element={<UserApp />} />
           <Route path="employee-app" element={<EmployeeApp />} />
           <Route path="upcoming-features" element={<UpcomingFeatures />} />
+          <Route path="documents" element={<Documents />} />
           <Route path="contact" element={<ContactUs />} />
           <Route path="faqs" element={<Faqs />} />
           <Route path="*" element={<Navigate to="/" replace />} />

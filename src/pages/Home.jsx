@@ -1,9 +1,12 @@
 import { Link } from 'react-router-dom';
 import { MdRestaurant, MdFastfood, MdTrendingUp, MdNotifications } from 'react-icons/md';
+import ArrowForwardRoundedIcon from '@mui/icons-material/ArrowForwardRounded';
+import ShoppingCartRoundedIcon from '@mui/icons-material/ShoppingCartRounded';
 import logo from '../assets/logo.png';
 import { featuresData } from '../data/featuresData';
 import FeatureCard from '../components/FeatureCard';
 import { faqs } from '../data/faqs';
+import AppButton from '../components/ui/AppButton';
 
 export default function Home() {
   return (
@@ -33,14 +36,24 @@ export default function Home() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-            <a href={import.meta.env.VITE_LANDING_PAGE_DEMO} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-primary-600 hover:bg-primary-700 text-white font-bold text-base shadow-lg shadow-primary-500/20 transition-all hover:-translate-y-0.5 w-full sm:w-auto">
+            <AppButton
+              href={import.meta.env.VITE_LANDING_PAGE_DEMO}
+              fullWidth
+              className="sm:!w-auto !w-full !py-3.5 shadow-lg shadow-primary-500/20"
+              endIcon={<ArrowForwardRoundedIcon />}
+            >
               View Demo
-              <svg className="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path></svg>
-            </a>
-            <a href={import.meta.env.VITE_BUY_NOW} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-transparent hover:bg-slate-50 text-slate-700 font-bold text-base border border-slate-300 shadow-sm transition-all hover:-translate-y-0.5 w-full sm:w-auto">
+            </AppButton>
+            <AppButton
+              href={import.meta.env.VITE_BUY_NOW}
+              variant="outlined"
+              color="secondary"
+              fullWidth
+              className="sm:!w-auto !w-full !py-3.5"
+              endIcon={<ShoppingCartRoundedIcon />}
+            >
               Buy Now
-              <svg className="w-5 h-5 flex-shrink-0 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
-            </a>
+            </AppButton>
           </div>
         </div>
 
@@ -267,11 +280,14 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="text-center animate-slide-up">
-            <a href={import.meta.env.VITE_LANDING_PAGE_DEMO} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-primary-600 hover:bg-primary-700 text-white font-bold text-base shadow-lg shadow-primary-500/20 transition-all hover:-translate-y-0.5 w-full sm:w-auto">
+          <div className="text-center animate-slide-up flex justify-center">
+            <AppButton
+              href={import.meta.env.VITE_LANDING_PAGE_DEMO}
+              className="!py-3.5 shadow-lg shadow-primary-500/20 !w-full sm:!w-auto"
+              endIcon={<ArrowForwardRoundedIcon />}
+            >
               View Demo
-              <svg className="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path></svg>
-            </a>
+            </AppButton>
           </div>
         </div>
       </div>
