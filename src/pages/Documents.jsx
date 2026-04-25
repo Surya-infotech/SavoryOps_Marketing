@@ -56,6 +56,26 @@ import superAdminScreenshot17 from '../assets/Super Admin/Screenshot_17.png';
 import superAdminScreenshot18 from '../assets/Super Admin/Screenshot_18.png';
 import superAdminScreenshot19 from '../assets/Super Admin/Screenshot_19.png';
 import superAdminScreenshot20 from '../assets/Super Admin/Screenshot_20.png';
+import ownerScreenshot1 from '../assets/Owner/Screenshot_1.png';
+import ownerScreenshot2 from '../assets/Owner/Screenshot_2.png';
+import ownerScreenshot3 from '../assets/Owner/Screenshot_3.png';
+import ownerScreenshot4 from '../assets/Owner/Screenshot_4.png';
+import ownerScreenshot5 from '../assets/Owner/Screenshot_5.png';
+import ownerScreenshot6 from '../assets/Owner/Screenshot_6.png';
+import ownerScreenshot7 from '../assets/Owner/Screenshot_7.png';
+import ownerScreenshot8 from '../assets/Owner/Screenshot_8.png';
+import ownerScreenshot9 from '../assets/Owner/Screenshot_9.png';
+import ownerScreenshot10 from '../assets/Owner/Screenshot_10.png';
+import ownerScreenshot11 from '../assets/Owner/Screenshot_11.png';
+import ownerScreenshot12 from '../assets/Owner/Screenshot_12.png';
+import ownerScreenshot13 from '../assets/Owner/Screenshot_13.png';
+import ownerScreenshot14 from '../assets/Owner/Screenshot_14.png';
+import ownerScreenshot15 from '../assets/Owner/Screenshot_15.png';
+import ownerScreenshot16 from '../assets/Owner/Screenshot_16.png';
+import ownerScreenshot19 from '../assets/Owner/Screenshot_19.png';
+import ownerScreenshot20 from '../assets/Owner/Screenshot_20.png';
+import ownerScreenshot21 from '../assets/Owner/Screenshot_21.png';
+import ownerScreenshot22 from '../assets/Owner/Screenshot_22.png';
 
 const tableOfContents = [
   {
@@ -1369,16 +1389,42 @@ export default function Documents() {
                     {
                       title: '1. Tenant Infrastructure & Identity',
                       points: [
-                        'Isolated Ecosystem: Upon registration, the owner is granted a unique database and a custom subdomain (e.g., surajdholakiya.savoryops.net).',
-                        'Professional Branding: Owners can manage multiple Businesses (Restaurant Brands) and multiple Branches under a single account, depending on their subscription plan.',
+                        'Isolated Ecosystem: Upon registration, the owner is granted a unique database and a custom subdomain (e.g., marcussterling.savoryops.net).',
+                        'Professional Branding: Owners can manage multiple Businesses (Restaurant Brands) and multiple Branches under a single account, depending on their subscription plan.'
+                      ]
+                    },
+                    {
+                      continuation: true,
+                      stepKey: 'owner-tenant-infra-identity-fiscal',
+                      points: [
                         'Fiscal Management: Owners set their own Fiscal Year. If a year ends, the system automatically generates the next one to ensure continuous revenue tracking.'
+                      ],
+                      figures: [
+                        {
+                          src: ownerScreenshot22,
+                          alt: 'Owner fiscal year settings list showing active and expired fiscal periods',
+                          caption: 'Reference: Fiscal management with automatic year progression for revenue tracking'
+                        }
                       ]
                     },
                     {
                       title: '2. Restaurant & Branch Operations',
                       intro: 'The owner has granular control over the physical and digital setup of their restaurants:',
                       points: [
-                        'Business Profile: Add business names, emails, social media links, and gallery images.',
+                        'Business Profile: Add business names, emails, social media links, and gallery images.'
+                      ],
+                      figures: [
+                        {
+                          src: ownerScreenshot1,
+                          alt: 'Owner add business form with name, email, social links, and gallery image upload',
+                          caption: 'Reference: Owner business profile setup with contact and social media details'
+                        }
+                      ]
+                    },
+                    {
+                      continuation: true,
+                      stepKey: 'owner-restaurant-branch-operations-rest',
+                      points: [
                         {
                           text: 'Branch Management:',
                           children: [
@@ -1386,7 +1432,25 @@ export default function Documents() {
                             'Toggle the Table Reservation feature on or off per branch.',
                             'Define Branch Hours which are then visible to customers on the User App.'
                           ]
+                        }
+                      ],
+                      figures: [
+                        {
+                          src: ownerScreenshot2,
+                          alt: 'Owner add branch form with order type, reservation toggle, and tax/currency fields',
+                          caption: 'Reference: Branch management setup with branch details and operational configuration'
                         },
+                        {
+                          src: ownerScreenshot3,
+                          alt: 'Owner branch overview showing branch hours and weekly schedule configuration',
+                          caption: 'Reference: Branch hours management visible to customers in the User App'
+                        }
+                      ]
+                    },
+                    {
+                      continuation: true,
+                      stepKey: 'owner-restaurant-branch-operations-rest-2',
+                      points: [
                         {
                           text: 'Physical Layout:',
                           children: [
@@ -1394,21 +1458,89 @@ export default function Documents() {
                             'Tables: Add tables with seating capacities and generate unique QR codes for each table to enable digital ordering.'
                           ]
                         }
+                      ],
+                      figures: [
+                        {
+                          src: ownerScreenshot4,
+                          alt: 'Owner areas management list with configurable seating zones',
+                          caption: 'Reference: Physical layout area configuration for branch zoning'
+                        },
+                        {
+                          src: ownerScreenshot5,
+                          alt: 'Owner tables management list with seating capacity and branch mapping',
+                          caption: 'Reference: Table setup with capacities and QR-enabled ordering structure'
+                        }
                       ]
                     },
                     {
                       title: '3. Menu & Inventory Engineering',
                       intro: 'Owners build their digital catalog through a tiered system:',
                       points: [
-                        'Menu & Categories: Organize food by cuisines (Italian, Indian) and categories (Starters, Main Course).',
-                        'Add-on Management: Create customizations like Extra Cheese or Spicy with specific pricing.',
-                        'Itemization: Add items with descriptions, preparation times, and images. Owners can assign different prices for the same item across different branches.',
+                        'Menu & Categories: Organize food by cuisines (Italian, Indian) and categories (Starters, Main Course).'
+                      ],
+                      figures: [
+                        {
+                          src: ownerScreenshot7,
+                          alt: 'Owner menu list showing cuisine menus and status management',
+                          caption: 'Reference: Menu management for organizing food by cuisine'
+                        },
+                        {
+                          src: ownerScreenshot8,
+                          alt: 'Owner item category list showing category grouping and status controls',
+                          caption: 'Reference: Category management for structuring menu sections'
+                        }
+                      ]
+                    },
+                    {
+                      continuation: true,
+                      stepKey: 'owner-menu-inventory-engineering-rest-addons',
+                      points: [
+                        'Add-on Management: Create customizations like Extra Cheese or Spicy with specific pricing.'
+                      ],
+                      figures: [
+                        {
+                          src: ownerScreenshot6,
+                          alt: 'Owner add-ons list with customization names, prices, and status controls',
+                          caption: 'Reference: Add-on management for menu customizations and pricing'
+                        }
+                      ]
+                    },
+                    {
+                      continuation: true,
+                      stepKey: 'owner-menu-inventory-engineering-rest',
+                      points: [
+                        'Itemization: Add items with descriptions, preparation times, and images. Owners can assign different prices for the same item across different branches.'
+                      ],
+                      figures: [
+                        {
+                          src: ownerScreenshot10,
+                          alt: 'Owner item list showing menu items with categories, branches, and status controls',
+                          caption: 'Reference: Itemization management for branch-wise menu item configuration'
+                        }
+                      ]
+                    },
+                    {
+                      continuation: true,
+                      stepKey: 'owner-menu-inventory-engineering-rest-deals',
+                      points: [
                         {
                           text: 'Deals & Bundles:',
                           children: [
                             'Combo Meals: Group multiple items together.',
                             'Unlimited Meals: Set Session-based meals (Breakfast/Lunch) with specific availability (Always, Custom Date, or Weekly).'
                           ]
+                        }
+                      ],
+                      figures: [
+                        {
+                          src: ownerScreenshot9,
+                          alt: 'Owner deals and bundles list with combo and unlimited meal configurations',
+                          caption: 'Reference: Deals and bundles management for combo and unlimited meals'
+                        },
+                        {
+                          src: ownerScreenshot11,
+                          alt: 'Owner add deals and bundles form with combo or unlimited configuration options',
+                          caption: 'Reference: Deals and bundles creation form with availability and item mapping'
                         }
                       ]
                     },
@@ -1418,14 +1550,57 @@ export default function Documents() {
                       points: [
                         'Employee Linking: Owners verify an Employee ID and assign them to a specific Branch and Role (Waiter, Cashier, Host, Chef, or Head Chef).',
                         'Access Control: The system automatically restricts the Employee App features based on the role assigned by the owner.'
+                      ],
+                      figures: [
+                        {
+                          src: ownerScreenshot12,
+                          alt: 'Owner employee management list showing branch assignment, role mapping, and status controls',
+                          caption: 'Reference: Staffing and role delegation management in the Owner panel'
+                        }
                       ]
                     },
                     {
                       title: '5. Analytics & Reporting',
                       intro: 'The Owner Panel provides deep insights into business performance, filterable by Branch and Fiscal Year:',
                       points: [
-                        'Dashboard: Real-time metrics for Order Counts, Tax, Earning, and Revenue. Includes monthly growth graphs and a live view of Currently Running orders.',
-                        'KOT & Order Logs: Complete visibility into the kitchen performance and order history.',
+                        'Dashboard: Real-time metrics for Order Counts, Tax, Earning, and Revenue. Includes monthly growth graphs and a live view of Currently Running orders.'
+                      ],
+                      figures: [
+                        {
+                          src: ownerScreenshot13,
+                          alt: 'Owner dashboard showing live business metrics, monthly revenue graph, and running order details',
+                          caption: 'Reference: Analytics dashboard with real-time KPIs and order visibility'
+                        }
+                      ]
+                    },
+                    {
+                      continuation: true,
+                      stepKey: 'owner-analytics-reporting-rest',
+                      points: [
+                        'KOT & Order Logs: Complete visibility into the kitchen performance and order history.'
+                      ],
+                      figures: [
+                        {
+                          src: ownerScreenshot14,
+                          alt: 'Owner KOT view displaying live kitchen tickets and order status progression',
+                          caption: 'Reference: KOT and order log monitoring for kitchen operations'
+                        },
+                        {
+                          src: ownerScreenshot15,
+                          alt: 'Owner order logs table showing order lifecycle, payment status, and assigned employee',
+                          caption: 'Reference: Order log visibility with status tracking and payment details'
+                        },
+                        {
+                          src: ownerScreenshot16,
+                          alt: 'Owner order details view with KOT line items, status badges, and payment summary',
+                          caption: 'Reference: Detailed order log record with KOT and billing breakdown'
+                        }
+                      ]
+                    },
+                    {
+                      continuation: true,
+                      stepKey: 'owner-analytics-reporting-rest-reports',
+                      points: [
                         {
                           text: 'Comprehensive Reports:',
                           children: [
@@ -1440,9 +1615,42 @@ export default function Documents() {
                     {
                       title: '6. Subscription & Settings',
                       points: [
-                        'Subscription Management: View active plan details, upgrade via Razorpay, and access billing history.',
-                        'Localization: Owners can set their own Timezone and Date/Time formats, ensuring the panel reflects their local operational time.',
+                        'Subscription Management: View active plan details, upgrade via Razorpay, and access billing history.'
+                      ],
+                      figures: [
+                        {
+                          src: ownerScreenshot19,
+                          alt: 'Owner subscription purchase page showing active plans, pricing, and Razorpay payment selection',
+                          caption: 'Reference: Subscription management with plan upgrade and billing flow'
+                        }
+                      ]
+                    },
+                    {
+                      continuation: true,
+                      stepKey: 'owner-subscription-settings-rest',
+                      points: [
+                        'Localization: Owners can set their own Timezone and Date/Time formats, ensuring the panel reflects their local operational time.'
+                      ],
+                      figures: [
+                        {
+                          src: ownerScreenshot20,
+                          alt: 'Owner settings page showing timezone, date format, and time format localization options',
+                          caption: 'Reference: Localization settings for timezone and date/time format preferences'
+                        }
+                      ]
+                    },
+                    {
+                      continuation: true,
+                      stepKey: 'owner-subscription-settings-rest-tax',
+                      points: [
                         'Tax Configuration: Define specific tax rules to be applied to orders at the branch level.'
+                      ],
+                      figures: [
+                        {
+                          src: ownerScreenshot21,
+                          alt: 'Owner tax settings list displaying configured tax rules, percentages, and status controls',
+                          caption: 'Reference: Tax configuration management for branch-level order taxation'
+                        }
                       ]
                     }
                   ]}
