@@ -37,6 +37,11 @@ import onboardingScreenshot1 from '../assets/Onboarding/Screenshot_1.png';
 import onboardingScreenshot2 from '../assets/Onboarding/Screenshot_2.png';
 import onboardingScreenshot3 from '../assets/Onboarding/Screenshot_3.png';
 import onboardingScreenshot4 from '../assets/Onboarding/Screenshot_4.png';
+import employeeOnboardingSignUp from '../assets/User & Employee Onboarding/Screenshot_20260426_162613_SavoryOps Employee.jpg';
+import employeeOnboardingProfile from '../assets/User & Employee Onboarding/Screenshot_20260426_162642_SavoryOps Employee.jpg';
+import customerOnboardingSignUp from '../assets/User & Employee Onboarding/Screenshot_20260426_162753_SavoryOps.jpg';
+import customerOnboardingSignIn from '../assets/User & Employee Onboarding/Screenshot_20260426_162821_SavoryOps.jpg';
+import customerOnboardingRestaurantSelect from '../assets/User & Employee Onboarding/Screenshot_20260426_162920_SavoryOps.jpg';
 import superAdminScreenshot1 from '../assets/Super Admin/Screenshot_1.png';
 import superAdminScreenshot2 from '../assets/Super Admin/Screenshot_2.png';
 import superAdminScreenshot3 from '../assets/Super Admin/Screenshot_3.png';
@@ -897,7 +902,20 @@ export default function Documents() {
                       title: '2. Employee Onboarding: Role-Based Integration',
                       intro: 'Employees do not operate as independent entities; they are invited or assigned to a specific business infrastructure.',
                       points: [
-                        'Standard Sign-Up: The employee downloads the Employee App and registers with their personal details (Name, Email, Mobile, and Password).',
+                        'Standard Sign-Up: The employee downloads the Employee App and registers with their personal details (Name, Email, Mobile, and Password).'
+                      ],
+                      figures: [
+                        {
+                          src: employeeOnboardingSignUp,
+                          alt: 'Employee app sign-up screen with name, email, password, and phone fields',
+                          caption: 'Reference: Employee App — standard registration with personal credentials'
+                        }
+                      ]
+                    },
+                    {
+                      continuation: true,
+                      stepKey: 'employee-onboarding-role-based-rest',
+                      points: [
                         'The "Idle" State: Initially, the employee has no access. They see a blank interface until an Owner links their account.',
                         {
                           text: 'Owner Assignment:',
@@ -907,6 +925,14 @@ export default function Documents() {
                           ]
                         },
                         'Permission Sync: Once assigned, the Employee App dynamically updates. The employee can now see Job History and specific functional pages (e.g., Kitchen for Chefs or Order page for Waiters).'
+                      ],
+                      figures: [
+                        {
+                          src: employeeOnboardingProfile,
+                          alt: 'Employee app profile screen showing assigned role, employee ID, and Job History access',
+                          caption:
+                            'Reference: Employee App after assignment — profile, role badge, and enabled features such as Job History'
+                        }
                       ]
                     },
                     {
@@ -920,14 +946,46 @@ export default function Documents() {
                             'Self-Registration: Customers sign up via the User App with Name, Email, Phone, and a secure password (8-14 characters with mixed casing and digits).',
                             'Social/Phone Login: Customers can sign in via Email/Password or a Phone + OTP flow for faster access.'
                           ]
+                        }
+                      ],
+                      figures: [
+                        {
+                          src: customerOnboardingSignUp,
+                          alt: 'User app sign-up screen with name, email, password, and phone fields',
+                          caption: 'Reference: User App — account creation and self-registration flow'
                         },
+                        {
+                          src: customerOnboardingSignIn,
+                          alt: 'User app sign-in screen with email or phone login toggle and password field',
+                          caption: 'Reference: User App — email/password and phone sign-in entry points'
+                        }
+                      ]
+                    },
+                    {
+                      continuation: true,
+                      stepKey: 'customer-onboarding-flexible-rest',
+                      points: [
                         {
                           text: 'In-Branch Onboarding (QR Scan):',
                           children: [
                             'When a customer scans a Table QR Code, the app automatically identifies the branch and table number.',
                             "If a Waiter creates an order for a new customer using their mobile number, the system automatically creates an account for that customer if one doesn't exist."
                           ]
-                        },
+                        }
+                      ],
+                      figures: [
+                        {
+                          src: customerOnboardingRestaurantSelect,
+                          alt: 'User app select restaurant screen with business cards, branches, and QR scanner',
+                          caption:
+                            'Reference: User App — business and branch selection aligned with in-branch and QR-driven onboarding'
+                        }
+                      ]
+                    },
+                    {
+                      continuation: true,
+                      stepKey: 'customer-onboarding-flexible-rest-profile',
+                      points: [
                         'Profile Personalization: Once logged in, customers can set their preferred language (from 8 options) and adjust date/time formats to match their local preference.'
                       ]
                     }
