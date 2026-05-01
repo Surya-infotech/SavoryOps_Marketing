@@ -108,6 +108,31 @@ import ownerScreenshot22 from '../assets/Owner/Screenshot_22.png';
 import ownerScreenshot23 from '../assets/Owner/Screenshot_23.png';
 import ownerScreenshot24 from '../assets/Owner/Screenshot_24.png';
 import ownerScreenshot25 from '../assets/Owner/Screenshot_25.png';
+import userAppScreenshotBusinessBranchExploration from '../assets/User App/Screenshot_20260429_073454_SavoryOps.jpg';
+import userAppScreenshotSmartHeaderFeatures from '../assets/User App/Screenshot_20260429_073539_SavoryOps.jpg';
+import userAppScreenshotDetailedListings from '../assets/User App/Screenshot_20260429_073611_SavoryOps.jpg';
+import userAppScreenshotRichCategories from '../assets/User App/Screenshot_20260429_073657_SavoryOps.jpg';
+import userAppScreenshotItemCustomization from '../assets/User App/Screenshot_20260429_073706_SavoryOps.jpg';
+import userAppScreenshotCartManagement from '../assets/User App/Screenshot_20260429_073723_SavoryOps.jpg';
+import userAppScreenshotFinancialTransparency from '../assets/User App/Screenshot_20260429_073734_SavoryOps.jpg';
+import userAppScreenshotLiveTracking from '../assets/User App/Screenshot_20260429_073800_SavoryOps.jpg';
+import userAppScreenshotDynamicModality from '../assets/User App/Screenshot_20260429_073816_SavoryOps.jpg';
+import userAppScreenshotPostDiningFeatures from '../assets/User App/Screenshot_20260429_073828_SavoryOps.jpg';
+import userAppScreenshotLanguageSupport from '../assets/User App/Screenshot_20260429_073844_SavoryOps.jpg';
+import userAppScreenshotLocalization from '../assets/User App/Screenshot_20260429_073859_SavoryOps.jpg';
+import userAppScreenshotProfileManagement from '../assets/User App/Screenshot_20260429_073910_SavoryOps.jpg';
+import userAppScreenshotTableReservation from '../assets/User App/Screenshot_20260429_073929_SavoryOps.jpg';
+import employeeAppScreenshotWaiterOrderCreation from '../assets/Employee App/Screenshot_20260429_074708_SavoryOps Employee.jpg';
+import employeeAppScreenshotWaiterOrderManagement from '../assets/Employee App/Screenshot_20260429_074716_SavoryOps Employee.jpg';
+import employeeAppScreenshotHeadChefKitchenDashboard from '../assets/Employee App/Screenshot_20260429_074739_SavoryOps Employee.jpg';
+import employeeAppScreenshotHeadChefAnalytics from '../assets/Employee App/Screenshot_20260429_074748_SavoryOps Employee.jpg';
+import employeeAppScreenshotHeadChefAssignments from '../assets/Employee App/Screenshot_20260429_074822_SavoryOps Employee.jpg';
+import employeeAppScreenshotCashierDashboard from '../assets/Employee App/Screenshot_20260429_074841_SavoryOps Employee.jpg';
+import employeeAppScreenshotCashierProfile from '../assets/Employee App/Screenshot_20260429_074907_SavoryOps Employee.jpg';
+import employeeAppScreenshotHostFloorAwareness from '../assets/Employee App/Screenshot_20260429_074625_SavoryOps Employee.jpg';
+import employeeAppScreenshotSettingsOverview from '../assets/Employee App/Screenshot_20260429_074932_SavoryOps Employee.jpg';
+import employeeAppScreenshotSettingsLanguage from '../assets/Employee App/Screenshot_20260429_074915_SavoryOps Employee.jpg';
+import employeeAppScreenshotSettingsDateTime from '../assets/Employee App/Screenshot_20260429_074923_SavoryOps Employee.jpg';
 
 const tableOfContents = [
   {
@@ -2074,37 +2099,96 @@ export default function Documents() {
                     {
                       title: '2. Discovery & Navigation',
                       points: [
-                        'Business & Branch Exploration: Before selecting a specific location, customers can browse a list of available business brands and their respective branches.',
+                        {
+                          text: 'Business & Branch Exploration: Before selecting a specific location, customers can browse a list of available business brands and their respective branches.',
+                          figures: [
+                            {
+                              src: userAppScreenshotBusinessBranchExploration,
+                              alt: 'User app select restaurant screen showing searchable list of available business brands',
+                              caption: 'Reference: Business and branch exploration flow where customers browse available restaurant brands before selecting a specific location'
+                            }
+                          ]
+                        },
                         {
                           text: 'Smart Header Features:',
                           children: [
                             'Location/Branch Selector: Manually choose a restaurant and branch (Top-left).',
                             'QR Scanner: Quickly scan a Table QR Code to instantly sync with a specific table (Top-right).'
+                          ],
+                          figures: [
+                            {
+                              src: userAppScreenshotSmartHeaderFeatures,
+                              alt: 'User app home screen showing top header with branch selector dropdown and QR scanner icon',
+                              caption: 'Reference: Smart Header Features with location/branch selector and QR scanner for quick table sync'
+                            }
                           ]
                         },
-                        'Detailed Listings: Each branch page displays operational hours, physical address, and community reviews/ratings.'
+                        {
+                          text: 'Detailed Listings: Each branch page displays operational hours, physical address, and community reviews/ratings.',
+                          figures: [
+                            {
+                              src: userAppScreenshotDetailedListings,
+                              alt: 'User app branch details hours tab showing timezone and weekly operational hours',
+                              caption: 'Reference: Detailed listings view with branch operational hours and localized timezone information'
+                            }
+                          ]
+                        }
                       ]
                     },
                     {
                       title: '3. Digital Menu Experience',
                       intro: 'The app transforms physical menus into a dynamic, categorized digital catalog:',
                       points: [
-                        'Rich Categories: Cuisines (Italian, Indian, etc.) and categories are used to organize items.',
+                        {
+                          text: 'Rich Categories: Cuisines (Italian, Indian, etc.) and categories are used to organize items.',
+                          figures: [
+                            {
+                              src: userAppScreenshotRichCategories,
+                              alt: 'User app home screen showing categorized menus, combo meals, and unlimited meals sections',
+                              caption: 'Reference: Rich category-based menu browsing with cuisines, combo meals, and unlimited meal listings'
+                            }
+                          ]
+                        },
                         'Combo & Unlimited Meals: Dedicated lists for bundled deals and session-based unlimited meals (Breakfast/Lunch/Dinner).',
-                        'Item Customization: When adding an item, customers can select Add-ons (e.g., extra cheese) and view transparent pricing.',
+                        {
+                          text: 'Item Customization: When adding an item, customers can select Add-ons (e.g., extra cheese) and view transparent pricing.',
+                          figures: [
+                            {
+                              src: userAppScreenshotItemCustomization,
+                              alt: 'User app item listing with category filters, cuisine tags, and add or modify actions for customized orders',
+                              caption: 'Reference: Item customization flow where customers can choose add-ons and modify items before adding to cart'
+                            }
+                          ]
+                        },
                         'Currency Intelligence: All prices automatically adapt to the currency set by the owner for that specific branch.'
                       ]
                     },
                     {
                       title: '4. The Digital Cart & Checkout',
                       points: [
-                        'Cart Management: Customers can adjust quantities, view add-on details, and provide Special Instructions for the kitchen.',
+                        {
+                          text: 'Cart Management: Customers can adjust quantities, view add-on details, and provide Special Instructions for the kitchen.',
+                          figures: [
+                            {
+                              src: userAppScreenshotCartManagement,
+                              alt: 'User app cart screen showing quantity controls, add-ons, special instructions, and item totals',
+                              caption: 'Reference: Cart management flow with quantity updates, add-on customization, and special instruction support'
+                            }
+                          ]
+                        },
                         {
                           text: 'Financial Transparency: Before ordering, the cart shows a detailed breakdown.',
                           children: [
                             'Item Total',
                             'Tax Amount',
                             'Grand Total'
+                          ],
+                          figures: [
+                            {
+                              src: userAppScreenshotFinancialTransparency,
+                              alt: 'User app cart bill details showing subtotal, tax lines, grand total, and add order action',
+                              caption: 'Reference: Financial transparency view displaying itemized totals and final payable amount before placing the order'
+                            }
                           ]
                         },
                         'Order Validation: The Place Order button is only enabled once a Table QR Code has been scanned, ensuring the order is tied to a physical location.'
@@ -2113,13 +2197,38 @@ export default function Documents() {
                     {
                       title: '5. Order Management & Interaction',
                       points: [
-                        'Live Tracking: Customers can view the status of their order (Pending -> Accepted -> Preparing -> Served).',
-                        'Dynamic Modality: As long as the order is Open, an Add New button allows customers to order more items without starting a new ticket.',
+                        {
+                          text: 'Live Tracking: Customers can view the status of their order (Pending -> Accepted -> Preparing -> Served).',
+                          figures: [
+                            {
+                              src: userAppScreenshotLiveTracking,
+                              alt: 'User app order details showing paid status and order status history timeline from pending to completed',
+                              caption: 'Reference: Live tracking timeline where customers monitor order progress and status transitions in real time'
+                            }
+                          ]
+                        },
+                        {
+                          text: 'Dynamic Modality: As long as the order is Open, an Add New button allows customers to order more items without starting a new ticket.',
+                          figures: [
+                            {
+                              src: userAppScreenshotDynamicModality,
+                              alt: 'User app open order details view with add item action to continue ordering on the same ticket',
+                              caption: 'Reference: Dynamic modality where customers add more items to an existing open order without creating a new ticket'
+                            }
+                          ]
+                        },
                         {
                           text: 'Post-Dining Features:',
                           children: [
                             'Invoice Download: Once the order is paid (via the Cashier), the customer can download a PDF Invoice.',
                             'Reviews: Customers can rate the branch and provide feedback on their experience.'
+                          ],
+                          figures: [
+                            {
+                              src: userAppScreenshotPostDiningFeatures,
+                              alt: 'User app completed order screen showing invoice download and review actions with final bill details',
+                              caption: 'Reference: Post-dining features where customers can download invoices and submit branch reviews after payment'
+                            }
                           ]
                         }
                       ]
@@ -2127,14 +2236,39 @@ export default function Documents() {
                     {
                       title: '6. Personalization & Settings',
                       points: [
-                        'Language Support: The app is available in 8 languages (including Dutch, French, German, Greek, Italian, Russian, Spanish, and English).',
-                        'Localization: Customers can set their preferred Timezone and Date/Time format, which updates all timestamps across the app.',
+                        {
+                          text: 'Language Support: The app is available in 8 languages (including Dutch, French, German, Greek, Italian, Russian, Spanish, and English).',
+                          figures: [
+                            {
+                              src: userAppScreenshotLanguageSupport,
+                              alt: 'User app language selection screen listing supported languages with active language highlighted',
+                              caption: 'Reference: Language support settings where users can switch between supported interface languages'
+                            }
+                          ]
+                        },
+                        {
+                          text: 'Localization: Customers can set their preferred Timezone and Date/Time format, which updates all timestamps across the app.',
+                          figures: [
+                            {
+                              src: userAppScreenshotLocalization,
+                              alt: 'User app date and time settings screen with date format, time format, and timezone selectors',
+                              caption: 'Reference: Localization settings where customers choose timezone and date-time formats for app-wide timestamp updates'
+                            }
+                          ]
+                        },
                         {
                           text: 'Profile Management:',
                           children: [
                             'Reservation Tracking: View upcoming and past table bookings.',
                             'Review History: Manage and view feedback provided to restaurants.',
                             'Data Privacy: A Delete Account option allows users to remove their personal details, though order history is retained on the owner side for accounting.'
+                          ],
+                          figures: [
+                            {
+                              src: userAppScreenshotProfileManagement,
+                              alt: 'User app profile page with reservation tracking, reviews, and account management options',
+                              caption: 'Reference: Profile management area for reservation access, review history, and account-level controls'
+                            }
                           ]
                         }
                       ]
@@ -2151,6 +2285,13 @@ export default function Documents() {
                         },
                         {
                           text: 'Note: Only branches with the Reservation toggle active in the Owner Panel are eligible for booking.'
+                        }
+                      ],
+                      figures: [
+                        {
+                          src: userAppScreenshotTableReservation,
+                          alt: 'User app table reservation list showing reservation status, booking number, and schedule details',
+                          caption: 'Reference: Table reservation overview with booking status tracking for pick-spot and quick-seat flows'
                         }
                       ]
                     }
@@ -2173,6 +2314,18 @@ export default function Documents() {
                             'Customer Integration: If a customer is new, the Waiter enters their mobile number, and the system automatically creates a Customer Account.',
                             'Order Management: Features two tabs - My Order (accepted orders) and New Order (pending tickets).',
                             'Table Linking: Can add multiple tables to a single order for large groups.'
+                          ],
+                          figures: [
+                            {
+                              src: employeeAppScreenshotWaiterOrderCreation,
+                              alt: 'Employee app waiter home screen showing menu, categories, items, and QR entry points for order creation',
+                              caption: 'Reference: Waiter flow for order creation via menu access and QR-enabled table context'
+                            },
+                            {
+                              src: employeeAppScreenshotWaiterOrderManagement,
+                              alt: 'Employee app orders screen showing my orders and new orders tabs with searchable order cards',
+                              caption: 'Reference: Waiter order management view with My Orders and New Orders ticket handling'
+                            }
                           ]
                         },
                         {
@@ -2182,6 +2335,23 @@ export default function Documents() {
                             'Delegation: Assigns specific items or full KOTs to various Chefs or themselves.',
                             'KOT Status Management: Updates tickets from Confirmed -> Running -> Ready to Serve.',
                             'Analytics: A dedicated dashboard showing KOT counts and performance graphs over the last 12 hours.'
+                          ],
+                          figures: [
+                            {
+                              src: employeeAppScreenshotHeadChefKitchenDashboard,
+                              alt: 'Employee app kitchen screen for head chef showing KOT queue, filters, and ticket-level item details',
+                              caption: 'Reference: Head Chef kitchen dashboard for monitoring incoming KOTs and managing ticket workflow'
+                            },
+                            {
+                              src: employeeAppScreenshotHeadChefAnalytics,
+                              alt: 'Employee app head chef dashboard showing KOT status counters and performance overview graph',
+                              caption: 'Reference: Head Chef analytics dashboard with open, confirmed, running, and ready-to-serve insights'
+                            },
+                            {
+                              src: employeeAppScreenshotHeadChefAssignments,
+                              alt: 'Employee app my assignments screen showing assigned KOT items with preparation status progression',
+                              caption: 'Reference: Delegation and assignment tracking view for chef-level execution under Head Chef supervision'
+                            }
                           ]
                         },
                         {
@@ -2189,6 +2359,13 @@ export default function Documents() {
                           children: [
                             'Task List: Accesses the My Assignments page to see items assigned specifically to them.',
                             'Status Updates: Moves items from Assigned -> Preparing -> Ready to Serve.'
+                          ],
+                          figures: [
+                            {
+                              src: orderFlowStatusShiftScreenshot,
+                              alt: 'Employee app chef assignments screen showing assigned item and action to move status to preparing',
+                              caption: 'Reference: Chef production workflow where assigned items progress from assigned to preparing and ready-to-serve states'
+                            }
                           ]
                         },
                         {
@@ -2196,6 +2373,18 @@ export default function Documents() {
                           children: [
                             'Payment Processing: Manages the final stage of the order by manually updating payment status to Paid.',
                             'Financial Dashboard: Tracks pending amounts, paid amounts, and order counts (Pending, Accepted, Completed).'
+                          ],
+                          figures: [
+                            {
+                              src: employeeAppScreenshotCashierDashboard,
+                              alt: 'Employee app cashier dashboard showing pending and paid amounts with order status counters and performance overview',
+                              caption: 'Reference: Cashier financial dashboard with payment metrics and order status tracking'
+                            },
+                            {
+                              src: employeeAppScreenshotCashierProfile,
+                              alt: 'Employee app cashier profile page showing assigned role and job history access',
+                              caption: 'Reference: Cashier profile view with role identification and employee account options'
+                            }
                           ]
                         },
                         {
@@ -2203,6 +2392,13 @@ export default function Documents() {
                           children: [
                             'Reservation Management: Views current-day table bookings.',
                             'Floor Awareness: A specialized Home Page showing all branch tables by Area to manage seating flow effectively.'
+                          ],
+                          figures: [
+                            {
+                              src: employeeAppScreenshotHostFloorAwareness,
+                              alt: 'Employee app host home page showing area-wise table layout and live seating status indicators',
+                              caption: 'Reference: Host floor-awareness view for managing table occupancy and guest flow by area'
+                            }
                           ]
                         }
                       ]
@@ -2219,7 +2415,16 @@ export default function Documents() {
                       title: '3. Common Professional Pages',
                       intro: 'Regardless of their role, all employees have access to these management tools:',
                       points: [
-                        'Job History: A record of every branch the employee has worked at, including joining dates.',
+                        {
+                          text: 'Job History: A record of every branch the employee has worked at, including joining dates.',
+                          figures: [
+                            {
+                              src: employeeAppScreenshotCashierProfile,
+                              alt: 'Employee app profile page with job history access and role details',
+                              caption: 'Reference: Job history access from employee profile for viewing prior branch assignments'
+                            }
+                          ]
+                        },
                         'Profile Management: Displays the employee name and their specific Assigned Role prominently.',
                         {
                           text: 'Personalization Settings:',
@@ -2227,6 +2432,23 @@ export default function Documents() {
                             'Language: Choose from 8 languages to match their comfort level.',
                             'Localization: Set personal Timezone and Date/Time formats.',
                             'Security: Change passwords and manage account deletion (requires password confirmation).'
+                          ],
+                          figures: [
+                            {
+                              src: employeeAppScreenshotSettingsOverview,
+                              alt: 'Employee app settings page showing account, preferences, legal, and delete account options',
+                              caption: 'Reference: Employee settings overview with access to language, date and time, privacy policy, and account controls'
+                            },
+                            {
+                              src: employeeAppScreenshotSettingsLanguage,
+                              alt: 'Employee app language settings screen with English selected and list of supported languages',
+                              caption: 'Reference: Language personalization screen where employees choose from supported interface languages'
+                            },
+                            {
+                              src: employeeAppScreenshotSettingsDateTime,
+                              alt: 'Employee app date and time settings screen with date format, time format, and time zone selectors',
+                              caption: 'Reference: Localization screen for selecting timezone and preferred date and time formats'
+                            }
                           ]
                         },
                         'Information Hub: Quick access to the platform Privacy Policy and About Us documentation.'
