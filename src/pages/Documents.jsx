@@ -42,6 +42,30 @@ import employeeOnboardingProfile from '../assets/User & Employee Onboarding/Scre
 import customerOnboardingSignUp from '../assets/User & Employee Onboarding/Screenshot_20260426_162753_SavoryOps.jpg';
 import customerOnboardingSignIn from '../assets/User & Employee Onboarding/Screenshot_20260426_162821_SavoryOps.jpg';
 import customerOnboardingRestaurantSelect from '../assets/User & Employee Onboarding/Screenshot_20260426_162920_SavoryOps.jpg';
+import orderFlowQrScanScreenshot from '../assets/Order/Screenshot_20260426_212957_SavoryOps.jpg';
+import orderFlowWaiterSearchCustomerScreenshot from '../assets/Order/Screenshot_20260429_064342_SavoryOps Employee.jpg';
+import orderFlowWaiterOrderDetailsScreenshot from '../assets/Order/Screenshot_20260429_064534_SavoryOps Employee.jpg';
+import orderFlowAcceptanceScreenshot from '../assets/Order/Screenshot_20260429_064551_SavoryOps Employee.jpg';
+import orderFlowKotGenerationScreenshot from '../assets/Order/Screenshot_20260429_064609_SavoryOps Employee.jpg';
+import orderFlowAssignmentScreenshot from '../assets/Order/Screenshot_20260429_064616_SavoryOps Employee.jpg';
+import orderFlowStatusShiftScreenshot from '../assets/Order/Screenshot_20260429_064645_SavoryOps Employee.jpg';
+import orderFlowPreparationScreenshot from '../assets/Order/Screenshot_20260429_064816_SavoryOps Employee.jpg';
+import orderFlowOrderExpansionScreenshot from '../assets/Order/Screenshot_20260429_070103_SavoryOps.jpg';
+import orderFlowClosureScreenshot from '../assets/Order/Screenshot_20260429_070204_SavoryOps Employee.jpg';
+import orderFlowCashierOversightScreenshot from '../assets/Order/Screenshot_20260429_070252_SavoryOps Employee.jpg';
+import orderFlowPaymentProcessingScreenshot from '../assets/Order/Screenshot_20260429_070304_SavoryOps Employee.jpg';
+import orderFlowInvoiceFeedbackScreenshot from '../assets/Order/Screenshot_20260429_070508_SavoryOps.jpg';
+import tableReservationBranchToggleScreenshot from '../assets/Table Reservation/Screenshot_21.png';
+import tableReservationOwnerAnalyticsScreenshot from '../assets/Table Reservation/Screenshot_1.png';
+import tableReservationVisibilityScreenshot from '../assets/Table Reservation/Screenshot_20260429_072213_SavoryOps.jpg';
+import tableReservationQuickSeatScreenshot from '../assets/Table Reservation/Screenshot_20260429_072247_SavoryOps.jpg';
+import tableReservationHostRoleScreenshot from '../assets/Table Reservation/Screenshot_20260429_072446_SavoryOps Employee.jpg';
+import tableReservationStatusUpdatesScreenshot from '../assets/Table Reservation/Screenshot_20260429_072455_SavoryOps Employee.jpg';
+import tableReservationHistoryTrackingScreenshot from '../assets/Table Reservation/Screenshot_20260429_072512_SavoryOps Employee.jpg';
+import tableReservationHostHomePageScreenshot from '../assets/Table Reservation/Screenshot_20260429_072614_SavoryOps Employee.jpg';
+import landingPagePricingPlansScreenshot from '../assets/Landing Page/Screenshot_1.png';
+import landingPageContactUsScreenshot from '../assets/Landing Page/Screenshot_2.png';
+import landingPageLanguageSupportScreenshot from '../assets/Landing Page/Screenshot_3.png';
 import superAdminScreenshot1 from '../assets/Super Admin/Screenshot_1.png';
 import superAdminScreenshot2 from '../assets/Super Admin/Screenshot_2.png';
 import superAdminScreenshot3 from '../assets/Super Admin/Screenshot_3.png';
@@ -81,6 +105,9 @@ import ownerScreenshot19 from '../assets/Owner/Screenshot_19.png';
 import ownerScreenshot20 from '../assets/Owner/Screenshot_20.png';
 import ownerScreenshot21 from '../assets/Owner/Screenshot_21.png';
 import ownerScreenshot22 from '../assets/Owner/Screenshot_22.png';
+import ownerScreenshot23 from '../assets/Owner/Screenshot_23.png';
+import ownerScreenshot24 from '../assets/Owner/Screenshot_24.png';
+import ownerScreenshot25 from '../assets/Owner/Screenshot_25.png';
 
 const tableOfContents = [
   {
@@ -190,6 +217,7 @@ function BulletList({ items }) {
                 ))}
               </ul>
             ) : null}
+            {normalizedItem.figures?.length ? <SetupFigures figures={normalizedItem.figures} /> : null}
           </div>
           </li>
         );
@@ -1007,7 +1035,21 @@ export default function Documents() {
                             'They browse the menu, select items (including Add-ons and Special Instructions), and submit the order.',
                             'Condition: The system validates the table via the QR scan; orders cannot be placed without a confirmed table.'
                           ]
-                        },
+                        }
+                      ],
+                      figures: [
+                        {
+                          src: orderFlowQrScanScreenshot,
+                          alt: 'User app menu view after table QR scan for customer self-service ordering',
+                          caption:
+                            'Reference: Customer self-service flow where users browse menu items and place an order after scanning the table QR code'
+                        }
+                      ]
+                    },
+                    {
+                      continuation: true,
+                      stepKey: 'order-flow-initiation-waiter-assisted',
+                      points: [
                         {
                           text: 'Waiter-Assisted Ordering: The Waiter scans the QR code on behalf of the customer.',
                           children: [
@@ -1015,37 +1057,173 @@ export default function Documents() {
                             'The Waiter can also link multiple tables to a single order if the party is large.'
                           ]
                         }
+                      ],
+                      figures: [
+                        {
+                          src: orderFlowWaiterSearchCustomerScreenshot,
+                          alt: 'Employee app screen where waiter searches customer by mobile number before creating order',
+                          caption:
+                            'Reference: Waiter-assisted order initiation where staff searches customer by mobile number before placing the order'
+                        },
+                        {
+                          src: orderFlowWaiterOrderDetailsScreenshot,
+                          alt: 'Employee app order details screen showing accepted order status, table details, and KOT details',
+                          caption:
+                            'Reference: Waiter-assisted order workflow view with order status, table details, and KOT progression'
+                        }
                       ]
                     },
                     {
                       title: '2. The Kitchen Workflow (KOT Management)',
                       intro: 'Once an order is submitted, it enters the Kitchen Order Ticket (KOT) lifecycle:',
                       points: [
-                        'Acceptance: The Waiter receives the Pending order and accepts it. The status changes to Accepted.',
-                        "KOT Generation: The system automatically generates a KOT and routes it to the Head Chef's interface.",
-                        'Assignment: The Head Chef reviews the KOT and assigns specific items or the entire KOT to a Chef.',
-                        'Status Shift: KOT status moves to Confirmed -> Assign.',
+                        'Acceptance: The Waiter receives the Pending order and accepts it. The status changes to Accepted.'
+                      ],
+                      figures: [
+                        {
+                          src: orderFlowAcceptanceScreenshot,
+                          alt: 'Employee app orders screen showing pending order list and Accept Order action',
+                          caption:
+                            'Reference: Acceptance step where the waiter receives a pending order and marks it as accepted'
+                        }
+                      ]
+                    },
+                    {
+                      continuation: true,
+                      stepKey: 'order-flow-kitchen-workflow-rest',
+                      points: [
+                        "KOT Generation: The system automatically generates a KOT and routes it to the Head Chef's interface."
+                      ],
+                      figures: [
+                        {
+                          src: orderFlowKotGenerationScreenshot,
+                          alt: "Kitchen app KOT card showing generated ticket and confirm action in Head Chef's interface",
+                          caption:
+                            "Reference: KOT Generation step where the system routes the generated KOT to the Head Chef's kitchen interface"
+                        }
+                      ]
+                    },
+                    {
+                      continuation: true,
+                      stepKey: 'order-flow-kitchen-workflow-rest-2',
+                      points: [
+                        'Assignment: The Head Chef reviews the KOT and assigns specific items or the entire KOT to a Chef.'
+                      ],
+                      figures: [
+                        {
+                          src: orderFlowAssignmentScreenshot,
+                          alt: 'Kitchen app KOT card in confirmed state showing assign item and assign KOT actions',
+                          caption:
+                            'Reference: Assignment step where the Head Chef assigns items or the full KOT to a chef'
+                        }
+                      ]
+                    },
+                    {
+                      continuation: true,
+                      stepKey: 'order-flow-kitchen-workflow-rest-3',
+                      points: [
+                        'Status Shift: KOT status moves to Confirmed -> Assign.'
+                      ],
+                      figures: [
+                        {
+                          src: orderFlowStatusShiftScreenshot,
+                          alt: 'My Assignments screen showing assigned KOT item and Set to Preparing action',
+                          caption:
+                            'Reference: Status Shift step where KOT items move into assigned workflow before preparation'
+                        }
+                      ]
+                    },
+                    {
+                      continuation: true,
+                      stepKey: 'order-flow-kitchen-workflow-rest-4',
+                      points: [
                         'Preparation: The Chef updates the status to Preparing. Once finished, the status is marked as Ready to Serve.'
+                      ],
+                      figures: [
+                        {
+                          src: orderFlowPreparationScreenshot,
+                          alt: 'Employee order details screen showing ready-to-serve status and complete KOT actions',
+                          caption:
+                            'Reference: Preparation step where the chef updates items to Preparing and then marks them Ready to Serve'
+                        }
                       ]
                     },
                     {
                       title: '3. Fulfillment & Service',
                       points: [
                         'Serving: The Waiter picks up the prepared items and serves the customer.',
-                        'Order Expansion: While the order is still Open, customers can click the Add New button to append more items to the existing order.',
+                        'Order Expansion: While the order is still Open, customers can click the Add New button to append more items to the existing order.'
+                      ],
+                      figures: [
+                        {
+                          src: orderFlowOrderExpansionScreenshot,
+                          alt: 'User order details screen showing Add Item action while order is open',
+                          caption:
+                            'Reference: Order expansion flow where customers add more items to an open order'
+                        }
+                      ]
+                    },
+                    {
+                      continuation: true,
+                      stepKey: 'order-flow-fulfillment-service-rest',
+                      points: [
                         'Closure: Once the customer has finished their meal, the Waiter moves the order to the Closed status. This action hides the Add New button.'
+                      ],
+                      figures: [
+                        {
+                          src: orderFlowClosureScreenshot,
+                          alt: 'Employee order details view showing completed KOT and Close Order action',
+                          caption:
+                            'Reference: Closure step where the waiter moves the order to Closed and disables further item additions'
+                        }
                       ]
                     },
                     {
                       title: '4. Billing & Payment (The Final Step)',
                       points: [
-                        'Cashier Oversight: The Cashier views the Closed (Unpaid) order in their dashboard.',
-                        'Payment Processing: After the customer pays via cash or card, the Cashier manually updates the payment status to Paid.',
+                        'Cashier Oversight: The Cashier views the Closed (Unpaid) order in their dashboard.'
+                      ],
+                      figures: [
+                        {
+                          src: orderFlowCashierOversightScreenshot,
+                          alt: 'Cashier dashboard showing accepted, completed, unpaid, and pending amount metrics',
+                          caption:
+                            'Reference: Cashier oversight view for tracking closed unpaid orders and billing status at a glance'
+                        }
+                      ]
+                    },
+                    {
+                      continuation: true,
+                      stepKey: 'order-flow-billing-payment-rest',
+                      points: [
+                        'Payment Processing: After the customer pays via cash or card, the Cashier manually updates the payment status to Paid.'
+                      ],
+                      figures: [
+                        {
+                          src: orderFlowPaymentProcessingScreenshot,
+                          alt: 'Cashier payment confirmation screen with bill breakdown and confirm payment action',
+                          caption:
+                            'Reference: Payment processing step where the cashier confirms payment and marks the order as paid'
+                        }
+                      ]
+                    },
+                    {
+                      continuation: true,
+                      stepKey: 'order-flow-billing-payment-rest-2',
+                      points: [
                         {
                           text: 'Invoice & Feedback: The Customer can now download the PDF Invoice.',
                           children: [
                             'The system unlocks the Review & Rating feature for the customer to provide feedback on their experience.'
                           ]
+                        }
+                      ],
+                      figures: [
+                        {
+                          src: orderFlowInvoiceFeedbackScreenshot,
+                          alt: 'Customer order details screen showing invoice and review actions after payment',
+                          caption:
+                            'Reference: Invoice and feedback step where customers can download invoice and submit rating after payment'
                         }
                       ]
                     }
@@ -1061,8 +1239,36 @@ export default function Documents() {
                       title: '1. Feature Activation (Owner Control)',
                       intro: 'Before a customer can book, the infrastructure must be enabled:',
                       points: [
-                        'Branch-Level Toggle: The Owner must manually activate the Table Reservation switch in the Branch Settings.',
-                        'Visibility: Only branches with this feature Active will appear in the customer reservation search list.',
+                        'Branch-Level Toggle: The Owner must manually activate the Table Reservation switch in the Branch Settings.'
+                      ],
+                      figures: [
+                        {
+                          src: tableReservationBranchToggleScreenshot,
+                          alt: 'Owner branch settings screen with table reservation toggle control',
+                          caption:
+                            'Reference: Branch-level settings where the owner enables table reservation for a branch'
+                        }
+                      ]
+                    },
+                    {
+                      continuation: true,
+                      stepKey: 'reservation-feature-activation-rest',
+                      points: [
+                        'Visibility: Only branches with this feature Active will appear in the customer reservation search list.'
+                      ],
+                      figures: [
+                        {
+                          src: tableReservationVisibilityScreenshot,
+                          alt: 'User app add table reservation screen showing active branch selection options',
+                          caption:
+                            'Reference: Visibility rule where only branches with reservation feature enabled appear in customer booking search'
+                        }
+                      ]
+                    },
+                    {
+                      continuation: true,
+                      stepKey: 'reservation-feature-activation-rest-2',
+                      points: [
                         'Capacity Management: The Owner defines Areas (e.g., Rooftop, VIP Lounge) and Tables with specific seating capacities to ensure the system does not overbook.'
                       ]
                     },
@@ -1076,14 +1282,42 @@ export default function Documents() {
                             'The customer selects a specific Area and a specific Table Number.',
                             'Ideal for customers who have a favorite seat (e.g., a window table or a specific poolside spot).'
                           ]
-                        },
+                        }
+                      ],
+                      figures: [
+                        {
+                          src: tableReservationVisibilityScreenshot,
+                          alt: 'User app table reservation screen with Pick Spot flow fields for area and table selection',
+                          caption:
+                            'Reference: Type A Pick Spot flow where customers choose area and specific table during reservation'
+                        }
+                      ]
+                    },
+                    {
+                      continuation: true,
+                      stepKey: 'reservation-customer-booking-rest',
+                      points: [
                         {
                           text: 'Type B: Quick Seat (Speed Booking)',
                           children: [
                             'The customer simply enters the Number of Guests.',
                             'The system/Host handles the table assignment upon arrival.'
                           ]
-                        },
+                        }
+                      ],
+                      figures: [
+                        {
+                          src: tableReservationQuickSeatScreenshot,
+                          alt: 'User app table reservation screen with Quick Seat selected and guest count input',
+                          caption:
+                            'Reference: Type B Quick Seat flow where customers enter guest count and proceed without selecting a specific table'
+                        }
+                      ]
+                    },
+                    {
+                      continuation: true,
+                      stepKey: 'reservation-customer-booking-rest-2',
+                      points: [
                         'Scheduling: The customer selects the Date and Time and has the option to add Special Notes (e.g., Anniversary dinner or High chair needed).'
                       ]
                     },
@@ -1091,7 +1325,21 @@ export default function Documents() {
                       title: '3. Host & Owner Management (The Dashboard)',
                       intro: 'Once a reservation is submitted, it enters the management pipeline:',
                       points: [
-                        'The Host Role: The Host is the primary manager of reservations. In their app, they see a dedicated list of all bookings for the current date.',
+                        'The Host Role: The Host is the primary manager of reservations. In their app, they see a dedicated list of all bookings for the current date.'
+                      ],
+                      figures: [
+                        {
+                          src: tableReservationHostRoleScreenshot,
+                          alt: 'Host app reservations list showing current-date bookings and status badges',
+                          caption:
+                            'Reference: Host role dashboard with a dedicated list of current-day reservations'
+                        }
+                      ]
+                    },
+                    {
+                      continuation: true,
+                      stepKey: 'reservation-host-owner-management-rest',
+                      points: [
                         {
                           text: 'Real-Time Status Updates: The Host or Owner can move a reservation through its lifecycle:',
                           children: [
@@ -1099,16 +1347,60 @@ export default function Documents() {
                             'Confirmed: The table is held for the customer.',
                             'Cancelled/Completed: The final states of the booking.'
                           ]
-                        },
+                        }
+                      ],
+                      figures: [
+                        {
+                          src: tableReservationStatusUpdatesScreenshot,
+                          alt: 'Reservation details screen with pending status and confirm/reject actions',
+                          caption:
+                            'Reference: Real-time status update workflow where host or owner transitions reservations through lifecycle states'
+                        }
+                      ]
+                    },
+                    {
+                      continuation: true,
+                      stepKey: 'reservation-host-owner-management-rest-2',
+                      points: [
                         'History Tracking: The system maintains a Status History for every reservation, allowing the Owner to see exactly when a status was changed and by whom.'
+                      ],
+                      figures: [
+                        {
+                          src: tableReservationHistoryTrackingScreenshot,
+                          alt: 'Reservation status history modal showing timeline of pending, confirmed, and seated states',
+                          caption:
+                            'Reference: History tracking view that records reservation status changes with timestamps and sequence'
+                        }
                       ]
                     },
                     {
                       title: '4. Operational Visibility',
                       points: [
-                        'Host Home Page: Provides a visual overview of all tables in the assigned branch, organized by Area. This allows the Host to see the layout and manage guest flow effortlessly.',
+                        'Host Home Page: Provides a visual overview of all tables in the assigned branch, organized by Area. This allows the Host to see the layout and manage guest flow effortlessly.'
+                      ],
+                      figures: [
+                        {
+                          src: tableReservationHostHomePageScreenshot,
+                          alt: 'Host home page showing table overview by area with availability and occupancy states',
+                          caption:
+                            'Reference: Operational visibility on host home page with area-wise table layout and live status'
+                        }
+                      ]
+                    },
+                    {
+                      continuation: true,
+                      stepKey: 'reservation-operational-visibility-rest',
+                      points: [
                         'Owner Analytics: The Owner can view comprehensive reservation reports filtered by Branch and Fiscal Year.',
                         'Data Portability: All reservation lists and reports can be exported as PDFs for daily briefings or physical record-keeping.'
+                      ],
+                      figures: [
+                        {
+                          src: tableReservationOwnerAnalyticsScreenshot,
+                          alt: 'Owner reservation analytics list with branch and fiscal year filters plus PDF export',
+                          caption:
+                            'Reference: Owner analytics view showing reservation reports with branch/fiscal-year filters and PDF export capability'
+                        }
                       ]
                     }
                   ]}
@@ -1138,20 +1430,56 @@ export default function Documents() {
                             'Directly displays the Paid and Free plans created by the Super Admin.',
                             'Prospective owners can compare features (Unlimited vs. Limited access) before deciding to register.'
                           ]
-                        },
+                        }
+                      ],
+                      figures: [
+                        {
+                          src: landingPagePricingPlansScreenshot,
+                          alt: 'Landing page pricing plans cards showing monthly and yearly plan options',
+                          caption:
+                            'Reference: Landing page Pricing & Plans section where paid and free plans are displayed for comparison'
+                        }
+                      ]
+                    },
+                    {
+                      continuation: true,
+                      stepKey: 'landing-page-core-functional-sections-rest',
+                      points: [
                         {
                           text: 'Contact Us (Lead Generation):',
                           children: [
                             'Features a form where visitors can enter their details and specific software requirements.',
                             'Lead Management: Submitted inquiries are sent directly to the Super Admin Contact Us page for follow-up.'
                           ]
-                        },
+                        }
+                      ],
+                      figures: [
+                        {
+                          src: landingPageContactUsScreenshot,
+                          alt: 'Landing page contact us section with inquiry form and support contact details',
+                          caption:
+                            'Reference: Contact Us lead-generation section where visitors submit requirements for Super Admin follow-up'
+                        }
+                      ]
+                    },
+                    {
+                      continuation: true,
+                      stepKey: 'landing-page-language-support',
+                      points: [
                         {
                           text: 'Language Support:',
                           children: [
                             'Offers a selection of 8 languages, allowing the platform to appeal to a global audience.',
                             'The Default Language set by the Super Admin is applied when a user first visits the site.'
                           ]
+                        }
+                      ],
+                      figures: [
+                        {
+                          src: landingPageLanguageSupportScreenshot,
+                          alt: 'Admin language support settings showing default language and localization configuration',
+                          caption:
+                            'Reference: Language support configuration where default language is applied for first-time site visitors'
                         }
                       ]
                     },
@@ -1664,6 +1992,23 @@ export default function Documents() {
                             'Revenue Reports: Order-wise financial breakdowns.',
                             'Branch-wise/Date-wise Reports: Comparison of performance across different locations and timeframes.',
                             'Review Management: View and monitor customer feedback for each branch.'
+                          ],
+                          figures: [
+                            {
+                              src: ownerScreenshot23,
+                              alt: 'Owner revenue report table with branch and fiscal year filters plus PDF export option',
+                              caption: 'Reference: Revenue Reports section showing order-wise financial breakdown and export support'
+                            },
+                            {
+                              src: ownerScreenshot24,
+                              alt: 'Owner branch-wise report table showing branch-level order totals, tax, and amount with export option',
+                              caption: 'Reference: Branch-wise report view for cross-location performance comparison'
+                            },
+                            {
+                              src: ownerScreenshot25,
+                              alt: 'Owner review management table listing customer ratings and feedback by order',
+                              caption: 'Reference: Review management report for monitoring branch-wise customer feedback'
+                            }
                           ]
                         },
                         'Data Portability: All major reports (Orders, Reservations, Employee lists, etc.) can be exported as PDFs.'
