@@ -165,34 +165,24 @@ export default function Home() {
               {
                 label: 'LANDING PAGE',
                 title: 'Custom Website',
-                mockupImg: '/assets/landing_page_ui.png',
-                widthClass: 'w-[95%] h-[260px]',
                 delay: 0,
                 demoLink: '/landing-page'
               },
               {
                 label: 'SUPER ADMIN',
                 title: 'Super Admin',
-                mockupImg: '/assets/super_admin_ui.png',
-                widthClass: 'w-[95%] h-[260px]',
                 delay: 100,
                 demoLink: '/super-admin'
               },
               {
                 label: 'EMPLOYEE PANEL',
                 title: 'Employee App',
-                mockupImg: '/assets/employee_panel_ui.png',
-                widthClass: 'w-[240px] h-[280px] mx-auto',
-                yOffset: 'translate-y-12 translate-x-12',
-                rounded: 'rounded-t-[2rem]',
                 delay: 200,
                 demoLink: '/employee-app'
               },
               {
                 label: 'OWNER SPECIFIC WEBSITE',
                 title: 'Owner Panel',
-                mockupImg: '/assets/owner_panel_ui.png',
-                widthClass: 'w-[95%] h-[260px]',
                 delay: 300,
                 demoLink: '/owner-panel'
               },
@@ -200,38 +190,23 @@ export default function Home() {
                 fullWidth: true,
                 label: 'USER SPECIFIC APP',
                 title: 'User App',
-                mockupImg: '/assets/user_app_ui.png',
-                widthClass: 'w-full max-w-[600px] h-[260px]',
-                offsetClass: 'translate-x-12 translate-y-12',
                 delay: 400,
                 demoLink: '/user-app'
               }
             ].map((product, i) => (
-              <div key={i} className={`bg-[#f8f9fa] border border-slate-100 shadow-sm rounded-[1.5rem] overflow-hidden relative flex flex-col md:flex-row items-center gap-0 lg:gap-8 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 animate-slide-up ${product.fullWidth ? 'lg:col-span-2' : ''}`} style={{ animationDelay: `${product.delay}ms` }}>
-
-                {/* Left Content */}
-                <div className="flex-1 w-full text-left relative z-20 p-8 md:p-8 lg:p-10 md:pr-0">
+              <div key={i} className={`bg-[#f8f9fa] border border-slate-100 shadow-sm rounded-[1.5rem] overflow-hidden relative flex flex-col hover:-translate-y-1 hover:shadow-lg transition-all duration-300 animate-slide-up ${product.fullWidth ? 'lg:col-span-2' : ''}`} style={{ animationDelay: `${product.delay}ms` }}>
+                <div className={`w-full p-8 md:p-10 ${product.fullWidth ? 'lg:max-w-3xl lg:mx-auto lg:flex lg:flex-col lg:items-center lg:text-center' : 'text-left'}`}>
                   <p className="text-[10px] font-bold text-primary-500 uppercase tracking-widest mb-1.5">{product.label}</p>
-                  <div className="text-2xl font-black text-slate-900 mb-4 flex items-center gap-2">
-                    <img src={logo} className="h-5 w-auto object-contain" alt="SavoryOps Logo" />
+                  <div className={`text-2xl font-black text-slate-900 mb-4 flex items-center gap-2 ${product.fullWidth ? 'lg:justify-center' : ''}`}>
+                    <img src={logo} className="h-5 w-auto object-contain" alt="" />
                     <span className="tracking-tight text-lg">SavoryOps</span>
                   </div>
                   <h4 className="text-[26px] lg:text-[30px] font-extrabold text-slate-900 mb-6 leading-[1.3] whitespace-pre-line">{product.title}</h4>
-                  <Link to={product.demoLink} className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-primary-500 hover:bg-primary-600 text-white font-bold text-sm shadow-xl shadow-primary-500/20 hover:-translate-y-1 transition-all z-30 relative">
+                  <Link to={product.demoLink} className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-primary-500 hover:bg-primary-600 text-white font-bold text-sm shadow-xl shadow-primary-500/20 hover:-translate-y-1 transition-all">
                     View Details
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                   </Link>
                 </div>
-
-                {/* Right Mockup */}
-                <div className="flex-1 w-full relative z-10 flex justify-end items-end h-[260px] md:h-[280px]">
-                  <img
-                    src={product.mockupImg}
-                    alt={product.title.replace('\n', ' ')}
-                    className={`${product.widthClass} ${product.offsetClass || 'translate-x-8 translate-y-8'} ${product.rounded || 'rounded-tl-[1rem]'} shadow-2xl border-t border-l border-slate-200 object-cover absolute bottom-0 right-0`}
-                  />
-                </div>
-
               </div>
             ))}
           </div>

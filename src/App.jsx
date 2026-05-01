@@ -5,30 +5,12 @@ import ScrollToTop from './components/ScrollToTop'
 import { restoreDefaultMetaTags } from './utils/seoMetaTags'
 import Home from './pages/Home'
 import Features from './pages/Features'
-import SmartPos from './pages/features/SmartPos';
-import DynamicDashboard from './pages/features/DynamicDashboard';
-import MultiRestaurant from './pages/features/MultiRestaurant';
-import MultiBranchSupport from './pages/features/MultiBranchSupport';
-import LiveAnalytics from './pages/features/LiveAnalytics';            
-import OrderReports from './pages/features/OrderReports';
-import QrBasedMenu from './pages/features/QrBasedMenu';
-import TableReservation from './pages/features/TableReservation';
-import KotFeature from './pages/features/KotFeature';
-import ComboMeals from './pages/features/ComboMeals';
-import AddonMeals from './pages/features/AddonMeals';
-import BranchPricing from './pages/features/BranchPricing';
-import StaffScheduling from './pages/features/StaffScheduling';
-import DigitalInvoice from './pages/features/DigitalInvoice';
-import FiscalYearReports from './pages/features/FiscalYearReports';
-import MultiCurrency from './pages/features/MultiCurrency';
-import MultiLanguage from './pages/features/MultiLanguage';
-import CustomerReviews from './pages/features/CustomerReviews';
+import FeatureDetailsPage from './pages/features/FeatureDetailsPage';
 import SuperAdmin from './pages/SuperAdmin'
 import OwnerPanel from './pages/OwnerPanel'
 import LandingPage from './pages/LandingPage'
 import UserApp from './pages/UserApp'
 import EmployeeApp from './pages/EmployeeApp'
-import UpcomingFeatures from './pages/UpcomingFeatures'
 import ContactUs from './pages/ContactUs'
 import Faqs from './pages/Faqs'
 import Documents from './pages/Documents'
@@ -52,30 +34,29 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="features" element={<Features />} />
-          <Route path="features/smart-pos" element={<SmartPos />} />
-          <Route path="features/dynamic-dashboard" element={<DynamicDashboard />} />
-          <Route path="features/multi-restaurant" element={<MultiRestaurant />} />
-          <Route path="features/multi-branch-support" element={<MultiBranchSupport />} />
-          <Route path="features/live-analytics" element={<LiveAnalytics />} />
-          <Route path="features/order-reports" element={<OrderReports />} />
-          <Route path="features/qr-based-menu" element={<QrBasedMenu />} />
-          <Route path="features/table-reservation" element={<TableReservation />} />
-          <Route path="features/kot-feature" element={<KotFeature />} />
-          <Route path="features/combo-meals" element={<ComboMeals />} />
-          <Route path="features/addon-meals" element={<AddonMeals />} />
-          <Route path="features/branch-pricing" element={<BranchPricing />} />
-          <Route path="features/staff-scheduling" element={<StaffScheduling />} />
-          <Route path="features/digital-invoice" element={<DigitalInvoice />} />
-          <Route path="features/fiscal-year-reports" element={<FiscalYearReports />} />
-          <Route path="features/multi-currency" element={<MultiCurrency />} />
-          <Route path="features/multi-language" element={<MultiLanguage />} />
-          <Route path="features/customer-reviews" element={<CustomerReviews />} />
+          <Route path="features/smart-pos" element={<FeatureDetailsPage slug="smart-pos" />} />
+          <Route path="features/dynamic-dashboard" element={<FeatureDetailsPage slug="dynamic-dashboard" />} />
+          <Route path="features/multi-restaurant" element={<FeatureDetailsPage slug="multi-restaurant" />} />
+          <Route path="features/multi-branch-support" element={<FeatureDetailsPage slug="multi-branch-support" />} />
+          <Route path="features/live-analytics" element={<FeatureDetailsPage slug="live-analytics" />} />
+          <Route path="features/order-reports" element={<FeatureDetailsPage slug="order-reports" />} />
+          <Route path="features/qr-based-menu" element={<FeatureDetailsPage slug="qr-based-menu" />} />
+          <Route path="features/table-reservation" element={<FeatureDetailsPage slug="table-reservation" />} />
+          <Route path="features/kot-feature" element={<FeatureDetailsPage slug="kot-feature" />} />
+          <Route path="features/combo-meals" element={<FeatureDetailsPage slug="combo-meals" />} />
+          <Route path="features/addon-meals" element={<FeatureDetailsPage slug="addon-meals" />} />
+          <Route path="features/branch-pricing" element={<FeatureDetailsPage slug="branch-pricing" />} />
+          <Route path="features/staff-scheduling" element={<FeatureDetailsPage slug="staff-scheduling" />} />
+          <Route path="features/digital-invoice" element={<FeatureDetailsPage slug="digital-invoice" />} />
+          <Route path="features/fiscal-year-reports" element={<FeatureDetailsPage slug="fiscal-year-reports" />} />
+          <Route path="features/multi-currency" element={<FeatureDetailsPage slug="multi-currency" />} />
+          <Route path="features/multi-language" element={<FeatureDetailsPage slug="multi-language" />} />
+          <Route path="features/customer-reviews" element={<FeatureDetailsPage slug="customer-reviews" />} />
           <Route path="super-admin" element={<SuperAdmin />} />
           <Route path="owner-panel" element={<OwnerPanel />} />
           <Route path="landing-page" element={<LandingPage />} />
           <Route path="user-app" element={<UserApp />} />
           <Route path="employee-app" element={<EmployeeApp />} />
-          <Route path="upcoming-features" element={<UpcomingFeatures />} />
           <Route path="documents" element={<Documents />} />
           <Route path="contact" element={<ContactUs />} />
           <Route path="faqs" element={<Faqs />} />

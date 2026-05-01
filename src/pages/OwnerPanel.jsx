@@ -8,6 +8,7 @@ import ownerBranchImg from '../assets/Owner/Screenshot_20.png';
 
 export default function OwnerPanel() {
   const demoLink = import.meta.env.VITE_OWNER_PANEL_DEMO || '#';
+  const buyNowLink = import.meta.env.VITE_BUY_NOW?.trim() || '/contact';
   const ownerCoreFeatures = [
     {
       title: 'Daily Operations Control',
@@ -77,9 +78,15 @@ export default function OwnerPanel() {
                     Live Demo <MdArrowForward />
                   </Link>
                 )}
-                <Link to="/contact" className="px-8 py-4 bg-slate-900 text-white font-bold rounded-full shadow-lg hover:-translate-y-1 transition-all flex items-center gap-2 text-[15px]">
-                  Buy Source Code
-                </Link>
+                {buyNowLink.startsWith('http') ? (
+                  <a href={buyNowLink} target="_blank" rel="noopener noreferrer" className="px-8 py-4 bg-slate-900 text-white font-bold rounded-full shadow-lg hover:-translate-y-1 transition-all flex items-center gap-2 text-[15px]">
+                    Buy now
+                  </a>
+                ) : (
+                  <Link to={buyNowLink} className="px-8 py-4 bg-slate-900 text-white font-bold rounded-full shadow-lg hover:-translate-y-1 transition-all flex items-center gap-2 text-[15px]">
+                    Buy now
+                  </Link>
+                )}
               </div>
             </div>
             <div className="relative">

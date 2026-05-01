@@ -32,7 +32,9 @@ export default function ContactUs() {
                 </div>
                 <div>
                   <h4 className="text-slate-400 text-sm font-bold uppercase tracking-wider mb-1">Call Us Directly</h4>
-                  <p className="text-slate-900 text-xl font-extrabold">+1 (555) 123-4567</p>
+                  <a href="tel:+917621908664" className="text-slate-900 text-xl font-extrabold hover:text-primary-600 transition-colors">
+                    +91 7621908664
+                  </a>
                 </div>
               </div>
               <div className="flex items-center gap-6 bg-white p-6 rounded-[2rem] shadow-sm border border-slate-200 card-hover">
@@ -41,7 +43,9 @@ export default function ContactUs() {
                 </div>
                 <div>
                   <h4 className="text-slate-400 text-sm font-bold uppercase tracking-wider mb-1">Email Our Team</h4>
-                  <p className="text-slate-900 text-xl font-extrabold">sales@savoryops.com</p>
+                  <a href="mailto:info@savoryops.com" className="text-slate-900 text-xl font-extrabold hover:text-primary-600 transition-colors">
+                    info@savoryops.com
+                  </a>
                 </div>
               </div>
             </div>
@@ -70,17 +74,6 @@ export default function ContactUs() {
                   id="last-name"
                   className="block w-full rounded-2xl border-0 py-3.5 px-4 bg-slate-50 text-slate-900 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-primary-500 sm:text-sm shadow-inner transition-all border border-slate-200"
                   placeholder="Doe"
-                />
-              </div>
-
-              <div className="sm:col-span-2">
-                <label htmlFor="company" className="block text-sm font-bold text-slate-700 mb-2">Restaurant Name</label>
-                <input
-                  type="text"
-                  name="company"
-                  id="company"
-                  className="block w-full rounded-2xl border-0 py-3.5 px-4 bg-slate-50 text-slate-900 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-primary-500 sm:text-sm shadow-inner transition-all border border-slate-200"
-                  placeholder="The Great Eatery"
                 />
               </div>
 

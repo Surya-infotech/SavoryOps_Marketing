@@ -15,7 +15,6 @@ const navLinks = [
       { name: 'Employee App', path: '/employee-app' }
     ]
   },
-  { name: 'Roadmap', path: '/upcoming-features' },
   { name: 'Documents', path: '/documents' },
   { name: 'Contact Us', path: '/contact' },
 ];

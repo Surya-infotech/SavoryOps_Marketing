@@ -32,28 +32,18 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="md:col-span-2 lg:col-span-2">
+          <div className="md:col-span-3 lg:col-span-3">
             <h4 className="text-lg font-bold text-slate-900 mb-6">Quick Links</h4>
             <ul className="space-y-4">
               <li><Link to="/features" className="text-slate-500 hover:text-primary-600 transition-colors font-medium">Features</Link></li>
               <li><Link to="/products" className="text-slate-500 hover:text-primary-600 transition-colors font-medium">Products</Link></li>
               <li><Link to="/documents" className="text-slate-500 hover:text-primary-600 transition-colors font-medium">Documents</Link></li>
-              <li><Link to="/upcoming-features" className="text-slate-500 hover:text-primary-600 transition-colors font-medium">Our Roadmap</Link></li>
+              <li><Link to="/faqs" className="text-slate-500 hover:text-primary-600 transition-colors font-medium">FAQ</Link></li>
               <li><Link to="/contact" className="text-slate-500 hover:text-primary-600 transition-colors font-medium">Support</Link></li>
             </ul>
           </div>
 
-          <div className="md:col-span-3 lg:col-span-2">
-            <h4 className="text-lg font-bold text-slate-900 mb-6">Company</h4>
-            <ul className="space-y-4">
-              <li><a href="#" className="text-slate-500 hover:text-primary-600 transition-colors font-medium">About Us</a></li>
-              <li><a href="#" className="text-slate-500 hover:text-primary-600 transition-colors font-medium">Privacy Policy</a></li>
-              <li><a href="#" className="text-slate-500 hover:text-primary-600 transition-colors font-medium">Terms of Service</a></li>
-              <li><a href="#" className="text-slate-500 hover:text-primary-600 transition-colors font-medium">FAQ</a></li>
-            </ul>
-          </div>
-
-          <div className="md:col-span-3 lg:col-span-3">
+          <div className="md:col-span-5 lg:col-span-4">
             <h4 className="text-lg font-bold text-slate-900 mb-6">App Available On</h4>
             <div className="flex flex-col gap-6 items-start">
               <div className="w-full">
