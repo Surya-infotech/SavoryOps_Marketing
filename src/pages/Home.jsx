@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { MdRestaurant, MdFastfood, MdTrendingUp, MdNotifications } from 'react-icons/md';
+import { MdRestaurant, MdFastfood, MdTrendingUp, MdNotifications, MdPhoneIphone, MdSoupKitchen, MdSupportAgent, MdVerified, MdSettings, MdGroups } from 'react-icons/md';
 import ArrowForwardRoundedIcon from '@mui/icons-material/ArrowForwardRounded';
 import ShoppingCartRoundedIcon from '@mui/icons-material/ShoppingCartRounded';
 import logo from '../assets/logo.png';
@@ -9,8 +9,38 @@ import { faqs } from '../data/faqs';
 import AppButton from '../components/ui/AppButton';
 
 export default function Home() {
+  const appSuites = [
+    {
+      title: 'Customer App',
+      icon: <MdPhoneIphone />,
+      desc: 'Let customers browse menu, place orders, track order status, and reserve tables from mobile.',
+      points: ['Order placement', 'Table reservation', 'Offer discovery'],
+      link: '/user-app',
+    },
+    {
+      title: 'Employee App',
+      icon: <MdSupportAgent />,
+      desc: 'Help staff manage incoming orders, active tasks, and service flow with real-time updates.',
+      points: ['New order alerts', 'Pending/processing queues', 'Task visibility'],
+      link: '/employee-app',
+    },
+    {
+      title: 'Kitchen Operations',
+      icon: <MdSoupKitchen />,
+      desc: 'Keep kitchen and front desk synchronized with structured KOT flow and status updates.',
+      points: ['Instant KOT routing', 'Preparation status', 'Reduced communication errors'],
+      link: '/features/kot-feature',
+    },
+  ];
+
+  const pricingHighlights = [
+    { title: 'Full Source Code', value: 'Included' },
+    { title: 'White-Label Branding', value: 'Included' },
+    { title: 'Deployment Support', value: 'Available' },
+  ];
+
   return (
-    <div className="bg-[#f8f9fa] overflow-hidden min-h-screen">
+    <div className="marketing-shell overflow-hidden min-h-screen">
       {/* Hero Section */}
       <div className="relative pt-12 pb-20 sm:pt-16 sm:pb-24 lg:pb-32 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 lg:gap-8">
 
@@ -61,7 +91,7 @@ export default function Home() {
           <div className="relative mx-auto w-full max-w-md lg:max-w-none lg:w-[110%] xl:w-[120%] h-[500px] flex items-center justify-center">
 
             {/* Main App Card */}
-            <div className="absolute z-20 w-3/4 h-3/4 bg-white rounded-[2rem] shadow-soft border border-slate-200 p-6 flex flex-col animate-float">
+            <div className="absolute z-20 w-3/4 h-3/4 premium-card rounded-[2rem] p-6 flex flex-col animate-float">
               <div className="flex justify-between items-center mb-6">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-xl bg-primary-100 text-primary-600 flex items-center justify-center text-xl">
@@ -91,7 +121,7 @@ export default function Home() {
             </div>
 
             {/* Floating Stats Card */}
-            <div className="absolute z-30 -bottom-6 -left-6 bg-white rounded-2xl p-5 shadow-soft border border-slate-200 flex items-center gap-4 animate-float" style={{ animationDelay: '1s' }}>
+            <div className="absolute z-30 -bottom-6 -left-6 premium-card rounded-2xl p-5 flex items-center gap-4 animate-float" style={{ animationDelay: '1s' }}>
               <div className="w-12 h-12 rounded-full bg-green-100 text-green-600 flex items-center justify-center text-xl">
                 <MdTrendingUp />
               </div>
@@ -102,7 +132,7 @@ export default function Home() {
             </div>
 
             {/* Floating Notification */}
-            <div className="absolute z-30 top-10 -right-6 bg-white rounded-2xl p-4 shadow-soft border border-slate-200 flex items-center gap-3 animate-float" style={{ animationDelay: '2s' }}>
+            <div className="absolute z-30 top-10 -right-6 premium-card rounded-2xl p-4 flex items-center gap-3 animate-float" style={{ animationDelay: '2s' }}>
               <div className="w-10 h-10 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center text-xl">
                 <MdNotifications />
               </div>
@@ -202,6 +232,43 @@ export default function Home() {
                   />
                 </div>
 
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* App Suite Section */}
+      <div className="py-24 bg-white border-t border-slate-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-3xl mx-auto mb-14">
+            <h2 className="text-primary-600 font-bold tracking-wide uppercase text-sm mb-3">All-In-One Restaurant App Suite</h2>
+            <h3 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight">Format built for marketing and conversions.</h3>
+            <p className="mt-5 text-slate-500 text-lg">
+              Present each SavoryOps app clearly so buyers instantly understand what they get and why it improves operations.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-7">
+            {appSuites.map((app) => (
+              <div key={app.title} className="premium-card p-7">
+                <div className="w-12 h-12 rounded-2xl bg-primary-100 text-primary-700 flex items-center justify-center text-2xl mb-5">
+                  {app.icon}
+                </div>
+                <h4 className="text-2xl font-extrabold text-slate-900 mb-3">{app.title}</h4>
+                <p className="text-slate-500 leading-relaxed mb-5">{app.desc}</p>
+                <ul className="space-y-2 mb-6">
+                  {app.points.map((point) => (
+                    <li key={point} className="flex items-center gap-2 text-sm font-semibold text-slate-700">
+                      <MdVerified className="text-primary-600" />
+                      {point}
+                    </li>
+                  ))}
+                </ul>
+                <Link to={app.link} className="inline-flex items-center gap-2 text-primary-700 font-bold hover:text-primary-600">
+                  View Details
+                  <ArrowForwardRoundedIcon fontSize="small" />
+                </Link>
               </div>
             ))}
           </div>
@@ -314,6 +381,57 @@ export default function Home() {
               View All Features
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
             </Link>
+          </div>
+        </div>
+      </div>
+
+      {/* License & Pricing Section */}
+      <div className="py-24 bg-white border-t border-slate-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="premium-card p-8 md:p-12">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+              <div>
+                <h2 className="text-primary-600 font-bold tracking-wide uppercase text-sm mb-3">License & Commercial Use</h2>
+                <h3 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-5">
+                  One investment, complete business-ready product.
+                </h3>
+                <p className="text-slate-500 text-lg leading-relaxed mb-7">
+                  SavoryOps is built for founders who want to launch quickly with a professional product stack and monetize restaurant software under their own brand.
+                </p>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
+                  {pricingHighlights.map((item) => (
+                    <div key={item.title} className="bg-primary-50 border border-primary-100 rounded-2xl p-4">
+                      <p className="text-xs uppercase tracking-wide font-bold text-primary-700">{item.title}</p>
+                      <p className="text-xl font-extrabold text-slate-900 mt-1">{item.value}</p>
+                    </div>
+                  ))}
+                </div>
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <AppButton to="/contact" endIcon={<ArrowForwardRoundedIcon />}>
+                    Contact for Purchase
+                  </AppButton>
+                  <AppButton href={import.meta.env.VITE_LANDING_PAGE_DEMO} variant="outlined" color="secondary">
+                    Explore Demo
+                  </AppButton>
+                </div>
+              </div>
+              <div className="bg-[#f7fff7] border border-primary-100 rounded-3xl p-7">
+                <h4 className="text-2xl font-extrabold text-slate-900 mb-4">What You Can Offer Your Clients</h4>
+                <ul className="space-y-3">
+                  {[
+                    { icon: <MdSettings />, text: 'Custom branding with logo, color, and domain setup' },
+                    { icon: <MdGroups />, text: 'Customer, employee, owner, and admin-facing applications' },
+                    { icon: <MdRestaurant />, text: 'Feature-rich POS and restaurant operations management' },
+                    { icon: <MdVerified />, text: 'Production-ready architecture for rapid launch' },
+                  ].map((point) => (
+                    <li key={point.text} className="flex items-start gap-3 text-slate-700 font-medium">
+                      <span className="text-primary-600 text-xl mt-0.5">{point.icon}</span>
+                      <span>{point.text}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </div>

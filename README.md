@@ -30,3 +30,9 @@ If you are developing a production application, we recommend using TypeScript wi
 9. Ensure the EC2 instance role or credentials can publish to the SNS topic.
 
 The next steps (application deployment, environment variables, and SNS publish testing from the app) can be added after this EC2 setup stage.
+
+## Website Content Documentation
+
+For Owner Panel, Super Admin, and feature-wise website content documentation, see:
+
+- `docs/website-content-documentation.md`

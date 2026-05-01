@@ -1024,7 +1024,7 @@ export default function Documents() {
                         'Acceptance: The Waiter receives the Pending order and accepts it. The status changes to Accepted.',
                         "KOT Generation: The system automatically generates a KOT and routes it to the Head Chef's interface.",
                         'Assignment: The Head Chef reviews the KOT and assigns specific items or the entire KOT to a Chef.',
-                        'Status Shift: KOT status moves to Assigned -> Confirmed.',
+                        'Status Shift: KOT status moves to Confirmed -> Assign.',
                         'Preparation: The Chef updates the status to Preparing. Once finished, the status is marked as Ready to Serve.'
                       ]
                     },
@@ -1032,7 +1032,7 @@ export default function Documents() {
                       title: '3. Fulfillment & Service',
                       points: [
                         'Serving: The Waiter picks up the prepared items and serves the customer.',
-                        'Order Expansion: While the order is still Open, customers or waiters can click the Add New button to append more items to the existing order.',
+                        'Order Expansion: While the order is still Open, customers can click the Add New button to append more items to the existing order.',
                         'Closure: Once the customer has finished their meal, the Waiter moves the order to the Closed status. This action hides the Add New button.'
                       ]
                     },
@@ -1180,8 +1180,7 @@ export default function Documents() {
                     {
                       title: '4. Technical Configuration',
                       points: [
-                        'Domain Management: The landing page and Super Admin panel typically share one primary domain, while registered owners operate on a separate domain (using subdomains) to maintain professional separation.',
-                        'SEO & Metadata: General settings in the Super Admin panel allow for basic metadata management (Description, Software Name) to ensure the landing page is discoverable by search engines.'
+                        'Domain Management: The landing page and Super Admin panel typically share one primary domain, while registered owners operate on a separate domain (using subdomains) to maintain professional separation.'
                       ]
                     }
                   ]}
