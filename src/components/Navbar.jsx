@@ -254,9 +254,9 @@ const Navbar = ({ onOpenInquiry }) => {
 
           {/* Desktop Organized Nav Links */}
           <div className="nav-links">
-            {/* 1. Solutions Mega Dropdown */}
+            {/* 1. Solutions Dropdown - Same Design as Platform Menu */}
             <div
-              className="nav-dropdown solutions-dropdown"
+              className="nav-dropdown"
               onMouseEnter={() => handleDropdownHover('solutions')}
               onMouseLeave={handleDropdownLeave}
             >
@@ -277,62 +277,63 @@ const Navbar = ({ onOpenInquiry }) => {
                 </span>
               </button>
 
-              <div className={`nav-dropdown-menu solutions-mega-menu ${activeDropdown === 'solutions' ? 'show' : ''}`}>
-                <div className="solutions-mega-grid">
-                  {solutionsGroups.map((group, gIdx) => (
-                    <div key={gIdx} className="mega-menu-column">
-                      <div className="mega-column-header">
-                        <span className="column-icon">{group.icon}</span>
-                        <div>
-                          <div className="mega-column-heading">{group.heading}</div>
-                          <div className="mega-column-sub">{group.tagline}</div>
-                        </div>
-                      </div>
-                      <div className="mega-column-items">
-                        {group.items.map((item, iIdx) => (
-                          <Link
-                            key={iIdx}
-                            to={item.path}
-                            className="nav-subitem-link"
-                            onClick={() => setActiveDropdown(null)}
-                          >
-                            <span className="subitem-icon">{item.icon}</span>
-                            <div className="subitem-body">
-                              <div className="subitem-header">
-                                <span className="subitem-title">{item.title}</span>
-                                {item.badge && (
-                                  <span className={`subitem-badge badge-${item.badgeType || 'emerald'}`}>
-                                    {item.badge}
-                                  </span>
-                                )}
-                              </div>
-                              <span className="subitem-desc">{item.desc}</span>
+              <div className={`nav-dropdown-menu solutions-menu ${activeDropdown === 'solutions' ? 'show' : ''}`}>
+                <div className="solutions-menu-grid">
+                  {/* Column 1: Point of Sale & Kitchen */}
+                  <div className="solutions-menu-col">
+                    <div className="menu-inner-header">POINT OF SALE &amp; KITCHEN</div>
+                    <div className="platform-menu-items">
+                      {solutionsGroups[0].items.map((item, idx) => (
+                        <Link
+                          key={idx}
+                          to={item.path}
+                          className="nav-card-link"
+                          onClick={() => setActiveDropdown(null)}
+                        >
+                          <span className="nav-card-icon">{item.icon}</span>
+                          <div className="nav-card-body">
+                            <div className="nav-card-title-row">
+                              <span className="nav-card-title">{item.title}</span>
+                              {item.badge && (
+                                <span className={`subitem-badge badge-${item.badgeType || 'emerald'}`}>
+                                  {item.badge}
+                                </span>
+                              )}
                             </div>
-                          </Link>
-                        ))}
-                      </div>
+                            <span className="nav-card-desc">{item.desc}</span>
+                          </div>
+                        </Link>
+                      ))}
                     </div>
-                  ))}
-                </div>
-
-                {/* Bottom Promo Strip */}
-                <div className="mega-menu-footer">
-                  <div className="mega-footer-left">
-                    <span className="mega-footer-badge">100% UNENCRYPTED SOURCE CODE</span>
-                    <span className="mega-footer-text">
-                      Own the complete source code with white-label rights, custom branding, and zero transaction fees.
-                    </span>
                   </div>
-                  <a
-                    href="#licensing"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      scrollTo('licensing');
-                    }}
-                    className="mega-footer-btn"
-                  >
-                    View All Licensing Packages &rarr;
-                  </a>
+
+                  {/* Column 2: Operations & Market Alternatives */}
+                  <div className="solutions-menu-col">
+                    <div className="menu-inner-header">OPERATIONS &amp; ALTERNATIVES</div>
+                    <div className="platform-menu-items">
+                      {[...solutionsGroups[1].items, ...solutionsGroups[2].items].map((item, idx) => (
+                        <Link
+                          key={idx}
+                          to={item.path}
+                          className="nav-card-link"
+                          onClick={() => setActiveDropdown(null)}
+                        >
+                          <span className="nav-card-icon">{item.icon}</span>
+                          <div className="nav-card-body">
+                            <div className="nav-card-title-row">
+                              <span className="nav-card-title">{item.title}</span>
+                              {item.badge && (
+                                <span className={`subitem-badge badge-${item.badgeType || 'emerald'}`}>
+                                  {item.badge}
+                                </span>
+                              )}
+                            </div>
+                            <span className="nav-card-desc">{item.desc}</span>
+                          </div>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
