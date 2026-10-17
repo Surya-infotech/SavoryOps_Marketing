@@ -1,7 +1,24 @@
 import React from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 const Footer = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+
   const scrollTo = (id) => {
+    if (location.pathname !== '/') {
+      navigate(`/#${id}`);
+      setTimeout(() => {
+        const el = document.getElementById(id);
+        if (el) {
+          const yOffset = -80;
+          const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+          window.scrollTo({ top: y, behavior: 'smooth' });
+        }
+      }, 100);
+      return;
+    }
+
     const el = document.getElementById(id);
     if (el) {
       const yOffset = -80;
@@ -17,7 +34,9 @@ const Footer = () => {
           {/* Brand Info */}
           <div className="footer-brand-col">
             <div className="footer-brand-header">
-              <img src="/logo.png" alt="SavoryOps Logo" className="footer-logo" />
+              <Link to="/">
+                <img src="/logo.png" alt="SavoryOps Logo" className="footer-logo" />
+              </Link>
               <div className="footer-brand-title">
                 <span className="brand-name">Savory<span className="brand-accent">Ops</span></span>
                 <span className="brand-sub">White-Label Restaurant Tech SaaS</span>
@@ -35,7 +54,34 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Quick Links Column */}
+          {/* Solutions & SEO Guides Column */}
+          <div className="footer-links-col">
+            <h4 className="footer-col-title">Solutions &amp; Guides</h4>
+            <ul className="footer-links-list">
+              <li><Link to="/solutions/restaurant-pos-system">Restaurant POS System</Link></li>
+              <li><Link to="/solutions/kitchen-display-system">Kitchen Display System (KDS)</Link></li>
+              <li><Link to="/solutions/kitchen-order-ticket-system">Kitchen Order Ticket (KOT)</Link></li>
+              <li><Link to="/solutions/restaurant-inventory-management">Inventory &amp; Recipe BOM</Link></li>
+              <li><Link to="/solutions/cloud-kitchen-pos-system">Cloud Kitchen POS System</Link></li>
+              <li><Link to="/resources/food-cost-percentage-guide">Food Cost Calculator Guide</Link></li>
+              <li><a href="/sitemap.xml" target="_blank" rel="noopener noreferrer">XML Sitemap</a></li>
+            </ul>
+          </div>
+
+          {/* Competitor Alternatives */}
+          <div className="footer-links-col">
+            <h4 className="footer-col-title">Alternatives</h4>
+            <ul className="footer-links-list">
+              <li><Link to="/alternatives/toast-pos-alternative">Toast POS Alternative</Link></li>
+              <li><Link to="/alternatives/square-pos-alternative">Square POS Alternative</Link></li>
+              <li><Link to="/alternatives/touchbistro-alternative">TouchBistro Alternative</Link></li>
+              <li><a href="#comparison" onClick={(e) => { e.preventDefault(); scrollTo('comparison'); }}>Competitor Technical Audit</a></li>
+              <li><a href="#roi-calculator" onClick={(e) => { e.preventDefault(); scrollTo('roi-calculator'); }}>Interactive ROI Calculator</a></li>
+              <li><a href="#licensing" onClick={(e) => { e.preventDefault(); scrollTo('licensing'); }}>Licensing &amp; Pricing Tiers</a></li>
+            </ul>
+          </div>
+
+          {/* The Ecosystem */}
           <div className="footer-links-col">
             <h4 className="footer-col-title">The Ecosystem</h4>
             <ul className="footer-links-list">
@@ -44,20 +90,7 @@ const Footer = () => {
               <li><a href="#ecosystem" onClick={(e) => { e.preventDefault(); scrollTo('ecosystem'); }}>Interactive Kitchen KDS</a></li>
               <li><a href="#ecosystem" onClick={(e) => { e.preventDefault(); scrollTo('ecosystem'); }}>Waiter &amp; Driver Mobile Apps</a></li>
               <li><a href="#ecosystem" onClick={(e) => { e.preventDefault(); scrollTo('ecosystem'); }}>Customer Table QR Scan-to-Order</a></li>
-              <li><a href="#ecosystem" onClick={(e) => { e.preventDefault(); scrollTo('ecosystem'); }}>Node.js REST API &amp; ESC/POS Engine</a></li>
-            </ul>
-          </div>
-
-          {/* White-Label Autonomy */}
-          <div className="footer-links-col">
-            <h4 className="footer-col-title">White-Label Rights</h4>
-            <ul className="footer-links-list">
-              <li><a href="#white-label-rights" onClick={(e) => { e.preventDefault(); scrollTo('white-label-rights'); }}>Custom Domain &amp; DNS Mapping</a></li>
-              <li><a href="#white-label-rights" onClick={(e) => { e.preventDefault(); scrollTo('white-label-rights'); }}>100% Logo &amp; Color Rebranding</a></li>
-              <li><a href="#white-label-rights" onClick={(e) => { e.preventDefault(); scrollTo('white-label-rights'); }}>App Store &amp; Play Store Publishing</a></li>
-              <li><a href="#comparison" onClick={(e) => { e.preventDefault(); scrollTo('comparison'); }}>Competitor Technical Audit</a></li>
-              <li><a href="#roi-calculator" onClick={(e) => { e.preventDefault(); scrollTo('roi-calculator'); }}>Interactive ROI Calculator</a></li>
-              <li><a href="#licensing" onClick={(e) => { e.preventDefault(); scrollTo('licensing'); }}>Licensing &amp; Pricing Tiers</a></li>
+              <li><a href="#white-label-rights" onClick={(e) => { e.preventDefault(); scrollTo('white-label-rights'); }}>White-Label Agency Rights</a></li>
             </ul>
           </div>
 

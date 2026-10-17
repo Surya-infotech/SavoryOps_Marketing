@@ -1,0 +1,368 @@
+import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+import { useLanguage } from '../../context/LanguageContext.jsx';
+import multilingualKeywords from '../../data/multilingualKeywords.json';
+
+/**
+ * SEOHead Component
+ * Programmatically manages <head> meta tags and structured JSON-LD schema markup.
+ */
+const SEOHead = ({
+  title,
+  description,
+  keywords = [],
+  primaryKeyword,
+  faqs = [],
+  canonicalUrl,
+  ogImage = '/Web_Logo.png',
+  schemaType = 'SoftwareApplication',
+  authorName = 'Suraj Dholakiya',
+  datePublished,
+  dateModified
+}) => {
+  const location = useLocation();
+  const { language } = useLanguage();
+  const currentUrl = canonicalUrl || `https://savoryops.com${location.pathname.toLowerCase()}`;
+  const resolvedOgImage = ogImage
+    ? ogImage.startsWith('http')
+      ? ogImage
+      : `https://savoryops.com${ogImage.startsWith('/') ? '' : '/'}${ogImage}`
+    : 'https://savoryops.com/Web_Logo.png';
+
+  useEffect(() => {
+    // Determine active language data
+    const langData = multilingualKeywords[language] || multilingualKeywords['English'];
+    const activeLangCode = langData?.langCode || 'en';
+
+    // Update <html lang="..."> attribute dynamically
+    document.documentElement.lang = activeLangCode;
+
+    // 1. Update Title Tag
+    const resolvedTitle = title || langData?.metaTitle || document.title;
+    if (resolvedTitle) {
+      document.title = resolvedTitle;
+    }
+
+    // Helper function to update or create meta tags
+    const setMetaTag = (selector, nameAttr, nameValue, content) => {
+      let element = document.querySelector(selector);
+      if (!element) {
+        element = document.createElement('meta');
+        element.setAttribute(nameAttr, nameValue);
+        document.head.appendChild(element);
+      }
+      element.setAttribute('content', content);
+    };
+
+    // 2. Standard Meta Tags with Multilingual Keyword Merging
+    const resolvedDescription = description || langData?.metaDescription || '';
+    if (resolvedDescription) {
+      setMetaTag('meta[name="description"]', 'name', 'description', resolvedDescription);
+    }
+
+    const pageKeywords = Array.isArray(keywords)
+      ? keywords
+      : typeof keywords === 'string' && keywords.length > 0
+      ? [keywords]
+      : [];
+
+    const localizedKeywords = langData?.primaryKeywords || [];
+    const mergedKeywords = Array.from(new Set([...pageKeywords, ...localizedKeywords]));
+
+    if (mergedKeywords.length > 0) {
+      setMetaTag('meta[name="keywords"]', 'name', 'keywords', mergedKeywords.join(', '));
+    }
+
+    // 3. Open Graph Tags
+    setMetaTag('meta[property="og:title"]', 'property', 'og:title', title || document.title);
+    setMetaTag('meta[property="og:description"]', 'property', 'og:description', resolvedDescription);
+    setMetaTag('meta[property="og:url"]', 'property', 'og:url', currentUrl);
+    setMetaTag('meta[property="og:image"]', 'property', 'og:image', resolvedOgImage);
+    setMetaTag('meta[property="og:type"]', 'property', 'og:type', schemaType === 'Article' ? 'article' : 'website');
+
+    // 4. Twitter Card Tags
+    setMetaTag('meta[name="twitter:card"]', 'name', 'twitter:card', 'summary_large_image');
+    setMetaTag('meta[name="twitter:title"]', 'name', 'twitter:title', title || document.title);
+    setMetaTag('meta[name="twitter:description"]', 'name', 'twitter:description', resolvedDescription);
+    setMetaTag('meta[name="twitter:image"]', 'name', 'twitter:image', resolvedOgImage);
+
+    // 5. Canonical Link
+    let canonical = document.querySelector('link[rel="canonical"]');
+    if (!canonical) {
+      canonical = document.createElement('link');
+      canonical.setAttribute('rel', 'canonical');
+      document.head.appendChild(canonical);
+    }
+    canonical.setAttribute('href', currentUrl);
+
+    // 5b. Multilingual Hreflang Tags for Global Search Ranking
+    const supportedLangs = [
+      { code: 'en', lang: 'en' },
+      { code: 'fr', lang: 'fr' },
+      { code: 'de', lang: 'de' },
+      { code: 'es', lang: 'es' },
+      { code: 'el', lang: 'el' },
+      { code: 'it', lang: 'it' },
+      { code: 'nl', lang: 'nl' },
+      { code: 'ru', lang: 'ru' },
+      { code: 'x-default', lang: 'en' }
+    ];
+
+    supportedLangs.forEach(({ code }) => {
+      let hreflangTag = document.querySelector(`link[rel="alternate"][hreflang="${code}"]`);
+      if (!hreflangTag) {
+        hreflangTag = document.createElement('link');
+        hreflangTag.setAttribute('rel', 'alternate');
+        hreflangTag.setAttribute('hreflang', code);
+        document.head.appendChild(hreflangTag);
+      }
+      hreflangTag.setAttribute('href', currentUrl);
+    });
+
+    // 6. JSON-LD Structured Schema Injection
+    const schemaId = 'dynamic-seo-jsonld';
+    let scriptTag = document.getElementById(schemaId);
+    if (!scriptTag) {
+      scriptTag = document.createElement('script');
+      scriptTag.id = schemaId;
+      scriptTag.type = 'application/ld+json';
+      document.head.appendChild(scriptTag);
+    }
+
+    const schemas = [];
+
+    if (schemaType === 'Article' || schemaType === 'BlogPosting') {
+      schemas.push({
+        '@context': 'https://schema.org',
+        '@type': 'BlogPosting',
+        'headline': title || document.title,
+        'description': resolvedDescription,
+        'image': resolvedOgImage,
+        'author': {
+          '@type': 'Person',
+          'name': authorName || 'Suraj Dholakiya',
+          'jobTitle': 'Founder & Software Engineer',
+          'url': 'https://www.linkedin.com/in/surajdholakiya',
+          'sameAs': [
+            'https://www.linkedin.com/in/surajdholakiya',
+            'https://savoryops.com/about-us'
+          ]
+        },
+        'publisher': {
+          '@type': 'Organization',
+          'name': 'SavoryOps',
+          'url': 'https://savoryops.com',
+          'logo': {
+            '@type': 'ImageObject',
+            'url': 'https://savoryops.com/logo.png',
+            'width': '512',
+            'height': '512'
+          }
+        },
+        'datePublished': datePublished ? new Date(datePublished).toISOString() : '2025-08-15T00:00:00Z',
+        'dateModified': dateModified ? new Date(dateModified).toISOString() : new Date().toISOString().split('T')[0] + 'T00:00:00Z',
+        'mainEntityOfPage': {
+          '@type': 'WebPage',
+          '@id': currentUrl
+        },
+        'keywords': mergedKeywords.join(', ')
+      });
+    } else {
+      schemas.push({
+        '@context': 'https://schema.org',
+        '@type': 'SoftwareApplication',
+        'name': 'SavoryOps',
+        'alternateName': ['SavoryOps SaaS', 'SavoryOps Restaurant Management System', 'SavoryOps POS'],
+        'applicationCategory': 'RestaurantManagementApplication',
+        'operatingSystem': 'Web, Cloud, iOS, Android',
+        'url': 'https://savoryops.com',
+        'image': resolvedOgImage,
+        'description': resolvedDescription || 'Complete Restaurant Management System, Cloud POS, and Kitchen Display System SaaS platform.',
+        'featureList': [
+          'Point of Sale (POS) Billing & High-Speed Touchscreen Ordering',
+          'Kitchen Order Ticket (KOT) Routing & Kitchen Display System (KDS)',
+          'Real-time Ingredient-level BOM Inventory Management',
+          'Automated Recipe Stock Depletion on POS and KOT Orders',
+          'Supplier Directory, Vendor Purchase Orders & Inward Delivery Receiving',
+          'Inter-Branch & Central Commissary Stock Transfers',
+          'Physical Stock Adjustments, Spoilage & Wastage Loss Audits',
+          'Dynamic Contactless QR Digital Menus & Tableside Ordering',
+          'Online Table Reservation & Floor Plan Management',
+          'Enterprise Multi-Branch Consolidated Analytics & COGS Reports'
+        ],
+        'sameAs': [
+          'https://reviews.capterra.com/products/new/cd4941f7-7adc-4ad9-8652-6766cd4e284d/',
+          'https://www.trustpilot.com/review/savoryops.com',
+          'https://www.linkedin.com/company/savoryops/',
+          'https://www.instagram.com/savoryops'
+        ],
+        'offers': {
+          '@type': 'Offer',
+          'price': '0.00',
+          'priceCurrency': 'USD',
+          'name': 'Free Trial'
+        },
+        'aggregateRating': {
+          '@type': 'AggregateRating',
+          'ratingValue': '4.9',
+          'ratingCount': '128'
+        }
+      });
+    }
+
+    schemas.push({
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+        'itemListElement': (() => {
+          const pathSegments = location.pathname.split('/').filter(Boolean);
+          if (pathSegments.length <= 1) {
+            return [
+              {
+                '@type': 'ListItem',
+                'position': 1,
+                'name': 'Home',
+                'item': 'https://savoryops.com/'
+              },
+              {
+                '@type': 'ListItem',
+                'position': 2,
+                'name': primaryKeyword || title || 'Page',
+                'item': currentUrl
+              }
+            ];
+          }
+          const parentName = pathSegments[0].charAt(0).toUpperCase() + pathSegments[0].slice(1);
+          return [
+            {
+              '@type': 'ListItem',
+              'position': 1,
+              'name': 'Home',
+              'item': 'https://savoryops.com/'
+            },
+            {
+              '@type': 'ListItem',
+              'position': 2,
+              'name': parentName,
+              'item': `https://savoryops.com/${pathSegments[0]}`
+            },
+            {
+              '@type': 'ListItem',
+              'position': 3,
+              'name': primaryKeyword || title || 'Page',
+              'item': currentUrl
+            }
+          ];
+        })()
+      });
+
+    if (faqs && faqs.length > 0) {
+      schemas.push({
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        'mainEntity': faqs.map(faq => ({
+          '@type': 'Question',
+          'name': faq.question,
+          'acceptedAnswer': {
+            '@type': 'Answer',
+            'text': faq.answer
+          }
+        }))
+      });
+    }
+
+    if (location.pathname.includes('food-cost-percentage-guide')) {
+      schemas.push({
+        '@context': 'https://schema.org',
+        '@type': 'HowTo',
+        'name': 'How to Calculate Restaurant Food Cost Percentage',
+        'description': 'A step-by-step mathematical guide to calculating food cost percentage and Cost of Goods Sold (COGS) for restaurants and commercial kitchens.',
+        'totalTime': 'PT5M',
+        'tool': [
+          {
+            '@type': 'HowToTool',
+            'name': 'SavoryOps Interactive Food Cost Calculator'
+          }
+        ],
+        'step': [
+          {
+            '@type': 'HowToStep',
+            'name': 'Determine Your Accounting Timeframe and Count Beginning Inventory',
+            'text': 'Choose a consistent weekly or monthly audit period (e.g. Sunday after close) and calculate total beginning inventory dollar value.'
+          },
+          {
+            '@type': 'HowToStep',
+            'name': 'Track Total Food Purchases and Vendor Invoices',
+            'text': 'Sum all food & beverage invoices received from purveyors during the period: Total Purchases = Vendor Invoices.'
+          },
+          {
+            '@type': 'HowToStep',
+            'name': 'Perform Physical Ending Inventory and Calculate COGS',
+            'text': 'Count closing shelf stock to determine ending inventory value. Calculate Cost of Goods Sold: COGS = Beginning Inventory + Purchases - Ending Inventory.'
+          },
+          {
+            '@type': 'HowToStep',
+            'name': 'Divide COGS by Total Food Sales and Multiply by 100',
+            'text': 'Divide calculated COGS by gross food sales for the period: Food Cost % = (COGS / Total Food Sales) × 100.'
+          },
+          {
+            '@type': 'HowToStep',
+            'name': 'Benchmark Against Industry Standards and Optimize',
+            'text': 'Compare your percentage against industry benchmarks (25%-28% for QSR, 28%-32% for casual dining). Use recipe portion control and waste logging to lower food cost.'
+          }
+        ]
+      });
+
+      schemas.push({
+        '@context': 'https://schema.org',
+        '@type': 'TechArticle',
+        'headline': 'How to Calculate Food Cost Percentage: Formula, Equation & Benchmarks',
+        'description': 'Complete operational guide to restaurant food cost percentage calculation, period COGS equations, plate costing, and QSR benchmarks.',
+        'author': {
+          '@type': 'Person',
+          'name': 'Suraj Dholakiya',
+          'jobTitle': 'Founder & Software Engineer',
+          'url': 'https://www.linkedin.com/in/surajdholakiya'
+        },
+        'publisher': {
+          '@type': 'Organization',
+          'name': 'SavoryOps',
+          'url': 'https://savoryops.com',
+          'logo': {
+            '@type': 'ImageObject',
+            'url': 'https://savoryops.com/logo.png'
+          }
+        },
+        'datePublished': '2025-08-15T00:00:00Z',
+        'dateModified': '2026-09-11T00:00:00Z',
+        'mainEntityOfPage': 'https://savoryops.com/resources/food-cost-percentage-guide'
+      });
+
+      schemas.push({
+        '@context': 'https://schema.org',
+        '@type': 'WebApplication',
+        'name': 'Restaurant Food Cost Percentage & Margin Calculator',
+        'applicationCategory': 'BusinessApplication',
+        'operatingSystem': 'All',
+        'offers': {
+          '@type': 'Offer',
+          'price': '0',
+          'priceCurrency': 'USD'
+        },
+        'description': 'Free online calculator to calculate restaurant food cost percentage, Cost of Goods Sold (COGS), and plate-level recipe margins with QSR and casual dining presets.'
+      });
+    }
+
+    scriptTag.textContent = JSON.stringify(schemas, null, 2);
+
+    return () => {
+      // Cleanup dynamically injected schema when navigating away
+      if (scriptTag && scriptTag.parentNode) {
+        scriptTag.parentNode.removeChild(scriptTag);
+      }
+    };
+  }, [title, description, keywords, primaryKeyword, faqs, currentUrl, resolvedOgImage, schemaType, authorName, datePublished, dateModified]);
+
+  return null;
+};
+
+export default SEOHead;
