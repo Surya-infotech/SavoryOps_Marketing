@@ -1,24 +1,48 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 const Navbar = ({ onOpenInquiry }) => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [solutionsDropdownOpen, setSolutionsDropdownOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState(null); // 'solutions' | 'platform' | 'whitelabel' | null
+  const [mobileExpanded, setMobileExpanded] = useState({
+    solutions: false,
+    platform: false,
+    whitelabel: false
+  });
+
   const location = useLocation();
   const navigate = useNavigate();
+  const navRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 40);
+      setScrolled(window.scrollY > 30);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollTo = (id) => {
+  // Close dropdown on outside click
+  useEffect(() => {
+    const handleOutsideClick = (e) => {
+      if (navRef.current && !navRef.current.contains(e.target)) {
+        setActiveDropdown(null);
+      }
+    };
+    document.addEventListener('click', handleOutsideClick);
+    return () => document.removeEventListener('click', handleOutsideClick);
+  }, []);
+
+  useEffect(() => {
+    setActiveDropdown(null);
     setMobileMenuOpen(false);
-    setSolutionsDropdownOpen(false);
+  }, [location.pathname]);
+
+  const scrollTo = (id) => {
+    setActiveDropdown(null);
+    setMobileMenuOpen(false);
+
     if (location.pathname !== '/') {
       navigate(`/#${id}`);
       setTimeout(() => {
@@ -40,61 +64,156 @@ const Navbar = ({ onOpenInquiry }) => {
     }
   };
 
-  const solutionsItems = [
+  const handleDropdownHover = (menu) => {
+    setActiveDropdown(menu);
+  };
+
+  const handleDropdownLeave = () => {
+    setActiveDropdown(null);
+  };
+
+  const toggleDropdownClick = (menu, e) => {
+    e.stopPropagation();
+    setActiveDropdown((prev) => (prev === menu ? null : menu));
+  };
+
+  const toggleMobileSection = (section) => {
+    setMobileExpanded((prev) => ({
+      ...prev,
+      [section]: !prev[section]
+    }));
+  };
+
+  // 1. Solutions Mega Menu Data (9 Programmatic SEO Clusters)
+  const solutionsGroups = [
     {
-      title: 'Restaurant POS System',
-      desc: 'Cloud billing, dine-in tables, takeaway & split checkout',
-      path: '/solutions/restaurant-pos-system',
-      badge: 'Popular'
+      heading: 'Point of Sale & Kitchen',
+      tagline: 'High-speed touch billing, KDS & KOT',
+      icon: '🛒',
+      items: [
+        {
+          icon: '🍽️',
+          title: 'Restaurant POS System',
+          desc: 'High-speed touch billing, tables & split bills',
+          path: '/solutions/restaurant-pos-system',
+          badge: 'Popular',
+          badgeType: 'emerald'
+        },
+        {
+          icon: '🖥️',
+          title: 'Kitchen Display (KDS)',
+          desc: 'Paperless kitchen screens with countdown timers',
+          path: '/solutions/kitchen-display-system',
+          badge: 'Real-Time',
+          badgeType: 'teal'
+        },
+        {
+          icon: '🧾',
+          title: 'Kitchen Order Ticket (KOT)',
+          desc: 'Station splitting & void security audits',
+          path: '/solutions/kitchen-order-ticket-system'
+        },
+        {
+          icon: '☁️',
+          title: 'Cloud Kitchen POS',
+          desc: 'Multi-brand virtual kitchen aggregator hub',
+          path: '/solutions/cloud-kitchen-pos-system'
+        }
+      ]
     },
     {
-      title: 'Kitchen Display System (KDS)',
-      desc: 'Paperless real-time kitchen screens with color cook timers',
-      path: '/solutions/kitchen-display-system',
-      badge: 'Real-Time'
+      heading: 'Operations & Margins',
+      tagline: 'Recipe BOM & food cost calculation',
+      icon: '📊',
+      items: [
+        {
+          icon: '📦',
+          title: 'Inventory & Recipe BOM',
+          desc: 'Ingredient-level depletion & automated alerts',
+          path: '/solutions/restaurant-inventory-management',
+          badge: 'Smart BOM',
+          badgeType: 'teal'
+        },
+        {
+          icon: '🧮',
+          title: 'Food Cost Calculator & Guide',
+          desc: 'Interactive plate margin & COGS equation tool',
+          path: '/resources/food-cost-percentage-guide',
+          badge: 'Free Tool',
+          badgeType: 'blue'
+        }
+      ]
     },
     {
-      title: 'Kitchen Order Ticket (KOT)',
-      desc: 'Instant wireless printing & multi-station order routing',
-      path: '/solutions/kitchen-order-ticket-system',
-      badge: 'Auto Sync'
-    },
-    {
-      title: 'Inventory & Recipe BOM',
-      desc: 'Ingredient tracking, yield costing & auto stock deduction',
-      path: '/solutions/restaurant-inventory-management',
-      badge: 'Smart BOM'
-    },
-    {
-      title: 'Cloud Kitchen POS',
-      desc: 'Multi-brand virtual kitchen aggregator & unified dispatch',
-      path: '/solutions/cloud-kitchen-pos-system'
-    },
-    {
-      title: 'Toast POS Alternative',
-      desc: 'Save 40% with zero processing locks and open hardware',
-      path: '/alternatives/toast-pos-alternative',
-      badge: 'Save 40%'
-    },
-    {
-      title: 'Square POS Alternative',
-      desc: 'Built for restaurants with no expensive per-seat charges',
-      path: '/alternatives/square-pos-alternative'
-    },
-    {
-      title: 'TouchBistro Alternative',
-      desc: 'Hardware-agnostic POS with no locked processor contracts',
-      path: '/alternatives/touchbistro-alternative'
-    },
-    {
-      title: 'Food Cost Calculator & Guide',
-      desc: 'Interactive live food cost percentage & plate margin calculator',
-      path: '/resources/food-cost-percentage-guide',
-      badge: 'Free Tool'
+      heading: 'Market Alternatives',
+      tagline: 'Compare zero-lock-in software',
+      icon: '⚖️',
+      items: [
+        {
+          icon: '🍞',
+          title: 'Toast POS Alternative',
+          desc: 'Hardware-agnostic POS with 0% penalty processing',
+          path: '/alternatives/toast-pos-alternative',
+          badge: 'Save 40%',
+          badgeType: 'amber'
+        },
+        {
+          icon: '🔲',
+          title: 'Square POS Alternative',
+          desc: 'Built for restaurants with zero per-seat fees',
+          path: '/alternatives/square-pos-alternative'
+        },
+        {
+          icon: '🔄',
+          title: 'TouchBistro Alternative',
+          desc: 'Runs on iPad, Android tablets & Windows PCs',
+          path: '/alternatives/touchbistro-alternative'
+        }
+      ]
     }
   ];
 
-  const isSolutionsActive = solutionsItems.some((item) => location.pathname === item.path);
+  // 2. Platform Dropdown Data
+  const platformItems = [
+    {
+      icon: '🖥️',
+      title: '5-Platform Architecture',
+      desc: 'SuperAdmin SaaS, Merchant Web POS, Kitchen KDS, Waiter App & Table QR',
+      targetId: 'ecosystem'
+    },
+    {
+      icon: '⚡',
+      title: 'Operational Workflow',
+      desc: 'End-to-end guest ordering, station routing & final kitchen settlement',
+      targetId: 'workflow'
+    }
+  ];
+
+  // 3. White-Label Dropdown Data
+  const whiteLabelItems = [
+    {
+      icon: '👑',
+      title: 'White-Label Agency Rights',
+      desc: '100% Unencrypted source code, custom domains & native mobile app publishing',
+      targetId: 'white-label-rights'
+    },
+    {
+      icon: '⚖️',
+      title: 'Competitor Technical Audit',
+      desc: 'Deep architecture feature matrix vs Toast, Square, TouchBistro & Clover',
+      targetId: 'comparison'
+    },
+    {
+      icon: '📈',
+      title: 'Interactive ROI Calculator',
+      desc: 'Forecast monthly recurring revenue (MRR) and payback timeline',
+      targetId: 'roi-calculator'
+    }
+  ];
+
+  const isSolutionsActive = solutionsGroups.some((g) =>
+    g.items.some((i) => location.pathname === i.path)
+  );
 
   return (
     <>
@@ -103,66 +222,238 @@ const Navbar = ({ onOpenInquiry }) => {
         <div className="top-banner-content">
           <span className="top-banner-pill">White-Label License</span>
           <span>Acquire 100% Unencrypted Source Code &amp; Multi-Tenant SaaS Platform • Launch in &lt; 48 Hours</span>
-          <a href="#licensing" onClick={(e) => { e.preventDefault(); scrollTo('licensing'); }} className="top-banner-link">
+          <a
+            href="#licensing"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollTo('licensing');
+            }}
+            className="top-banner-link"
+          >
             Explore Tiers &rarr;
           </a>
         </div>
       </div>
 
       {/* Main Navbar */}
-      <nav className={`main-navbar ${scrolled ? 'navbar-scrolled' : ''}`}>
+      <nav
+        ref={navRef}
+        className={`main-navbar ${scrolled ? 'navbar-scrolled' : ''}`}
+      >
         <div className="navbar-container">
+          {/* Brand Logo & Name */}
           <Link to="/" className="navbar-brand">
             <img src="/logo.png" alt="SavoryOps Logo" className="brand-logo" />
             <div className="brand-text">
-              <span className="brand-name">Savory<span className="brand-accent">Ops</span></span>
+              <span className="brand-name">
+                Savory<span className="brand-accent">Ops</span>
+              </span>
               <span className="brand-badge">White Label SaaS</span>
             </div>
           </Link>
 
-          {/* Desktop Nav Links */}
+          {/* Desktop Organized Nav Links */}
           <div className="nav-links">
-            {/* Solutions Dropdown */}
+            {/* 1. Solutions Mega Dropdown */}
             <div
-              className="nav-dropdown"
-              onMouseEnter={() => setSolutionsDropdownOpen(true)}
-              onMouseLeave={() => setSolutionsDropdownOpen(false)}
+              className="nav-dropdown solutions-dropdown"
+              onMouseEnter={() => handleDropdownHover('solutions')}
+              onMouseLeave={handleDropdownLeave}
             >
               <button
-                className={`nav-dropdown-trigger ${isSolutionsActive ? 'active' : ''}`}
-                onClick={() => setSolutionsDropdownOpen(!solutionsDropdownOpen)}
+                className={`nav-dropdown-trigger ${isSolutionsActive || activeDropdown === 'solutions' ? 'active' : ''}`}
+                onClick={(e) => toggleDropdownClick('solutions', e)}
                 aria-haspopup="true"
-                aria-expanded={solutionsDropdownOpen}
+                aria-expanded={activeDropdown === 'solutions'}
               >
                 <span>Solutions</span>
-                <span style={{ fontSize: '0.7rem', transition: 'transform 0.2s', transform: solutionsDropdownOpen ? 'rotate(180deg)' : 'none' }}>▼</span>
+                <span
+                  className="dropdown-chevron"
+                  style={{
+                    transform: activeDropdown === 'solutions' ? 'rotate(180deg)' : 'rotate(0deg)'
+                  }}
+                >
+                  ▾
+                </span>
               </button>
 
-              <div className={`nav-dropdown-menu ${solutionsDropdownOpen ? 'show' : ''}`}>
-                {solutionsItems.map((item, idx) => (
-                  <Link
-                    key={idx}
-                    to={item.path}
-                    className="nav-dropdown-item"
-                    onClick={() => setSolutionsDropdownOpen(false)}
-                  >
-                    <div className="nav-dropdown-item-title">
-                      <span>{item.title}</span>
-                      {item.badge && <span className="nav-dropdown-badge">{item.badge}</span>}
+              <div className={`nav-dropdown-menu solutions-mega-menu ${activeDropdown === 'solutions' ? 'show' : ''}`}>
+                <div className="solutions-mega-grid">
+                  {solutionsGroups.map((group, gIdx) => (
+                    <div key={gIdx} className="mega-menu-column">
+                      <div className="mega-column-header">
+                        <span className="column-icon">{group.icon}</span>
+                        <div>
+                          <div className="mega-column-heading">{group.heading}</div>
+                          <div className="mega-column-sub">{group.tagline}</div>
+                        </div>
+                      </div>
+                      <div className="mega-column-items">
+                        {group.items.map((item, iIdx) => (
+                          <Link
+                            key={iIdx}
+                            to={item.path}
+                            className="nav-subitem-link"
+                            onClick={() => setActiveDropdown(null)}
+                          >
+                            <span className="subitem-icon">{item.icon}</span>
+                            <div className="subitem-body">
+                              <div className="subitem-header">
+                                <span className="subitem-title">{item.title}</span>
+                                {item.badge && (
+                                  <span className={`subitem-badge badge-${item.badgeType || 'emerald'}`}>
+                                    {item.badge}
+                                  </span>
+                                )}
+                              </div>
+                              <span className="subitem-desc">{item.desc}</span>
+                            </div>
+                          </Link>
+                        ))}
+                      </div>
                     </div>
-                    <span className="nav-dropdown-item-desc">{item.desc}</span>
-                  </Link>
-                ))}
+                  ))}
+                </div>
+
+                {/* Bottom Promo Strip */}
+                <div className="mega-menu-footer">
+                  <div className="mega-footer-left">
+                    <span className="mega-footer-badge">100% UNENCRYPTED SOURCE CODE</span>
+                    <span className="mega-footer-text">
+                      Own the complete source code with white-label rights, custom branding, and zero transaction fees.
+                    </span>
+                  </div>
+                  <a
+                    href="#licensing"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      scrollTo('licensing');
+                    }}
+                    className="mega-footer-btn"
+                  >
+                    View All Licensing Packages &rarr;
+                  </a>
+                </div>
               </div>
             </div>
 
-            <a href="#ecosystem" onClick={(e) => { e.preventDefault(); scrollTo('ecosystem'); }}>5 Platforms</a>
-            <a href="#workflow" onClick={(e) => { e.preventDefault(); scrollTo('workflow'); }}>Workflow</a>
-            <a href="#white-label-rights" onClick={(e) => { e.preventDefault(); scrollTo('white-label-rights'); }}>White-Label Rights</a>
-            <a href="#comparison" onClick={(e) => { e.preventDefault(); scrollTo('comparison'); }}>Competitor Audit</a>
-            <a href="#roi-calculator" onClick={(e) => { e.preventDefault(); scrollTo('roi-calculator'); }}>ROI Calculator</a>
-            <a href="#licensing" onClick={(e) => { e.preventDefault(); scrollTo('licensing'); }}>Licensing Plans</a>
-            <a href="#faq" onClick={(e) => { e.preventDefault(); scrollTo('faq'); }}>FAQ</a>
+            {/* 2. Platform Dropdown */}
+            <div
+              className="nav-dropdown"
+              onMouseEnter={() => handleDropdownHover('platform')}
+              onMouseLeave={handleDropdownLeave}
+            >
+              <button
+                className={`nav-dropdown-trigger ${activeDropdown === 'platform' ? 'active' : ''}`}
+                onClick={(e) => toggleDropdownClick('platform', e)}
+                aria-haspopup="true"
+                aria-expanded={activeDropdown === 'platform'}
+              >
+                <span>Platform</span>
+                <span
+                  className="dropdown-chevron"
+                  style={{
+                    transform: activeDropdown === 'platform' ? 'rotate(180deg)' : 'rotate(0deg)'
+                  }}
+                >
+                  ▾
+                </span>
+              </button>
+
+              <div className={`nav-dropdown-menu platform-menu ${activeDropdown === 'platform' ? 'show' : ''}`}>
+                <div className="menu-inner-header">PLATFORM ARCHITECTURE</div>
+                <div className="platform-menu-items">
+                  {platformItems.map((item, idx) => (
+                    <a
+                      key={idx}
+                      href={`#${item.targetId}`}
+                      className="nav-card-link"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        scrollTo(item.targetId);
+                      }}
+                    >
+                      <span className="nav-card-icon">{item.icon}</span>
+                      <div className="nav-card-body">
+                        <span className="nav-card-title">{item.title}</span>
+                        <span className="nav-card-desc">{item.desc}</span>
+                      </div>
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* 3. White-Label Dropdown */}
+            <div
+              className="nav-dropdown"
+              onMouseEnter={() => handleDropdownHover('whitelabel')}
+              onMouseLeave={handleDropdownLeave}
+            >
+              <button
+                className={`nav-dropdown-trigger ${activeDropdown === 'whitelabel' ? 'active' : ''}`}
+                onClick={(e) => toggleDropdownClick('whitelabel', e)}
+                aria-haspopup="true"
+                aria-expanded={activeDropdown === 'whitelabel'}
+              >
+                <span>White-Label</span>
+                <span
+                  className="dropdown-chevron"
+                  style={{
+                    transform: activeDropdown === 'whitelabel' ? 'rotate(180deg)' : 'rotate(0deg)'
+                  }}
+                >
+                  ▾
+                </span>
+              </button>
+
+              <div className={`nav-dropdown-menu whitelabel-menu ${activeDropdown === 'whitelabel' ? 'show' : ''}`}>
+                <div className="menu-inner-header">AGENCY SUPERPOWERS</div>
+                <div className="whitelabel-menu-items">
+                  {whiteLabelItems.map((item, idx) => (
+                    <a
+                      key={idx}
+                      href={`#${item.targetId}`}
+                      className="nav-card-link"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        scrollTo(item.targetId);
+                      }}
+                    >
+                      <span className="nav-card-icon">{item.icon}</span>
+                      <div className="nav-card-body">
+                        <span className="nav-card-title">{item.title}</span>
+                        <span className="nav-card-desc">{item.desc}</span>
+                      </div>
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* 4. Licensing Plans Direct Link */}
+            <a
+              href="#licensing"
+              className="nav-direct-link"
+              onClick={(e) => {
+                e.preventDefault();
+                scrollTo('licensing');
+              }}
+            >
+              Licensing Plans
+            </a>
+
+            {/* 5. FAQ Direct Link */}
+            <a
+              href="#faq"
+              className="nav-direct-link"
+              onClick={(e) => {
+                e.preventDefault();
+                scrollTo('faq');
+              }}
+            >
+              FAQ
+            </a>
           </div>
 
           {/* Action CTAs */}
@@ -173,10 +464,11 @@ const Navbar = ({ onOpenInquiry }) => {
               rel="noopener noreferrer"
               className="btn-secondary-nav"
             >
-              💬 WhatsApp
+              <span className="wa-icon">💬</span>
+              <span>WhatsApp</span>
             </a>
             <button
-              onClick={() => onOpenInquiry ? onOpenInquiry() : scrollTo('inquiry')}
+              onClick={() => (onOpenInquiry ? onOpenInquiry() : scrollTo('inquiry'))}
               className="btn-primary-nav"
             >
               Buy License
@@ -184,44 +476,130 @@ const Navbar = ({ onOpenInquiry }) => {
             <button
               className="mobile-toggle"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              aria-label="Toggle menu"
+              aria-label="Toggle mobile menu"
             >
               {mobileMenuOpen ? '✕' : '☰'}
             </button>
           </div>
         </div>
 
-        {/* Mobile Dropdown */}
+        {/* Mobile Accordion Drawer */}
         {mobileMenuOpen && (
           <div className="mobile-menu">
-            <div style={{ padding: '8px 12px', borderBottom: '1px solid var(--border)' }}>
-              <div style={{ color: '#22c55e', fontWeight: 700, fontSize: '0.82rem', marginBottom: 6, textTransform: 'uppercase' }}>
-                SEO Solutions &amp; Tools
-              </div>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: 6 }}>
-                {solutionsItems.map((item, idx) => (
-                  <Link
-                    key={idx}
-                    to={item.path}
-                    onClick={() => setMobileMenuOpen(false)}
-                    style={{ color: '#f3f5f3', fontSize: '0.88rem', textDecoration: 'none', padding: '4px 0' }}
-                  >
-                    • {item.title}
-                  </Link>
-                ))}
-              </div>
+            {/* Solutions Section */}
+            <div className="mobile-section">
+              <button
+                className="mobile-section-trigger"
+                onClick={() => toggleMobileSection('solutions')}
+              >
+                <span>Solutions &amp; Modules</span>
+                <span>{mobileExpanded.solutions ? '▲' : '▼'}</span>
+              </button>
+              {mobileExpanded.solutions && (
+                <div className="mobile-section-content">
+                  {solutionsGroups.flatMap((g) => g.items).map((item, idx) => (
+                    <Link
+                      key={idx}
+                      to={item.path}
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="mobile-subitem"
+                    >
+                      <span>{item.icon} {item.title}</span>
+                      {item.badge && (
+                        <span className={`subitem-badge badge-${item.badgeType || 'emerald'}`}>
+                          {item.badge}
+                        </span>
+                      )}
+                    </Link>
+                  ))}
+                </div>
+              )}
             </div>
 
-            <a href="#ecosystem" onClick={(e) => { e.preventDefault(); scrollTo('ecosystem'); }}>5 Platforms</a>
-            <a href="#workflow" onClick={(e) => { e.preventDefault(); scrollTo('workflow'); }}>Workflow</a>
-            <a href="#white-label-rights" onClick={(e) => { e.preventDefault(); scrollTo('white-label-rights'); }}>White-Label Rights</a>
-            <a href="#comparison" onClick={(e) => { e.preventDefault(); scrollTo('comparison'); }}>Competitor Audit</a>
-            <a href="#roi-calculator" onClick={(e) => { e.preventDefault(); scrollTo('roi-calculator'); }}>ROI Calculator</a>
-            <a href="#licensing" onClick={(e) => { e.preventDefault(); scrollTo('licensing'); }}>Licensing Plans</a>
-            <a href="#faq" onClick={(e) => { e.preventDefault(); scrollTo('faq'); }}>FAQ</a>
+            {/* Platform Section */}
+            <div className="mobile-section">
+              <button
+                className="mobile-section-trigger"
+                onClick={() => toggleMobileSection('platform')}
+              >
+                <span>Platform Architecture</span>
+                <span>{mobileExpanded.platform ? '▲' : '▼'}</span>
+              </button>
+              {mobileExpanded.platform && (
+                <div className="mobile-section-content">
+                  {platformItems.map((item, idx) => (
+                    <a
+                      key={idx}
+                      href={`#${item.targetId}`}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        scrollTo(item.targetId);
+                      }}
+                      className="mobile-subitem"
+                    >
+                      <span>{item.icon} {item.title}</span>
+                    </a>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {/* White-Label Section */}
+            <div className="mobile-section">
+              <button
+                className="mobile-section-trigger"
+                onClick={() => toggleMobileSection('whitelabel')}
+              >
+                <span>White-Label Rights</span>
+                <span>{mobileExpanded.whitelabel ? '▲' : '▼'}</span>
+              </button>
+              {mobileExpanded.whitelabel && (
+                <div className="mobile-section-content">
+                  {whiteLabelItems.map((item, idx) => (
+                    <a
+                      key={idx}
+                      href={`#${item.targetId}`}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        scrollTo(item.targetId);
+                      }}
+                      className="mobile-subitem"
+                    >
+                      <span>{item.icon} {item.title}</span>
+                    </a>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {/* Direct Links */}
+            <a
+              href="#licensing"
+              onClick={(e) => {
+                e.preventDefault();
+                scrollTo('licensing');
+              }}
+              className="mobile-direct-link"
+            >
+              Licensing Plans
+            </a>
+            <a
+              href="#faq"
+              onClick={(e) => {
+                e.preventDefault();
+                scrollTo('faq');
+              }}
+              className="mobile-direct-link"
+            >
+              FAQ
+            </a>
+
             <div className="mobile-menu-actions">
               <button
-                onClick={() => { setMobileMenuOpen(false); scrollTo('inquiry'); }}
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  scrollTo('inquiry');
+                }}
                 className="btn-primary-mobile"
               >
                 Inquire White-Label License
