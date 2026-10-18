@@ -301,7 +301,7 @@ const FoodCostCalculator = () => {
 
               {/* Concept Presets */}
               <Box sx={{ mb: 2.5 }}>
-                <Typography variant="caption" sx={{ color: '#94a3b8', display: 'block', mb: 0.75, fontWeight: 600, letterSpacing: '0.5px' }}>
+                <Typography variant="caption" sx={{ color: '#e2e8f0', display: 'block', mb: 0.75, fontWeight: 700, letterSpacing: '0.5px' }}>
                   Quick Restaurant Presets:
                 </Typography>
                 <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap>
@@ -511,7 +511,7 @@ const FoodCostCalculator = () => {
 
               {/* Dish Presets */}
               <Box sx={{ mb: 2.5 }}>
-                <Typography variant="caption" sx={{ color: '#94a3b8', display: 'block', mb: 0.75, fontWeight: 600, letterSpacing: '0.5px' }}>
+                <Typography variant="caption" sx={{ color: '#e2e8f0', display: 'block', mb: 0.75, fontWeight: 700, letterSpacing: '0.5px' }}>
                   Quick Dish Presets:
                 </Typography>
                 <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap>

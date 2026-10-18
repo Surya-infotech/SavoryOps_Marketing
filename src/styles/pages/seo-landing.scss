@@ -777,7 +777,8 @@
 
     .MuiFormLabel-root,
     .MuiInputLabel-root {
-      color: #94a3b8 !important;
+      color: #e2e8f0 !important;
+      font-weight: 600 !important;
 
       &.Mui-focused {
         color: #34d399 !important;
@@ -785,8 +786,8 @@
     }
 
     .MuiFormHelperText-root {
-      color: #94a3b8 !important;
-      font-size: 0.75rem;
+      color: #cbd5e1 !important;
+      font-size: 0.78rem;
     }
 
     .MuiInputBase-root {
