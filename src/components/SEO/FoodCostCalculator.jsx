@@ -117,35 +117,117 @@ const FoodCostCalculator = () => {
     };
   }, [recipeCost, menuPrice]);
 
+  const textFieldSx = {
+    '& .MuiInputLabel-root': {
+      color: '#94a3b8',
+      fontSize: '0.875rem',
+      fontWeight: 500,
+      '&.Mui-focused': {
+        color: '#34d399',
+      },
+    },
+    '& .MuiOutlinedInput-root': {
+      color: '#ffffff',
+      backgroundColor: 'rgba(9, 14, 11, 0.95)',
+      borderRadius: '8px',
+      '& fieldset': {
+        borderColor: 'rgba(34, 197, 94, 0.3)',
+      },
+      '&:hover fieldset': {
+        borderColor: 'rgba(34, 197, 94, 0.6)',
+      },
+      '&.Mui-focused fieldset': {
+        borderColor: '#10b981',
+        borderWidth: '1.5px',
+        boxShadow: '0 0 0 3px rgba(16, 185, 129, 0.15)',
+      },
+    },
+    '& .MuiInputAdornment-root': {
+      color: '#34d399',
+      '& p, & span': {
+        color: '#34d399 !important',
+        fontWeight: 700,
+      },
+    },
+    '& .MuiFormHelperText-root': {
+      color: '#94a3b8 !important',
+      fontSize: '0.75rem',
+      mt: 0.5,
+    },
+  };
+
+  const presetChipSx = {
+    fontSize: '0.75rem',
+    fontWeight: 600,
+    color: '#e2e8f0',
+    bgcolor: 'rgba(34, 197, 94, 0.08)',
+    borderColor: 'rgba(34, 197, 94, 0.25)',
+    transition: 'all 0.2s ease',
+    '& .MuiChip-icon': {
+      color: '#34d399 !important',
+    },
+    '&:hover': {
+      bgcolor: 'rgba(34, 197, 94, 0.2)',
+      borderColor: '#34d399',
+      color: '#ffffff',
+    },
+  };
+
+  const leftCardSx = {
+    height: '100%',
+    borderRadius: 3,
+    p: { xs: 2, sm: 2.5 },
+    bgcolor: '#131f17',
+    border: '1px solid rgba(34, 197, 94, 0.22)',
+    boxShadow: '0 8px 32px rgba(0, 0, 0, 0.35)',
+  };
+
   return (
     <Box className="food-cost-calculator-card" sx={{ my: 6 }}>
       <Box className="calc-header" sx={{ textAlign: 'center', mb: 3 }}>
         <Chip
-          icon={<CalculateIcon />}
+          icon={<CalculateIcon sx={{ color: '#34d399 !important' }} />}
           label="Live Interactive Tool • 2026 Edition"
-          color="primary"
           variant="outlined"
-          sx={{ mb: 1.5, fontWeight: 700 }}
+          sx={{
+            mb: 1.5,
+            fontWeight: 700,
+            color: '#34d399',
+            borderColor: 'rgba(34, 197, 94, 0.35)',
+            bgcolor: 'rgba(34, 197, 94, 0.1)'
+          }}
         />
-        <Typography variant="h2" sx={{ fontSize: { xs: '1.75rem', md: '2.25rem' }, fontWeight: 800, mb: 1 }}>
+        <Typography variant="h2" sx={{ fontSize: { xs: '1.75rem', md: '2.25rem' }, fontWeight: 800, mb: 1, color: '#ffffff' }}>
           Interactive Food Cost Percentage Calculator
         </Typography>
-        <Typography variant="body1" sx={{ color: '#64748b', maxWidth: 740, mx: 'auto' }}>
+        <Typography variant="body1" sx={{ color: '#94a3b8', maxWidth: 740, mx: 'auto' }}>
           Compute your Cost of Goods Sold (COGS), food cost percentage, and gross profit margins instantly. Benchmark results across Quick Service (QSR), casual dining, and fine dining standards.
         </Typography>
 
         {/* Currency Selector */}
         <Box sx={{ mt: 2, display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 1 }}>
-          <Typography variant="caption" sx={{ fontWeight: 600, color: '#475569' }}>
+          <Typography variant="caption" sx={{ fontWeight: 600, color: '#94a3b8' }}>
             CURRENCY:
           </Typography>
-          <ButtonGroup size="small" variant="outlined" sx={{ bgcolor: '#ffffff' }}>
+          <ButtonGroup size="small" variant="outlined" sx={{ bgcolor: 'rgba(0, 0, 0, 0.4)', borderRadius: 1.5, p: 0.3, border: '1px solid rgba(34, 197, 94, 0.2)' }}>
             {['$', '£', '€', 'AED', 'SAR'].map((curr) => (
               <Button
                 key={curr}
-                variant={currency === curr ? 'contained' : 'outlined'}
+                variant={currency === curr ? 'contained' : 'text'}
                 onClick={() => setCurrency(curr)}
-                sx={{ minWidth: 44, fontWeight: 700 }}
+                sx={{
+                  minWidth: 44,
+                  fontWeight: 700,
+                  fontSize: '0.8rem',
+                  color: currency === curr ? '#ffffff' : '#94a3b8',
+                  bgcolor: currency === curr ? '#10b981 !important' : 'transparent',
+                  border: 'none !important',
+                  borderRadius: 1,
+                  '&:hover': {
+                    bgcolor: currency === curr ? '#059669 !important' : 'rgba(34, 197, 94, 0.15)',
+                    color: '#ffffff',
+                  }
+                }}
               >
                 {curr}
               </Button>
@@ -159,8 +241,22 @@ const FoodCostCalculator = () => {
           value={activeTab}
           onChange={(_, val) => setActiveTab(val)}
           aria-label="food cost calculator modes"
-          textColor="primary"
-          indicatorColor="primary"
+          sx={{
+            '& .MuiTab-root': {
+              color: '#94a3b8',
+              fontWeight: 600,
+              textTransform: 'none',
+              fontSize: '0.95rem',
+              '&.Mui-selected': {
+                color: '#34d399',
+              },
+            },
+            '& .MuiTabs-indicator': {
+              bgcolor: '#10b981',
+              height: 3,
+              borderRadius: '3px 3px 0 0',
+            },
+          }}
         >
           <Tab icon={<TrendingUpIcon />} iconPosition="start" label="Overall Period Cost (COGS)" />
           <Tab icon={<RestaurantMenuIcon />} iconPosition="start" label="Dish / Recipe-Level Cost" />
@@ -177,17 +273,17 @@ const FoodCostCalculator = () => {
             alignItems: 'stretch'
           }}
         >
-          <Card variant="outlined" sx={{ height: '100%', borderRadius: 3, p: 2 }}>
-            <CardContent>
-              <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 1.5 }}>
-                <Typography variant="h6" sx={{ fontWeight: 700, color: '#0f172a' }}>
+          <Card variant="outlined" sx={leftCardSx}>
+            <CardContent sx={{ p: 0, '&:last-child': { pb: 0 } }}>
+              <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
+                <Typography variant="h6" sx={{ fontWeight: 700, color: '#ffffff' }}>
                   1. Enter Inventory &amp; Sales ({currency})
                 </Typography>
               </Box>
 
               {/* Concept Presets */}
-              <Box sx={{ mb: 2 }}>
-                <Typography variant="caption" sx={{ color: '#64748b', display: 'block', mb: 0.5 }}>
+              <Box sx={{ mb: 2.5 }}>
+                <Typography variant="caption" sx={{ color: '#94a3b8', display: 'block', mb: 0.75, fontWeight: 600, letterSpacing: '0.5px' }}>
                   Quick Restaurant Presets:
                 </Typography>
                 <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap>
@@ -196,7 +292,7 @@ const FoodCostCalculator = () => {
                       key={preset.label}
                       label={preset.label}
                       size="small"
-                      icon={<StorefrontIcon sx={{ fontSize: '14px !important' }} />}
+                      icon={<StorefrontIcon sx={{ fontSize: '14px !important', color: '#34d399 !important' }} />}
                       onClick={() => {
                         setBeginningInv(preset.beg);
                         setPurchases(preset.pur);
@@ -205,7 +301,7 @@ const FoodCostCalculator = () => {
                       }}
                       clickable
                       variant="outlined"
-                      sx={{ fontSize: '0.75rem', fontWeight: 600 }}
+                      sx={presetChipSx}
                     />
                   ))}
                 </Stack>
@@ -223,6 +319,7 @@ const FoodCostCalculator = () => {
                     startAdornment: <InputAdornment position="start">{currency}</InputAdornment>,
                   }}
                   helperText="Total raw ingredient value at start of period"
+                  sx={textFieldSx}
                 />
 
                 <TextField
@@ -236,6 +333,7 @@ const FoodCostCalculator = () => {
                     startAdornment: <InputAdornment position="start">{currency}</InputAdornment>,
                   }}
                   helperText="Total vendor invoices &amp; ingredient deliveries received"
+                  sx={textFieldSx}
                 />
 
                 <TextField
@@ -249,6 +347,7 @@ const FoodCostCalculator = () => {
                     startAdornment: <InputAdornment position="start">{currency}</InputAdornment>,
                   }}
                   helperText="Physical count value remaining at period close"
+                  sx={textFieldSx}
                 />
 
                 <TextField
@@ -262,6 +361,7 @@ const FoodCostCalculator = () => {
                     startAdornment: <InputAdornment position="start">{currency}</InputAdornment>,
                   }}
                   helperText="Gross food sales before sales tax"
+                  sx={textFieldSx}
                 />
               </Box>
             </CardContent>
@@ -396,15 +496,15 @@ const FoodCostCalculator = () => {
             alignItems: 'stretch'
           }}
         >
-          <Card variant="outlined" sx={{ height: '100%', borderRadius: 3, p: 2 }}>
-            <CardContent>
-              <Typography variant="h6" sx={{ fontWeight: 700, mb: 1.5, color: '#0f172a' }}>
+          <Card variant="outlined" sx={leftCardSx}>
+            <CardContent sx={{ p: 0, '&:last-child': { pb: 0 } }}>
+              <Typography variant="h6" sx={{ fontWeight: 700, mb: 2, color: '#ffffff' }}>
                 2. Enter Plate Cost &amp; Menu Price ({currency})
               </Typography>
 
               {/* Dish Presets */}
-              <Box sx={{ mb: 2 }}>
-                <Typography variant="caption" sx={{ color: '#64748b', display: 'block', mb: 0.5 }}>
+              <Box sx={{ mb: 2.5 }}>
+                <Typography variant="caption" sx={{ color: '#94a3b8', display: 'block', mb: 0.75, fontWeight: 600, letterSpacing: '0.5px' }}>
                   Quick Dish Presets:
                 </Typography>
                 <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap>
@@ -413,14 +513,14 @@ const FoodCostCalculator = () => {
                       key={preset.label}
                       label={preset.label}
                       size="small"
-                      icon={<RestaurantMenuIcon sx={{ fontSize: '14px !important' }} />}
+                      icon={<RestaurantMenuIcon sx={{ fontSize: '14px !important', color: '#34d399 !important' }} />}
                       onClick={() => {
                         setRecipeCost(preset.cost);
                         setMenuPrice(preset.price);
                       }}
                       clickable
                       variant="outlined"
-                      sx={{ fontSize: '0.75rem', fontWeight: 600 }}
+                      sx={presetChipSx}
                     />
                   ))}
                 </Stack>
@@ -438,6 +538,7 @@ const FoodCostCalculator = () => {
                     startAdornment: <InputAdornment position="start">{currency}</InputAdornment>,
                   }}
                   helperText="Total ingredient cost for a single plate (protein + side + sauce + garnish)"
+                  sx={textFieldSx}
                 />
 
                 <TextField
@@ -451,6 +552,7 @@ const FoodCostCalculator = () => {
                     startAdornment: <InputAdornment position="start">{currency}</InputAdornment>,
                   }}
                   helperText="Customer selling price on menu (excluding taxes)"
+                  sx={textFieldSx}
                 />
               </Box>
             </CardContent>
