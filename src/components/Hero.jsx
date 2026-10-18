@@ -17,7 +17,7 @@ const Hero = ({ onInquire }) => {
         <div className="hero-pill-badge">
           <span className="pill-dot"></span>
           <span>100% Unencrypted Source Code &amp; Multi-Tenant SaaS License</span>
-          <span className="pill-tag">v3.1.0 Ready</span>
+          <span className="pill-tag">v3.1.8 Ready</span>
         </div>
 
         {/* Main Heading */}
