@@ -360,7 +360,7 @@ const SEOHead = ({
         scriptTag.parentNode.removeChild(scriptTag);
       }
     };
-  }, [title, description, keywords, primaryKeyword, faqs, currentUrl, resolvedOgImage, schemaType, authorName, datePublished, dateModified]);
+  }, [title, description, keywords, primaryKeyword, faqs, currentUrl, resolvedOgImage, schemaType, authorName, datePublished, dateModified, language, location.pathname]);
 
   return null;
 };

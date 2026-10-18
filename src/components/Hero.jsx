@@ -1,4 +1,3 @@
-import React from 'react';
 
 const Hero = ({ onInquire }) => {
   const scrollTo = (id) => {
@@ -36,7 +35,7 @@ const Hero = ({ onInquire }) => {
 
         {/* Action Buttons */}
         <div className="hero-cta-group">
-          <button onClick={() => scrollTo('licensing')} className="btn-hero-primary">
+          <button onClick={() => (onInquire ? onInquire() : scrollTo('licensing'))} className="btn-hero-primary">
             <span>Explore Licensing Packages</span>
             <span className="arrow-icon">&rarr;</span>
           </button>

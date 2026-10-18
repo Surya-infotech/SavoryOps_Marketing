@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import { createContext, useContext, useEffect, useState } from 'react';
 
 const LanguageContext = createContext({
@@ -15,7 +16,7 @@ export const LanguageProvider = ({ children }) => {
       return 'English';
     }
   });
-  const [translations, setTranslations] = useState({});
+  const [translations] = useState({});
   const isRtl = language?.toLowerCase() === 'arabic' || language?.toLowerCase() === 'ar';
 
   const changeLanguage = (lang) => {

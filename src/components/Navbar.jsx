@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 const Navbar = ({ onOpenInquiry }) => {
@@ -34,9 +34,13 @@ const Navbar = ({ onOpenInquiry }) => {
     return () => document.removeEventListener('click', handleOutsideClick);
   }, []);
 
+  const prevPathRef = useRef(location.pathname);
   useEffect(() => {
-    setActiveDropdown(null);
-    setMobileMenuOpen(false);
+    if (prevPathRef.current !== location.pathname) {
+      prevPathRef.current = location.pathname;
+      setActiveDropdown(null);
+      setMobileMenuOpen(false);
+    }
   }, [location.pathname]);
 
   const scrollTo = (id) => {
