@@ -2,16 +2,13 @@ import { useState, useMemo } from 'react';
 import {
   Box,
   Typography,
-  TextField,
-  InputAdornment,
   Card,
   CardContent,
   Chip,
   Tabs,
   Tab,
   Button,
-  ButtonGroup,
-  Stack
+  ButtonGroup
 } from '@mui/material';
 import CalculateIcon from '@mui/icons-material/Calculate';
 import RestaurantMenuIcon from '@mui/icons-material/RestaurantMenu';
@@ -20,6 +17,83 @@ import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import WarningAmberIcon from '@mui/icons-material/WarningAmber';
 import FunctionsIcon from '@mui/icons-material/Functions';
 import StorefrontIcon from '@mui/icons-material/Storefront';
+
+/**
+ * Reusable high-contrast dark theme currency input
+ */
+const CurrencyInput = ({ label, value, onChange, helperText, currency }) => (
+  <Box sx={{ display: 'flex', flexDirection: 'column', gap: 0.6 }}>
+    <Typography
+      component="label"
+      sx={{
+        color: '#e2e8f0',
+        fontSize: '0.825rem',
+        fontWeight: 600,
+        letterSpacing: '0.2px',
+      }}
+    >
+      {label}
+    </Typography>
+    <Box
+      sx={{
+        display: 'flex',
+        alignItems: 'center',
+        bgcolor: '#090e0b',
+        border: '1px solid rgba(34, 197, 94, 0.28)',
+        borderRadius: '8px',
+        px: 1.5,
+        height: 42,
+        transition: 'all 0.2s ease',
+        '&:focus-within': {
+          borderColor: '#10b981',
+          boxShadow: '0 0 0 3px rgba(16, 185, 129, 0.2)',
+        },
+        '&:hover': {
+          borderColor: 'rgba(34, 197, 94, 0.6)',
+        },
+      }}
+    >
+      <Typography
+        sx={{
+          color: '#34d399',
+          fontWeight: 700,
+          fontSize: '0.95rem',
+          mr: 1,
+          userSelect: 'none',
+        }}
+      >
+        {currency}
+      </Typography>
+      <Box
+        component="input"
+        type="number"
+        value={value}
+        onChange={onChange}
+        sx={{
+          flex: 1,
+          bgcolor: 'transparent',
+          border: 'none',
+          outline: 'none',
+          color: '#ffffff',
+          fontSize: '0.95rem',
+          fontWeight: 600,
+          fontFamily: 'inherit',
+          width: '100%',
+          '&::-webkit-inner-spin-button, &::-webkit-outer-spin-button': {
+            WebkitAppearance: 'none',
+            margin: 0,
+          },
+          MozAppearance: 'textfield',
+        }}
+      />
+    </Box>
+    {helperText && (
+      <Typography sx={{ color: '#94a3b8', fontSize: '0.74rem' }}>
+        {helperText}
+      </Typography>
+    )}
+  </Box>
+);
 
 /**
  * Interactive Food Cost & Margin Calculator
@@ -35,10 +109,12 @@ const FoodCostCalculator = () => {
   const [purchases, setPurchases] = useState('18000');
   const [endingInv, setEndingInv] = useState('14000');
   const [totalSales, setTotalSales] = useState('52000');
+  const [selectedPeriodPreset, setSelectedPeriodPreset] = useState('Casual Dining');
 
   // Tab 1: Dish / Recipe-level Costing
   const [recipeCost, setRecipeCost] = useState('4.80');
   const [menuPrice, setMenuPrice] = useState('16.00');
+  const [selectedDishPreset, setSelectedDishPreset] = useState(null);
 
   // Presets for Period Costing
   const periodPresets = [
@@ -117,66 +193,6 @@ const FoodCostCalculator = () => {
     };
   }, [recipeCost, menuPrice]);
 
-  const textFieldSx = {
-    '& .MuiInputLabel-root': {
-      color: '#e2e8f0 !important',
-      fontSize: '0.875rem',
-      fontWeight: 600,
-      '&.Mui-focused': {
-        color: '#34d399 !important',
-      },
-    },
-    '& .MuiOutlinedInput-root': {
-      color: '#ffffff',
-      backgroundColor: 'rgba(9, 14, 11, 0.95)',
-      borderRadius: '8px',
-      fontSize: '1rem',
-      fontWeight: 600,
-      '& fieldset': {
-        borderColor: 'rgba(34, 197, 94, 0.35)',
-      },
-      '&:hover fieldset': {
-        borderColor: 'rgba(34, 197, 94, 0.7)',
-      },
-      '&.Mui-focused fieldset': {
-        borderColor: '#10b981',
-        borderWidth: '2px',
-        boxShadow: '0 0 0 3px rgba(16, 185, 129, 0.2)',
-      },
-    },
-    '& .MuiInputAdornment-root': {
-      color: '#34d399',
-      '& p, & span': {
-        color: '#34d399 !important',
-        fontWeight: 700,
-        fontSize: '1rem',
-      },
-    },
-    '& .MuiFormHelperText-root': {
-      color: '#cbd5e1 !important',
-      fontSize: '0.78rem',
-      fontWeight: 400,
-      mt: 0.5,
-    },
-  };
-
-  const presetChipSx = {
-    fontSize: '0.78rem',
-    fontWeight: 600,
-    color: '#f8fafc',
-    bgcolor: 'rgba(34, 197, 94, 0.12)',
-    borderColor: 'rgba(34, 197, 94, 0.35)',
-    transition: 'all 0.2s ease',
-    '& .MuiChip-icon': {
-      color: '#34d399 !important',
-    },
-    '&:hover': {
-      bgcolor: 'rgba(34, 197, 94, 0.25)',
-      borderColor: '#34d399',
-      color: '#ffffff',
-      transform: 'translateY(-1px)',
-    },
-  };
 
   const leftCardSx = {
     height: '100%',
@@ -301,85 +317,106 @@ const FoodCostCalculator = () => {
 
               {/* Concept Presets */}
               <Box sx={{ mb: 2.5 }}>
-                <Typography variant="caption" sx={{ color: '#e2e8f0', display: 'block', mb: 0.75, fontWeight: 700, letterSpacing: '0.5px' }}>
+                <Typography variant="caption" sx={{ color: '#e2e8f0', display: 'block', mb: 1, fontWeight: 700, letterSpacing: '0.5px' }}>
                   Quick Restaurant Presets:
                 </Typography>
-                <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap>
-                  {periodPresets.map((preset) => (
-                    <Chip
-                      key={preset.label}
-                      label={preset.label}
-                      size="small"
-                      icon={<StorefrontIcon sx={{ fontSize: '14px !important', color: '#34d399 !important' }} />}
-                      onClick={() => {
-                        setBeginningInv(preset.beg);
-                        setPurchases(preset.pur);
-                        setEndingInv(preset.end);
-                        setTotalSales(preset.sales);
-                      }}
-                      clickable
-                      variant="outlined"
-                      sx={presetChipSx}
-                    />
-                  ))}
-                </Stack>
+                <Box
+                  sx={{
+                    display: 'grid',
+                    gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr' },
+                    gap: 1.25,
+                  }}
+                >
+                  {periodPresets.map((preset) => {
+                    const isSelected = selectedPeriodPreset === preset.label;
+                    return (
+                      <Box
+                        key={preset.label}
+                        onClick={() => {
+                          setSelectedPeriodPreset(preset.label);
+                          setBeginningInv(preset.beg);
+                          setPurchases(preset.pur);
+                          setEndingInv(preset.end);
+                          setTotalSales(preset.sales);
+                        }}
+                        sx={{
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: 1,
+                          p: '8px 12px',
+                          borderRadius: '8px',
+                          cursor: 'pointer',
+                          border: isSelected ? '1px solid #10b981' : '1px solid rgba(34, 197, 94, 0.25)',
+                          bgcolor: isSelected ? 'rgba(16, 185, 129, 0.2)' : 'rgba(34, 197, 94, 0.08)',
+                          boxShadow: isSelected ? '0 0 12px rgba(16, 185, 129, 0.25)' : 'none',
+                          transition: 'all 0.2s ease',
+                          '&:hover': {
+                            bgcolor: isSelected ? 'rgba(16, 185, 129, 0.25)' : 'rgba(34, 197, 94, 0.16)',
+                            borderColor: '#34d399',
+                            transform: 'translateY(-1px)',
+                          },
+                        }}
+                      >
+                        <StorefrontIcon sx={{ fontSize: 16, color: '#34d399', flexShrink: 0 }} />
+                        <Typography
+                          sx={{
+                            fontSize: '0.78rem',
+                            fontWeight: 600,
+                            color: isSelected ? '#ffffff' : '#e2e8f0',
+                            whiteSpace: 'nowrap',
+                          }}
+                        >
+                          {preset.label}
+                        </Typography>
+                      </Box>
+                    );
+                  })}
+                </Box>
               </Box>
 
               <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-                <TextField
+                <CurrencyInput
                   label="Beginning Inventory Value"
                   value={beginningInv}
-                  onChange={(e) => setBeginningInv(e.target.value)}
-                  type="number"
-                  fullWidth
-                  size="small"
-                  InputProps={{
-                    startAdornment: <InputAdornment position="start">{currency}</InputAdornment>,
+                  onChange={(e) => {
+                    setBeginningInv(e.target.value);
+                    setSelectedPeriodPreset(null);
                   }}
                   helperText="Total raw ingredient value at start of period"
-                  sx={textFieldSx}
+                  currency={currency}
                 />
 
-                <TextField
+                <CurrencyInput
                   label="Purchases During Period"
                   value={purchases}
-                  onChange={(e) => setPurchases(e.target.value)}
-                  type="number"
-                  fullWidth
-                  size="small"
-                  InputProps={{
-                    startAdornment: <InputAdornment position="start">{currency}</InputAdornment>,
+                  onChange={(e) => {
+                    setPurchases(e.target.value);
+                    setSelectedPeriodPreset(null);
                   }}
-                  helperText="Total vendor invoices &amp; ingredient deliveries received"
-                  sx={textFieldSx}
+                  helperText="Total vendor invoices & ingredient deliveries received"
+                  currency={currency}
                 />
 
-                <TextField
+                <CurrencyInput
                   label="Ending Inventory Value"
                   value={endingInv}
-                  onChange={(e) => setEndingInv(e.target.value)}
-                  type="number"
-                  fullWidth
-                  size="small"
-                  InputProps={{
-                    startAdornment: <InputAdornment position="start">{currency}</InputAdornment>,
+                  onChange={(e) => {
+                    setEndingInv(e.target.value);
+                    setSelectedPeriodPreset(null);
                   }}
                   helperText="Physical count value remaining at period close"
-                  sx={textFieldSx}
+                  currency={currency}
                 />
 
-                <TextField
+                <CurrencyInput
                   label="Total Food Sales Revenue"
                   value={totalSales}
-                  onChange={(e) => setTotalSales(e.target.value)}
-                  type="number"
-                  fullWidth
-                  size="small"
-                  InputProps={{
-                    startAdornment: <InputAdornment position="start">{currency}</InputAdornment>,
+                  onChange={(e) => {
+                    setTotalSales(e.target.value);
+                    setSelectedPeriodPreset(null);
                   }}
                   helperText="Gross food sales before sales tax"
-                  sx={textFieldSx}
+                  currency={currency}
                 />
               </Box>
             </CardContent>
@@ -511,55 +548,82 @@ const FoodCostCalculator = () => {
 
               {/* Dish Presets */}
               <Box sx={{ mb: 2.5 }}>
-                <Typography variant="caption" sx={{ color: '#e2e8f0', display: 'block', mb: 0.75, fontWeight: 700, letterSpacing: '0.5px' }}>
+                <Typography variant="caption" sx={{ color: '#e2e8f0', display: 'block', mb: 1, fontWeight: 700, letterSpacing: '0.5px' }}>
                   Quick Dish Presets:
                 </Typography>
-                <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap>
-                  {dishPresets.map((preset) => (
-                    <Chip
-                      key={preset.label}
-                      label={preset.label}
-                      size="small"
-                      icon={<RestaurantMenuIcon sx={{ fontSize: '14px !important', color: '#34d399 !important' }} />}
-                      onClick={() => {
-                        setRecipeCost(preset.cost);
-                        setMenuPrice(preset.price);
-                      }}
-                      clickable
-                      variant="outlined"
-                      sx={presetChipSx}
-                    />
-                  ))}
-                </Stack>
+                <Box
+                  sx={{
+                    display: 'grid',
+                    gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr' },
+                    gap: 1.25,
+                  }}
+                >
+                  {dishPresets.map((preset) => {
+                    const isSelected = selectedDishPreset === preset.label;
+                    return (
+                      <Box
+                        key={preset.label}
+                        onClick={() => {
+                          setSelectedDishPreset(preset.label);
+                          setRecipeCost(preset.cost);
+                          setMenuPrice(preset.price);
+                        }}
+                        sx={{
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: 1,
+                          p: '8px 12px',
+                          borderRadius: '8px',
+                          cursor: 'pointer',
+                          border: isSelected ? '1px solid #10b981' : '1px solid rgba(34, 197, 94, 0.25)',
+                          bgcolor: isSelected ? 'rgba(16, 185, 129, 0.2)' : 'rgba(34, 197, 94, 0.08)',
+                          boxShadow: isSelected ? '0 0 12px rgba(16, 185, 129, 0.25)' : 'none',
+                          transition: 'all 0.2s ease',
+                          '&:hover': {
+                            bgcolor: isSelected ? 'rgba(16, 185, 129, 0.25)' : 'rgba(34, 197, 94, 0.16)',
+                            borderColor: '#34d399',
+                            transform: 'translateY(-1px)',
+                          },
+                        }}
+                      >
+                        <RestaurantMenuIcon sx={{ fontSize: 16, color: '#34d399', flexShrink: 0 }} />
+                        <Typography
+                          sx={{
+                            fontSize: '0.78rem',
+                            fontWeight: 600,
+                            color: isSelected ? '#ffffff' : '#e2e8f0',
+                            whiteSpace: 'nowrap',
+                          }}
+                        >
+                          {preset.label}
+                        </Typography>
+                      </Box>
+                    );
+                  })}
+                </Box>
               </Box>
 
-              <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2.5 }}>
-                <TextField
+              <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2.25 }}>
+                <CurrencyInput
                   label="Raw Recipe / Portion Cost"
                   value={recipeCost}
-                  onChange={(e) => setRecipeCost(e.target.value)}
-                  type="number"
-                  fullWidth
-                  size="small"
-                  InputProps={{
-                    startAdornment: <InputAdornment position="start">{currency}</InputAdornment>,
+                  onChange={(e) => {
+                    setRecipeCost(e.target.value);
+                    setSelectedDishPreset(null);
                   }}
                   helperText="Total ingredient cost for a single plate (protein + side + sauce + garnish)"
-                  sx={textFieldSx}
+                  currency={currency}
                 />
 
-                <TextField
+                <CurrencyInput
                   label="Menu Selling Price"
                   value={menuPrice}
-                  onChange={(e) => setMenuPrice(e.target.value)}
-                  type="number"
-                  fullWidth
-                  size="small"
-                  InputProps={{
-                    startAdornment: <InputAdornment position="start">{currency}</InputAdornment>,
+                  onChange={(e) => {
+                    setMenuPrice(e.target.value);
+                    setSelectedDishPreset(null);
                   }}
                   helperText="Customer selling price on menu (excluding taxes)"
-                  sx={textFieldSx}
+                  currency={currency}
                 />
               </Box>
             </CardContent>
