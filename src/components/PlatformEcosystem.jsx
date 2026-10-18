@@ -50,7 +50,7 @@ const platforms = [
   },
   {
     id: 'user-app',
-    name: 'Userapp (Customer App)',
+    name: 'User App (Customer App)',
     badge: 'Customer Mobile & QR App',
     tagline: 'Contactless Table QR Scan-to-Order & Direct Food Delivery Storefront',
     image: '/images/features/qr-ordering.jpg',
