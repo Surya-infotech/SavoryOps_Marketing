@@ -14,21 +14,49 @@ const InquiryForm = ({ selectedTier }) => {
 
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setForm((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
+    setErrorMessage('');
 
-    // Simulate submission and construct WhatsApp redirect
-    setTimeout(() => {
+    try {
+      const backendUrl = import.meta.env.VITE_BACKEND_URL;
+      const response = await fetch(`${backendUrl}/Support/AddWhiteLabel`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          fullName: form.fullName,
+          company: form.company,
+          email: form.email,
+          phone: form.phone,
+          licenseModel: form.licenseModel,
+          timeline: form.timeline,
+          message: form.message
+        }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok && data.success !== false) {
+        setSubmitted(true);
+      } else {
+        setErrorMessage(data.message || 'Unable to submit your inquiry at this moment. Please try again.');
+      }
+    } catch (err) {
+      console.error('Error submitting white label inquiry:', err);
+      setErrorMessage('Network connection error. Please try again or reach out directly on WhatsApp.');
+    } finally {
       setLoading(false);
-      setSubmitted(true);
-    }, 600);
+    }
   };
 
   const openWhatsApp = () => {
@@ -239,6 +267,20 @@ const InquiryForm = ({ selectedTier }) => {
                       className="form-textarea"
                     ></textarea>
                   </div>
+
+                  {errorMessage && (
+                    <div style={{
+                      padding: '10px 14px',
+                      backgroundColor: 'rgba(239, 68, 68, 0.15)',
+                      border: '1px solid rgba(239, 68, 68, 0.4)',
+                      borderRadius: '8px',
+                      color: '#fca5a5',
+                      fontSize: '0.88rem',
+                      marginTop: '4px'
+                    }}>
+                      {errorMessage}
+                    </div>
+                  )}
 
                   <button
                     type="submit"
