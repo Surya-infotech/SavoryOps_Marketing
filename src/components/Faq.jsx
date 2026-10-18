@@ -4,7 +4,7 @@ const faqs = [
   {
     question: 'What codebases and repositories are included in the White-Label License?',
     answer:
-      'You receive 100% full unencrypted source code for all 5 core platforms: 1) SavoryOps_AdminPanel (SuperAdmin Multi-Tenant SaaS Portal in React 19/Vite); 2) SavoryOps_OwnerWeb (Merchant Web POS, Live 2D Floor Plan, Recipe BOM & Reporting in React 19/Vite); 3) Public Kitchen Display System (PublicKotDisplay.jsx); 4) SavoryOpsEmployeeeApp (Cross-Platform React Native mobile app for Waiter, Cashier, Chef & Driver); 5) SavoryOps_UserApp (Customer Table QR Scan-to-Order & Online Storefront); and 6) SavoryOps_Server (Node.js/Express REST API with Socket.io real-time broker, ESC/POS hardware print engine, and MongoDB Mongoose schemas).'
+      'You receive 100% full unencrypted source code for all 5 core platforms: 1) Super Admin Panel (SuperAdmin Multi-Tenant SaaS Portal in React/Vite); 2) Owner & Manager Panel (Merchant Web POS, Live 2D Floor Plan, Recipe BOM & Reporting in React/Vite); 3) Public Kitchen Display System (Real-Time Kitchen KDS & Station Routing); 4) Employee Crew App (Cross-Platform React Native mobile app for Waiter, Cashier, Chef & Driver); 5) Customer User App (Table QR Scan-to-Order & Online Storefront); and 6) High-Performance Core Server (Node.js/Express REST API with Socket.io real-time broker, ESC/POS hardware print engine, and MongoDB schemas).'
   },
   {
     question: 'Can I rebrand the software 100% with zero attribution to SavoryOps?',

@@ -13,7 +13,6 @@ const platforms = [
   {
     id: 'super-admin',
     name: 'Super Admin Panel',
-    folder: 'SavoryOps_AdminPanel',
     badge: 'Multi-Tenant SaaS Core',
     tagline: 'Master Control Center for Managing Restaurant Tenants, Subscriptions & MRR',
     image: '/images/hero-ecosystem.jpg',
@@ -33,7 +32,6 @@ const platforms = [
   {
     id: 'owner-panel',
     name: 'Owner & Manager Panel',
-    folder: 'SavoryOps_OwnerWeb',
     badge: 'Merchant Operations & POS',
     tagline: 'High-Throughput Web POS, Interactive 2D Floor Plan & Automated Recipe BOM',
     image: '/images/features/pos-system.jpg',
@@ -53,7 +51,6 @@ const platforms = [
   {
     id: 'user-app',
     name: 'Userapp (Customer App)',
-    folder: 'SavoryOps_UserApp',
     badge: 'Customer Mobile & QR App',
     tagline: 'Contactless Table QR Scan-to-Order & Direct Food Delivery Storefront',
     image: '/images/features/qr-ordering.jpg',
@@ -73,7 +70,6 @@ const platforms = [
   {
     id: 'employee-app',
     name: 'Employee App (Crew App)',
-    folder: 'SavoryOpsEmployeeeApp',
     badge: 'Native Staff App',
     tagline: 'Multi-Role Staff App for Waiters, Cashiers, Chefs & Delivery Drivers',
     image: '/images/features/waiter-mobile-pos.jpg',
@@ -93,7 +89,6 @@ const platforms = [
   {
     id: 'landing-page',
     name: 'Landing Page & Storefront',
-    folder: 'SavoryOpsLandingPage',
     badge: 'Brand Website & Menu',
     tagline: 'High-Converting Restaurant Showcase, Table Booking & Digital Storefront',
     image: '/images/worldwide-partnership.jpg',
@@ -154,7 +149,6 @@ const PlatformEcosystem = () => {
                 <span className="tab-demo-pill">Live Demo Available</span>
               </div>
               <strong className="tab-title">{plat.name}</strong>
-              <code className="tab-folder">📁 {plat.folder}</code>
             </button>
           ))}
         </div>
@@ -164,7 +158,7 @@ const PlatformEcosystem = () => {
           <div className="showcase-content">
             <div className="showcase-header">
               <span className="badge-green">{activePlatform.badge}</span>
-              <code className="code-tag">📁 D:\SavoryOps Saas\{activePlatform.folder}</code>
+              <span className="turnkey-tag">Turnkey Production Ready</span>
             </div>
             
             <h3 className="showcase-title">{activePlatform.name}</h3>
@@ -243,7 +237,7 @@ const PlatformEcosystem = () => {
                 <span className="info-badge">Turnkey</span>
               </div>
               <p className="media-info-desc">
-                Source code path: <code>D:\SavoryOps Saas\{activePlatform.folder}</code>
+                Production-grade, unencrypted source code ready for immediate self-hosted deployment.
               </p>
               <a
                 href={activePlatform.demoUrl}
@@ -270,7 +264,7 @@ const PlatformEcosystem = () => {
               <div key={plat.id} className="summary-card">
                 <div className="summary-card-top">
                   <span className="summary-pill">{plat.badge}</span>
-                  <code className="summary-code">📁 {plat.folder}</code>
+                  <span className="summary-status-tag">Ready</span>
                 </div>
                 <h4 className="summary-app-name">{plat.name}</h4>
                 <p className="summary-tagline">{plat.tagline}</p>

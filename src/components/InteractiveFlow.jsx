@@ -6,7 +6,7 @@ const flowSteps = [
     title: 'Order Placement: Table QR or Mobile Waiter',
     subtitle: 'Context-Aware Digital Ordering with Modifiers',
     image: '/images/order-types/dine-in.jpg',
-    codeRef: 'SavoryOps_UserApp / SavoryOpsEmployeeeApp',
+    workflowTag: 'Digital Ordering & Modifier Engine',
     description:
       'A customer scans their unique table QR code or a waiter punches an order on their smartphone. Diners customize nested modifiers (e.g. choice of meat doneness, extra toppings, sides), add special kitchen requests, and include an optional tip that can be removed with 1 tap.',
     points: [
@@ -21,7 +21,7 @@ const flowSteps = [
     title: 'Real-Time Floor Sync & POS Locking',
     subtitle: 'Atomic Socket.io Event & Table Status Update',
     image: '/images/order-types/quick-order.jpg',
-    codeRef: 'SavoryOps_OwnerWeb / PosOrder.jsx',
+    workflowTag: 'Real-Time Floor Sync & Socket Broker',
     description:
       'The moment an order is fired, an atomic Socket.io event updates the cashier POS and floor map. The table status switches to "Occupied", preventing duplicate orders, and the running balance and table timer begin tracking in real time.',
     points: [
@@ -36,7 +36,7 @@ const flowSteps = [
     title: 'Kitchen KDS Chime & Station KOT Auto-Cut',
     subtitle: 'Hardware Thermal Routing & Cook Stage Progression',
     image: '/images/posts/Post_04_Live_Order_Tracking_Kitchen_KDS.jpg',
-    codeRef: 'PublicKotDisplay.jsx / bluetoothPrinter.js',
+    workflowTag: 'Kitchen KDS & Thermal Print Engine',
     description:
       'The order appears simultaneously on the kitchen KDS screen with an audible kitchen chime. Specialized station printers (Grill, Bar, Dessert) automatically print KOT tickets with bold station headers, hardware paper auto-cuts, and item prices completely hidden for staff privacy.',
     points: [
@@ -51,7 +51,7 @@ const flowSteps = [
     title: 'Automated Recipe BOM Inventory Deduction',
     subtitle: 'Precise Grams & Milliliters Deducted Instantly',
     image: '/images/features/inventory-management.jpg',
-    codeRef: 'inventory-deduction-helper.js / supplier-controller.js',
+    workflowTag: 'Automated Recipe BOM Inventory Engine',
     description:
       'Unlike competitor systems that only decrement finished menu items, SavoryOps executes an automated Bill of Materials (BOM) deduction. When a pizza or burger is ordered, exact grams of cheese, meat, flour, and sauce are automatically deducted from raw ingredient inventory.',
     points: [
@@ -66,7 +66,7 @@ const flowSteps = [
     title: 'Multi-Tender Checkout & Consolidated Z-Report',
     subtitle: 'Non-Destructive Refund Ledger & Shift Close',
     image: '/images/posts/Post_08_Automated_Z_Report_Cash_Close.jpg',
-    codeRef: 'DayClose.jsx / dayclosereport-controller.js',
+    workflowTag: 'Tender Settlement & Z-Report Ledger',
     description:
       'When the dining party is ready to leave, cashiers accept multi-tender payments (Cash, Card, UPI, Custom Tenders). At the end of the shift or past midnight, a consolidated Z-Report is generated with formatted print and PDF exports, verifying opening/closing drawer balances and immutable audit trails.',
     points: [
@@ -118,7 +118,7 @@ const InteractiveFlow = () => {
             <div className="flow-card-content">
               <div className="flow-step-header">
                 <span className="badge-green">Step {currentStep.step} of 05</span>
-                <code className="code-tag">{currentStep.codeRef}</code>
+                <span className="code-tag">{currentStep.workflowTag}</span>
               </div>
               <h3 className="flow-heading">{currentStep.title}</h3>
               <p className="flow-subheading">{currentStep.subtitle}</p>
