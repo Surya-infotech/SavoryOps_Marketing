@@ -455,6 +455,15 @@ const Navbar = ({ onOpenInquiry }) => {
             >
               FAQ
             </a>
+
+            {/* 6. Contact Us Link */}
+            <Link
+              to="/contact-us"
+              className={`nav-direct-link ${location.pathname === '/contact-us' ? 'active' : ''}`}
+              onClick={() => setActiveDropdown(null)}
+            >
+              Contact Us
+            </Link>
           </div>
 
           {/* Action CTAs */}
@@ -594,6 +603,13 @@ const Navbar = ({ onOpenInquiry }) => {
             >
               FAQ
             </a>
+            <Link
+              to="/contact-us"
+              onClick={() => setMobileMenuOpen(false)}
+              className="mobile-direct-link"
+            >
+              Contact Us
+            </Link>
 
             <div className="mobile-menu-actions">
               <button

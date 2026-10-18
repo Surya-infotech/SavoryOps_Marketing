@@ -22,6 +22,7 @@ import InquiryForm from './components/InquiryForm';
 import Faq from './components/Faq';
 import Footer from './components/Footer';
 import SEOLandingPage from './pages/seo/SEOLandingPage';
+import ContactUs from './pages/ContactUs';
 
 /** Short smooth scroll on route change so subpages start at the top */
 const ScrollToTop = () => {
@@ -219,6 +220,10 @@ const AppContent = () => {
           path="/resources/food-cost-percentage-guide"
           element={<SEOLandingPage clusterId="food-cost-percentage-guide" />}
         />
+
+        {/* Contact Us Page */}
+        <Route path="/contact-us" element={<ContactUs />} />
+        <Route path="/contact" element={<ContactUs />} />
 
         {/* Catch-all fallback */}
         <Route path="*" element={<Navigate to="/" replace />} />

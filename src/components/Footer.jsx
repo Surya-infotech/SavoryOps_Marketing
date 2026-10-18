@@ -229,6 +229,19 @@ const Footer = () => {
               <span>Surat, Gujarat, India</span>
             </p>
             <div className="footer-actions">
+              <Link
+                to="/contact-us"
+                className="btn-footer-chat"
+                style={{
+                  marginBottom: '8px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  textDecoration: 'none'
+                }}
+              >
+                Contact Us Page &rarr;
+              </Link>
               <a
                 href="https://wa.me/917621908664?text=Hello%20SavoryOps%2C%20I%20am%20ready%20to%20request%20a%20White%20Label%20demo"
                 target="_blank"
