@@ -182,6 +182,19 @@ const FoodCostCalculator = () => {
     boxShadow: '0 8px 32px rgba(0, 0, 0, 0.35)',
   };
 
+  const rightCardSx = {
+    height: '100%',
+    borderRadius: 3,
+    background: 'linear-gradient(135deg, #0d1b13 0%, #132b1d 100%)',
+    border: '1px solid rgba(34, 197, 94, 0.22)',
+    boxShadow: '0 8px 32px rgba(0, 0, 0, 0.45)',
+    color: '#ffffff',
+    p: { xs: 2, sm: 2.5 },
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-between'
+  };
+
   return (
     <Box className="food-cost-calculator-card" sx={{ my: 6 }}>
       <Box className="calc-header" sx={{ textAlign: 'center', mb: 3 }}>
@@ -367,18 +380,7 @@ const FoodCostCalculator = () => {
             </CardContent>
           </Card>
 
-          <Card
-            sx={{
-              height: '100%',
-              borderRadius: 3,
-              background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 100%)',
-              color: '#ffffff',
-              p: 2,
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'space-between'
-            }}
-          >
+          <Card sx={rightCardSx}>
             <CardContent>
               <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <Typography variant="overline" sx={{ color: '#94a3b8', letterSpacing: 1 }}>
@@ -558,18 +560,7 @@ const FoodCostCalculator = () => {
             </CardContent>
           </Card>
 
-          <Card
-            sx={{
-              height: '100%',
-              borderRadius: 3,
-              background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 100%)',
-              color: '#ffffff',
-              p: 2,
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'space-between'
-            }}
-          >
+          <Card sx={rightCardSx}>
             <CardContent>
               <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <Typography variant="overline" sx={{ color: '#94a3b8', letterSpacing: 1 }}>
