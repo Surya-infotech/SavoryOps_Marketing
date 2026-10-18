@@ -1,5 +1,14 @@
 import { useState } from 'react';
 
+// Read all demo URLs from .env environment variables
+const DEMO_URLS = {
+  superAdmin: import.meta.env.VITE_DEMO_SUPER_ADMIN_URL || 'https://adminpanel.savoryops.com',
+  ownerPanel: import.meta.env.VITE_DEMO_OWNER_PANEL_URL || 'https://website.savoryops.com/signin',
+  userApp: import.meta.env.VITE_DEMO_USER_APP_URL || 'https://user.savoryops.com',
+  employeeApp: import.meta.env.VITE_DEMO_EMPLOYEE_APP_URL || 'https://crew.savoryops.com',
+  landingPage: import.meta.env.VITE_DEMO_LANDING_PAGE_URL || 'https://website.savoryops.com',
+};
+
 const platforms = [
   {
     id: 'super-admin',
@@ -8,13 +17,7 @@ const platforms = [
     badge: 'Multi-Tenant SaaS Core',
     tagline: 'Master Control Center for Managing Restaurant Tenants, Subscriptions & MRR',
     image: '/images/hero-ecosystem.jpg',
-    demoUrl: 'https://adminpanel.savoryops.com',
-    localDemoUrl: 'http://localhost:3100',
-    credentials: {
-      role: 'Super Administrator',
-      email: 'admin@savoryops.com',
-      password: 'Admin@123456'
-    },
+    demoUrl: DEMO_URLS.superAdmin,
     description:
       'The central administration platform engineered for SaaS operators. Manage multiple restaurant tenant accounts with automated database isolation, configure recurring monthly/annual subscription plans, oversee platform-wide MRR analytics, configure global currency exchange rates, multi-tax structures, and deploy promotional broadcast banners across all tenant portals.',
     techStack: ['React 18', 'Vite', 'Material-UI (MUI)', 'Recharts', 'JSPDF', 'Sass', 'Multi-Tenant Architecture'],
@@ -34,15 +37,7 @@ const platforms = [
     badge: 'Merchant Operations & POS',
     tagline: 'High-Throughput Web POS, Interactive 2D Floor Plan & Automated Recipe BOM',
     image: '/images/features/pos-system.jpg',
-    demoUrl: 'https://website.savoryops.com/signin',
-    localDemoUrl: 'http://localhost:5173/signin',
-    credentials: {
-      role: 'Restaurant Owner / Manager',
-      email: 'marcus.vance@savoryops.com',
-      password: 'Owner@123456',
-      managerEmail: 'lachlan.murdoch@savoryops.com',
-      managerPassword: 'Employee@123456'
-    },
+    demoUrl: DEMO_URLS.ownerPanel,
     description:
       'The flagship restaurant management system owner portal. Features an ultra-fast web point of sale (POS) with Dine-In, Takeaway, Delivery, Pickup, and Quick Order workflows. Includes an interactive visual 2D floor map with live table timers, automated recipe Bill of Materials (BOM) inventory deductions on order firing, universal silent ESC/POS thermal printing, and 30+ financial Z-reports.',
     techStack: ['React 18', 'Vite', 'Material-UI', 'Razorpay', 'CryptoJS', 'Excel & PDF Export', 'Socket.io'],
@@ -62,12 +57,7 @@ const platforms = [
     badge: 'Customer Mobile & QR App',
     tagline: 'Contactless Table QR Scan-to-Order & Direct Food Delivery Storefront',
     image: '/images/features/qr-ordering.jpg',
-    demoUrl: 'https://user.savoryops.com',
-    localDemoUrl: 'http://localhost:8081',
-    credentials: {
-      role: 'Guest / Customer',
-      note: 'One-click guest mode or instant mobile sign-in'
-    },
+    demoUrl: DEMO_URLS.userApp,
     description:
       'Native cross-platform iOS, Android, and web mobile application for restaurant patrons. Guests scan per-table dynamic QR codes to explore appetizing digital menus with high-resolution food photos, customize nested modifier choices (doneness, sides, extra toppings, allergen notes), place zero-commission takeaway or delivery orders, and track live order preparation stages in real time.',
     techStack: ['React Native 0.86', 'Expo 57', 'React 19', 'React Navigation 7', 'Reanimated', 'TypeScript'],
@@ -87,12 +77,7 @@ const platforms = [
     badge: 'Native Staff App',
     tagline: 'Multi-Role Staff App for Waiters, Cashiers, Chefs & Delivery Drivers',
     image: '/images/features/waiter-mobile-pos.jpg',
-    demoUrl: 'https://crew.savoryops.com',
-    localDemoUrl: 'http://localhost:8081',
-    credentials: {
-      role: 'Crew Staff',
-      note: 'Multi-role PIN switching (Waiter, Cashier, Kitchen, Driver)'
-    },
+    demoUrl: DEMO_URLS.employeeApp,
     description:
       'A unified React Native staff application supporting 5 distinct crew roles in a single install. Waiters punch tableside orders with modifiers directly on handheld phones/tablets; kitchen staff bump orders on digital tickets; cashiers collect payments; and delivery drivers view GPS directions, customer delivery addresses, and proof-of-delivery signatures with resilient offline sync.',
     techStack: ['React Native 0.86', 'Expo 57', 'React 19', 'Gifted Charts', 'Safe Area Context', 'Bluetooth ESC/POS'],
@@ -112,12 +97,7 @@ const platforms = [
     badge: 'Brand Website & Menu',
     tagline: 'High-Converting Restaurant Showcase, Table Booking & Digital Storefront',
     image: '/images/worldwide-partnership.jpg',
-    demoUrl: 'https://website.savoryops.com',
-    localDemoUrl: 'http://localhost:5173',
-    credentials: {
-      role: 'Public Diner',
-      note: 'Open public storefront — explore menu & book tables'
-    },
+    demoUrl: DEMO_URLS.landingPage,
     description:
       'Turnkey public website for restaurants and culinary brands. Showcases appetizing signature dishes, enables direct online table reservations without third-party commission portals, displays branch opening hours and Google Maps directions, and provides 1-tap navigation to table QR ordering and direct pickup ordering.',
     techStack: ['React 19', 'Vite 7', 'Material-UI', 'React Router 7', 'Sass', 'SEO Schema Markup'],
@@ -134,17 +114,8 @@ const platforms = [
 
 const PlatformEcosystem = () => {
   const [activeTab, setActiveTab] = useState('super-admin');
-  const [copiedKey, setCopiedKey] = useState(null);
 
   const activePlatform = platforms.find((p) => p.id === activeTab) || platforms[0];
-
-  const handleCopy = (text, key) => {
-    if (navigator?.clipboard?.writeText) {
-      navigator.clipboard.writeText(text);
-      setCopiedKey(key);
-      setTimeout(() => setCopiedKey(null), 2000);
-    }
-  };
 
   const scrollToInquiry = () => {
     const el = document.getElementById('inquiry');
@@ -220,52 +191,15 @@ const PlatformEcosystem = () => {
               ))}
             </div>
 
-            {/* Demo Link & Credentials Box */}
+            {/* Demo Link Box */}
             <div className="showcase-demo-card">
               <div className="demo-card-header">
                 <div className="demo-status-row">
                   <span className="pulse-indicator pulse-green"></span>
                   <span className="demo-status-text">LIVE DEMO READY</span>
                 </div>
-                <span className="demo-license-hint">Instant Access • No Signup Required</span>
+                <span className="demo-license-hint">Instant Access • Full Interactive Environment</span>
               </div>
-
-              {/* Credentials if applicable */}
-              {activePlatform.credentials && activePlatform.credentials.email && (
-                <div className="demo-credentials-row">
-                  <div className="cred-field">
-                    <span className="cred-label">Demo Email:</span>
-                    <code className="cred-code">{activePlatform.credentials.email}</code>
-                    <button
-                      type="button"
-                      onClick={() => handleCopy(activePlatform.credentials.email, 'email')}
-                      className="btn-copy-cred"
-                      title="Copy Email"
-                    >
-                      {copiedKey === 'email' ? '✓ Copied' : 'Copy'}
-                    </button>
-                  </div>
-                  <div className="cred-field">
-                    <span className="cred-label">Password:</span>
-                    <code className="cred-code">{activePlatform.credentials.password}</code>
-                    <button
-                      type="button"
-                      onClick={() => handleCopy(activePlatform.credentials.password, 'pass')}
-                      className="btn-copy-cred"
-                      title="Copy Password"
-                    >
-                      {copiedKey === 'pass' ? '✓ Copied' : 'Copy'}
-                    </button>
-                  </div>
-                </div>
-              )}
-
-              {activePlatform.credentials && activePlatform.credentials.note && (
-                <div className="demo-credentials-note">
-                  <span className="note-icon">💡</span>
-                  <span>{activePlatform.credentials.note}</span>
-                </div>
-              )}
 
               {/* Action Buttons: Demo Link + License Button */}
               <div className="showcase-action-row">
