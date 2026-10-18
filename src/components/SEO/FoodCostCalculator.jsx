@@ -119,27 +119,29 @@ const FoodCostCalculator = () => {
 
   const textFieldSx = {
     '& .MuiInputLabel-root': {
-      color: '#94a3b8',
+      color: '#e2e8f0 !important',
       fontSize: '0.875rem',
-      fontWeight: 500,
+      fontWeight: 600,
       '&.Mui-focused': {
-        color: '#34d399',
+        color: '#34d399 !important',
       },
     },
     '& .MuiOutlinedInput-root': {
       color: '#ffffff',
       backgroundColor: 'rgba(9, 14, 11, 0.95)',
       borderRadius: '8px',
+      fontSize: '1rem',
+      fontWeight: 600,
       '& fieldset': {
-        borderColor: 'rgba(34, 197, 94, 0.3)',
+        borderColor: 'rgba(34, 197, 94, 0.35)',
       },
       '&:hover fieldset': {
-        borderColor: 'rgba(34, 197, 94, 0.6)',
+        borderColor: 'rgba(34, 197, 94, 0.7)',
       },
       '&.Mui-focused fieldset': {
         borderColor: '#10b981',
-        borderWidth: '1.5px',
-        boxShadow: '0 0 0 3px rgba(16, 185, 129, 0.15)',
+        borderWidth: '2px',
+        boxShadow: '0 0 0 3px rgba(16, 185, 129, 0.2)',
       },
     },
     '& .MuiInputAdornment-root': {
@@ -147,29 +149,32 @@ const FoodCostCalculator = () => {
       '& p, & span': {
         color: '#34d399 !important',
         fontWeight: 700,
+        fontSize: '1rem',
       },
     },
     '& .MuiFormHelperText-root': {
-      color: '#94a3b8 !important',
-      fontSize: '0.75rem',
+      color: '#cbd5e1 !important',
+      fontSize: '0.78rem',
+      fontWeight: 400,
       mt: 0.5,
     },
   };
 
   const presetChipSx = {
-    fontSize: '0.75rem',
+    fontSize: '0.78rem',
     fontWeight: 600,
-    color: '#e2e8f0',
-    bgcolor: 'rgba(34, 197, 94, 0.08)',
-    borderColor: 'rgba(34, 197, 94, 0.25)',
+    color: '#f8fafc',
+    bgcolor: 'rgba(34, 197, 94, 0.12)',
+    borderColor: 'rgba(34, 197, 94, 0.35)',
     transition: 'all 0.2s ease',
     '& .MuiChip-icon': {
       color: '#34d399 !important',
     },
     '&:hover': {
-      bgcolor: 'rgba(34, 197, 94, 0.2)',
+      bgcolor: 'rgba(34, 197, 94, 0.25)',
       borderColor: '#34d399',
       color: '#ffffff',
+      transform: 'translateY(-1px)',
     },
   };
 
