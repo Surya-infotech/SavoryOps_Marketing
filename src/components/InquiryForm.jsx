@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { WhatsAppIcon, MailIcon } from './Icons';
 
 const InquiryForm = ({ selectedTier }) => {
   const [form, setForm] = useState({
@@ -122,7 +123,9 @@ const InquiryForm = ({ selectedTier }) => {
                   rel="noopener noreferrer"
                   className="direct-link-wa"
                 >
-                  <span className="wa-icon">💬</span>
+                  <span className="wa-icon">
+                    <WhatsAppIcon size={18} />
+                  </span>
                   <div>
                     <span className="wa-title">Direct WhatsApp Chat</span>
                     <span className="wa-val">+91 7621908664 (Instant Reply)</span>
@@ -130,7 +133,9 @@ const InquiryForm = ({ selectedTier }) => {
                 </a>
 
                 <a href="mailto:info@savoryops.com" className="direct-link-mail">
-                  <span className="mail-icon">✉️</span>
+                  <span className="mail-icon">
+                    <MailIcon size={18} />
+                  </span>
                   <div>
                     <span className="mail-title">Official Commercial Desk</span>
                     <span className="mail-val">info@savoryops.com</span>

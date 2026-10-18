@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import SEOHead from '../components/SEO/SEOHead';
+import { WhatsAppIcon, MailIcon, LocationIcon } from '../components/Icons';
 
 const ContactUs = () => {
   const [formData, setFormData] = useState({
@@ -147,7 +148,9 @@ const ContactUs = () => {
                   rel="noopener noreferrer"
                   className="channel-item whatsapp"
                 >
-                  <div className="channel-icon-box wa-box">💬</div>
+                  <div className="channel-icon-box wa-box">
+                    <WhatsAppIcon size={20} />
+                  </div>
                   <div className="channel-content">
                     <span className="channel-label">Instant WhatsApp Chat</span>
                     <strong className="channel-value">+91 7621908664</strong>
@@ -161,7 +164,9 @@ const ContactUs = () => {
                   href="mailto:info@savoryops.com"
                   className="channel-item email"
                 >
-                  <div className="channel-icon-box mail-box">✉️</div>
+                  <div className="channel-icon-box mail-box">
+                    <MailIcon size={20} />
+                  </div>
                   <div className="channel-content">
                     <span className="channel-label">Official Correspondence</span>
                     <strong className="channel-value">info@savoryops.com</strong>
@@ -172,7 +177,9 @@ const ContactUs = () => {
 
                 {/* Office Location */}
                 <div className="channel-item location">
-                  <div className="channel-icon-box loc-box">📍</div>
+                  <div className="channel-icon-box loc-box">
+                    <LocationIcon size={20} />
+                  </div>
                   <div className="channel-content">
                     <span className="channel-label">Global Headquarters</span>
                     <strong className="channel-value">Surat, Gujarat, India</strong>

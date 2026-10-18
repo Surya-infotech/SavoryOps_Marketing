@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { WhatsAppIcon, MailIcon, LocationIcon } from './Icons';
 
 const Footer = () => {
   const location = useLocation();
@@ -90,7 +91,9 @@ const Footer = () => {
         <div className="footer-newsletter-banner">
           <div className="newsletter-banner-left">
             <div className="newsletter-pill">
-              <span className="newsletter-pill-icon">✉️</span>
+              <span className="newsletter-pill-icon">
+                <MailIcon size={14} />
+              </span>
               <span>STAY IN TOUCH</span>
             </div>
             <h3 className="newsletter-banner-title">
@@ -208,7 +211,9 @@ const Footer = () => {
           <div className="footer-contact-col">
             <h4 className="footer-col-title">Commercial Desk</h4>
             <p className="contact-item">
-              <span className="c-icon">💬</span>
+              <span className="c-icon">
+                <WhatsAppIcon size={16} />
+              </span>
               <a
                 href="https://wa.me/917621908664?text=Hi%2C%20I%20want%20to%20inquire%20about%20the%20SavoryOps%20White%20Label%20License"
                 target="_blank"
@@ -219,13 +224,17 @@ const Footer = () => {
               </a>
             </p>
             <p className="contact-item">
-              <span className="c-icon">✉️</span>
+              <span className="c-icon">
+                <MailIcon size={16} />
+              </span>
               <a href="mailto:info@savoryops.com" className="c-link">
                 info@savoryops.com
               </a>
             </p>
             <p className="contact-item">
-              <span className="c-icon">📍</span>
+              <span className="c-icon">
+                <LocationIcon size={16} />
+              </span>
               <span>Surat, Gujarat, India</span>
             </p>
             <div className="footer-actions">

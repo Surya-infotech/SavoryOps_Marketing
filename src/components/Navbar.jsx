@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { WhatsAppIcon } from './Icons';
 
 const Navbar = ({ onOpenInquiry }) => {
   const [scrolled, setScrolled] = useState(false);
@@ -478,7 +479,9 @@ const Navbar = ({ onOpenInquiry }) => {
               rel="noopener noreferrer"
               className="btn-secondary-nav"
             >
-              <span className="wa-icon">💬</span>
+              <span className="wa-icon">
+                <WhatsAppIcon size={16} />
+              </span>
               <span>WhatsApp</span>
             </a>
             <button
