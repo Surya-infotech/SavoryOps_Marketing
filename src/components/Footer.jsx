@@ -1,9 +1,65 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 const Footer = () => {
   const location = useLocation();
   const navigate = useNavigate();
+
+  const [newsletterEmail, setNewsletterEmail] = useState('');
+  const [isSubscribing, setIsSubscribing] = useState(false);
+  const [newsletterMessage, setNewsletterMessage] = useState('');
+  const [newsletterStatus, setNewsletterStatus] = useState(null); // 'success' | 'error'
+
+  const handleNewsletterSubmit = async (e) => {
+    e.preventDefault();
+    if (!newsletterEmail || !newsletterEmail.trim()) {
+      setNewsletterStatus('error');
+      setNewsletterMessage('Please enter your email address.');
+      return;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(newsletterEmail.trim())) {
+      setNewsletterStatus('error');
+      setNewsletterMessage('Please enter a valid business email.');
+      return;
+    }
+
+    setIsSubscribing(true);
+    setNewsletterStatus(null);
+    setNewsletterMessage('');
+
+    try {
+      const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:8084';
+      const response = await fetch(`${backendUrl}/Support/AddSubscriber`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: newsletterEmail.trim(),
+          source: 'Marketing Website Newsletter'
+        }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok && data.success !== false) {
+        setNewsletterStatus('success');
+        setNewsletterMessage(data.message || "Thank you for subscribing! You're all set to receive industry insights.");
+        setNewsletterEmail('');
+      } else {
+        setNewsletterStatus('error');
+        setNewsletterMessage(data.message || 'Subscription failed. Please try again.');
+      }
+    } catch (err) {
+      console.error('Newsletter subscription error:', err);
+      setNewsletterStatus('error');
+      setNewsletterMessage('Unable to connect to server. Please try again later.');
+    } finally {
+      setIsSubscribing(false);
+    }
+  };
 
   const scrollTo = (id) => {
     if (location.pathname !== '/') {
@@ -30,6 +86,60 @@ const Footer = () => {
   return (
     <footer className="main-footer">
       <div className="section-container">
+        {/* Top Newsletter Card / Action Banner */}
+        <div className="footer-newsletter-banner">
+          <div className="newsletter-banner-left">
+            <div className="newsletter-pill">
+              <span className="newsletter-pill-icon">✉️</span>
+              <span>STAY IN TOUCH</span>
+            </div>
+            <h3 className="newsletter-banner-title">
+              Empowering Multi-Location Restaurants
+            </h3>
+            <p className="newsletter-banner-desc">
+              Receive industry insights, operational playbooks &amp; product updates straight to your inbox.
+            </p>
+          </div>
+          <div className="newsletter-banner-right">
+            <form onSubmit={handleNewsletterSubmit} className="newsletter-inline-form">
+              <div className="newsletter-input-group">
+                <input
+                  type="email"
+                  value={newsletterEmail}
+                  onChange={(e) => {
+                    setNewsletterEmail(e.target.value);
+                    if (newsletterStatus) setNewsletterStatus(null);
+                  }}
+                  placeholder="Enter your business email"
+                  className="newsletter-input"
+                  disabled={isSubscribing}
+                  required
+                />
+                <button
+                  type="submit"
+                  className="newsletter-submit-btn"
+                  disabled={isSubscribing}
+                >
+                  {isSubscribing ? (
+                    <span>Subscribing...</span>
+                  ) : (
+                    <>
+                      <span>Subscribe</span>
+                      <span style={{ fontSize: '1rem', marginLeft: '2px' }}>&rarr;</span>
+                    </>
+                  )}
+                </button>
+              </div>
+              {newsletterMessage && (
+                <div className={`newsletter-feedback ${newsletterStatus}`}>
+                  <span>{newsletterStatus === 'success' ? '✓' : '⚠️'}</span>
+                  <span>{newsletterMessage}</span>
+                </div>
+              )}
+            </form>
+          </div>
+        </div>
+
         <div className="footer-top-grid">
           {/* Brand Info */}
           <div className="footer-brand-col">
