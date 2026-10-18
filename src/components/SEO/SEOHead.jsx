@@ -200,7 +200,7 @@ const SEOHead = ({
           '@type': 'Offer',
           'price': '0.00',
           'priceCurrency': 'USD',
-          'name': 'Free Trial'
+          'name': 'Interactive Live Demo'
         },
         'aggregateRating': {
           '@type': 'AggregateRating',

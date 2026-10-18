@@ -56,6 +56,19 @@ const SEOLandingPage = ({ clusterId }) => {
     }, 120);
   };
 
+  const handleDemoClick = (e) => {
+    e?.preventDefault();
+    navigate('/#ecosystem');
+    setTimeout(() => {
+      const el = document.getElementById('ecosystem');
+      if (el) {
+        const yOffset = -80;
+        const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      }
+    }, 120);
+  };
+
   // Find related clusters for the internal linking topic cluster
   const relatedClusters = (cluster.relatedClusters || [])
     .map((id) => keywordsData.clusters.find((c) => c.id === id))
@@ -96,10 +109,10 @@ const SEOLandingPage = ({ clusterId }) => {
             <Button
               variant="contained"
               className="btn-primary"
-              onClick={handleCtaClick}
+              onClick={handleDemoClick}
               endIcon={<ArrowForwardIcon />}
             >
-              Start Free 14-Day Trial
+              Explore Live Demo
             </Button>
             <Button
               component={Link}
@@ -379,9 +392,9 @@ const SEOLandingPage = ({ clusterId }) => {
             <Button
               variant="contained"
               className="btn-primary"
-              onClick={handleCtaClick}
+              onClick={handleDemoClick}
             >
-              Start Free 14-Day Trial
+              Explore Live Demo
             </Button>
             <Button
               component={Link}
