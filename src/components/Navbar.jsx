@@ -619,6 +619,16 @@ const Navbar = ({ onOpenInquiry }) => {
             </Link>
 
             <div className="mobile-menu-actions">
+              <a
+                href="https://wa.me/917621908664?text=Hi%2C%20I%20am%20interested%20in%20the%20SavoryOps%20SaaS%20White%20Label%20License%20and%20Source%20Code"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-whatsapp-mobile"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                <WhatsAppIcon size={18} />
+                <span>Chat on WhatsApp</span>
+              </a>
               <button
                 onClick={() => {
                   setMobileMenuOpen(false);

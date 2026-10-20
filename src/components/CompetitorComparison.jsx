@@ -67,6 +67,9 @@ const CompetitorComparison = () => {
         </div>
 
         {/* Comparison Table */}
+        <div className="table-scroll-hint">
+          <span>👈 Swipe horizontally to view full technical matrix 👉</span>
+        </div>
         <div className="comparison-table-wrapper glass-panel">
           <table className="comparison-table">
             <thead>

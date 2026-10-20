@@ -51,6 +51,11 @@ html {
   font-size: 16px;
   background-color: var(--bg);
   color: var(--text-main);
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 body {
@@ -62,14 +67,48 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  width: 100%;
+  max-width: 100%;
   overflow-x: hidden;
+  position: relative;
 }
 
 #root {
   min-height: 100vh;
   width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
   display: flex;
   flex-direction: column;
+}
+
+/* Media Elements Responsive Safeguard */
+img,
+svg,
+video,
+canvas,
+audio,
+iframe,
+embed,
+object {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+/* Touch targets and iOS form auto-zoom prevention */
+button,
+input,
+select,
+textarea,
+a {
+  touch-action: manipulation;
+}
+
+input,
+select,
+textarea {
+  font-size: 16px; /* Prevents auto-zoom in iOS Safari */
 }
 
 /* Scrollbar */
