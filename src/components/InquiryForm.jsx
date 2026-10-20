@@ -1,23 +1,22 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { WhatsAppIcon, MailIcon } from './Icons';
 
 const InquiryForm = ({ selectedTier }) => {
+  const [prevTier, setPrevTier] = useState(selectedTier);
   const [form, setForm] = useState({
     fullName: '',
     email: '',
     phone: '',
     company: '',
     licenseModel: selectedTier || 'Source Code + Turnkey Cloud Setup',
-    cloud: 'AWS / DigitalOcean / VPS',
     timeline: 'Within 7 Days',
     message: ''
   });
 
-  useEffect(() => {
-    if (selectedTier) {
-      setForm((prev) => ({ ...prev, licenseModel: selectedTier }));
-    }
-  }, [selectedTier]);
+  if (selectedTier && selectedTier !== prevTier) {
+    setPrevTier(selectedTier);
+    setForm((prev) => ({ ...prev, licenseModel: selectedTier }));
+  }
 
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);

@@ -8,7 +8,8 @@ const __dirname = path.dirname(__filename);
 const BASE_URL = 'https://savoryops.com';
 
 const staticRoutes = [
-  '/'
+  '/',
+  '/contact-us'
 ];
 
 function getRouteMetadata(route) {

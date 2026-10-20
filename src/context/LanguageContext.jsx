@@ -3,7 +3,6 @@ import { createContext, useContext, useEffect, useState } from 'react';
 
 const LanguageContext = createContext({
   language: 'English',
-  translations: {},
   changeLanguage: () => {},
   isRtl: false,
 });
@@ -16,7 +15,6 @@ export const LanguageProvider = ({ children }) => {
       return 'English';
     }
   });
-  const [translations] = useState({});
   const isRtl = language?.toLowerCase() === 'arabic' || language?.toLowerCase() === 'ar';
 
   const changeLanguage = (lang) => {
@@ -44,7 +42,7 @@ export const LanguageProvider = ({ children }) => {
   }, [isRtl, language]);
 
   return (
-    <LanguageContext.Provider value={{ language, translations, changeLanguage, isRtl }}>
+    <LanguageContext.Provider value={{ language, changeLanguage, isRtl }}>
       {children}
     </LanguageContext.Provider>
   );
