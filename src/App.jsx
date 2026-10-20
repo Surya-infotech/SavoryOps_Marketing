@@ -18,6 +18,7 @@ import WhiteLabelSuperpowers from './components/WhiteLabelSuperpowers';
 import CompetitorComparison from './components/CompetitorComparison';
 import RoiCalculator from './components/RoiCalculator';
 import LicensingPlans from './components/LicensingPlans';
+import CustomizationServices from './components/CustomizationServices';
 import InquiryForm from './components/InquiryForm';
 import Faq from './components/Faq';
 import Footer from './components/Footer';
@@ -89,10 +90,13 @@ const HomePage = ({ selectedTier, handleSelectTier, handleOpenInquiry }) => {
       {/* 7. Commercial Licensing Tiers */}
       <LicensingPlans onSelectTier={handleSelectTier} />
 
-      {/* 8. White-Label Inquiry & Consultation Form */}
+      {/* 8. Bespoke Code Customization & Custom Development Services */}
+      <CustomizationServices onInquire={handleSelectTier} />
+
+      {/* 9. White-Label Inquiry & Consultation Form */}
       <InquiryForm selectedTier={selectedTier} />
 
-      {/* 9. Frequently Asked Questions */}
+      {/* 10. Frequently Asked Questions */}
       <Faq />
     </main>
   );

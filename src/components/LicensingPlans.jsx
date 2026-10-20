@@ -147,21 +147,38 @@ const LicensingPlans = ({ onSelectTier }) => {
             <img src="/images/worldwide-partnership.jpg" alt="Worldwide Agency Partnership" className="partnership-img" />
           </div>
           <div className="partnership-info">
-            <span className="badge-gold">Worldwide Agency Partnership</span>
-            <h3>Looking for Multi-Country Franchise Deployment or Bespoke Engineering?</h3>
+            <span className="badge-gold">Bespoke Engineering &amp; Custom Code Development</span>
+            <h3>Need Custom Features or Code Tailored to Your Specific Requirements?</h3>
             <p>
-              We partner with digital marketing agencies, POS hardware distributors, and payment processors worldwide. 
-              Our senior engineering team is available for custom module creation, regional fiscal compliance (e.g. DIAN, ZATCA, GST), 
-              and custom hardware integrations.
+              We partner with digital marketing agencies, POS hardware distributors, and restaurant chains worldwide. 
+              Our senior engineering team is readily available to customize the code, develop specialized modules, 
+              integrate regional fiscal compliance (ZATCA, DIAN, GST), and connect custom hardware according to your exact requirements.
             </p>
             <div className="partnership-actions">
               <a
-                href="https://wa.me/917621908664?text=Hi%2C%20I%20am%20interested%20in%20an%20agency%20partnership%20with%20SavoryOps"
+                href="#customization"
+                onClick={(e) => {
+                  e.preventDefault();
+                  const el = document.getElementById('customization');
+                  if (el) {
+                    const yOffset = -80;
+                    const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                    window.scrollTo({ top: y, behavior: 'smooth' });
+                  }
+                }}
+                className="btn-partnership"
+                style={{ marginRight: '10px' }}
+              >
+                Explore Customization Services &rarr;
+              </a>
+              <a
+                href="https://wa.me/917621908664?text=Hi%2C%20I%20am%20interested%20in%20custom%20code%20development%20for%20SavoryOps"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-partnership"
+                style={{ background: 'rgba(34, 197, 94, 0.16)', borderColor: 'rgba(34, 197, 94, 0.45)', color: '#4ade80' }}
               >
-                Connect on WhatsApp (+91 7621908664) &rarr;
+                Connect on WhatsApp &rarr;
               </a>
             </div>
           </div>

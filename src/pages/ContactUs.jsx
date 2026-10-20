@@ -18,8 +18,9 @@ const ContactUs = () => {
 
   const subjectOptions = [
     'White-Label License Inquiry',
+    'Bespoke Code Customization (According to Your Requirements)',
     'Source Code & Architecture Audit',
-    'Custom Feature Development',
+    'Custom Payment Gateway & Fiscal Compliance',
     'Reseller & Agency Partnership',
     'Live Demo Request',
     'General Technical Inquiry'
@@ -209,6 +210,12 @@ const ContactUs = () => {
                   <span className="check-bullet">✓</span>
                   <div>
                     <strong>Zero Obligation:</strong> Transparent commercial licensing with full source code ownership rights and zero hidden fees.
+                  </div>
+                </li>
+                <li>
+                  <span className="check-bullet">✓</span>
+                  <div>
+                    <strong>Custom Development Available:</strong> Need custom features or integrations? Our team customizes the code to match your requirements.
                   </div>
                 </li>
               </ul>

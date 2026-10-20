@@ -203,6 +203,12 @@ const Navbar = ({ onOpenInquiry }) => {
       targetId: 'white-label-rights'
     },
     {
+      icon: '🛠️',
+      title: 'Code Customization & Bespoke Dev',
+      desc: 'Bespoke features, regional tax compliance & payment gateway engineering to your requirements',
+      targetId: 'customization'
+    },
+    {
       icon: '⚖️',
       title: 'Competitor Technical Audit',
       desc: 'Deep architecture feature matrix vs Toast, Square, TouchBistro & Clover',

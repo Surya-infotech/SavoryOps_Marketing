@@ -204,6 +204,7 @@ const Footer = () => {
               <li><a href="#ecosystem" onClick={(e) => { e.preventDefault(); scrollTo('ecosystem'); }}>Waiter &amp; Driver Mobile Apps</a></li>
               <li><a href="#ecosystem" onClick={(e) => { e.preventDefault(); scrollTo('ecosystem'); }}>Customer Table QR Scan-to-Order</a></li>
               <li><a href="#white-label-rights" onClick={(e) => { e.preventDefault(); scrollTo('white-label-rights'); }}>White-Label Agency Rights</a></li>
+              <li><a href="#customization" onClick={(e) => { e.preventDefault(); scrollTo('customization'); }}>Bespoke Code Customization</a></li>
             </ul>
           </div>
 

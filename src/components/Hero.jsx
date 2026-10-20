@@ -16,7 +16,7 @@ const Hero = ({ onInquire }) => {
         {/* Top Badges */}
         <div className="hero-pill-badge">
           <span className="pill-dot"></span>
-          <span>100% Unencrypted Source Code &amp; Multi-Tenant SaaS License</span>
+          <span>100% Unencrypted Source Code • Available for Custom Development</span>
           <span className="pill-tag">v3.1.8 Ready</span>
         </div>
 
@@ -30,7 +30,7 @@ const Hero = ({ onInquire }) => {
           Acquire the complete unencrypted source code for <strong>SavoryOps SaaS</strong>. A turnkey 5-platform restaurant management powerhouse: 
           <strong> SuperAdmin SaaS Portal</strong>, <strong>Merchant Web POS</strong>, <strong>Real-Time Kitchen KDS</strong>, 
           <strong> Native Cross-Platform Staff Mobile App</strong>, and <strong>Customer QR Scan-to-Order</strong>. 
-          Zero recurring royalties, zero transaction cuts, and 100% intellectual property ownership.
+          Zero recurring royalties, zero transaction cuts, 100% intellectual property ownership, and <strong>custom code development available</strong> to tailor any feature to your exact requirements.
         </p>
 
         {/* Action Buttons */}

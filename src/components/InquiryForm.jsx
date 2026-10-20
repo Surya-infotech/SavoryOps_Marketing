@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { WhatsAppIcon, MailIcon } from './Icons';
 
 const InquiryForm = ({ selectedTier }) => {
@@ -12,6 +12,12 @@ const InquiryForm = ({ selectedTier }) => {
     timeline: 'Within 7 Days',
     message: ''
   });
+
+  useEffect(() => {
+    if (selectedTier) {
+      setForm((prev) => ({ ...prev, licenseModel: selectedTier }));
+    }
+  }, [selectedTier]);
 
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -110,6 +116,14 @@ const InquiryForm = ({ selectedTier }) => {
                 <div>
                   <strong>Complete IP Ownership</strong>
                   <p>Perpetual commercial rights with zero royalties or hidden subscriptions.</p>
+                </div>
+              </div>
+
+              <div className="inquiry-hl-item">
+                <span className="hl-icon">🛠️</span>
+                <div>
+                  <strong>Available for Custom Code Development</strong>
+                  <p>Need custom integrations, regional tax compliance, or unique features? We customize the code according to your exact requirements.</p>
                 </div>
               </div>
             </div>
@@ -238,8 +252,8 @@ const InquiryForm = ({ selectedTier }) => {
                       >
                         <option value="Source Code + Turnkey Cloud Setup">Source Code + Turnkey Cloud Setup (Recommended)</option>
                         <option value="Full Source Code License (Self-Managed)">Full Source Code License (Self-Managed)</option>
+                        <option value="Bespoke Feature Customization">Bespoke Code Customization (According to Your Requirements)</option>
                         <option value="Multi-Country Agency Franchise">Multi-Country Agency Franchise License</option>
-                        <option value="Bespoke Feature Customization">Bespoke Feature Customization</option>
                       </select>
                     </div>
 

@@ -40,6 +40,11 @@ const faqs = [
     question: 'Do you provide cloud deployment and ongoing technical support?',
     answer:
       'Yes! Under our "Source Code + Turnkey Cloud Setup" plan, our senior DevOps engineers set up and configure everything directly on your cloud infrastructure (AWS, GCP, DigitalOcean, or VPS). We configure DNS, SSL certificates, payment gateways, SMTP email, and database backups, and provide 30 days of direct DevOps support and an architect-level code walkthrough.'
+  },
+  {
+    question: 'Are you available to customize the code according to our specific requirements?',
+    answer:
+      'Yes, absolutely! While SavoryOps comes complete with 5 turnkey applications out-of-the-box, our senior engineering team is readily available for custom code development and bespoke feature engineering. Whether you need local payment gateway integrations, government fiscal tax compliance (ZATCA, DIAN, GST, KRA), custom hardware drivers (weighing scales, dual-screen pole displays, specialized printers), third-party ERP connectors (SAP, NetSuite, QuickBooks), or unique business workflows, we scope, build, test, and deliver the customized code directly into your private repository.'
   }
 ];
 
