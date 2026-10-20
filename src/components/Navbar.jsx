@@ -504,119 +504,174 @@ const Navbar = ({ onOpenInquiry }) => {
         {mobileMenuOpen && (
           <div className="mobile-menu">
             {/* Solutions Section */}
-            <div className="mobile-section">
+            <div className={`mobile-section ${mobileExpanded.solutions ? 'open' : ''}`}>
               <button
+                type="button"
                 className="mobile-section-trigger"
                 onClick={() => toggleMobileSection('solutions')}
+                aria-expanded={mobileExpanded.solutions}
               >
-                <span>Solutions &amp; Modules</span>
-                <span>{mobileExpanded.solutions ? '▲' : '▼'}</span>
+                <div className="mobile-trigger-label">
+                  <span className="mobile-section-icon">⚡</span>
+                  <span>Solutions &amp; Modules</span>
+                </div>
+                <span className={`mobile-chevron ${mobileExpanded.solutions ? 'rotated' : ''}`}>
+                  ▾
+                </span>
               </button>
               {mobileExpanded.solutions && (
                 <div className="mobile-section-content">
-                  {solutionsGroups.flatMap((g) => g.items).map((item, idx) => (
-                    <Link
-                      key={idx}
-                      to={item.path}
-                      onClick={() => setMobileMenuOpen(false)}
-                      className="mobile-subitem"
-                    >
-                      <span>{item.icon} {item.title}</span>
-                      {item.badge && (
-                        <span className={`subitem-badge badge-${item.badgeType || 'emerald'}`}>
-                          {item.badge}
-                        </span>
-                      )}
-                    </Link>
+                  {solutionsGroups.map((group, gIdx) => (
+                    <div key={gIdx} className="mobile-group-block">
+                      <div className="mobile-group-title">{group.heading}</div>
+                      <div className="mobile-group-items">
+                        {group.items.map((item, idx) => (
+                          <Link
+                            key={idx}
+                            to={item.path}
+                            onClick={() => setMobileMenuOpen(false)}
+                            className="mobile-subitem"
+                          >
+                            <div className="mobile-subitem-main">
+                              <span className="mobile-subitem-icon">{item.icon}</span>
+                              <div className="mobile-subitem-info">
+                                <span className="mobile-subitem-title">{item.title}</span>
+                                {item.desc && <span className="mobile-subitem-desc">{item.desc}</span>}
+                              </div>
+                            </div>
+                            {item.badge && (
+                              <span className={`subitem-badge badge-${item.badgeType || 'emerald'}`}>
+                                {item.badge}
+                              </span>
+                            )}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
                   ))}
                 </div>
               )}
             </div>
 
             {/* Platform Section */}
-            <div className="mobile-section">
+            <div className={`mobile-section ${mobileExpanded.platform ? 'open' : ''}`}>
               <button
+                type="button"
                 className="mobile-section-trigger"
                 onClick={() => toggleMobileSection('platform')}
+                aria-expanded={mobileExpanded.platform}
               >
-                <span>Platform Architecture</span>
-                <span>{mobileExpanded.platform ? '▲' : '▼'}</span>
+                <div className="mobile-trigger-label">
+                  <span className="mobile-section-icon">🖥️</span>
+                  <span>Platform Architecture</span>
+                </div>
+                <span className={`mobile-chevron ${mobileExpanded.platform ? 'rotated' : ''}`}>
+                  ▾
+                </span>
               </button>
               {mobileExpanded.platform && (
                 <div className="mobile-section-content">
-                  {platformItems.map((item, idx) => (
-                    <a
-                      key={idx}
-                      href={`#${item.targetId}`}
-                      onClick={(e) => {
-                        e.preventDefault();
-                        scrollTo(item.targetId);
-                      }}
-                      className="mobile-subitem"
-                    >
-                      <span>{item.icon} {item.title}</span>
-                    </a>
-                  ))}
+                  <div className="mobile-group-items">
+                    {platformItems.map((item, idx) => (
+                      <a
+                        key={idx}
+                        href={`#${item.targetId}`}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          scrollTo(item.targetId);
+                        }}
+                        className="mobile-subitem"
+                      >
+                        <div className="mobile-subitem-main">
+                          <span className="mobile-subitem-icon">{item.icon}</span>
+                          <div className="mobile-subitem-info">
+                            <span className="mobile-subitem-title">{item.title}</span>
+                            {item.desc && <span className="mobile-subitem-desc">{item.desc}</span>}
+                          </div>
+                        </div>
+                      </a>
+                    ))}
+                  </div>
                 </div>
               )}
             </div>
 
             {/* White-Label Section */}
-            <div className="mobile-section">
+            <div className={`mobile-section ${mobileExpanded.whitelabel ? 'open' : ''}`}>
               <button
+                type="button"
                 className="mobile-section-trigger"
                 onClick={() => toggleMobileSection('whitelabel')}
+                aria-expanded={mobileExpanded.whitelabel}
               >
-                <span>White-Label Rights</span>
-                <span>{mobileExpanded.whitelabel ? '▲' : '▼'}</span>
+                <div className="mobile-trigger-label">
+                  <span className="mobile-section-icon">👑</span>
+                  <span>White-Label Rights</span>
+                </div>
+                <span className={`mobile-chevron ${mobileExpanded.whitelabel ? 'rotated' : ''}`}>
+                  ▾
+                </span>
               </button>
               {mobileExpanded.whitelabel && (
                 <div className="mobile-section-content">
-                  {whiteLabelItems.map((item, idx) => (
-                    <a
-                      key={idx}
-                      href={`#${item.targetId}`}
-                      onClick={(e) => {
-                        e.preventDefault();
-                        scrollTo(item.targetId);
-                      }}
-                      className="mobile-subitem"
-                    >
-                      <span>{item.icon} {item.title}</span>
-                    </a>
-                  ))}
+                  <div className="mobile-group-items">
+                    {whiteLabelItems.map((item, idx) => (
+                      <a
+                        key={idx}
+                        href={`#${item.targetId}`}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          scrollTo(item.targetId);
+                        }}
+                        className="mobile-subitem"
+                      >
+                        <div className="mobile-subitem-main">
+                          <span className="mobile-subitem-icon">{item.icon}</span>
+                          <div className="mobile-subitem-info">
+                            <span className="mobile-subitem-title">{item.title}</span>
+                            {item.desc && <span className="mobile-subitem-desc">{item.desc}</span>}
+                          </div>
+                        </div>
+                      </a>
+                    ))}
+                  </div>
                 </div>
               )}
             </div>
 
             {/* Direct Links */}
-            <a
-              href="#licensing"
-              onClick={(e) => {
-                e.preventDefault();
-                scrollTo('licensing');
-              }}
-              className="mobile-direct-link"
-            >
-              Licensing Plans
-            </a>
-            <a
-              href="#faq"
-              onClick={(e) => {
-                e.preventDefault();
-                scrollTo('faq');
-              }}
-              className="mobile-direct-link"
-            >
-              FAQ
-            </a>
-            <Link
-              to="/contact-us"
-              onClick={() => setMobileMenuOpen(false)}
-              className="mobile-direct-link"
-            >
-              Contact Us
-            </Link>
+            <div className="mobile-direct-links">
+              <a
+                href="#licensing"
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollTo('licensing');
+                }}
+                className="mobile-direct-link"
+              >
+                <span>Licensing Plans</span>
+                <span className="mobile-link-arrow">→</span>
+              </a>
+              <a
+                href="#faq"
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollTo('faq');
+                }}
+                className="mobile-direct-link"
+              >
+                <span>FAQ</span>
+                <span className="mobile-link-arrow">→</span>
+              </a>
+              <Link
+                to="/contact-us"
+                onClick={() => setMobileMenuOpen(false)}
+                className="mobile-direct-link"
+              >
+                <span>Contact Us</span>
+                <span className="mobile-link-arrow">→</span>
+              </Link>
+            </div>
 
             <div className="mobile-menu-actions">
               <a
@@ -632,7 +687,11 @@ const Navbar = ({ onOpenInquiry }) => {
               <button
                 onClick={() => {
                   setMobileMenuOpen(false);
-                  scrollTo('inquiry');
+                  if (onOpenInquiry) {
+                    onOpenInquiry();
+                  } else {
+                    scrollTo('inquiry');
+                  }
                 }}
                 className="btn-primary-mobile"
               >
