@@ -241,13 +241,6 @@ const Footer = () => {
               <Link
                 to="/contact-us"
                 className="btn-footer-chat"
-                style={{
-                  marginBottom: '8px',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  textDecoration: 'none'
-                }}
               >
                 Contact Us Page &rarr;
               </Link>
