@@ -1,49 +1,74 @@
-# Explicit canonical 301 redirects for uppercase / trailing slash variations
-/sitemap  /sitemap.xml  301!
-/SignIn  /signin  301!
-/Signin  /signin  301!
-/SIGNIN  /signin  301!
-/SignUp  /signup  301!
-/Signup  /signup  301!
-/SIGNUP  /signup  301!
-/Features  /features  301!
-/Features/  /features  301!
-/features/  /features  301!
-/Pricing  /pricing  301!
-/Pricing/  /pricing  301!
-/pricing/  /pricing  301!
-/Partnership  /  301!
-/Partnership/  /  301!
-/Partners  /  301!
-/partners  /  301!
-/partnership  /  301!
-/White-Label  /  301!
-/White-label  /  301!
-/white-label  /  301!
-/white-label-license  /  301!
-/Why-SavoryOps  /why-savoryops  301!
-/Why-savoryops  /why-savoryops  301!
-/Why-Us  /why-savoryops  301!
-/Why-us  /why-savoryops  301!
-/About  /about-us  301!
-/About/  /about-us  301!
-/about/  /about-us  301!
-/About-Us  /about-us  301!
-/About-us  /about-us  301!
-/FAQ  /faq  301!
-/Faq  /faq  301!
-/faqs  /faq  301!
-/faqs/  /faq  301!
-/Contact  /contact-us  301!
-/Contact-Us  /contact-us  301!
-/Contact-us  /contact-us  301!
-/Blog  /blog  301!
-/Blogs  /blog  301!
-/blogs  /blog  301!
-/Terms  /terms-and-conditions  301!
-/Terms-And-Conditions  /terms-and-conditions  301!
-/Privacy  /privacy-policy  301!
-/Privacy-Policy  /privacy-policy  301!
+# ==============================================================================
+# SavoryOps Canonical 301 Redirect Rules
+# Redirects product, features, solutions, alternatives, guides, and blog pages
+# to the live full product website at https://website.savoryops.com
+# ==============================================================================
 
-# SPA Fallback for Netlify / Edge Routers
+# Core Files
+/sitemap  /sitemap.xml  301!
+/rss.xml  https://website.savoryops.com/rss.xml  301!
+
+# 301 Permanent Redirects to website.savoryops.com
+/features/*  https://website.savoryops.com/features/:splat  301!
+/features  https://website.savoryops.com/features  301!
+/Features/*  https://website.savoryops.com/features/:splat  301!
+/Features  https://website.savoryops.com/features  301!
+
+/solutions/*  https://website.savoryops.com/solutions/:splat  301!
+/solutions  https://website.savoryops.com/solutions  301!
+/Solutions/*  https://website.savoryops.com/solutions/:splat  301!
+/Solutions  https://website.savoryops.com/solutions  301!
+
+/alternatives/*  https://website.savoryops.com/alternatives/:splat  301!
+/alternatives  https://website.savoryops.com/alternatives  301!
+/Alternatives/*  https://website.savoryops.com/alternatives/:splat  301!
+/Alternatives  https://website.savoryops.com/alternatives  301!
+
+/resources/*  https://website.savoryops.com/resources/:splat  301!
+/resources  https://website.savoryops.com/resources  301!
+/Resources/*  https://website.savoryops.com/resources/:splat  301!
+/Resources  https://website.savoryops.com/resources  301!
+
+/blog/*  https://website.savoryops.com/blog/:splat  301!
+/blog  https://website.savoryops.com/blog  301!
+/Blog/*  https://website.savoryops.com/blog/:splat  301!
+/Blog  https://website.savoryops.com/blog  301!
+
+/pricing  https://website.savoryops.com/pricing  301!
+/pricing/  https://website.savoryops.com/pricing  301!
+/Pricing  https://website.savoryops.com/pricing  301!
+/Pricing/  https://website.savoryops.com/pricing  301!
+
+/faq  https://website.savoryops.com/faq  301!
+/faq/  https://website.savoryops.com/faq  301!
+/FAQ  https://website.savoryops.com/faq  301!
+/Faq  https://website.savoryops.com/faq  301!
+
+/about-us  https://website.savoryops.com/about-us  301!
+/about  https://website.savoryops.com/about-us  301!
+/About  https://website.savoryops.com/about-us  301!
+
+/upcoming-features  https://website.savoryops.com/upcoming-features  301!
+
+# Local White-Label & Account Redirects
+/SignIn  /  301!
+/Signin  /  301!
+/signin  /  301!
+/SignUp  /  301!
+/Signup  /  301!
+/signup  /  301!
+/Partnership  /contact-us  301!
+/partnership  /contact-us  301!
+/White-Label  /  301!
+/white-label  /  301!
+/Why-SavoryOps  /  301!
+/why-savoryops  /  301!
+/Terms  /contact-us  301!
+/terms-and-conditions  /contact-us  301!
+/Privacy  /contact-us  301!
+/privacy-policy  /contact-us  301!
+/data-deletion-policy  /contact-us  301!
+/refund-and-cancellation-policy  /contact-us  301!
+
+# SPA Fallback for Static Hosting
 /*  /index.html  200

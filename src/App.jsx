@@ -23,7 +23,6 @@ import CustomizationServices from './components/CustomizationServices';
 import InquiryForm from './components/InquiryForm';
 import Faq from './components/Faq';
 import Footer from './components/Footer';
-import SEOLandingPage from './pages/seo/SEOLandingPage';
 import ContactUs from './pages/ContactUs';
 
 /** Short smooth scroll on route change so subpages start at the top */
@@ -44,6 +43,15 @@ const ScrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [location.pathname, location.hash]);
 
+  return null;
+};
+
+/** Redirects legacy product routes directly to the full product website */
+const ExternalRedirectToProductSite = () => {
+  const location = useLocation();
+  useEffect(() => {
+    window.location.replace(`https://website.savoryops.com${location.pathname}${location.search}`);
+  }, [location]);
   return null;
 };
 
@@ -189,51 +197,35 @@ const AppContent = () => {
           }
         />
 
-        {/* Programmatic SEO Solutions Pages */}
-        <Route
-          path="/solutions/restaurant-pos-system"
-          element={<SEOLandingPage clusterId="restaurant-pos-system" />}
-        />
-        <Route
-          path="/solutions/kitchen-display-system"
-          element={<SEOLandingPage clusterId="kitchen-display-system" />}
-        />
-        <Route
-          path="/solutions/kitchen-order-ticket-system"
-          element={<SEOLandingPage clusterId="kitchen-order-ticket-system" />}
-        />
-        <Route
-          path="/solutions/restaurant-inventory-management"
-          element={<SEOLandingPage clusterId="restaurant-inventory-management" />}
-        />
-        <Route
-          path="/solutions/cloud-kitchen-pos-system"
-          element={<SEOLandingPage clusterId="cloud-kitchen-pos-system" />}
-        />
-
-        {/* Competitor Alternatives SEO Pages */}
-        <Route
-          path="/alternatives/toast-pos-alternative"
-          element={<SEOLandingPage clusterId="toast-pos-alternative" />}
-        />
-        <Route
-          path="/alternatives/square-pos-alternative"
-          element={<SEOLandingPage clusterId="square-pos-alternative" />}
-        />
-        <Route
-          path="/alternatives/touchbistro-alternative"
-          element={<SEOLandingPage clusterId="touchbistro-alternative" />}
-        />
-
-        {/* Interactive Calculator & Resource Guide */}
-        <Route
-          path="/resources/food-cost-percentage-guide"
-          element={<SEOLandingPage clusterId="food-cost-percentage-guide" />}
-        />
-
         {/* Contact Us Page */}
         <Route path="/contact-us" element={<ContactUs />} />
         <Route path="/contact" element={<ContactUs />} />
+
+        {/* 301 Redirects to website.savoryops.com for all product/feature/blog URLs */}
+        <Route path="/features/*" element={<ExternalRedirectToProductSite />} />
+        <Route path="/features" element={<ExternalRedirectToProductSite />} />
+        <Route path="/solutions/*" element={<ExternalRedirectToProductSite />} />
+        <Route path="/solutions" element={<ExternalRedirectToProductSite />} />
+        <Route path="/alternatives/*" element={<ExternalRedirectToProductSite />} />
+        <Route path="/alternatives" element={<ExternalRedirectToProductSite />} />
+        <Route path="/resources/*" element={<ExternalRedirectToProductSite />} />
+        <Route path="/resources" element={<ExternalRedirectToProductSite />} />
+        <Route path="/blog/*" element={<ExternalRedirectToProductSite />} />
+        <Route path="/blog" element={<ExternalRedirectToProductSite />} />
+        <Route path="/pricing" element={<ExternalRedirectToProductSite />} />
+        <Route path="/faq" element={<ExternalRedirectToProductSite />} />
+        <Route path="/about-us" element={<ExternalRedirectToProductSite />} />
+        <Route path="/upcoming-features" element={<ExternalRedirectToProductSite />} />
+
+        {/* Local White-Label & Account Redirects */}
+        <Route path="/why-savoryops" element={<Navigate to="/" replace />} />
+        <Route path="/partnership" element={<Navigate to="/contact-us" replace />} />
+        <Route path="/privacy-policy" element={<Navigate to="/contact-us" replace />} />
+        <Route path="/terms-and-conditions" element={<Navigate to="/contact-us" replace />} />
+        <Route path="/data-deletion-policy" element={<Navigate to="/contact-us" replace />} />
+        <Route path="/refund-and-cancellation-policy" element={<Navigate to="/contact-us" replace />} />
+        <Route path="/signin" element={<Navigate to="/" replace />} />
+        <Route path="/signup" element={<Navigate to="/" replace />} />
 
         {/* Catch-all fallback */}
         <Route path="*" element={<Navigate to="/" replace />} />

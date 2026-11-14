@@ -171,12 +171,12 @@ const Footer = () => {
           <div className="footer-links-col">
             <h4 className="footer-col-title">Solutions &amp; Guides</h4>
             <ul className="footer-links-list">
-              <li><Link to="/solutions/restaurant-pos-system">Restaurant POS System</Link></li>
-              <li><Link to="/solutions/kitchen-display-system">Kitchen Display System (KDS)</Link></li>
-              <li><Link to="/solutions/kitchen-order-ticket-system">Kitchen Order Ticket (KOT)</Link></li>
-              <li><Link to="/solutions/restaurant-inventory-management">Inventory &amp; Recipe BOM</Link></li>
-              <li><Link to="/solutions/cloud-kitchen-pos-system">Cloud Kitchen POS System</Link></li>
-              <li><Link to="/resources/food-cost-percentage-guide">Food Cost Calculator Guide</Link></li>
+              <li><a href="https://website.savoryops.com/solutions/restaurant-pos-system" target="_blank" rel="noopener noreferrer">Restaurant POS System</a></li>
+              <li><a href="https://website.savoryops.com/solutions/kitchen-display-system" target="_blank" rel="noopener noreferrer">Kitchen Display System (KDS)</a></li>
+              <li><a href="https://website.savoryops.com/solutions/kitchen-order-ticket-system" target="_blank" rel="noopener noreferrer">Kitchen Order Ticket (KOT)</a></li>
+              <li><a href="https://website.savoryops.com/solutions/restaurant-inventory-management" target="_blank" rel="noopener noreferrer">Inventory &amp; Recipe BOM</a></li>
+              <li><a href="https://website.savoryops.com/solutions/cloud-kitchen-pos-system" target="_blank" rel="noopener noreferrer">Cloud Kitchen POS System</a></li>
+              <li><a href="https://website.savoryops.com/resources/food-cost-percentage-guide" target="_blank" rel="noopener noreferrer">Food Cost Calculator Guide</a></li>
               <li><a href="/sitemap.xml" target="_blank" rel="noopener noreferrer">XML Sitemap</a></li>
             </ul>
           </div>
@@ -185,9 +185,9 @@ const Footer = () => {
           <div className="footer-links-col">
             <h4 className="footer-col-title">Alternatives</h4>
             <ul className="footer-links-list">
-              <li><Link to="/alternatives/toast-pos-alternative">Toast POS Alternative</Link></li>
-              <li><Link to="/alternatives/square-pos-alternative">Square POS Alternative</Link></li>
-              <li><Link to="/alternatives/touchbistro-alternative">TouchBistro Alternative</Link></li>
+              <li><a href="https://website.savoryops.com/alternatives/toast-pos-alternative" target="_blank" rel="noopener noreferrer">Toast POS Alternative</a></li>
+              <li><a href="https://website.savoryops.com/alternatives/square-pos-alternative" target="_blank" rel="noopener noreferrer">Square POS Alternative</a></li>
+              <li><a href="https://website.savoryops.com/alternatives/touchbistro-alternative" target="_blank" rel="noopener noreferrer">TouchBistro Alternative</a></li>
               <li><a href="#comparison" onClick={(e) => { e.preventDefault(); scrollTo('comparison'); }}>Competitor Technical Audit</a></li>
               <li><a href="#roi-calculator" onClick={(e) => { e.preventDefault(); scrollTo('roi-calculator'); }}>Interactive ROI Calculator</a></li>
               <li><a href="#licensing" onClick={(e) => { e.preventDefault(); scrollTo('licensing'); }}>Licensing &amp; Pricing Tiers</a></li>
