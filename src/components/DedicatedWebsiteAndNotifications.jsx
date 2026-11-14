@@ -241,41 +241,19 @@ const DedicatedWebsiteAndNotifications = () => {
 
                     {/* Message 1: Order Confirmed */}
                     <div className="wa-bubble wa-bubble-bot">
-                      <p className="wa-bubble-title">🎉 <strong>Order Received &amp; Confirmed!</strong></p>
-                      <p>Hello <strong>Alex</strong>, thank you for ordering with <strong>Harbour Blue Restaurant</strong>!</p>
-                      <div className="wa-bill-box">
-                        <div className="wa-bill-line">
-                          <span>1x Truffle Wild Mushroom Pizza</span>
-                          <span>$18.50</span>
-                        </div>
-                        <div className="wa-bill-line">
-                          <span>1x Artisanal Burrata Salad</span>
-                          <span>$12.00</span>
-                        </div>
-                        <div className="wa-bill-total">
-                          <strong>Total Paid (Card):</strong>
-                          <strong>$30.50</strong>
-                        </div>
-                      </div>
+                      <p className="wa-bubble-title">🎉 <strong>Order #SAV-4921 Confirmed!</strong></p>
+                      <p>Hi <strong>Alex</strong>, your order for <strong>2 items ($30.50)</strong> is confirmed at <strong>Harbour Blue</strong>.</p>
                       <a href="#inquiry" onClick={(e) => { e.preventDefault(); scrollToInquiry(); }} className="wa-bubble-link">
-                        📄 View Itemized Digital Receipt &rarr;
+                        📄 Digital Receipt &rarr;
                       </a>
                       <span className="wa-time">19:42 ✓✓</span>
                     </div>
 
-                    {/* Message 2: Kitchen Progress */}
-                    <div className="wa-bubble wa-bubble-bot">
-                      <p className="wa-bubble-title">👨‍🍳 <strong>Kitchen Update: Food is Cooking!</strong></p>
-                      <p>Chef Marco has fired ticket <strong>#SAV-4921</strong>. Your dishes are being freshly prepared.</p>
-                      <span className="wa-progress-badge">Estimated Time: 14 Mins</span>
-                      <span className="wa-time">19:46 ✓✓</span>
-                    </div>
-
-                    {/* Message 3: Out for Delivery */}
+                    {/* Message 2: Live Tracking */}
                     <div className="wa-bubble wa-bubble-bot">
                       <p className="wa-bubble-title">🛵 <strong>Out for Delivery!</strong></p>
-                      <p>Driver Carlos has picked up your order and is heading your way.</p>
-                      <span className="wa-tracking-pill">📍 Live GPS Driver Tracking Active</span>
+                      <p>Driver Carlos is heading your way with your order.</p>
+                      <span className="wa-tracking-pill">📍 Live GPS Active</span>
                       <span className="wa-time">20:05 ✓✓</span>
                     </div>
                   </>
@@ -286,30 +264,14 @@ const DedicatedWebsiteAndNotifications = () => {
                     <div className="chat-date-pill">TODAY</div>
 
                     <div className="wa-bubble wa-bubble-bot">
-                      <p className="wa-bubble-title">📅 <strong>Table Reservation Confirmed!</strong></p>
-                      <p>Hello <strong>Sarah Jenkins</strong>, your table reservation is locked in!</p>
-                      <div className="wa-bill-box">
-                        <div className="wa-bill-line">
-                          <span><strong>Date:</strong> Tonight, Nov 14</span>
-                          <span>8:00 PM</span>
-                        </div>
-                        <div className="wa-bill-line">
-                          <span><strong>Guests:</strong> 4 Diners</span>
-                          <span>Window Booth #12</span>
-                        </div>
-                        <div className="wa-bill-line">
-                          <span><strong>Special Note:</strong> Birthday Celebration</span>
-                        </div>
-                      </div>
-                      <p style={{ marginTop: '8px', fontSize: '0.85rem' }}>
-                        Need to modify or add guests? Reply to this chat anytime!
-                      </p>
+                      <p className="wa-bubble-title">📅 <strong>Table Reserved!</strong></p>
+                      <p>Hi <strong>Sarah</strong>, table for <strong>4 guests</strong> is reserved for tonight at <strong>8:00 PM</strong> (Booth #12).</p>
                       <span className="wa-time">14:15 ✓✓</span>
                     </div>
 
                     <div className="wa-bubble wa-bubble-bot">
-                      <p className="wa-bubble-title">🔔 <strong>Reminder: Your Table is in 1 Hour</strong></p>
-                      <p>We are ready to welcome you at <strong>The Bistro Guild - Main Dining Room</strong>. See you soon!</p>
+                      <p className="wa-bubble-title">🔔 <strong>Reminder: Table in 1 Hour</strong></p>
+                      <p>We look forward to welcoming you at <strong>Harbour Blue</strong>!</p>
                       <span className="wa-time">19:00 ✓✓</span>
                     </div>
                   </>
@@ -320,32 +282,10 @@ const DedicatedWebsiteAndNotifications = () => {
                     <div className="chat-date-pill">SHIFT CLOSE REPORT</div>
 
                     <div className="wa-bubble wa-bubble-bot">
-                      <p className="wa-bubble-title">📊 <strong>Nightly Sales &amp; Z-Report Summary</strong></p>
-                      <p>Good evening Owner! Here is today's consolidated branch performance summary:</p>
-                      <div className="wa-bill-box">
-                        <div className="wa-bill-line">
-                          <span>Gross Total Sales:</span>
-                          <strong>$4,280.50</strong>
-                        </div>
-                        <div className="wa-bill-line">
-                          <span>Total Completed Orders:</span>
-                          <strong>148 Orders</strong>
-                        </div>
-                        <div className="wa-bill-line">
-                          <span>Card / Online Tenders:</span>
-                          <span>$3,140.00</span>
-                        </div>
-                        <div className="wa-bill-line">
-                          <span>Cash in Drawer:</span>
-                          <span>$1,140.50</span>
-                        </div>
-                        <div className="wa-bill-line">
-                          <span>Average Table Turnaround:</span>
-                          <span>38 mins</span>
-                        </div>
-                      </div>
-                      <p style={{ marginTop: '8px', fontSize: '0.82rem', color: '#86efac' }}>
-                        ✓ Immutable shift ledger closed. Printable PDF Z-Report attached.
+                      <p className="wa-bubble-title">📊 <strong>Daily Sales: $4,280.50</strong></p>
+                      <p>148 orders completed today. Cash: $1,140.50 | Card: $3,140.00.</p>
+                      <p style={{ marginTop: '4px', fontSize: '0.8rem', color: '#86efac' }}>
+                        ✓ Z-Report PDF attached.
                       </p>
                       <span className="wa-time">23:45 ✓✓</span>
                     </div>
