@@ -203,6 +203,7 @@ const Footer = () => {
               <li><a href="#ecosystem" onClick={(e) => { e.preventDefault(); scrollTo('ecosystem'); }}>Interactive Kitchen KDS</a></li>
               <li><a href="#ecosystem" onClick={(e) => { e.preventDefault(); scrollTo('ecosystem'); }}>Waiter &amp; Driver Mobile Apps</a></li>
               <li><a href="#ecosystem" onClick={(e) => { e.preventDefault(); scrollTo('ecosystem'); }}>Customer Table QR Scan-to-Order</a></li>
+              <li><a href="#ecosystem" onClick={(e) => { e.preventDefault(); scrollTo('ecosystem'); }}>Landing Page &amp; Storefront</a></li>
               <li><a href="#website-notifications" onClick={(e) => { e.preventDefault(); scrollTo('website-notifications'); }}>Dedicated Restaurant Website</a></li>
               <li><a href="#website-notifications" onClick={(e) => { e.preventDefault(); scrollTo('website-notifications'); }}>WhatsApp &amp; Push Notifications</a></li>
               <li><a href="#white-label-rights" onClick={(e) => { e.preventDefault(); scrollTo('white-label-rights'); }}>White-Label Agency Rights</a></li>

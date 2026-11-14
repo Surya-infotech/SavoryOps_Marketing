@@ -6,8 +6,8 @@ const DEMO_URLS = {
   ownerPanel: import.meta.env.VITE_DEMO_OWNER_PANEL_URL || 'https://website.savoryops.com/signin',
   userApp: import.meta.env.VITE_DEMO_USER_APP_URL || 'https://user.savoryops.com',
   employeeApp: import.meta.env.VITE_DEMO_EMPLOYEE_APP_URL || 'https://crew.savoryops.com',
+  landingPage: import.meta.env.VITE_DEMO_LANDING_PAGE_URL || 'https://website.savoryops.com',
   restaurantWebsite: import.meta.env.VITE_DEMO_USER_WEBSITE_URL || 'https://harbourblue.savoryops.com/',
-  landingPage: import.meta.env.VITE_DEMO_USER_WEBSITE_URL || import.meta.env.VITE_DEMO_LANDING_PAGE_URL || 'https://harbourblue.savoryops.com/',
 };
 
 const platforms = [
@@ -89,13 +89,32 @@ const platforms = [
   },
   {
     id: 'landing-page',
-    name: 'Dedicated Restaurant Website & Storefront',
-    badge: 'Dedicated Restaurant Website',
+    name: 'Landing Page & Storefront',
+    badge: 'Brand Website & Menu',
+    tagline: 'High-Converting Restaurant Showcase, Table Booking & Digital Storefront',
+    image: '/images/worldwide-partnership.jpg',
+    demoUrl: DEMO_URLS.landingPage,
+    description:
+      'Turnkey public website for restaurants and culinary brands. Showcases appetizing signature dishes, enables direct online table reservations without third-party commission portals, displays branch opening hours and Google Maps directions, and provides 1-tap navigation to table QR ordering and direct pickup ordering.',
+    techStack: ['React 19', 'Vite 7', 'Material-UI', 'React Router 7', 'Sass', 'SEO Schema Markup'],
+    features: [
+      'High-Converting Brand Presentation with Hero Visuals & Story Section',
+      'Direct Online Table Reservation & Booking Request System',
+      'Interactive Digital Menu Showcase with Categories, Tags & Pricing',
+      'Multi-Branch Restaurant Locator with Google Maps & Contact Desks',
+      'Seamless Integration with User App Ordering & Per-Table QR Menus',
+      '100% Mobile Responsive with Instant Loading Speeds'
+    ]
+  },
+  {
+    id: 'restaurant-website',
+    name: 'Dedicated Restaurant Website',
+    badge: 'Tenant Branded Website',
     tagline: 'Custom-Branded Public Website, Table Reservations, Digital Menu & 0% Commission Storefront',
     image: '/images/worldwide-partnership.jpg',
     demoUrl: DEMO_URLS.restaurantWebsite,
     description:
-      'Turnkey dedicated public website provided for each restaurant and hospitality brand. Host on a dedicated custom domain (e.g. yourrestaurant.com) or custom subdomain. Showcases appetizing signature dishes, enables direct online table reservations without third-party commission portals, displays branch opening hours and Google Maps directions, offers zero-commission takeaway/delivery ordering, and sends instant automated WhatsApp order receipts and booking confirmations directly to guests.',
+      'Turnkey dedicated public website provided for each restaurant tenant. Host on a dedicated custom domain (e.g. yourrestaurant.com) or custom subdomain with auto SSL. Showcases appetizing signature dishes, enables direct online table reservations without third-party commission portals, displays branch opening hours and Google Maps directions, offers zero-commission takeaway/delivery ordering, and sends instant automated WhatsApp order receipts and booking confirmations directly to guests.',
     techStack: ['React 19', 'Vite 7', 'Material-UI', 'React Router 7', 'WhatsApp Cloud API', 'SEO Schema Markup'],
     features: [
       'Dedicated Restaurant Website on Custom Domain with Automated Free SSL',
@@ -127,13 +146,13 @@ const PlatformEcosystem = () => {
       <div className="section-container">
         {/* Section Header */}
         <div className="section-header-center">
-          <span className="badge-green">THE COMPLETE 5-SOFTWARE SUITE &amp; DEDICATED WEBSITES</span>
+          <span className="badge-green">THE COMPLETE SOFTWARE SUITE &amp; WEBSITES</span>
           <h2 className="section-title">
-            One Unified Architecture. <span className="glow-gradient-text">Five Turnkey Applications &amp; Dedicated Websites.</span>
+            One Unified Architecture. <span className="glow-gradient-text">Turnkey Applications &amp; Dedicated Websites.</span>
           </h2>
           <p className="section-description">
             Explore the complete software ecosystem delivered with your white-label license. 
-            Includes dedicated branded restaurant websites, automated WhatsApp notifications, and unencrypted codebases ready for deployment.
+            Includes the multi-tenant SaaS portal, POS, kitchen KDS, staff apps, brand landing page, and dedicated restaurant websites.
           </p>
         </div>
 
@@ -257,7 +276,7 @@ const PlatformEcosystem = () => {
         <div className="software-summary-grid">
           <div className="summary-grid-header">
             <h3 className="summary-title">Direct Software Demo Directory</h3>
-            <p className="summary-subtitle">Access all 5 turnkey applications directly from your browser:</p>
+            <p className="summary-subtitle">Access all turnkey applications and live websites directly from your browser:</p>
           </div>
 
           <div className="summary-cards-container">

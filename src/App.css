@@ -817,7 +817,7 @@
 
 .software-tabs-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   gap: 12px;
   margin-bottom: 32px;
 }
@@ -1200,7 +1200,7 @@
 
 .summary-cards-container {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   gap: 16px;
 }
 
