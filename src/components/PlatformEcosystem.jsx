@@ -23,10 +23,10 @@ const platforms = [
     features: [
       'Automated Restaurant Tenant Provisioning & Multi-DB Isolation',
       'Recurring Subscription Billing Plans (Monthly, Yearly & Custom Enterprise)',
+      'WhatsApp Gateway (Twilio & Meta Cloud API) & SMS Engine Settings',
       'Global Currency Manager, International Taxes & Gateway Settings',
       'Real-Time MRR, Active Tenants & Churn Analytics Dashboard',
-      'System-Wide Promotional Broadcasts, Banners & Announcements',
-      'Granular Role-Based Permissions & Comprehensive Audit Activity Logs'
+      'System-Wide Promotional Broadcasts, Banners & Announcements'
     ]
   },
   {
@@ -44,8 +44,8 @@ const platforms = [
       'Interactive 2D Floor Plan with Real-Time Table Status & Running Timers',
       'Automated Recipe BOM Inventory Deduction (Raw Grams/ML Depletion)',
       'Universal Raw ESC/POS Thermal Printing (LAN, Bluetooth & USB Sockets)',
-      '30+ Formatted Printable Audit Reports with 1-Click Excel & PDF Export',
-      'Consolidated End-of-Day Z-Report, Shift Audits & Cash Register Reconciliation'
+      'Automated Customer WhatsApp Digital Receipts & Real-Time Push Alerts',
+      'Consolidated End-of-Day Z-Report & Nightly WhatsApp Summary to Owner'
     ]
   },
   {
@@ -62,9 +62,9 @@ const platforms = [
       'Per-Table Dynamic QR Scan-to-Order Directly Linked to Table Number',
       'Appetizing Visual Digital Menu with Dietary Icons, Allergens & Notes',
       'Multi-Level Nested Modifier Groups (Doneness, Choice of Sides, Add-ons)',
+      'Automated WhatsApp & Sub-Second Push Notifications on Order Stages',
       'Pre-Checkout Address Selector (Tower, Floor, Apartment & Delivery Notes)',
-      'Dynamic Optional Tip / Gratuity Calculation with 1-Tap Opt-Out',
-      'Sub-Second Push Notifications & Real-Time Order Stage Progression'
+      'Dynamic Optional Tip / Gratuity Calculation with 1-Tap Opt-Out'
     ]
   },
   {
@@ -88,21 +88,21 @@ const platforms = [
   },
   {
     id: 'landing-page',
-    name: 'Landing Page & Storefront',
-    badge: 'Brand Website & Menu',
-    tagline: 'High-Converting Restaurant Showcase, Table Booking & Digital Storefront',
+    name: 'Dedicated Restaurant Website & Storefront',
+    badge: 'Dedicated Restaurant Website',
+    tagline: 'Custom-Branded Public Website, Table Reservations, Digital Menu & 0% Commission Storefront',
     image: '/images/worldwide-partnership.jpg',
     demoUrl: DEMO_URLS.landingPage,
     description:
-      'Turnkey public website for restaurants and culinary brands. Showcases appetizing signature dishes, enables direct online table reservations without third-party commission portals, displays branch opening hours and Google Maps directions, and provides 1-tap navigation to table QR ordering and direct pickup ordering.',
-    techStack: ['React 19', 'Vite 7', 'Material-UI', 'React Router 7', 'Sass', 'SEO Schema Markup'],
+      'Turnkey dedicated public website provided for each restaurant and hospitality brand. Host on a dedicated custom domain (e.g. yourrestaurant.com) or custom subdomain. Showcases appetizing signature dishes, enables direct online table reservations without third-party commission portals, displays branch opening hours and Google Maps directions, offers zero-commission takeaway/delivery ordering, and sends instant automated WhatsApp order receipts and booking confirmations directly to guests.',
+    techStack: ['React 19', 'Vite 7', 'Material-UI', 'React Router 7', 'WhatsApp Cloud API', 'SEO Schema Markup'],
     features: [
-      'High-Converting Brand Presentation with Hero Visuals & Story Section',
-      'Direct Online Table Reservation & Booking Request System',
-      'Interactive Digital Menu Showcase with Categories, Tags & Pricing',
+      'Dedicated Restaurant Website on Custom Domain with Automated Free SSL',
+      'Direct Online Table Reservation & Booking System with WhatsApp Confirmation',
+      'Interactive Digital Menu Showcase with Categories, Dietary Tags & Pricing',
+      'Zero-Commission Takeaway & Direct Delivery Food Ordering Storefront',
       'Multi-Branch Restaurant Locator with Google Maps & Contact Desks',
-      'Seamless Integration with User App Ordering & Per-Table QR Menus',
-      '100% Mobile Responsive with Instant Loading Speeds'
+      'Instant Customer Push & WhatsApp Order Progress Notifications'
     ]
   }
 ];
@@ -126,13 +126,13 @@ const PlatformEcosystem = () => {
       <div className="section-container">
         {/* Section Header */}
         <div className="section-header-center">
-          <span className="badge-green">THE COMPLETE 5-SOFTWARE SUITE</span>
+          <span className="badge-green">THE COMPLETE 5-SOFTWARE SUITE &amp; DEDICATED WEBSITES</span>
           <h2 className="section-title">
-            One Unified Architecture. <span className="glow-gradient-text">Five Turnkey Applications.</span>
+            One Unified Architecture. <span className="glow-gradient-text">Five Turnkey Applications &amp; Dedicated Websites.</span>
           </h2>
           <p className="section-description">
             Explore the complete software ecosystem delivered with your white-label license. 
-            All five unencrypted codebases are ready for immediate self-hosted deployment.
+            Includes dedicated branded restaurant websites, automated WhatsApp notifications, and unencrypted codebases ready for deployment.
           </p>
         </div>
 

@@ -187,6 +187,12 @@ const Navbar = ({ onOpenInquiry }) => {
       targetId: 'ecosystem'
     },
     {
+      icon: '🌐',
+      title: 'Dedicated Website & WhatsApp Alerts',
+      desc: 'Branded restaurant website, table reservations & automated WhatsApp notifications',
+      targetId: 'website-notifications'
+    },
+    {
       icon: '⚡',
       title: 'Operational Workflow',
       desc: 'End-to-end guest ordering, station routing & final kitchen settlement',

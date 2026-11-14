@@ -57,8 +57,9 @@ const customizationPillars = [
     desc: 'Want an entirely unique user experience for your brand? We design and build custom frontend layouts, bespoke waiter apps, and branded customer ordering interfaces.',
     features: [
       'Bespoke visual design systems matching your luxury or corporate identity',
+      'Custom Dedicated Restaurant Website themes with bespoke reservation & ordering UX',
       'Tailored native mobile workflows for specialized waitstaff or kitchen teams',
-      'Custom customer table QR web apps with interactive 3D / photo-rich menus'
+      'Custom WhatsApp bot automation, interactive HSM templates & multi-channel notification logic'
     ]
   },
   {

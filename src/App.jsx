@@ -13,6 +13,7 @@ import SEOHead from './components/SEO/SEOHead';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import PlatformEcosystem from './components/PlatformEcosystem';
+import DedicatedWebsiteAndNotifications from './components/DedicatedWebsiteAndNotifications';
 import InteractiveFlow from './components/InteractiveFlow';
 import WhiteLabelSuperpowers from './components/WhiteLabelSuperpowers';
 import CompetitorComparison from './components/CompetitorComparison';
@@ -53,11 +54,13 @@ const HomePage = ({ selectedTier, handleSelectTier, handleOpenInquiry }) => {
       {/* Home SEO Head */}
       <SEOHead
         title="SavoryOps - Complete Restaurant Management System | White-Label SaaS & Source Code"
-        description="Transform your restaurant operations with SavoryOps. Complete restaurant management system with cloud POS, kitchen display system (KDS), inventory control, staff scheduling, table reservations, and multi-branch analytics."
+        description="Transform your restaurant operations with SavoryOps. Complete restaurant management SaaS with cloud POS, kitchen display system (KDS), inventory control, dedicated restaurant websites, automated WhatsApp notifications, and multi-branch analytics."
         primaryKeyword="Restaurant Management System"
         keywords={[
           'restaurant management system',
           'restaurant POS system',
+          'dedicated restaurant website',
+          'restaurant whatsapp notifications',
           'kitchen display system',
           'KDS software',
           'digital KOT',
@@ -74,6 +77,9 @@ const HomePage = ({ selectedTier, handleSelectTier, handleOpenInquiry }) => {
 
       {/* 2. 5-Platform Architecture Ecosystem */}
       <PlatformEcosystem />
+
+      {/* 2b. Dedicated Restaurant Website & Automated WhatsApp Suite */}
+      <DedicatedWebsiteAndNotifications />
 
       {/* 3. End-to-End Operational Workflow */}
       <InteractiveFlow />

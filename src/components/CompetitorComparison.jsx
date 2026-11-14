@@ -43,6 +43,18 @@ const comparisonRows = [
     tabletrack: '❌ Unstyled raw CSV export only; deleting orders wipes audit trail'
   },
   {
+    feature: 'Dedicated Restaurant Website',
+    savoryOps: '✅ Turnkey dedicated website for every restaurant with custom domain, online table bookings & 0% commission ordering',
+    foodlay: '❌ Single-page menu only; no standalone dedicated restaurant website per client',
+    tabletrack: '❌ No public restaurant website; restricted to internal POS interface'
+  },
+  {
+    feature: 'Automated WhatsApp & Push Alerts',
+    savoryOps: '✅ Automated WhatsApp digital receipts, kitchen status milestones, table booking confirmations & loud KDS chimes',
+    foodlay: '❌ Manual SMS only with expensive SMS gateways; zero WhatsApp notification engine',
+    tabletrack: '❌ Generic email notifications only; completely missing WhatsApp integration'
+  },
+  {
     feature: 'Source Code & DRM Freedom',
     savoryOps: '✅ 100% Unencrypted Source Code. Self-hosted, zero IP lockouts, zero phone-home DRM',
     foodlay: '⚠️ Delayed updates and paywalled offline POS modules',

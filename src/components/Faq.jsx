@@ -45,6 +45,16 @@ const faqs = [
     question: 'Are you available to customize the code according to our specific requirements?',
     answer:
       'Yes, absolutely! While SavoryOps comes complete with 5 turnkey applications out-of-the-box, our senior engineering team is readily available for custom code development and bespoke feature engineering. Whether you need local payment gateway integrations, government fiscal tax compliance (ZATCA, DIAN, GST, KRA), custom hardware drivers (weighing scales, dual-screen pole displays, specialized printers), third-party ERP connectors (SAP, NetSuite, QuickBooks), or unique business workflows, we scope, build, test, and deliver the customized code directly into your private repository.'
+  },
+  {
+    question: 'Do you provide a dedicated restaurant website for each restaurant client?',
+    answer:
+      'Yes, absolutely! Every restaurant tenant in SavoryOps gets their own dedicated, high-converting public website. Each venue can host their website on their own custom domain (e.g., yourrestaurant.com) or custom subdomain with free automated SSL. The website includes an interactive visual menu with dietary tags, direct online table reservations with instant WhatsApp confirmation, zero-commission delivery & takeaway ordering (saving 25–30% on third-party aggregators), multi-branch Google Maps locator, operating hours, and brand storytelling.'
+  },
+  {
+    question: 'How do the Push notifications and WhatsApp notifications work?',
+    answer:
+      'SavoryOps features a turnkey automated notification engine compatible with Meta WhatsApp Cloud API and Twilio. Customers receive automated WhatsApp messages and browser push notifications at key lifecycle milestones: 1) Instant Order Confirmation with itemized digital bill link; 2) Kitchen Preparation stage alerts; 3) Driver Dispatched with live GPS tracking; and 4) Table booking confirmations & 1-hour pre-arrival reminders. On the restaurant side, loud audible chimes and visual push alerts ensure kitchen KDS and cashier POS never miss an order, and restaurant owners receive consolidated nightly sales summaries and Z-Report PDFs directly on WhatsApp.'
   }
 ];
 

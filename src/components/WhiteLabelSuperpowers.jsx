@@ -71,6 +71,31 @@ const superpowers = [
       'Built-in delivery driver dispatch mode with GPS navigation',
       'Direct customer database ownership for SMS & WhatsApp marketing'
     ]
+  },
+  {
+    icon: '🌐',
+    title: 'Dedicated Restaurant Website for Each Venue',
+    image: '/images/worldwide-partnership.jpg',
+    tagline: 'Custom Domain, Online Booking & Storefront',
+    desc: 'Equip every restaurant client with their own dedicated, SEO-optimized website on their custom domain. Includes direct online table bookings, signature dish showcases, and zero-commission ordering.',
+    bullets: [
+      'Dedicated website with custom domain/subdomain mapping & auto SSL',
+      'Built-in table reservation system with instant WhatsApp confirmation',
+      'Direct delivery & pickup storefront eliminating 30% aggregator fees'
+    ]
+  },
+  {
+    icon: '💬',
+    title: 'Automated WhatsApp & Real-Time Push Notifications',
+    image: '/images/posts/Post_05_Customer_Engagement_5Star_Reviews.jpg',
+    tagline: 'Direct-to-Customer Updates on WhatsApp',
+    desc: 'Engage customers on the messaging app they use daily. Automatically dispatch order receipts, cooking milestones, live delivery tracking links, and table booking alerts directly via WhatsApp.',
+    bullets: [
+      'Instant WhatsApp order confirmation with itemized digital bill link',
+      'Real-time kitchen progress & driver GPS dispatch updates',
+      'Table reservation booking confirmations & reminder alerts',
+      'Owner daily sales summary & register closing Z-Report on WhatsApp'
+    ]
   }
 ];
 

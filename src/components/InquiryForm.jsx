@@ -103,6 +103,14 @@ const InquiryForm = ({ selectedTier }) => {
               </div>
 
               <div className="inquiry-hl-item">
+                <span className="hl-icon">🌐</span>
+                <div>
+                  <strong>Dedicated Website &amp; WhatsApp Suite</strong>
+                  <p>Dedicated branded restaurant websites on custom domains with automated WhatsApp order milestones and digital receipts.</p>
+                </div>
+              </div>
+
+              <div className="inquiry-hl-item">
                 <span className="hl-icon">🔒</span>
                 <div>
                   <strong>Direct Engineering Support</strong>
@@ -251,6 +259,7 @@ const InquiryForm = ({ selectedTier }) => {
                       >
                         <option value="Source Code + Turnkey Cloud Setup">Source Code + Turnkey Cloud Setup (Recommended)</option>
                         <option value="Full Source Code License (Self-Managed)">Full Source Code License (Self-Managed)</option>
+                        <option value="Dedicated Website & WhatsApp Setup">Dedicated Website &amp; WhatsApp Suite Setup</option>
                         <option value="Bespoke Feature Customization">Bespoke Code Customization (According to Your Requirements)</option>
                         <option value="Multi-Country Agency Franchise">Multi-Country Agency Franchise License</option>
                       </select>

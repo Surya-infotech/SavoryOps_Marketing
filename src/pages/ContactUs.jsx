@@ -18,6 +18,7 @@ const ContactUs = () => {
 
   const subjectOptions = [
     'White-Label License Inquiry',
+    'Dedicated Restaurant Website & WhatsApp Suite',
     'Bespoke Code Customization (According to Your Requirements)',
     'Source Code & Architecture Audit',
     'Custom Payment Gateway & Fiscal Compliance',

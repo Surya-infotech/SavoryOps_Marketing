@@ -27,9 +27,9 @@ const Hero = ({ onInquire }) => {
 
         {/* Subtitle */}
         <p className="hero-subtitle">
-          Acquire the complete unencrypted source code for <strong>SavoryOps SaaS</strong>. A turnkey 5-platform restaurant management powerhouse: 
+          Acquire the complete unencrypted source code for <strong>SavoryOps SaaS</strong>. A turnkey multi-platform restaurant tech powerhouse: 
           <strong> SuperAdmin SaaS Portal</strong>, <strong>Merchant Web POS</strong>, <strong>Real-Time Kitchen KDS</strong>, 
-          <strong> Native Cross-Platform Staff Mobile App</strong>, and <strong>Customer QR Scan-to-Order</strong>. 
+          <strong> Native Staff Mobile App</strong>, <strong>Customer QR Scan-to-Order</strong>, and a <strong>Dedicated Branded Restaurant Website</strong> with <strong>Automated WhatsApp &amp; Push Notifications</strong>. 
           Zero recurring royalties, zero transaction cuts, 100% intellectual property ownership, and <strong>custom code development available</strong> to tailor any feature to your exact requirements.
         </p>
 
@@ -60,9 +60,9 @@ const Hero = ({ onInquire }) => {
             <span className="stat-sub">Zero encrypted code or DRM locks</span>
           </div>
           <div className="stat-card">
-            <span className="stat-number">5 Platforms</span>
-            <span className="stat-label">Complete Ecosystem</span>
-            <span className="stat-sub">Admin, Owner, KDS, Waiter &amp; Customer</span>
+            <span className="stat-number">Turnkey Suite</span>
+            <span className="stat-label">Website &amp; 5 Apps</span>
+            <span className="stat-sub">Dedicated Website, POS, KDS &amp; WhatsApp</span>
           </div>
           <div className="stat-card">
             <span className="stat-number">$0 Surcharges</span>
@@ -116,6 +116,18 @@ const Hero = ({ onInquire }) => {
                 <p>Waiter, Cashier, Chef &amp; Driver</p>
               </div>
             </div>
+          </div>
+        </div>
+
+        {/* Special Capabilities Highlight Bar */}
+        <div className="hero-feature-highlights">
+          <div className="hero-hl-pill">
+            <span className="hl-pill-icon">🌐</span>
+            <span><strong>Dedicated Restaurant Website:</strong> Custom domain, table reservations &amp; 0% commission direct ordering</span>
+          </div>
+          <div className="hero-hl-pill">
+            <span className="hl-pill-icon">💬</span>
+            <span><strong>Automated WhatsApp Suite:</strong> Real-time order progress, digital receipts &amp; instant push notifications</span>
           </div>
         </div>
 

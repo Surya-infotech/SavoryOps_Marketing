@@ -3,16 +3,16 @@ import { useState } from 'react';
 const flowSteps = [
   {
     step: '01',
-    title: 'Order Placement: Table QR or Mobile Waiter',
+    title: 'Order Placement: Dedicated Website, Table QR or Waiter App',
     subtitle: 'Context-Aware Digital Ordering with Modifiers',
     image: '/images/order-types/dine-in.jpg',
     workflowTag: 'Digital Ordering & Modifier Engine',
     description:
-      'A customer scans their unique table QR code or a waiter punches an order on their smartphone. Diners customize nested modifiers (e.g. choice of meat doneness, extra toppings, sides), add special kitchen requests, and include an optional tip that can be removed with 1 tap.',
+      'A customer places an order on the dedicated restaurant website, scans their unique table QR code, or a waiter punches an order on their mobile device. Diners customize nested modifiers, and immediately receive an automated WhatsApp confirmation and digital receipt link.',
     points: [
-      'Per-table QR code automatically binds branch, area, and table ID',
+      'Orders flow seamlessly from dedicated restaurant website or table QR code',
+      'Automated WhatsApp confirmation & browser push alert sent instantly to guest',
       'Nested modifier groups with minimum and maximum selection rules',
-      'Dynamic gratuity/tip calculator with 1-click opt-out removal',
       'Tableside ordering on waiter app instantly dispatches to kitchen'
     ]
   },
@@ -40,9 +40,9 @@ const flowSteps = [
     description:
       'The order appears simultaneously on the kitchen KDS screen with an audible kitchen chime. Specialized station printers (Grill, Bar, Dessert) automatically print KOT tickets with bold station headers, hardware paper auto-cuts, and item prices completely hidden for staff privacy.',
     points: [
-      'Audible chime alerts kitchen staff instantly to incoming tickets',
+      'Audible chime & push notifications alert kitchen staff instantly to incoming tickets',
+      'Automated WhatsApp notification updates diner: "Order is now cooking in kitchen"',
       'Price-Free KOT slips protect financial confidentiality in kitchen',
-      'Station-specific hardware auto-cut thermal printing (58mm/80mm)',
       'Digital bump bar stages: Received &rarr; Cooking &rarr; Ready to Serve'
     ]
   },
@@ -71,9 +71,9 @@ const flowSteps = [
       'When the dining party is ready to leave, cashiers accept multi-tender payments (Cash, Card, UPI, Custom Tenders). At the end of the shift or past midnight, a consolidated Z-Report is generated with formatted print and PDF exports, verifying opening/closing drawer balances and immutable audit trails.',
     points: [
       'Multi-tender split billing (Cash + Card + Online wallet)',
-      'Non-destructive refunds: cancelling paid orders creates immutable audit logs',
+      'Digital receipt and PDF invoice link automatically dispatched via WhatsApp',
       'Consolidated Z-Report reconciling gross/net sales, tax, and drawer cash',
-      '1-Click formatted styled print layouts (window.print()) & PDF export'
+      'Automated daily sales & register close summary sent to owner on WhatsApp'
     ]
   }
 ];

@@ -38,7 +38,15 @@ const LicensingPlans = ({ onSelectTier }) => {
               <div className="feature-group-title">INCLUDED IN THIS LICENSE:</div>
               <div className="license-feature-item">
                 <span className="check-icon">✓</span>
-                <span>Complete Source Code for All 5 Platforms (Admin, Owner POS, KDS, Waiter App &amp; Customer App)</span>
+                <span>Complete Source Code for All 5 Platforms (Admin, POS, KDS, Waiter App &amp; Customer QR)</span>
+              </div>
+              <div className="license-feature-item">
+                <span className="check-icon">✓</span>
+                <span>Turnkey Dedicated Restaurant Website Template (Custom domain, table bookings &amp; 0% commission storefront)</span>
+              </div>
+              <div className="license-feature-item">
+                <span className="check-icon">✓</span>
+                <span>Automated WhatsApp &amp; Push Notification Microservices (Meta Cloud API &amp; Twilio compatible)</span>
               </div>
               <div className="license-feature-item">
                 <span className="check-icon">✓</span>
@@ -113,6 +121,14 @@ const LicensingPlans = ({ onSelectTier }) => {
               <div className="license-feature-item">
                 <span className="check-icon-gold">✓</span>
                 <span><strong>Payment Gateway Setup</strong> (Stripe, Razorpay, PayPal, etc.) &amp; Custom SMTP Email</span>
+              </div>
+              <div className="license-feature-item">
+                <span className="check-icon-gold">✓</span>
+                <span><strong>WhatsApp Gateway Configuration</strong> (Meta WhatsApp Cloud API or Twilio) &amp; Push Alert Server</span>
+              </div>
+              <div className="license-feature-item">
+                <span className="check-icon-gold">✓</span>
+                <span><strong>Dedicated Restaurant Website Setup</strong> with custom domain mapping &amp; online table booking engine</span>
               </div>
               <div className="license-feature-item">
                 <span className="check-icon-gold">✓</span>
