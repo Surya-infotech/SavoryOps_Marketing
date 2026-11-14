@@ -46,7 +46,7 @@ const LicensingPlans = ({ onSelectTier }) => {
               </div>
               <div className="license-feature-item">
                 <span className="check-icon">✓</span>
-                <span>Automated WhatsApp &amp; Push Notification Microservices (Meta Cloud API &amp; Twilio compatible)</span>
+                <span>Automated WhatsApp &amp; Push Notification Microservices (Meta WhatsApp Cloud API)</span>
               </div>
               <div className="license-feature-item">
                 <span className="check-icon">✓</span>
@@ -124,7 +124,7 @@ const LicensingPlans = ({ onSelectTier }) => {
               </div>
               <div className="license-feature-item">
                 <span className="check-icon-gold">✓</span>
-                <span><strong>WhatsApp Gateway Configuration</strong> (Meta WhatsApp Cloud API or Twilio) &amp; Push Alert Server</span>
+                <span><strong>WhatsApp Gateway Configuration</strong> (Meta WhatsApp Cloud API) &amp; Push Alert Server</span>
               </div>
               <div className="license-feature-item">
                 <span className="check-icon-gold">✓</span>

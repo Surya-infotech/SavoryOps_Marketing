@@ -1,6 +1,10 @@
 import { useState } from 'react';
 import { WhatsAppIcon } from './Icons';
 
+// Read demo restaurant website URL from .env (VITE_DEMO_USER_WEBSITE_URL)
+const DEMO_USER_WEBSITE_URL =
+  import.meta.env.VITE_DEMO_USER_WEBSITE_URL || 'https://harbourblue.savoryops.com/';
+
 const DedicatedWebsiteAndNotifications = () => {
   const [activeChatTab, setActiveChatTab] = useState('order'); // 'order' | 'table' | 'owner'
 
@@ -51,31 +55,59 @@ const DedicatedWebsiteAndNotifications = () => {
                   <span className="dot dot-yellow"></span>
                   <span className="dot dot-green"></span>
                 </div>
-                <div className="browser-url-bar">
+                <a
+                  href={DEMO_USER_WEBSITE_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="browser-url-bar browser-url-bar-clickable"
+                  title="Click to launch live demo restaurant website"
+                >
                   <span className="lock-icon">🔒</span>
-                  <span className="url-text">https://www.thebistroguild.com</span>
+                  <span className="url-text">{DEMO_USER_WEBSITE_URL}</span>
                   <span className="ssl-badge">Auto SSL</span>
-                </div>
+                  <span className="url-ext-arrow">↗</span>
+                </a>
               </div>
 
               <div className="browser-body-preview">
                 <div className="web-preview-nav">
-                  <strong className="preview-brand">The Bistro Guild</strong>
+                  <strong className="preview-brand">Harbour Blue Restaurant</strong>
                   <div className="preview-nav-links">
                     <span>Menu</span>
                     <span>Reservations</span>
-                    <span className="preview-order-btn">Order Online</span>
+                    <a
+                      href={DEMO_USER_WEBSITE_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="preview-order-btn"
+                    >
+                      Order Online ↗
+                    </a>
                   </div>
                 </div>
 
                 <div className="web-preview-hero">
                   <div className="preview-hero-content">
-                    <span className="preview-tag">Wood-Fired &amp; Artisanal</span>
+                    <span className="preview-tag">Fine Dining &amp; Artisanal Cuisine</span>
                     <h4>Reserve Your Table or Order Direct</h4>
-                    <p>Experience chef-curated dining with 1-click table reservations &amp; takeaway.</p>
+                    <p>Experience chef-curated dining with 1-click table reservations &amp; zero-commission delivery.</p>
                     <div className="preview-hero-actions">
-                      <span className="mini-btn-primary">Book Table</span>
-                      <span className="mini-btn-secondary">View Menu</span>
+                      <a
+                        href={DEMO_USER_WEBSITE_URL}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mini-btn-primary"
+                      >
+                        Launch Live Demo ↗
+                      </a>
+                      <a
+                        href={DEMO_USER_WEBSITE_URL}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mini-btn-secondary"
+                      >
+                        View Menu
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -95,6 +127,22 @@ const DedicatedWebsiteAndNotifications = () => {
                   </div>
                 </div>
               </div>
+            </div>
+
+            {/* Direct Live Demo Launch Action Box */}
+            <div className="web-demo-action-strip">
+              <a
+                href={DEMO_USER_WEBSITE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-launch-website-demo"
+              >
+                <span>🚀 Launch Live Demo Restaurant Website</span>
+                <span className="arrow-icon">&rarr;</span>
+              </a>
+              <span className="web-demo-hint">
+                Harbour Blue • Instant Live Storefront
+              </span>
             </div>
 
             {/* Feature Bullets */}
@@ -176,7 +224,7 @@ const DedicatedWebsiteAndNotifications = () => {
                 </div>
                 <div className="wa-header-info">
                   <div className="wa-name-row">
-                    <strong>The Bistro Guild</strong>
+                    <strong>Harbour Blue Restaurant</strong>
                     <span className="wa-verified-badge">✓</span>
                   </div>
                   <span className="wa-status-text">SavoryOps Automated Desk • Online</span>
@@ -194,7 +242,7 @@ const DedicatedWebsiteAndNotifications = () => {
                     {/* Message 1: Order Confirmed */}
                     <div className="wa-bubble wa-bubble-bot">
                       <p className="wa-bubble-title">🎉 <strong>Order Received &amp; Confirmed!</strong></p>
-                      <p>Hello <strong>Alex</strong>, thank you for ordering with <strong>The Bistro Guild</strong>!</p>
+                      <p>Hello <strong>Alex</strong>, thank you for ordering with <strong>Harbour Blue Restaurant</strong>!</p>
                       <div className="wa-bill-box">
                         <div className="wa-bill-line">
                           <span>1x Truffle Wild Mushroom Pizza</span>
@@ -312,7 +360,7 @@ const DedicatedWebsiteAndNotifications = () => {
                 <span className="check-icon-gold">✓</span>
                 <div>
                   <strong>Automated WhatsApp Notifications:</strong>
-                  <p>Send instant order confirmations, live preparation stages, driver GPS links &amp; digital invoices via WhatsApp Cloud API or Twilio.</p>
+                  <p>Send instant order confirmations, live preparation stages, driver GPS links &amp; digital invoices via Meta WhatsApp Cloud API.</p>
                 </div>
               </div>
 

@@ -6,7 +6,8 @@ const DEMO_URLS = {
   ownerPanel: import.meta.env.VITE_DEMO_OWNER_PANEL_URL || 'https://website.savoryops.com/signin',
   userApp: import.meta.env.VITE_DEMO_USER_APP_URL || 'https://user.savoryops.com',
   employeeApp: import.meta.env.VITE_DEMO_EMPLOYEE_APP_URL || 'https://crew.savoryops.com',
-  landingPage: import.meta.env.VITE_DEMO_LANDING_PAGE_URL || 'https://website.savoryops.com',
+  restaurantWebsite: import.meta.env.VITE_DEMO_USER_WEBSITE_URL || 'https://harbourblue.savoryops.com/',
+  landingPage: import.meta.env.VITE_DEMO_USER_WEBSITE_URL || import.meta.env.VITE_DEMO_LANDING_PAGE_URL || 'https://harbourblue.savoryops.com/',
 };
 
 const platforms = [
@@ -23,7 +24,7 @@ const platforms = [
     features: [
       'Automated Restaurant Tenant Provisioning & Multi-DB Isolation',
       'Recurring Subscription Billing Plans (Monthly, Yearly & Custom Enterprise)',
-      'WhatsApp Gateway (Twilio & Meta Cloud API) & SMS Engine Settings',
+      'WhatsApp Gateway (Meta WhatsApp Cloud API) & SMS Engine Settings',
       'Global Currency Manager, International Taxes & Gateway Settings',
       'Real-Time MRR, Active Tenants & Churn Analytics Dashboard',
       'System-Wide Promotional Broadcasts, Banners & Announcements'
@@ -92,7 +93,7 @@ const platforms = [
     badge: 'Dedicated Restaurant Website',
     tagline: 'Custom-Branded Public Website, Table Reservations, Digital Menu & 0% Commission Storefront',
     image: '/images/worldwide-partnership.jpg',
-    demoUrl: DEMO_URLS.landingPage,
+    demoUrl: DEMO_URLS.restaurantWebsite,
     description:
       'Turnkey dedicated public website provided for each restaurant and hospitality brand. Host on a dedicated custom domain (e.g. yourrestaurant.com) or custom subdomain. Showcases appetizing signature dishes, enables direct online table reservations without third-party commission portals, displays branch opening hours and Google Maps directions, offers zero-commission takeaway/delivery ordering, and sends instant automated WhatsApp order receipts and booking confirmations directly to guests.',
     techStack: ['React 19', 'Vite 7', 'Material-UI', 'React Router 7', 'WhatsApp Cloud API', 'SEO Schema Markup'],

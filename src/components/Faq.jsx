@@ -54,7 +54,7 @@ const faqs = [
   {
     question: 'How do the Push notifications and WhatsApp notifications work?',
     answer:
-      'SavoryOps features a turnkey automated notification engine compatible with Meta WhatsApp Cloud API and Twilio. Customers receive automated WhatsApp messages and browser push notifications at key lifecycle milestones: 1) Instant Order Confirmation with itemized digital bill link; 2) Kitchen Preparation stage alerts; 3) Driver Dispatched with live GPS tracking; and 4) Table booking confirmations & 1-hour pre-arrival reminders. On the restaurant side, loud audible chimes and visual push alerts ensure kitchen KDS and cashier POS never miss an order, and restaurant owners receive consolidated nightly sales summaries and Z-Report PDFs directly on WhatsApp.'
+      'SavoryOps features a turnkey automated notification engine compatible with Meta WhatsApp Cloud API. Customers receive automated WhatsApp messages and browser push notifications at key lifecycle milestones: 1) Instant Order Confirmation with itemized digital bill link; 2) Kitchen Preparation stage alerts; 3) Driver Dispatched with live GPS tracking; and 4) Table booking confirmations & 1-hour pre-arrival reminders. On the restaurant side, loud audible chimes and visual push alerts ensure kitchen KDS and cashier POS never miss an order, and restaurant owners receive consolidated nightly sales summaries and Z-Report PDFs directly on WhatsApp.'
   }
 ];
 
