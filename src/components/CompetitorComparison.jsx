@@ -1,4 +1,8 @@
 
+// Read demo restaurant website URL from .env (VITE_DEMO_USER_WEBSITE_URL)
+const DEMO_USER_WEBSITE_URL =
+  import.meta.env.VITE_DEMO_USER_WEBSITE_URL || 'https://harbourblue.savoryops.com/';
+
 const comparisonRows = [
   {
     feature: 'Dine-In POS & 2D Floor Plan',
@@ -7,10 +11,26 @@ const comparisonRows = [
     tabletrack: '⚠️ Basic table selector; lacks real-time floor status visual zoning'
   },
   {
+    feature: 'Dedicated Restaurant Website & Storefront',
+    badge: 'Turnkey Asset',
+    savoryOps: '✅ Turnkey dedicated website for every restaurant with custom domain (Auto SSL), direct online table reservations, 0% commission takeaway & delivery ordering, interactive digital menu with dietary tags, and Google Maps locator.',
+    demoLink: DEMO_USER_WEBSITE_URL,
+    demoLinkText: '🚀 Test Live Restaurant Website (Harbour Blue) ↗',
+    foodlay: '❌ Single-page template only. No standalone dedicated restaurant websites per client, no online table reservations, and zero custom domain mapping.',
+    tabletrack: '❌ No Public Restaurant Website. Completely missing customer-facing storefront or reservation website; restricted to backend internal POS.'
+  },
+  {
     feature: 'Table QR Ordering',
     savoryOps: '✅ Turnkey per-table QR scan-to-order with live modifiers & instant kitchen firing',
     foodlay: '❌ Fake feature. 1 static branch code; view-only PDF menu; 0 scan-to-order',
     tabletrack: '⚠️ Fragmented add-on; lacks duplicate table order locking'
+  },
+  {
+    feature: 'Automated WhatsApp & Real-Time Alerts',
+    badge: 'Meta Cloud API',
+    savoryOps: '✅ Automated WhatsApp digital receipts, kitchen status milestones, table booking confirmations, loud KDS chimes & nightly owner Z-Reports',
+    foodlay: '❌ Manual SMS only with expensive third-party carrier setups; no WhatsApp bot or automation',
+    tabletrack: '❌ Generic email notifications only; completely missing WhatsApp integration'
   },
   {
     feature: 'Raw Material Recipe BOM Inventory',
@@ -41,18 +61,6 @@ const comparisonRows = [
     savoryOps: '✅ Consolidated end-of-day Z-Report with styled print & PDF + immutable refund audit log',
     foodlay: '❌ Promised in delayed v5.0 update; missing accounting reconciliation',
     tabletrack: '❌ Unstyled raw CSV export only; deleting orders wipes audit trail'
-  },
-  {
-    feature: 'Dedicated Restaurant Website',
-    savoryOps: '✅ Turnkey dedicated website for every restaurant with custom domain, online table bookings & 0% commission ordering',
-    foodlay: '❌ Single-page menu only; no standalone dedicated restaurant website per client',
-    tabletrack: '❌ No public restaurant website; restricted to internal POS interface'
-  },
-  {
-    feature: 'Automated WhatsApp & Push Alerts',
-    savoryOps: '✅ Automated WhatsApp digital receipts, kitchen status milestones, table booking confirmations & loud KDS chimes',
-    foodlay: '❌ Manual SMS only with expensive SMS gateways; zero WhatsApp notification engine',
-    tabletrack: '❌ Generic email notifications only; completely missing WhatsApp integration'
   },
   {
     feature: 'Source Code & DRM Freedom',
@@ -109,9 +117,22 @@ const CompetitorComparison = () => {
                 <tr key={idx} className={idx % 2 === 0 ? 'row-even' : 'row-odd'}>
                   <td className="td-feature">
                     <strong>{row.feature}</strong>
+                    {row.badge && <span className="feature-row-badge">{row.badge}</span>}
                   </td>
                   <td className="td-savoryops">
-                    <span>{row.savoryOps}</span>
+                    <div className="savoryops-cell-content">
+                      <span>{row.savoryOps}</span>
+                      {row.demoLink && (
+                        <a
+                          href={row.demoLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="table-demo-btn"
+                        >
+                          <span>{row.demoLinkText || '🚀 Launch Live Demo &rarr;'}</span>
+                        </a>
+                      )}
+                    </div>
                   </td>
                   <td className="td-competitor td-comp-red">
                     <span>{row.foodlay}</span>
