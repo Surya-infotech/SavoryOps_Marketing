@@ -57,7 +57,6 @@ const PlatformEcosystem = () => {
                 </span>
               </div>
               <strong className="tab-title">{plat.shortName}</strong>
-              <span className="tab-folder-tag">{plat.folder}</span>
             </button>
           ))}
         </div>
@@ -67,7 +66,6 @@ const PlatformEcosystem = () => {
           <div className="showcase-content">
             <div className="showcase-header">
               <span className="badge-green">{activePlatform.badge}</span>
-              <span className="code-tag">{activePlatform.folder}</span>
               <span className="turnkey-tag">100% Unencrypted Source</span>
             </div>
 
@@ -176,7 +174,7 @@ const PlatformEcosystem = () => {
               />
               <div className="media-overlay-badge">
                 <span className="pulse-indicator"></span>
-                <span>Repo: {activePlatform.folder} • Unencrypted</span>
+                <span>{activePlatform.badge} • Unencrypted</span>
               </div>
             </div>
 
@@ -230,7 +228,6 @@ const PlatformEcosystem = () => {
                       {plat.demoUrl ? 'Demo Ready' : 'API Core'}
                     </span>
                   </div>
-                  <code className="summary-folder-code">{plat.folder}</code>
                 </div>
                 <h4 className="summary-app-name">{plat.name}</h4>
                 <p className="summary-tagline">{plat.tagline}</p>

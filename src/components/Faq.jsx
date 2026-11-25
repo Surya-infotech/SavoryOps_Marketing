@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 
 const faqs = [
   {
-    question: 'What codebases and repositories are included in the White-Label License?',
+    question: 'What platforms and source code are included in the White-Label License?',
     answer:
-      'You receive 100% unencrypted source code for all 7 platforms: 1) Super Admin Panel (SavoryOps_AdminPanel in React 18/Vite); 2) Owner & Manager Panel (SavoryOps_OwnerWeb featuring Web POS, Cashier Shifts, Zero-Login Public POS/KOT/Customer Displays, Recipe BOM, Finance, Fixed Assets & 34 Reports); 3) SaaS Landing Page (SavoryOpsLandingPage with SEO clusters, Food Cost Calculator & Owner Onboarding); 4) Dedicated Restaurant Website (SavoryOps_UserWebsite with browser QR scanner, Call Waiter & online bookings); 5) Customer Mobile App (SavoryOps_UserApp in React Native/Expo 58); 6) 6-in-1 Employee Crew App (SavoryOpsEmployeeeApp adapting across Waiter, Cashier, Head Chef, Chef, Host & Delivery Driver); and 7) Core Backend & Cloud Engine (SavoryOps_Server in Node.js/Express with 4-tier MongoDB isolation, AWS Route 53/S3/SNS/Lambda, FCM/Expo Push & Meta WhatsApp Cloud API).'
+      'You receive 100% unencrypted source code for all 7 platforms: 1) Super Admin Panel (in React 18 & Vite); 2) Owner & Manager Panel (featuring Web POS, Cashier Shifts, Zero-Login Public POS/KOT/Customer Displays, Recipe BOM, Finance, Fixed Assets & 34 Reports); 3) SaaS Landing Page (with SEO clusters, Food Cost Calculator & Owner Onboarding); 4) Dedicated Restaurant Website (with browser QR scanner, Call Waiter & online bookings); 5) Customer Mobile App (in React Native & Expo 58); 6) 6-in-1 Employee Crew App (adapting across Waiter, Cashier, Head Chef, Chef, Host & Delivery Driver); and 7) Core Backend & Cloud Engine (in Node.js & Express with 4-tier MongoDB isolation, AWS Route 53/S3/SNS/Lambda, FCM/Expo Push & Meta WhatsApp Cloud API).'
   },
   {
     question: 'Can I rebrand the software 100% with zero attribution to SavoryOps?',
@@ -20,22 +20,22 @@ const faqs = [
   {
     question: 'Can I publish the mobile apps on my own Google Play & Apple App Store accounts?',
     answer:
-      'Yes. Because we provide uncompiled React Native + Expo source code for both SavoryOps_UserApp and SavoryOpsEmployeeeApp, you can build and publish both apps under your own Apple Developer and Google Play Console accounts with custom package IDs, icons, splash screens, and Firebase/Expo push credentials.'
+      'Yes. Because we provide uncompiled React Native + Expo source code for both the Customer Mobile App and Employee Crew App, you can build and publish both apps under your own Apple Developer and Google Play Console accounts with custom package IDs, icons, splash screens, and Firebase/Expo push credentials.'
   },
   {
     question: 'How does thermal receipt, kitchen KOT printing & Customer Display (CFD) sync work?',
     answer:
-      'SavoryOps Owner Web and Public KDS/POS portals include a Web Bluetooth thermal printing engine (bluetoothPrinter.js) supporting standard 58mm/80mm ESC/POS printers (Epson, Star, TVS, Xprinter) as well as mini Cat thermal printers (0x5178 raster protocol), paired with a per-branch Custom Print Designer for price-free KOTs and branded receipts. For dual-screen counters, the Public Customer Facing Display (/Public/CustomerDisplay) syncs in 0ms locally via the BroadcastChannel API with automatic backend HTTP sync fallback.'
+      'SavoryOps Owner Web and Public KDS/POS portals include a Web Bluetooth thermal printing engine supporting standard 58mm/80mm ESC/POS printers (Epson, Star, TVS, Xprinter) as well as mini Cat thermal printers, paired with a per-branch Custom Print Designer for price-free KOTs and branded receipts. For dual-screen counters, the Public Customer Facing Display syncs in 0ms locally via the BroadcastChannel API with automatic backend HTTP sync fallback.'
   },
   {
     question: 'How do the automated Recipe BOM inventory, Finance & Fixed Assets modules work?',
     answer:
-      'Whenever an order is placed via Web POS, Customer Website, Customer App, or Waiter App, inventory-deduction-helper.js automatically deducts exact raw ingredient quantities (including add-on recipes and UOM conversions) from branch stock and records entries in the Stock Ledger while firing low-stock alerts. Owners also get Purchase Orders, inter-branch Stock Transfers, Wastage Adjustments, an Income/Expense Finance Ledger with AP Aging & P&L, Fixed Asset valuation/maintenance/transfers, and 34 built-in reports.'
+      'Whenever an order is placed via Web POS, Customer Website, Customer App, or Waiter App, the automated BOM deduction engine deducts exact raw ingredient quantities (including add-on recipes and UOM conversions) from branch stock and records entries in the Stock Ledger while firing low-stock alerts. Owners also get Purchase Orders, inter-branch Stock Transfers, Wastage Adjustments, an Income/Expense Finance Ledger with AP Aging & P&L, Fixed Asset valuation/maintenance/transfers, and 34 built-in reports.'
   },
   {
     question: 'How does multi-tenant database isolation & AWS Route 53 automation work?',
     answer:
-      'SavoryOps_Server separates data across 4 database tiers: Admin DB (mainDB), Employee DB (employeeDB), Customer DB (customerDB), and dynamic per-tenant MongoDB databases managed by dbManager.js. Built-in AWS Route 53 helpers (route53TenantDns.js & route53WebsiteDns.js) automatically upsert CNAME records for new tenant portals and dedicated restaurant websites, while AWS S3 handles media, AWS SNS sends SMS OTPs, and AWS Lambda + SESv2 delivers transactional emails.'
+      'The backend separates data across 4 database tiers: Admin DB, Employee DB, Customer DB, and dynamic per-tenant MongoDB databases. Built-in AWS Route 53 automation automatically upserts CNAME records for new tenant portals and dedicated restaurant websites, while AWS S3 handles media, AWS SNS sends SMS OTPs, and AWS Lambda + SESv2 delivers transactional emails.'
   },
   {
     question: 'What languages and staff roles are supported out of the box?',
@@ -45,7 +45,7 @@ const faqs = [
   {
     question: 'What are the recommended server requirements for hosting?',
     answer:
-      'Because of our lightweight Node.js Express and MongoDB architecture, a starter deployment runs comfortably on a Cloud VPS (2–4 vCPUs, 4–8 GB RAM) with PM2 or AWS Elastic Beanstalk (configurations included in .ebextensions and .platform). For high-scale deployments, scale horizontally with PM2 cluster mode, CloudFront + S3 static hosting for the Vite frontends, and MongoDB Atlas.'
+      'Because of our lightweight Node.js Express and MongoDB architecture, a starter deployment runs comfortably on a Cloud VPS (2–4 vCPUs, 4–8 GB RAM) with PM2 or AWS Elastic Beanstalk deployment support. For high-scale deployments, scale horizontally with PM2 cluster mode, CloudFront + S3 static hosting for the Vite frontends, and MongoDB Atlas.'
   },
   {
     question: 'Do you provide cloud deployment, ongoing support & custom code development?',
@@ -55,7 +55,7 @@ const faqs = [
   {
     question: 'How do the Push notifications and Meta WhatsApp notifications work?',
     answer:
-      'SavoryOps_Server integrates Meta WhatsApp Cloud API v21.0 (whatsappNotificationService.js) for automated customer order completed/delivered/cancelled alerts with digital receipt links and owner subscription notifications, alongside 30+ Firebase Admin FCM & Expo Push triggers (fcmNotificationService.js) routing real-time alerts to Customers, Waiters (table call alerts), Chefs/Head Chefs, Cashiers, Hosts, Delivery Drivers, Owners, and Super Admins.'
+      'The Core Backend integrates Meta WhatsApp Cloud API v21.0 for automated customer order completed/delivered/cancelled alerts with digital receipt links and owner subscription notifications, alongside 30+ Firebase Admin FCM & Expo Push triggers routing real-time alerts to Customers, Waiters (table call alerts), Chefs/Head Chefs, Cashiers, Hosts, Delivery Drivers, Owners, and Super Admins.'
   }
 ];
 
@@ -76,7 +76,7 @@ const Faq = () => {
             Everything You Need to Know About <span className="glow-gradient-text">Our White-Label License</span>
           </h2>
           <p className="section-description">
-            Clear, technical answers regarding all 7 source code repositories, commercial resale rights,
+            Clear, technical answers regarding all 7 platform deliverables, commercial resale rights,
             mobile app compilation, AWS infrastructure, and bespoke customization.
           </p>
         </div>
@@ -107,7 +107,7 @@ const Faq = () => {
 
         {/* Bottom Support Callout */}
         <div className="faq-footer-callout">
-          <span>Want to inspect every module, report &amp; API endpoint?</span>
+          <span>Want to inspect every module, report &amp; API capability?</span>
           <Link to="/platforms" className="faq-ask-link" style={{ marginRight: '16px' }}>
             Browse 7-Platform Explorer &rarr;
           </Link>

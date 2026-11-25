@@ -41,13 +41,13 @@ const PlatformsExplorer = () => {
             item.toLowerCase().includes(q) ||
             group.title.toLowerCase().includes(q) ||
             plat.name.toLowerCase().includes(q) ||
-            plat.folder.toLowerCase().includes(q)
+            plat.badge.toLowerCase().includes(q)
         );
         matchedItems.forEach((item) => {
           matches.push({
             platformId: plat.id,
             platformName: plat.shortName,
-            folder: plat.folder,
+            badge: plat.badge,
             category: group.title,
             text: item,
           });
@@ -59,7 +59,7 @@ const PlatformsExplorer = () => {
           matches.push({
             platformId: plat.id,
             platformName: plat.shortName,
-            folder: plat.folder,
+            badge: plat.badge,
             category: 'Tech Stack',
             text: `${tech} — ${plat.tagline}`,
           });
@@ -77,7 +77,7 @@ const PlatformsExplorer = () => {
           matches.push({
             platformId: 'owner-panel',
             platformName: 'Owner & POS Panel',
-            folder: 'SavoryOps_OwnerWeb',
+            badge: 'Merchant POS, KDS & ERP',
             category: `Reports · ${cat.title}`,
             text: `${rep.name}: ${rep.desc}`,
           });
@@ -94,7 +94,7 @@ const PlatformsExplorer = () => {
         matches.push({
           platformId: 'employee-app',
           platformName: 'Employee Crew App',
-          folder: 'SavoryOpsEmployeeeApp',
+          badge: '6-Role Adaptive Staff App',
           category: `Staff Role · ${role.title}`,
           text: `${role.title} (${role.badge}): ${role.summary}`,
         });
@@ -110,7 +110,7 @@ const PlatformsExplorer = () => {
         matches.push({
           platformId: 'backend-server',
           platformName: 'Backend & Cloud Engine',
-          folder: 'SavoryOps_Server',
+          badge: 'Multi-Tenant Node.js Core',
           category: intg.category,
           text: `${intg.title} (${intg.badge}): ${intg.details}`,
         });
@@ -136,12 +136,12 @@ const PlatformsExplorer = () => {
   );
 
   const seoTitle = platformId
-    ? `${activePlatform.name} (${activePlatform.folder}) | SavoryOps 7-Platform Explorer`
+    ? `${activePlatform.name} | SavoryOps 7-Platform Explorer`
     : '7-Platform Architecture & Complete Feature Explorer | SavoryOps White-Label SaaS';
 
   const seoDescription = platformId
     ? `${activePlatform.tagline}. ${activePlatform.description}`
-    : 'Inspect every feature, module, role, report, and cloud integration across all 7 SavoryOps SaaS repositories: Super Admin, Owner POS, SaaS Landing Page, Customer Website, Customer App, 6-in-1 Employee App, and Node.js/AWS Backend.';
+    : 'Inspect every feature, module, role, report, and cloud integration across all 7 SavoryOps SaaS platforms: Super Admin, Owner POS, SaaS Landing Page, Customer Website, Customer App, 6-in-1 Employee App, and Node.js/AWS Backend.';
 
   return (
     <main className="platforms-explorer-page">
@@ -175,7 +175,7 @@ const PlatformsExplorer = () => {
             )}
           </div>
 
-          <span className="badge-green">COMPLETE TECHNICAL SPECIFICATION · 7 REPOSITORIES</span>
+          <span className="badge-green">COMPLETE TECHNICAL SPECIFICATION · 7 PLATFORMS</span>
           <h1 className="explorer-title">
             Explore Every Feature Across All <span className="glow-gradient-text">7 SavoryOps Platforms</span>
           </h1>
@@ -233,7 +233,7 @@ const PlatformsExplorer = () => {
                     >
                       <div className="sr-top">
                         <span className="sr-platform">{res.platformName}</span>
-                        <span className="sr-folder">{res.folder}</span>
+                        <span className="sr-folder">{res.badge}</span>
                       </div>
                       <span className="sr-category">{res.category}</span>
                       <p className="sr-text">{res.text}</p>
@@ -260,10 +260,10 @@ const PlatformsExplorer = () => {
               >
                 <div className="et-top">
                   <span className="et-num">0{index + 1}</span>
-                  <span className="et-badge">{plat.badge}</span>
+                  <span className="et-badge">{plat.demoUrl ? 'Live Demo' : 'Core API'}</span>
                 </div>
                 <strong className="et-name">{plat.shortName}</strong>
-                <span className="et-folder">{plat.folder}</span>
+                <span className="et-folder">{plat.badge}</span>
               </button>
             );
           })}
@@ -275,8 +275,7 @@ const PlatformsExplorer = () => {
             <div className="detail-hero-copy">
               <div className="detail-badges-row">
                 <span className="badge-green">{activePlatform.badge}</span>
-                <span className="code-tag">{activePlatform.folder}</span>
-                <span className="turnkey-tag">100% Unencrypted Code</span>
+                <span className="turnkey-tag">100% Unencrypted Source Code</span>
               </div>
 
               <h2 className="detail-title">{activePlatform.name}</h2>
@@ -323,7 +322,7 @@ const PlatformsExplorer = () => {
                 )}
 
                 <Link to="/#inquiry" className="btn-acquire-code">
-                  Acquire All 7 Codebases
+                  Acquire All 7 Platforms
                 </Link>
               </div>
             </div>
@@ -337,7 +336,7 @@ const PlatformsExplorer = () => {
                 />
                 <div className="media-overlay-badge">
                   <span className="pulse-indicator"></span>
-                  <span>Repo: {activePlatform.folder}</span>
+                  <span>{activePlatform.badge} • 100% Unencrypted</span>
                 </div>
               </div>
 
@@ -359,7 +358,7 @@ const PlatformsExplorer = () => {
           <div className="explorer-modules-section">
             <div className="sub-section-head">
               <h3>Complete Module &amp; Feature Breakdown</h3>
-              <p>Verified functional modules inside <code>{activePlatform.folder}</code></p>
+              <p>Complete production capabilities built into the {activePlatform.name}</p>
             </div>
 
             <div className="explorer-modules-grid">
@@ -389,7 +388,7 @@ const PlatformsExplorer = () => {
                 <span className="badge-gold">BUILT-IN ANALYTICS SUITE</span>
                 <h3>All {totalReportsCount} Built-In Reports Across 6 Operational Categories</h3>
                 <p>
-                  Every report in <code>ReportHub.jsx</code> supports fiscal date filters, branch isolation,
+                  Every report in the Owner Report Hub supports fiscal date filters, branch isolation,
                   manager permission gating, and one-click PDF/Excel export.
                 </p>
               </div>
@@ -442,7 +441,7 @@ const PlatformsExplorer = () => {
                 <span className="badge-gold">SINGLE INSTALL · 6 ADAPTIVE WORKSPACES</span>
                 <h3>Interactive 6-Role Crew Matrix</h3>
                 <p>
-                  Select any staff role below to inspect how <code>SavoryOpsEmployeeeApp</code> adapts its tabs,
+                  Select any staff role below to inspect how the Employee Crew App adapts its tabs,
                   shift controls, charts, and push alerts automatically upon sign-in.
                 </p>
               </div>
@@ -502,7 +501,7 @@ const PlatformsExplorer = () => {
                 <span className="badge-gold">CLOUD &amp; MULTI-TENANT INFRASTRUCTURE</span>
                 <h3>4-Tier Database Isolation &amp; AWS Cloud Integrations</h3>
                 <p>
-                  Production architecture inside <code>SavoryOps_Server</code> designed for self-hosted VPS,
+                  Production architecture inside the Core Backend Engine designed for self-hosted VPS,
                   PM2 clusters, or AWS Elastic Beanstalk deployments.
                 </p>
               </div>
@@ -546,7 +545,7 @@ const PlatformsExplorer = () => {
         {/* Bottom CTA */}
         <div className="notify-bottom-banner glass-panel" style={{ marginTop: '48px' }}>
           <div className="notify-banner-left">
-            <span className="badge-gold">ALL 7 SOURCE CODE REPOSITORIES INCLUDED</span>
+            <span className="badge-gold">ALL 7 PLATFORMS INCLUDED</span>
             <h3>Ready to Launch Your White-Label Hospitality SaaS with Full IP Ownership?</h3>
             <p>
               Acquire unencrypted source code for all 7 platforms with zero royalties, zero DRM lock-ins,

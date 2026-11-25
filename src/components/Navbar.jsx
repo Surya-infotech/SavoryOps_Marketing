@@ -411,7 +411,7 @@ const Navbar = ({ onOpenInquiry }) => {
                           <div className="nav-card-body">
                             <div className="nav-card-title-row">
                               <span className="nav-card-title">{plat.shortName}</span>
-                              <span className="subitem-badge badge-teal">{plat.folder}</span>
+                              <span className="subitem-badge badge-teal">{plat.demoUrl ? 'Live Demo' : 'Core API'}</span>
                             </div>
                             <span className="nav-card-desc">{plat.badge}</span>
                           </div>
@@ -678,7 +678,7 @@ const Navbar = ({ onOpenInquiry }) => {
                             <span className="mobile-subitem-icon">{platformIcons[plat.id] || '📦'}</span>
                             <div className="mobile-subitem-info">
                               <span className="mobile-subitem-title">{plat.shortName}</span>
-                              <span className="mobile-subitem-desc">{plat.folder} • {plat.badge}</span>
+                              <span className="mobile-subitem-desc">{plat.badge}</span>
                             </div>
                           </div>
                         </Link>
