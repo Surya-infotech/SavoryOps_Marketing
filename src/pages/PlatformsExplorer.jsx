@@ -161,25 +161,31 @@ const PlatformsExplorer = () => {
       />
 
       <div className="section-container">
-        {/* Top Breadcrumb & Header */}
-        <div className="explorer-header">
-          <div className="explorer-breadcrumbs">
-            <Link to="/" className="crumb-link">Home</Link>
-            <span className="crumb-sep">/</span>
-            <span className="crumb-current">7-Platform Explorer</span>
-            {platformId && (
-              <>
-                <span className="crumb-sep">/</span>
-                <span className="crumb-current">{activePlatform.shortName}</span>
-              </>
-            )}
-          </div>
+        {/* Breadcrumb Navigation (Matches ContactUs page layout) */}
+        <nav className="contact-breadcrumb" aria-label="Breadcrumb">
+          <Link to="/" className="breadcrumb-link">Home</Link>
+          <span className="breadcrumb-separator">/</span>
+          {platformId ? (
+            <>
+              <Link to="/platforms" className="breadcrumb-link">7-Platform Explorer</Link>
+              <span className="breadcrumb-separator">/</span>
+              <span className="breadcrumb-current">{activePlatform.shortName}</span>
+            </>
+          ) : (
+            <span className="breadcrumb-current">7-Platform Explorer</span>
+          )}
+        </nav>
 
-          <span className="badge-green">COMPLETE TECHNICAL SPECIFICATION · 7 PLATFORMS</span>
-          <h1 className="explorer-title">
+        {/* Hero Header */}
+        <div className="explorer-header">
+          <div className="contact-pill-badge">
+            <span className="pill-dot"></span>
+            <span>COMPLETE TECHNICAL SPECIFICATION · 7 PLATFORMS</span>
+          </div>
+          <h1 className="contact-title">
             Explore Every Feature Across All <span className="glow-gradient-text">7 SavoryOps Platforms</span>
           </h1>
-          <p className="explorer-subtitle">
+          <p className="contact-subtitle">
             Inspect the exact modules, 6 staff mobile roles, 34 built-in owner reports, zero-login KDS/CFD kiosks,
             and AWS + MongoDB multi-tenant backend included in your unencrypted white-label source code license.
           </p>
@@ -191,7 +197,7 @@ const PlatformsExplorer = () => {
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search any feature, report, role, or AWS integration (e.g. Z-Report, Route 53, Recipe BOM, Host, BroadcastChannel, Bluetooth)..."
+              placeholder="Search features, reports, roles, or cloud tools (e.g. Z-Report, Route 53, BOM, Host)..."
               className="explorer-search-input"
               aria-label="Search features across all 7 platforms"
             />

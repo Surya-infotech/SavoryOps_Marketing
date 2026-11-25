@@ -5357,50 +5357,20 @@
    /PLATFORMS DEEP-DIVE EXPLORER PAGE
    ============================================================================ */
 .platforms-explorer-page {
-  padding: 48px 24px 90px;
-  min-height: 80vh;
+  padding: 42px 24px 90px;
+  min-height: calc(100vh - 80px);
+  background: radial-gradient(circle at 50% 10%, rgba(16, 185, 129, 0.08) 0%, transparent 60%),
+              radial-gradient(circle at 90% 80%, rgba(5, 150, 105, 0.05) 0%, transparent 50%),
+              #080c0a;
 }
 
 .explorer-header {
   text-align: center;
-  max-width: 960px;
-  margin: 0 auto 38px;
+  max-width: 860px;
+  margin: 0 auto 40px;
 }
 
-.explorer-breadcrumbs {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 0.84rem;
-  color: var(--text-muted);
-  margin-bottom: 18px;
-}
-
-.crumb-link {
-  color: #4ade80;
-  font-weight: 600;
-}
-
-.crumb-link:hover {
-  text-decoration: underline;
-}
-
-.crumb-current {
-  color: #e5e7eb;
-  font-weight: 600;
-}
-
-.explorer-title {
-  font-size: 2.8rem;
-  font-weight: 800;
-  margin: 14px 0 14px;
-  line-height: 1.18;
-}
-
-.explorer-subtitle {
-  font-size: 1.08rem;
-  color: var(--text-muted);
-  line-height: 1.65;
+.explorer-header .contact-subtitle {
   margin-bottom: 28px;
 }
 
@@ -6061,6 +6031,9 @@
 }
 
 @media (max-width: 640px) {
+  .platforms-explorer-page {
+    padding: 32px 16px 60px;
+  }
   .summary-cards-7,
   .explorer-platform-tabs,
   .flow-stepper-nav-6,
@@ -6068,9 +6041,6 @@
   .backend-arch-grid,
   .roles-switcher-row {
     grid-template-columns: 1fr;
-  }
-  .explorer-title {
-    font-size: 2rem;
   }
   .explorer-search-box {
     flex-wrap: wrap;
