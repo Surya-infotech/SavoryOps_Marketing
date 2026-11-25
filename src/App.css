@@ -576,6 +576,10 @@
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
   transition: all var(--transition-fast);
 }
 

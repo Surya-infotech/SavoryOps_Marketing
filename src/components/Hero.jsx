@@ -43,9 +43,14 @@ const Hero = ({ onInquire }) => {
           <Link to="/platforms" className="btn-hero-secondary">
             <span>🧭 Explore All 7 Platforms</span>
           </Link>
-          <button onClick={() => scrollTo('workflow')} className="btn-hero-outline">
-            <span>⚡ View Operational Flow</span>
-          </button>
+          <a
+            href="https://wa.me/917621908664?text=Hello%2C%20I%20would%20like%20to%20request%20a%20live%20demo%20of%20SavoryOps%20SaaS%20White%20Label"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-hero-outline"
+          >
+            <span>Schedule Architect Walkthrough</span>
+          </a>
         </div>
 
         {/* 4 Key Pillars Highlights */}
