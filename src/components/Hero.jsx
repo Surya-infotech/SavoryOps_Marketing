@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 
 const Hero = ({ onInquire }) => {
   const scrollTo = (id) => {
@@ -16,8 +17,8 @@ const Hero = ({ onInquire }) => {
         {/* Top Badges */}
         <div className="hero-pill-badge">
           <span className="pill-dot"></span>
-          <span>100% Unencrypted Source Code • Available for Custom Development</span>
-          <span className="pill-tag">v3.1.8 Ready</span>
+          <span>100% Unencrypted Source Code • 7 Complete Codebases Included</span>
+          <span className="pill-tag">v4.0 Ready</span>
         </div>
 
         {/* Main Heading */}
@@ -27,10 +28,10 @@ const Hero = ({ onInquire }) => {
 
         {/* Subtitle */}
         <p className="hero-subtitle">
-          Acquire the complete unencrypted source code for <strong>SavoryOps SaaS</strong>. A turnkey multi-platform restaurant tech powerhouse: 
-          <strong> SuperAdmin SaaS Portal</strong>, <strong>Merchant Web POS</strong>, <strong>Real-Time Kitchen KDS</strong>, 
-          <strong> Native Staff Mobile App</strong>, <strong>Customer QR Scan-to-Order</strong>, and a <strong>Dedicated Branded Restaurant Website</strong> with <strong>Automated WhatsApp &amp; Push Notifications</strong>. 
-          Zero recurring royalties, zero transaction cuts, 100% intellectual property ownership, and <strong>custom code development available</strong> to tailor any feature to your exact requirements.
+          Acquire the complete unencrypted source code for <strong>SavoryOps SaaS</strong>—a 7-platform restaurant technology suite:
+          <strong> Super Admin SaaS Panel</strong>, <strong>Owner &amp; Manager Web POS/KDS/ERP</strong>, <strong>SaaS Acquisition Landing Page</strong>,
+          <strong> Dedicated Custom-Domain Restaurant Websites</strong>, <strong>Customer QR Mobile App</strong>, <strong>6-in-1 Adaptive Crew App</strong>, and
+          <strong> Multi-Tenant Node.js + AWS Cloud Backend</strong>. Zero royalties, 100% IP ownership, and custom development available on demand.
         </p>
 
         {/* Action Buttons */}
@@ -39,40 +40,35 @@ const Hero = ({ onInquire }) => {
             <span>Explore Licensing Packages</span>
             <span className="arrow-icon">&rarr;</span>
           </button>
-          <button onClick={() => scrollTo('workflow')} className="btn-hero-secondary">
-            <span>⚡ View Live Operational Flow</span>
+          <Link to="/platforms" className="btn-hero-secondary">
+            <span>🧭 Explore All 7 Platforms</span>
+          </Link>
+          <button onClick={() => scrollTo('workflow')} className="btn-hero-outline">
+            <span>⚡ View Operational Flow</span>
           </button>
-          <a
-            href="https://wa.me/917621908664?text=Hello%2C%20I%20would%20like%20to%20request%20a%20live%20demo%20of%20SavoryOps%20SaaS%20White%20Label"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-hero-outline"
-          >
-            <span>Schedule Architect Walkthrough</span>
-          </a>
         </div>
 
         {/* 4 Key Pillars Highlights */}
         <div className="hero-stats-grid">
           <div className="stat-card">
-            <span className="stat-number">100%</span>
-            <span className="stat-label">Full Source Code</span>
-            <span className="stat-sub">Zero encrypted code or DRM locks</span>
+            <span className="stat-number">7 Codebases</span>
+            <span className="stat-label">Complete SaaS Suite</span>
+            <span className="stat-sub">Admin, Owner POS, Websites, 2 Apps &amp; API</span>
           </div>
           <div className="stat-card">
-            <span className="stat-number">Turnkey Suite</span>
-            <span className="stat-label">Website &amp; 5 Apps</span>
-            <span className="stat-sub">Dedicated Website, POS, KDS &amp; WhatsApp</span>
+            <span className="stat-number">6 Roles · 34 Reports</span>
+            <span className="stat-label">Deep Hospitality ERP</span>
+            <span className="stat-sub">Recipe BOM, Finance, Assets, Shifts &amp; KDS</span>
           </div>
           <div className="stat-card">
             <span className="stat-number">$0 Surcharges</span>
             <span className="stat-label">Keep 100% Revenue</span>
-            <span className="stat-sub">No per-order or monthly vendor fees</span>
+            <span className="stat-sub">Unencrypted IP with zero royalties ever</span>
           </div>
           <div className="stat-card">
-            <span className="stat-number">&lt; 48 Hours</span>
-            <span className="stat-label">Turnkey Cloud Launch</span>
-            <span className="stat-sub">Custom domain &amp; SSL setup included</span>
+            <span className="stat-number">18 Languages</span>
+            <span className="stat-label">Global + Native RTL</span>
+            <span className="stat-sub">Arabic &amp; Farsi RTL + Route 53 Auto-DNS</span>
           </div>
         </div>
 
@@ -81,39 +77,39 @@ const Hero = ({ onInquire }) => {
           <div className="mockup-frame">
             <img
               src="/images/hero-ecosystem.jpg"
-              alt="SavoryOps Complete White-Label SaaS Ecosystem"
+              alt="SavoryOps Complete 7-Platform White-Label SaaS Ecosystem"
               className="hero-main-img"
             />
             {/* Overlay Glass Tags */}
             <div className="floating-badge badge-pos">
               <span className="pulse-indicator"></span>
               <div>
-                <strong>Unified Merchant POS</strong>
-                <p>2D Dynamic Floor Map &amp; Dine-In</p>
+                <strong>Owner Web POS &amp; 0ms CFD</strong>
+                <p>Station Shifts, KDS &amp; 34 Reports</p>
               </div>
             </div>
 
             <div className="floating-badge badge-kds">
               <span className="pulse-indicator pulse-amber"></span>
               <div>
-                <strong>Interactive Kitchen KDS</strong>
-                <p>Station Routing &amp; Audio Chimes</p>
+                <strong>Zero-Login Public KDS</strong>
+                <p>Deal Sub-Item Split &amp; Bluetooth Print</p>
               </div>
             </div>
 
             <div className="floating-badge badge-qr">
               <span className="pulse-indicator"></span>
               <div>
-                <strong>Table QR Self-Order</strong>
-                <p>Nested Modifiers &amp; Live Cart</p>
+                <strong>QR Ordering &amp; Call Waiter</strong>
+                <p>Dedicated Website + Customer App</p>
               </div>
             </div>
 
             <div className="floating-badge badge-mobile">
               <span className="pulse-indicator pulse-blue"></span>
               <div>
-                <strong>Native Staff Apps</strong>
-                <p>Waiter, Cashier, Chef &amp; Driver</p>
+                <strong>6-in-1 Staff Crew App</strong>
+                <p>Waiter, Cashier, Chef, HeadChef, Host &amp; Driver</p>
               </div>
             </div>
           </div>
@@ -121,28 +117,29 @@ const Hero = ({ onInquire }) => {
 
         {/* Special Capabilities Highlight Bar */}
         <div className="hero-feature-highlights">
-          <div className="hero-hl-pill">
+          <Link to="/platforms/customer-website" className="hero-hl-pill">
             <span className="hl-pill-icon">🌐</span>
-            <span><strong>Dedicated Restaurant Website:</strong> Custom domain, table reservations &amp; 0% commission direct ordering</span>
-          </div>
-          <div className="hero-hl-pill">
-            <span className="hl-pill-icon">💬</span>
-            <span><strong>Automated WhatsApp Suite:</strong> Real-time order progress, digital receipts &amp; instant push notifications</span>
-          </div>
+            <span><strong>Dedicated Restaurant Website:</strong> AWS Route 53 auto-DNS, table bookings, Call Waiter &amp; 0% commission ordering &rarr;</span>
+          </Link>
+          <Link to="/platforms/backend-server" className="hero-hl-pill">
+            <span className="hl-pill-icon">☁️</span>
+            <span><strong>Multi-DB Cloud Engine:</strong> Isolated tenant DBs, AWS S3/SNS/Lambda, FCM/Expo Push &amp; Meta WhatsApp Cloud API &rarr;</span>
+          </Link>
         </div>
 
         {/* Technologies Strip */}
         <div className="hero-tech-strip">
-          <span className="tech-strip-label">ENGINEERED WITH MODERN PRODUCTION STACK:</span>
+          <span className="tech-strip-label">ENGINEERED WITH VERIFIED PRODUCTION STACK:</span>
           <div className="tech-tags">
-            <span className="tech-badge">React 19</span>
-            <span className="tech-badge">Vite 8</span>
-            <span className="tech-badge">Node.js Express</span>
-            <span className="tech-badge">MongoDB Mongoose</span>
-            <span className="tech-badge">Socket.io Real-Time</span>
-            <span className="tech-badge">React Native (iOS &amp; Android)</span>
-            <span className="tech-badge">Universal ESC/POS (LAN/Bluetooth/USB)</span>
-            <span className="tech-badge">Material-UI (MUI)</span>
+            <span className="tech-badge">React 18 &amp; 19</span>
+            <span className="tech-badge">Vite 6–8</span>
+            <span className="tech-badge">Node.js + Express 4.22</span>
+            <span className="tech-badge">MongoDB Multi-DB</span>
+            <span className="tech-badge">React Native 0.88 + Expo 58</span>
+            <span className="tech-badge">BroadcastChannel + FCM/Expo Push</span>
+            <span className="tech-badge">Web Bluetooth ESC/POS</span>
+            <span className="tech-badge">AWS Route53 · S3 · SNS · Lambda</span>
+            <span className="tech-badge">Meta WhatsApp Cloud API v21</span>
           </div>
         </div>
       </div>

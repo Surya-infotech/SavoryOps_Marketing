@@ -12,6 +12,14 @@ const BASE_URL = 'https://savoryops.com';
 // and are indexed under website.savoryops.com/sitemap.xml.
 const staticRoutes = [
   { path: '/', priority: '1.0', changefreq: 'daily' },
+  { path: '/platforms', priority: '0.95', changefreq: 'weekly' },
+  { path: '/platforms/super-admin', priority: '0.9', changefreq: 'weekly' },
+  { path: '/platforms/owner-panel', priority: '0.9', changefreq: 'weekly' },
+  { path: '/platforms/landing-page', priority: '0.85', changefreq: 'weekly' },
+  { path: '/platforms/customer-website', priority: '0.9', changefreq: 'weekly' },
+  { path: '/platforms/customer-app', priority: '0.9', changefreq: 'weekly' },
+  { path: '/platforms/employee-app', priority: '0.9', changefreq: 'weekly' },
+  { path: '/platforms/backend-server', priority: '0.9', changefreq: 'weekly' },
   { path: '/contact-us', priority: '0.8', changefreq: 'monthly' }
 ];
 

@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { WhatsAppIcon } from './Icons';
+import { PLATFORMS_DATA } from '../data/platformsData';
 
 const Navbar = ({ onOpenInquiry }) => {
   const [scrolled, setScrolled] = useState(false);
@@ -178,25 +179,43 @@ const Navbar = ({ onOpenInquiry }) => {
     }
   ];
 
-  // 2. Platform Dropdown Data
-  const platformItems = [
+  const platformIcons = {
+    'super-admin': '👑',
+    'owner-panel': '🖥️',
+    'landing-page': '🚀',
+    'customer-website': '🌐',
+    'customer-app': '📱',
+    'employee-app': '👥',
+    'backend-server': '☁️'
+  };
+
+  // 2. Platform Architecture Highlights (Right Column of Platform Mega Menu)
+  const platformHighlights = [
     {
-      icon: '🖥️',
-      title: '5-Platform Architecture',
-      desc: 'SuperAdmin SaaS, Merchant Web POS, Kitchen KDS, Waiter App & Table QR',
+      icon: '🔍',
+      title: 'All-in-One 7-Platform Explorer',
+      desc: 'Search features, 34 reports, 6 staff roles & AWS backend stack',
+      path: '/platforms',
+      badge: 'Full Spec',
+      badgeType: 'emerald'
+    },
+    {
+      icon: '🧩',
+      title: 'Interactive Ecosystem Showcase',
+      desc: 'Switch between all 7 platforms & launch live interactive demos',
       targetId: 'ecosystem'
     },
     {
-      icon: '🌐',
-      title: 'Dedicated Website & WhatsApp Alerts',
-      desc: 'Branded restaurant website, table reservations & automated WhatsApp notifications',
-      targetId: 'website-notifications'
+      icon: '⚡',
+      title: '6-Step Cross-Platform Sync Flow',
+      desc: 'QR & Waiter Call → Route53/BOM → KOT/CFD → WhatsApp & MRR',
+      targetId: 'workflow'
     },
     {
-      icon: '⚡',
-      title: 'Operational Workflow',
-      desc: 'End-to-end guest ordering, station routing & final kitchen settlement',
-      targetId: 'workflow'
+      icon: '💬',
+      title: 'Dedicated Website & WhatsApp Suite',
+      desc: 'Custom-domain restaurant storefront & Meta Cloud API v21 alerts',
+      targetId: 'website-notifications'
     }
   ];
 
@@ -205,7 +224,7 @@ const Navbar = ({ onOpenInquiry }) => {
     {
       icon: '👑',
       title: 'White-Label Agency Rights',
-      desc: '100% Unencrypted source code, custom domains & native mobile app publishing',
+      desc: '100% Unencrypted source code across all 7 repos, Route 53 domains & mobile app publishing',
       targetId: 'white-label-rights'
     },
     {
@@ -217,7 +236,7 @@ const Navbar = ({ onOpenInquiry }) => {
     {
       icon: '⚖️',
       title: 'Competitor Technical Audit',
-      desc: 'Deep architecture feature matrix vs Toast, Square, TouchBistro & Clover',
+      desc: 'Deep architecture feature matrix vs FoodLay & TableTrack',
       targetId: 'comparison'
     },
     {
@@ -231,24 +250,21 @@ const Navbar = ({ onOpenInquiry }) => {
   const isSolutionsActive = solutionsGroups.some((g) =>
     g.items.some((i) => location.pathname === i.path)
   );
+  const isPlatformsActive = location.pathname.startsWith('/platforms');
 
   return (
     <>
       {/* Top Announcement Bar */}
       <div className="top-banner">
         <div className="top-banner-content">
-          <span className="top-banner-pill">White-Label License</span>
-          <span>Acquire 100% Unencrypted Source Code &amp; Multi-Tenant SaaS Platform • Launch in &lt; 48 Hours</span>
-          <a
-            href="#licensing"
-            onClick={(e) => {
-              e.preventDefault();
-              scrollTo('licensing');
-            }}
+          <span className="top-banner-pill">7-Platform White-Label Suite</span>
+          <span>100% Unencrypted Source Code: Admin, Owner POS/KDS, Landing, Customer Web, 2 Native Apps &amp; AWS Backend</span>
+          <Link
+            to="/platforms"
             className="top-banner-link"
           >
-            Explore Tiers &rarr;
-          </a>
+            Explore All 7 Platforms &rarr;
+          </Link>
         </div>
       </div>
 
@@ -271,7 +287,7 @@ const Navbar = ({ onOpenInquiry }) => {
 
           {/* Desktop Organized Nav Links */}
           <div className="nav-links">
-            {/* 1. Solutions Dropdown - Same Design as Platform Menu */}
+            {/* 1. Solutions Dropdown */}
             <div
               className="nav-dropdown"
               onMouseEnter={() => handleDropdownHover('solutions')}
@@ -355,19 +371,19 @@ const Navbar = ({ onOpenInquiry }) => {
               </div>
             </div>
 
-            {/* 2. Platform Dropdown */}
+            {/* 2. 7-Platform Architecture Mega Menu */}
             <div
               className="nav-dropdown"
               onMouseEnter={() => handleDropdownHover('platform')}
               onMouseLeave={handleDropdownLeave}
             >
               <button
-                className={`nav-dropdown-trigger ${activeDropdown === 'platform' ? 'active' : ''}`}
+                className={`nav-dropdown-trigger ${isPlatformsActive || activeDropdown === 'platform' ? 'active' : ''}`}
                 onClick={(e) => toggleDropdownClick('platform', e)}
                 aria-haspopup="true"
                 aria-expanded={activeDropdown === 'platform'}
               >
-                <span>Platform</span>
+                <span>7 Platforms</span>
                 <span
                   className="dropdown-chevron"
                   style={{
@@ -378,26 +394,77 @@ const Navbar = ({ onOpenInquiry }) => {
                 </span>
               </button>
 
-              <div className={`nav-dropdown-menu platform-menu ${activeDropdown === 'platform' ? 'show' : ''}`}>
-                <div className="menu-inner-header">PLATFORM ARCHITECTURE</div>
-                <div className="platform-menu-items">
-                  {platformItems.map((item, idx) => (
-                    <a
-                      key={idx}
-                      href={`#${item.targetId}`}
-                      className="nav-card-link"
-                      onClick={(e) => {
-                        e.preventDefault();
-                        scrollTo(item.targetId);
-                      }}
-                    >
-                      <span className="nav-card-icon">{item.icon}</span>
-                      <div className="nav-card-body">
-                        <span className="nav-card-title">{item.title}</span>
-                        <span className="nav-card-desc">{item.desc}</span>
-                      </div>
-                    </a>
-                  ))}
+              <div className={`nav-dropdown-menu platform-mega-menu ${activeDropdown === 'platform' ? 'show' : ''}`}>
+                <div className="solutions-menu-grid">
+                  {/* Column 1: All 7 Codebases */}
+                  <div className="solutions-menu-col">
+                    <div className="menu-inner-header">ALL 7 INCLUDED PLATFORMS</div>
+                    <div className="platform-menu-items">
+                      {PLATFORMS_DATA.map((plat) => (
+                        <Link
+                          key={plat.id}
+                          to={`/platforms/${plat.id}`}
+                          className="nav-card-link nav-card-compact"
+                          onClick={() => setActiveDropdown(null)}
+                        >
+                          <span className="nav-card-icon">{platformIcons[plat.id] || '📦'}</span>
+                          <div className="nav-card-body">
+                            <div className="nav-card-title-row">
+                              <span className="nav-card-title">{plat.shortName}</span>
+                              <span className="subitem-badge badge-teal">{plat.folder}</span>
+                            </div>
+                            <span className="nav-card-desc">{plat.badge}</span>
+                          </div>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Column 2: Explorer & Architecture Flows */}
+                  <div className="solutions-menu-col">
+                    <div className="menu-inner-header">ARCHITECTURE &amp; DEEP DIVE</div>
+                    <div className="platform-menu-items">
+                      {platformHighlights.map((item, idx) =>
+                        item.path ? (
+                          <Link
+                            key={idx}
+                            to={item.path}
+                            className="nav-card-link"
+                            onClick={() => setActiveDropdown(null)}
+                          >
+                            <span className="nav-card-icon">{item.icon}</span>
+                            <div className="nav-card-body">
+                              <div className="nav-card-title-row">
+                                <span className="nav-card-title">{item.title}</span>
+                                {item.badge && (
+                                  <span className={`subitem-badge badge-${item.badgeType || 'emerald'}`}>
+                                    {item.badge}
+                                  </span>
+                                )}
+                              </div>
+                              <span className="nav-card-desc">{item.desc}</span>
+                            </div>
+                          </Link>
+                        ) : (
+                          <a
+                            key={idx}
+                            href={`#${item.targetId}`}
+                            className="nav-card-link"
+                            onClick={(e) => {
+                              e.preventDefault();
+                              scrollTo(item.targetId);
+                            }}
+                          >
+                            <span className="nav-card-icon">{item.icon}</span>
+                            <div className="nav-card-body">
+                              <span className="nav-card-title">{item.title}</span>
+                              <span className="nav-card-desc">{item.desc}</span>
+                            </div>
+                          </a>
+                        )
+                      )}
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -565,7 +632,7 @@ const Navbar = ({ onOpenInquiry }) => {
               )}
             </div>
 
-            {/* Platform Section */}
+            {/* 7 Platforms Section */}
             <div className={`mobile-section ${mobileExpanded.platform ? 'open' : ''}`}>
               <button
                 type="button"
@@ -575,7 +642,7 @@ const Navbar = ({ onOpenInquiry }) => {
               >
                 <div className="mobile-trigger-label">
                   <span className="mobile-section-icon">🖥️</span>
-                  <span>Platform Architecture</span>
+                  <span>All 7 Platforms &amp; Specs</span>
                 </div>
                 <span className={`mobile-chevron ${mobileExpanded.platform ? 'rotated' : ''}`}>
                   ▾
@@ -583,26 +650,40 @@ const Navbar = ({ onOpenInquiry }) => {
               </button>
               {mobileExpanded.platform && (
                 <div className="mobile-section-content">
-                  <div className="mobile-group-items">
-                    {platformItems.map((item, idx) => (
-                      <a
-                        key={idx}
-                        href={`#${item.targetId}`}
-                        onClick={(e) => {
-                          e.preventDefault();
-                          scrollTo(item.targetId);
-                        }}
+                  <div className="mobile-group-block">
+                    <div className="mobile-group-title">ALL 7 INCLUDED PLATFORMS</div>
+                    <div className="mobile-group-items">
+                      <Link
+                        to="/platforms"
+                        onClick={() => setMobileMenuOpen(false)}
                         className="mobile-subitem"
                       >
                         <div className="mobile-subitem-main">
-                          <span className="mobile-subitem-icon">{item.icon}</span>
+                          <span className="mobile-subitem-icon">🔍</span>
                           <div className="mobile-subitem-info">
-                            <span className="mobile-subitem-title">{item.title}</span>
-                            {item.desc && <span className="mobile-subitem-desc">{item.desc}</span>}
+                            <span className="mobile-subitem-title">Search All 7 Platforms &amp; 34 Reports</span>
+                            <span className="mobile-subitem-desc">Interactive technical explorer</span>
                           </div>
                         </div>
-                      </a>
-                    ))}
+                        <span className="subitem-badge badge-emerald">Explorer</span>
+                      </Link>
+                      {PLATFORMS_DATA.map((plat) => (
+                        <Link
+                          key={plat.id}
+                          to={`/platforms/${plat.id}`}
+                          onClick={() => setMobileMenuOpen(false)}
+                          className="mobile-subitem"
+                        >
+                          <div className="mobile-subitem-main">
+                            <span className="mobile-subitem-icon">{platformIcons[plat.id] || '📦'}</span>
+                            <div className="mobile-subitem-info">
+                              <span className="mobile-subitem-title">{plat.shortName}</span>
+                              <span className="mobile-subitem-desc">{plat.folder} • {plat.badge}</span>
+                            </div>
+                          </div>
+                        </Link>
+                      ))}
+                    </div>
                   </div>
                 </div>
               )}
@@ -653,6 +734,14 @@ const Navbar = ({ onOpenInquiry }) => {
 
             {/* Direct Links */}
             <div className="mobile-direct-links">
+              <Link
+                to="/platforms"
+                onClick={() => setMobileMenuOpen(false)}
+                className="mobile-direct-link"
+              >
+                <span>7-Platform Feature Explorer</span>
+                <span className="mobile-link-arrow">→</span>
+              </Link>
               <a
                 href="#licensing"
                 onClick={(e) => {

@@ -194,18 +194,18 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* The Ecosystem */}
+          {/* The 7-Platform Ecosystem */}
           <div className="footer-links-col">
-            <h4 className="footer-col-title">The Ecosystem</h4>
+            <h4 className="footer-col-title">All 7 Platforms</h4>
             <ul className="footer-links-list">
-              <li><a href="#ecosystem" onClick={(e) => { e.preventDefault(); scrollTo('ecosystem'); }}>SuperAdmin SaaS Panel</a></li>
-              <li><a href="#ecosystem" onClick={(e) => { e.preventDefault(); scrollTo('ecosystem'); }}>Merchant Web POS &amp; Floor Map</a></li>
-              <li><a href="#ecosystem" onClick={(e) => { e.preventDefault(); scrollTo('ecosystem'); }}>Interactive Kitchen KDS</a></li>
-              <li><a href="#ecosystem" onClick={(e) => { e.preventDefault(); scrollTo('ecosystem'); }}>Waiter &amp; Driver Mobile Apps</a></li>
-              <li><a href="#ecosystem" onClick={(e) => { e.preventDefault(); scrollTo('ecosystem'); }}>Customer Table QR Scan-to-Order</a></li>
-              <li><a href="#ecosystem" onClick={(e) => { e.preventDefault(); scrollTo('ecosystem'); }}>Landing Page &amp; Storefront</a></li>
-              <li><a href="#website-notifications" onClick={(e) => { e.preventDefault(); scrollTo('website-notifications'); }}>Dedicated Restaurant Website</a></li>
-              <li><a href="#website-notifications" onClick={(e) => { e.preventDefault(); scrollTo('website-notifications'); }}>WhatsApp &amp; Push Notifications</a></li>
+              <li><Link to="/platforms">7-Platform Feature Explorer</Link></li>
+              <li><Link to="/platforms/super-admin">Super Admin SaaS Panel</Link></li>
+              <li><Link to="/platforms/owner-panel">Owner POS, KDS &amp; 34 Reports</Link></li>
+              <li><Link to="/platforms/landing-page">SaaS Landing &amp; Onboarding</Link></li>
+              <li><Link to="/platforms/customer-website">Dedicated Restaurant Website</Link></li>
+              <li><Link to="/platforms/customer-app">Customer Mobile App (iOS/Android)</Link></li>
+              <li><Link to="/platforms/employee-app">6-in-1 Staff Crew App</Link></li>
+              <li><Link to="/platforms/backend-server">Node.js, Multi-DB &amp; AWS Backend</Link></li>
               <li><a href="#white-label-rights" onClick={(e) => { e.preventDefault(); scrollTo('white-label-rights'); }}>White-Label Agency Rights</a></li>
               <li><a href="#customization" onClick={(e) => { e.preventDefault(); scrollTo('customization'); }}>Bespoke Code Customization</a></li>
             </ul>
@@ -264,19 +264,21 @@ const Footer = () => {
         <div className="footer-tech-stack">
           <span className="tech-stack-title">ENTERPRISE PRODUCTION STACK:</span>
           <div className="tech-stack-badges">
-            <span>React 19</span>
+            <span>React 18 &amp; 19</span>
             <span>•</span>
-            <span>Vite</span>
+            <span>Vite 6–8</span>
             <span>•</span>
             <span>Node.js / Express</span>
             <span>•</span>
-            <span>MongoDB Mongoose</span>
+            <span>MongoDB Multi-DB</span>
             <span>•</span>
-            <span>Socket.io Real-Time</span>
+            <span>BroadcastChannel + FCM/Expo Push</span>
             <span>•</span>
-            <span>React Native (iOS &amp; Android)</span>
+            <span>React Native + Expo 58</span>
             <span>•</span>
-            <span>Universal ESC/POS (LAN/Bluetooth/USB)</span>
+            <span>AWS Route53 · S3 · SNS · Lambda</span>
+            <span>•</span>
+            <span>Web Bluetooth ESC/POS</span>
           </div>
         </div>
 

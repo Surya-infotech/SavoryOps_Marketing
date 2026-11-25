@@ -1,136 +1,20 @@
 import { useState } from 'react';
-
-// Read all demo URLs from .env environment variables
-const DEMO_URLS = {
-  superAdmin: import.meta.env.VITE_DEMO_SUPER_ADMIN_URL || 'https://adminpanel.savoryops.com',
-  ownerPanel: import.meta.env.VITE_DEMO_OWNER_PANEL_URL || 'https://website.savoryops.com/signin',
-  userApp: import.meta.env.VITE_DEMO_USER_APP_URL || 'https://user.savoryops.com',
-  employeeApp: import.meta.env.VITE_DEMO_EMPLOYEE_APP_URL || 'https://crew.savoryops.com',
-  landingPage: import.meta.env.VITE_DEMO_LANDING_PAGE_URL || 'https://website.savoryops.com',
-  restaurantWebsite: import.meta.env.VITE_DEMO_USER_WEBSITE_URL || 'https://harbourblue.savoryops.com/',
-};
-
-const platforms = [
-  {
-    id: 'super-admin',
-    name: 'Super Admin Panel',
-    badge: 'Multi-Tenant SaaS Core',
-    tagline: 'Master Control Center for Managing Restaurant Tenants, Subscriptions & MRR',
-    image: '/images/hero-ecosystem.jpg',
-    demoUrl: DEMO_URLS.superAdmin,
-    description:
-      'The central administration platform engineered for SaaS operators. Manage multiple restaurant tenant accounts with automated database isolation, configure recurring monthly/annual subscription plans, oversee platform-wide MRR analytics, configure global currency exchange rates, multi-tax structures, and deploy promotional broadcast banners across all tenant portals.',
-    techStack: ['React 18', 'Vite', 'Material-UI (MUI)', 'Recharts', 'JSPDF', 'Sass', 'Multi-Tenant Architecture'],
-    features: [
-      'Automated Restaurant Tenant Provisioning & Multi-DB Isolation',
-      'Recurring Subscription Billing Plans (Monthly, Yearly & Custom Enterprise)',
-      'WhatsApp Gateway (Meta WhatsApp Cloud API) & SMS Engine Settings',
-      'Global Currency Manager, International Taxes & Gateway Settings',
-      'Real-Time MRR, Active Tenants & Churn Analytics Dashboard',
-      'System-Wide Promotional Broadcasts, Banners & Announcements'
-    ]
-  },
-  {
-    id: 'owner-panel',
-    name: 'Owner & Manager Panel',
-    badge: 'Merchant Operations & POS',
-    tagline: 'High-Throughput Web POS, Interactive 2D Floor Plan & Automated Recipe BOM',
-    image: '/images/features/pos-system.jpg',
-    demoUrl: DEMO_URLS.ownerPanel,
-    description:
-      'The flagship restaurant management system owner portal. Features an ultra-fast web point of sale (POS) with Dine-In, Takeaway, Delivery, Pickup, and Quick Order workflows. Includes an interactive visual 2D floor map with live table timers, automated recipe Bill of Materials (BOM) inventory deductions on order firing, universal silent ESC/POS thermal printing, and 30+ financial Z-reports.',
-    techStack: ['React 18', 'Vite', 'Material-UI', 'Razorpay', 'CryptoJS', 'Excel & PDF Export', 'Socket.io'],
-    features: [
-      'Multi-Workflow Touch POS: Dine-In, Takeaway, Delivery, Pickup & QSR',
-      'Interactive 2D Floor Plan with Real-Time Table Status & Running Timers',
-      'Automated Recipe BOM Inventory Deduction (Raw Grams/ML Depletion)',
-      'Universal Raw ESC/POS Thermal Printing (LAN, Bluetooth & USB Sockets)',
-      'Automated Customer WhatsApp Digital Receipts & Real-Time Push Alerts',
-      'Consolidated End-of-Day Z-Report & Nightly WhatsApp Summary to Owner'
-    ]
-  },
-  {
-    id: 'user-app',
-    name: 'User App (Customer App)',
-    badge: 'Customer Mobile & QR App',
-    tagline: 'Contactless Table QR Scan-to-Order & Direct Food Delivery Storefront',
-    image: '/images/features/qr-ordering.jpg',
-    demoUrl: DEMO_URLS.userApp,
-    description:
-      'Native cross-platform iOS, Android, and web mobile application for restaurant patrons. Guests scan per-table dynamic QR codes to explore appetizing digital menus with high-resolution food photos, customize nested modifier choices (doneness, sides, extra toppings, allergen notes), place zero-commission takeaway or delivery orders, and track live order preparation stages in real time.',
-    techStack: ['React Native 0.86', 'Expo 57', 'React 19', 'React Navigation 7', 'Reanimated', 'TypeScript'],
-    features: [
-      'Per-Table Dynamic QR Scan-to-Order Directly Linked to Table Number',
-      'Appetizing Visual Digital Menu with Dietary Icons, Allergens & Notes',
-      'Multi-Level Nested Modifier Groups (Doneness, Choice of Sides, Add-ons)',
-      'Automated WhatsApp & Sub-Second Push Notifications on Order Stages',
-      'Pre-Checkout Address Selector (Tower, Floor, Apartment & Delivery Notes)',
-      'Dynamic Optional Tip / Gratuity Calculation with 1-Tap Opt-Out'
-    ]
-  },
-  {
-    id: 'employee-app',
-    name: 'Employee App (Crew App)',
-    badge: 'Native Staff App',
-    tagline: 'Multi-Role Staff App for Waiters, Cashiers, Chefs & Delivery Drivers',
-    image: '/images/features/waiter-mobile-pos.jpg',
-    demoUrl: DEMO_URLS.employeeApp,
-    description:
-      'A unified React Native staff application supporting 5 distinct crew roles in a single install. Waiters punch tableside orders with modifiers directly on handheld phones/tablets; kitchen staff bump orders on digital tickets; cashiers collect payments; and delivery drivers view GPS directions, customer delivery addresses, and proof-of-delivery signatures with resilient offline sync.',
-    techStack: ['React Native 0.86', 'Expo 57', 'React 19', 'Gifted Charts', 'Safe Area Context', 'Bluetooth ESC/POS'],
-    features: [
-      'Multi-Role Switcher: Waiter, Cashier, Chef / Kitchen, Hostess & Driver',
-      'Tableside Order Taking with Live Floor Tables & Nested Modifier Support',
-      'Silent Bluetooth & Network ESC/POS Receipt Printing from Handhelds',
-      'Delivery Driver Dashboard with GPS Route Mapping & Drop-off Confirmations',
-      'Resilient Offline Mode with Automatic Cloud Sync on Connection Restore',
-      'Quick Cashier PIN Authentication for Fast, Secure Terminal Handoffs'
-    ]
-  },
-  {
-    id: 'landing-page',
-    name: 'Landing Page & Storefront',
-    badge: 'Brand Website & Menu',
-    tagline: 'High-Converting Restaurant Showcase, Table Booking & Digital Storefront',
-    image: '/images/worldwide-partnership.jpg',
-    demoUrl: DEMO_URLS.landingPage,
-    description:
-      'Turnkey public website for restaurants and culinary brands. Showcases appetizing signature dishes, enables direct online table reservations without third-party commission portals, displays branch opening hours and Google Maps directions, and provides 1-tap navigation to table QR ordering and direct pickup ordering.',
-    techStack: ['React 19', 'Vite 7', 'Material-UI', 'React Router 7', 'Sass', 'SEO Schema Markup'],
-    features: [
-      'High-Converting Brand Presentation with Hero Visuals & Story Section',
-      'Direct Online Table Reservation & Booking Request System',
-      'Interactive Digital Menu Showcase with Categories, Tags & Pricing',
-      'Multi-Branch Restaurant Locator with Google Maps & Contact Desks',
-      'Seamless Integration with User App Ordering & Per-Table QR Menus',
-      '100% Mobile Responsive with Instant Loading Speeds'
-    ]
-  },
-  {
-    id: 'restaurant-website',
-    name: 'Dedicated Restaurant Website',
-    badge: 'Tenant Branded Website',
-    tagline: 'Custom-Branded Public Website, Table Reservations, Digital Menu & 0% Commission Storefront',
-    image: '/images/worldwide-partnership.jpg',
-    demoUrl: DEMO_URLS.restaurantWebsite,
-    description:
-      'Turnkey dedicated public website provided for each restaurant tenant. Host on a dedicated custom domain (e.g. yourrestaurant.com) or custom subdomain with auto SSL. Showcases appetizing signature dishes, enables direct online table reservations without third-party commission portals, displays branch opening hours and Google Maps directions, offers zero-commission takeaway/delivery ordering, and sends instant automated WhatsApp order receipts and booking confirmations directly to guests.',
-    techStack: ['React 19', 'Vite 7', 'Material-UI', 'React Router 7', 'WhatsApp Cloud API', 'SEO Schema Markup'],
-    features: [
-      'Dedicated Restaurant Website on Custom Domain with Automated Free SSL',
-      'Direct Online Table Reservation & Booking System with WhatsApp Confirmation',
-      'Interactive Digital Menu Showcase with Categories, Dietary Tags & Pricing',
-      'Zero-Commission Takeaway & Direct Delivery Food Ordering Storefront',
-      'Multi-Branch Restaurant Locator with Google Maps & Contact Desks',
-      'Instant Customer Push & WhatsApp Order Progress Notifications'
-    ]
-  }
-];
+import { Link } from 'react-router-dom';
+import { PLATFORMS_DATA } from '../data/platformsData';
 
 const PlatformEcosystem = () => {
-  const [activeTab, setActiveTab] = useState('super-admin');
+  const [activeTab, setActiveTab] = useState(PLATFORMS_DATA[0].id);
+  const [activeModuleIdx, setActiveModuleIdx] = useState(0);
 
-  const activePlatform = platforms.find((p) => p.id === activeTab) || platforms[0];
+  const activePlatform =
+    PLATFORMS_DATA.find((p) => p.id === activeTab) || PLATFORMS_DATA[0];
+  const activeModuleGroup =
+    activePlatform.moduleGroups[activeModuleIdx] || activePlatform.moduleGroups[0];
+
+  const handleSelectPlatform = (id) => {
+    setActiveTab(id);
+    setActiveModuleIdx(0);
+  };
 
   const scrollToInquiry = () => {
     const el = document.getElementById('inquiry');
@@ -146,29 +30,34 @@ const PlatformEcosystem = () => {
       <div className="section-container">
         {/* Section Header */}
         <div className="section-header-center">
-          <span className="badge-green">THE COMPLETE SOFTWARE SUITE &amp; WEBSITES</span>
+          <span className="badge-green">THE COMPLETE 7-PLATFORM SAAS ECOSYSTEM</span>
           <h2 className="section-title">
-            One Unified Architecture. <span className="glow-gradient-text">Turnkey Applications &amp; Dedicated Websites.</span>
+            7 Interconnected Codebases.{' '}
+            <span className="glow-gradient-text">One Unified Hospitality Platform.</span>
           </h2>
           <p className="section-description">
-            Explore the complete software ecosystem delivered with your white-label license. 
-            Includes the multi-tenant SaaS portal, POS, kitchen KDS, staff apps, brand landing page, and dedicated restaurant websites.
+            Every white-label license delivers all 7 production repositories—Super Admin Panel, Owner &amp; POS Web,
+            SaaS Landing Page, Dedicated Restaurant Websites, Customer App, 6-in-1 Crew App, and the Multi-Tenant Node.js/AWS Backend.
           </p>
         </div>
 
-        {/* 5 Software Navigation Tabs */}
-        <div className="software-tabs-grid">
-          {platforms.map((plat) => (
+        {/* 7 Software Navigation Tabs */}
+        <div className="software-tabs-grid software-tabs-grid-7">
+          {PLATFORMS_DATA.map((plat, idx) => (
             <button
               key={plat.id}
-              onClick={() => setActiveTab(plat.id)}
+              type="button"
+              onClick={() => handleSelectPlatform(plat.id)}
               className={`software-tab-card ${activeTab === plat.id ? 'active' : ''}`}
             >
               <div className="tab-card-top">
-                <span className="tab-badge">{plat.badge}</span>
-                <span className="tab-demo-pill">Live Demo Available</span>
+                <span className="tab-badge">0{idx + 1} · {plat.badge}</span>
+                <span className="tab-demo-pill">
+                  {plat.demoUrl ? 'Live Demo' : 'Core API'}
+                </span>
               </div>
-              <strong className="tab-title">{plat.name}</strong>
+              <strong className="tab-title">{plat.shortName}</strong>
+              <span className="tab-folder-tag">{plat.folder}</span>
             </button>
           ))}
         </div>
@@ -178,9 +67,10 @@ const PlatformEcosystem = () => {
           <div className="showcase-content">
             <div className="showcase-header">
               <span className="badge-green">{activePlatform.badge}</span>
-              <span className="turnkey-tag">Turnkey Production Ready</span>
+              <span className="code-tag">{activePlatform.folder}</span>
+              <span className="turnkey-tag">100% Unencrypted Source</span>
             </div>
-            
+
             <h3 className="showcase-title">{activePlatform.name}</h3>
             <p className="showcase-tagline">{activePlatform.tagline}</p>
             <p className="showcase-desc">{activePlatform.description}</p>
@@ -195,44 +85,84 @@ const PlatformEcosystem = () => {
               </div>
             </div>
 
-            {/* Feature Bullets */}
-            <div className="showcase-features-grid">
-              {activePlatform.features.map((feat, idx) => (
-                <div key={idx} className="feature-item">
-                  <span className="check-icon">✓</span>
-                  <span>{feat}</span>
-                </div>
-              ))}
+            {/* Interactive Module Sub-Tabs inside Platform Showcase */}
+            <div className="ecosystem-module-explorer">
+              <div className="eme-header-row">
+                <span className="tech-strip-label">MODULE BREAKDOWN:</span>
+                <Link
+                  to={`/platforms/${activePlatform.id}`}
+                  className="eme-deepdive-link"
+                >
+                  Open Full Spec &amp; Search &rarr;
+                </Link>
+              </div>
+
+              <div className="eme-tabs-row">
+                {activePlatform.moduleGroups.map((grp, idx) => (
+                  <button
+                    key={grp.title}
+                    type="button"
+                    onClick={() => setActiveModuleIdx(idx)}
+                    className={`eme-tab-pill ${activeModuleIdx === idx ? 'active' : ''}`}
+                  >
+                    <span>{grp.icon}</span>
+                    <span>{grp.title}</span>
+                  </button>
+                ))}
+              </div>
+
+              <div className="showcase-features-grid eme-active-panel">
+                {activeModuleGroup.items.map((feat, idx) => (
+                  <div key={idx} className="feature-item">
+                    <span className="check-icon">✓</span>
+                    <span>{feat}</span>
+                  </div>
+                ))}
+              </div>
             </div>
 
-            {/* Demo Link Box */}
+            {/* Demo / Deep-Dive Action Box */}
             <div className="showcase-demo-card">
               <div className="demo-card-header">
                 <div className="demo-status-row">
                   <span className="pulse-indicator pulse-green"></span>
-                  <span className="demo-status-text">LIVE DEMO READY</span>
+                  <span className="demo-status-text">
+                    {activePlatform.demoUrl ? 'LIVE DEMO & FULL SPEC READY' : 'PRODUCTION API & CLOUD ARCHITECTURE'}
+                  </span>
                 </div>
-                <span className="demo-license-hint">Instant Access • Full Interactive Environment</span>
+                <span className="demo-license-hint">
+                  {activePlatform.moduleGroups.length} Core Modules • 18 Languages (UI)
+                </span>
               </div>
 
-              {/* Action Buttons: Demo Link + License Button */}
               <div className="showcase-action-row">
-                <a
-                  href={activePlatform.demoUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-demo-link"
-                >
-                  <span className="demo-btn-icon">🚀</span>
-                  <span>Launch {activePlatform.name} Demo &rarr;</span>
-                </a>
+                {activePlatform.demoUrl ? (
+                  <a
+                    href={activePlatform.demoUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-demo-link"
+                  >
+                    <span className="demo-btn-icon">🚀</span>
+                    <span>Launch {activePlatform.shortName} Demo &rarr;</span>
+                  </a>
+                ) : (
+                  <button
+                    type="button"
+                    onClick={scrollToInquiry}
+                    className="btn-demo-link"
+                  >
+                    <span className="demo-btn-icon">🏗️</span>
+                    <span>Request Backend Walkthrough &rarr;</span>
+                  </button>
+                )}
 
-                <button
-                  onClick={scrollToInquiry}
+                <Link
+                  to={`/platforms/${activePlatform.id}`}
                   className="btn-acquire-code"
                 >
-                  <span>Acquire Source Code</span>
-                </button>
+                  <span>View All {activePlatform.shortName} Features</span>
+                </Link>
               </div>
             </div>
           </div>
@@ -246,58 +176,92 @@ const PlatformEcosystem = () => {
               />
               <div className="media-overlay-badge">
                 <span className="pulse-indicator"></span>
-                <span>Production Codebase • 100% Unencrypted</span>
+                <span>Repo: {activePlatform.folder} • Unencrypted</span>
               </div>
             </div>
 
-            {/* Quick Demo Preview Info Box */}
+            {/* Quick Capabilities & Highlights Box */}
             <div className="media-info-card">
               <div className="media-info-row">
-                <span className="info-title">{activePlatform.name}</span>
-                <span className="info-badge">Turnkey</span>
+                <span className="info-title">Platform Highlights</span>
+                <span className="info-badge">{activePlatform.audience[0]}</span>
               </div>
-              <p className="media-info-desc">
-                Production-grade, unencrypted source code ready for immediate self-hosted deployment.
-              </p>
-              <a
-                href={activePlatform.demoUrl}
-                target="_blank"
-                rel="noopener noreferrer"
+              <ul className="media-highlights-list">
+                {activePlatform.highlights.slice(0, 4).map((hl, idx) => (
+                  <li key={idx}>
+                    <span className="check-icon">✓</span>
+                    <span>{hl}</span>
+                  </li>
+                ))}
+              </ul>
+              <Link
+                to={`/platforms/${activePlatform.id}`}
                 className="btn-media-direct-demo"
               >
-                <span>Open Live Demo in New Window</span>
-                <span className="ext-icon">↗</span>
-              </a>
+                <span>Inspect Full {activePlatform.shortName} Architecture</span>
+                <span className="ext-icon">&rarr;</span>
+              </Link>
             </div>
           </div>
         </div>
 
-        {/* 5-Software Quick Demo Links Summary Grid */}
+        {/* 7-Platform Quick Demo & Spec Directory */}
         <div className="software-summary-grid">
-          <div className="summary-grid-header">
-            <h3 className="summary-title">Direct Software Demo Directory</h3>
-            <p className="summary-subtitle">Access all turnkey applications and live websites directly from your browser:</p>
+          <div className="summary-grid-header summary-grid-header-flex">
+            <div>
+              <h3 className="summary-title">Complete 7-Platform Software Directory</h3>
+              <p className="summary-subtitle">
+                Every frontend, native mobile app, dedicated website, and cloud server included in your repository bundle:
+              </p>
+            </div>
+            <Link to="/platforms" className="btn-explore-all-platforms">
+              <span>🔍 Search All 7 Platforms &amp; 34 Reports</span>
+              <span>&rarr;</span>
+            </Link>
           </div>
 
-          <div className="summary-cards-container">
-            {platforms.map((plat) => (
+          <div className="summary-cards-container summary-cards-7">
+            {PLATFORMS_DATA.map((plat, idx) => (
               <div key={plat.id} className="summary-card">
                 <div className="summary-card-top">
-                  <span className="summary-pill">{plat.badge}</span>
-                  <span className="summary-status-tag">Ready</span>
+                  <div className="summary-card-badges">
+                    <span className="summary-pill">0{idx + 1} · {plat.badge}</span>
+                    <span className="summary-status-tag">
+                      {plat.demoUrl ? 'Demo Ready' : 'API Core'}
+                    </span>
+                  </div>
+                  <code className="summary-folder-code">{plat.folder}</code>
                 </div>
                 <h4 className="summary-app-name">{plat.name}</h4>
                 <p className="summary-tagline">{plat.tagline}</p>
-                <div className="summary-actions">
-                  <a
-                    href={plat.demoUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn-summary-demo"
+                <div className="summary-actions summary-actions-split">
+                  <Link
+                    to={`/platforms/${plat.id}`}
+                    className="btn-summary-spec"
                   >
-                    <span>Open Demo</span>
-                    <span className="btn-arrow">&rarr;</span>
-                  </a>
+                    <span>Full Specs</span>
+                    <span>&rarr;</span>
+                  </Link>
+                  {plat.demoUrl ? (
+                    <a
+                      href={plat.demoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn-summary-demo"
+                    >
+                      <span>Live Demo</span>
+                      <span className="btn-arrow">↗</span>
+                    </a>
+                  ) : (
+                    <button
+                      type="button"
+                      onClick={scrollToInquiry}
+                      className="btn-summary-demo"
+                    >
+                      <span>Walkthrough</span>
+                      <span className="btn-arrow">&rarr;</span>
+                    </button>
+                  )}
                 </div>
               </div>
             ))}

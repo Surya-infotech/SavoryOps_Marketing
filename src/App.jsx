@@ -24,6 +24,7 @@ import InquiryForm from './components/InquiryForm';
 import Faq from './components/Faq';
 import Footer from './components/Footer';
 import ContactUs from './pages/ContactUs';
+import PlatformsExplorer from './pages/PlatformsExplorer';
 
 /** Short smooth scroll on route change so subpages start at the top */
 const ScrollToTop = () => {
@@ -83,13 +84,13 @@ const HomePage = ({ selectedTier, handleSelectTier, handleOpenInquiry }) => {
       {/* 1. Hero Section */}
       <Hero onInquire={handleOpenInquiry} />
 
-      {/* 2. 5-Platform Architecture Ecosystem */}
+      {/* 2. 7-Platform Architecture Ecosystem */}
       <PlatformEcosystem />
 
       {/* 2b. Dedicated Restaurant Website & Automated WhatsApp Suite */}
       <DedicatedWebsiteAndNotifications />
 
-      {/* 3. End-to-End Operational Workflow */}
+      {/* 3. Cross-Platform Operational Workflow */}
       <InteractiveFlow />
 
       {/* 4. White-Label Agency Rights & Reseller Superpowers */}
@@ -196,6 +197,10 @@ const AppContent = () => {
             />
           }
         />
+
+        {/* 7-Platform Deep-Dive Feature Explorer */}
+        <Route path="/platforms" element={<PlatformsExplorer />} />
+        <Route path="/platforms/:platformId" element={<PlatformsExplorer />} />
 
         {/* Contact Us Page */}
         <Route path="/contact-us" element={<ContactUs />} />

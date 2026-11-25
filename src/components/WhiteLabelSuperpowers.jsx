@@ -2,14 +2,14 @@
 const superpowers = [
   {
     icon: '🌐',
-    title: 'Custom Domain & Multi-Tenant DNS',
+    title: 'AWS Route 53 Custom Domain & Multi-Tenant DNS',
     image: '/images/features/asset-management.jpg',
-    tagline: 'Your Brand, Your URL, Auto SSL',
-    desc: 'Host the entire cloud platform under pos.yourbrand.com, app.yourbrand.com, or allocate table-specific branded subdomains for each client venue.',
+    tagline: 'Your Brand, Your URL, Automated DNS',
+    desc: 'Host the entire cloud platform under pos.yourbrand.com, app.yourbrand.com, or auto-provision branded tenant & restaurant website subdomains via built-in AWS Route 53 helpers.',
     bullets: [
-      'Dedicated custom domain with auto-renewing SSL certificate',
-      'Multi-tenant database isolation preventing cross-account leaks',
-      'Seamless multi-outlet and franchise hierarchy governance'
+      'Automated Route 53 CNAME provisioning for tenant portals & websites',
+      '4-tier MongoDB database isolation preventing cross-tenant data leaks',
+      'Seamless multi-business, multi-branch & franchise governance'
     ]
   },
   {
@@ -41,10 +41,10 @@ const superpowers = [
     title: '100% Unencrypted Full Source Code',
     image: '/images/posts/Post_03_Staff_Accuracy_Zero_Cashier_Theft.jpg',
     tagline: 'Perpetual Commercial IP Ownership',
-    desc: 'Get full access to all uncompiled source code across the entire 5-platform ecosystem. No IonCube, no obfuscation, no remote kill-switches.',
+    desc: 'Get full access to all uncompiled source code across all 7 SavoryOps repositories. No IonCube, no obfuscation, no remote kill-switches.',
     bullets: [
-      'Full uncompiled React 19, Vite, Node.js & React Native code',
-      'Complete MongoDB Mongoose schemas and data migration scripts',
+      'Full uncompiled React 18/19, Vite, Node.js/Express & Expo React Native code',
+      'Complete MongoDB Mongoose schemas, 15+ seeders & AWS Lambda templates',
       'Total freedom to build custom integrations and client features'
     ]
   },

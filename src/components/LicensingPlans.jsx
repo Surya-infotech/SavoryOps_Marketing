@@ -38,27 +38,27 @@ const LicensingPlans = ({ onSelectTier }) => {
               <div className="feature-group-title">INCLUDED IN THIS LICENSE:</div>
               <div className="license-feature-item">
                 <span className="check-icon">✓</span>
-                <span>Complete Source Code for All 5 Platforms (Admin, POS, KDS, Waiter App &amp; Customer QR)</span>
+                <span>Complete Source Code for All 7 Platforms (Super Admin, Owner POS/KDS/ERP, Landing Page, Customer Website, User App, 6-in-1 Crew App &amp; Node.js Server)</span>
               </div>
               <div className="license-feature-item">
                 <span className="check-icon">✓</span>
-                <span>Turnkey Dedicated Restaurant Website Template (Custom domain, table bookings &amp; 0% commission storefront)</span>
+                <span>Dedicated Restaurant Website + Zero-Login Public POS, KDS &amp; 0ms BroadcastChannel Customer Display (CFD)</span>
               </div>
               <div className="license-feature-item">
                 <span className="check-icon">✓</span>
-                <span>Automated WhatsApp &amp; Push Notification Microservices (Meta WhatsApp Cloud API)</span>
+                <span>Omnichannel Alerts: Meta WhatsApp Cloud API v21.0, Firebase FCM &amp; Expo Push (30+ Triggers)</span>
               </div>
               <div className="license-feature-item">
                 <span className="check-icon">✓</span>
-                <span>Complete Node.js REST API &amp; Socket.io Microservices Codebase</span>
+                <span>Node.js/Express API with 4-Tier MongoDB Multi-DB Isolation, AWS Route 53 Auto-DNS, S3, SNS &amp; Lambda SESv2</span>
               </div>
               <div className="license-feature-item">
                 <span className="check-icon">✓</span>
-                <span>Complete React Native (iOS &amp; Android) Mobile Repositories</span>
+                <span>Complete React Native + Expo 58 Mobile Repositories (User App &amp; 6-Role Adaptive Employee App)</span>
               </div>
               <div className="license-feature-item">
                 <span className="check-icon">✓</span>
-                <span>Complete MongoDB Mongoose Schemas &amp; Data Migration Scripts</span>
+                <span>Complete MongoDB Mongoose Schemas, 15+ CLI Database Seeders &amp; 18 Built-In Languages (+ RTL)</span>
               </div>
               <div className="license-feature-item">
                 <span className="check-icon">✓</span>
@@ -112,19 +112,19 @@ const LicensingPlans = ({ onSelectTier }) => {
               </div>
               <div className="license-feature-item">
                 <span className="check-icon-gold">✓</span>
-                <span><strong>Custom Domain DNS Mapping</strong> &amp; Auto-Renewing SSL Certificates</span>
+                <span><strong>AWS Route 53 &amp; Custom Domain DNS</strong> with Automated Tenant/Website Subdomains &amp; SSL</span>
               </div>
               <div className="license-feature-item">
                 <span className="check-icon-gold">✓</span>
-                <span><strong>Database Provisioning, Security Hardening</strong> &amp; Automated Daily Backups</span>
+                <span><strong>4-Tier MongoDB Provisioning</strong>, AWS S3 Media Storage, SNS SMS OTP &amp; Lambda SESv2 Emails</span>
               </div>
               <div className="license-feature-item">
                 <span className="check-icon-gold">✓</span>
-                <span><strong>Payment Gateway Setup</strong> (Stripe, Razorpay, PayPal, etc.) &amp; Custom SMTP Email</span>
+                <span><strong>Multi-Gateway Billing Setup</strong> (Razorpay, Stripe &amp; PayPal Sandbox/Live Modes)</span>
               </div>
               <div className="license-feature-item">
                 <span className="check-icon-gold">✓</span>
-                <span><strong>WhatsApp Gateway Configuration</strong> (Meta WhatsApp Cloud API) &amp; Push Alert Server</span>
+                <span><strong>Meta WhatsApp Cloud API v21.0</strong> &amp; Firebase FCM / Expo Push Notification Configuration</span>
               </div>
               <div className="license-feature-item">
                 <span className="check-icon-gold">✓</span>

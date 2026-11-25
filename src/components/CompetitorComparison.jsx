@@ -46,20 +46,20 @@ const comparisonRows = [
   },
   {
     feature: 'Direct Tablet ESC/POS Printing',
-    savoryOps: '✅ Silent raw ESC/POS direct socket & Web Bluetooth printing from iPads/tablets (No PC required)',
+    savoryOps: '✅ Silent Web Bluetooth printing (58mm/80mm ESC/POS & mini Cat 0x5178 printers) + Custom Branch Receipt & KOT Designer',
     foodlay: '⚠️ Manual browser dialog; cannot auto-print orders on arrival',
     tabletrack: '❌ Requires dedicated desktop PC running 24/7 or pops web print dialog'
   },
   {
-    feature: 'Dedicated Staff & Driver Mobile Apps',
-    savoryOps: '✅ Full React Native source code included for Waiter, Cashier, Chef & Driver roles',
-    foodlay: '❌ Only generic admin/driver; no waiter or cashier mobile tools',
+    feature: '6-in-1 Adaptive Staff & Customer Mobile Apps',
+    savoryOps: '✅ Full React Native/Expo source code: Waiter (Call Alerts), Cashier (Shifts & Z-Reports), Head Chef, Chef, Host, Driver + User App',
+    foodlay: '❌ Only generic admin/driver; no waiter, host, head chef or cashier shift tools',
     tabletrack: '❌ Customer & Driver source code withheld behind external paywalls'
   },
   {
-    feature: 'Daily Z-Report & Refund Ledger',
-    savoryOps: '✅ Consolidated end-of-day Z-Report with styled print & PDF + immutable refund audit log',
-    foodlay: '❌ Promised in delayed v5.0 update; missing accounting reconciliation',
+    feature: '34 Built-In Reports, Cashier Shifts & Fixed Assets',
+    savoryOps: '✅ 34 owner reports across Sales, Menu, Dining, Inventory, Finance & Assets + Blind Shift Close, Z-Reports & Before/After Audit Diffs',
+    foodlay: '❌ Promised in delayed v5.0 update; missing accounting & asset reconciliation',
     tabletrack: '❌ Unstyled raw CSV export only; deleting orders wipes audit trail'
   },
   {
